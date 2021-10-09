@@ -60,26 +60,64 @@ set keymap vi-command
 v: ""
 #######################
 
+# install the ~/.config/i3/bin/ folder
+- $ ~/.config/i3/bin/logout
+- $ ~/.config/i3/bin/rofi
+# $ chmod +x logout
+# $ chmod +x rofi*
+# TODO: themes for rofi
 
 #### Packages to install ####
 
+sudo apt-get install --assume-yes **
+** curl
 ** vim
+** fzf
 ** feh
 ** ranger
 ** git
 ** python-is-python3 (required for autojump)
 ** rofi
+** ripgrep
+** fd-find
+** libjpeg8-dev
+** zlib1g-dev
+** python3-dev
+** libxext-dev # hard requirement for ueberzug
+** python3-testresources
+** python3-distutils
+** python3-apt
+** 
+** 
 
-# install the ~/.config/i3/bin/ folder
-- ~/.config/i3/bin/logout
-- ~/.config/i3/bin/rofi
-# remeber to make them executables
-# TODO: themes for rofi
+
+
+
+# ADD FZF to bashrc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 
 #############################################
 # TODO: Missing neovim packages and setup
 # IDEA: Ask user if neovim or vim setup
 #############################################
+
+
+###############################
+   BASIC REGULAR VIM SETUP
+###############################
+
+# install plugin manager (vim plugged) 
+
+## -> UNIX
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+## -> Windows (Powershell)
+iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+    ni $HOME/vimfiles/autoload/plug.vim -Force
+
+
 
 ######################
 # install autojump:
@@ -95,17 +133,9 @@ $ ./install.py
 
 ###########################################################################
 # Start installing native compilation of emacs
-** ripgrep
-** fd-find
 # TODO: FINISH ME!
 
 ###########################################################################
-
-# For ranger previews
-** libjpeg8-dev
-** zlib1g-dev
-** python3-dev
-** libxext-dev # hard requirement for ueberzug
 
 ###########################################
 # install PIP
@@ -129,11 +159,11 @@ sudo n stable
 # install pyright
 #pip install pyright
 npm i pyright
+# have to reload terminal window (or exit and launch again)
 $ pyright # to install it
 
 
-# in ~/.bashrc (or .zshrc) --> Add .local/bin to path
-# Better: use ~/.xsession
+# Add this to:  ~/.xsession
 export EDITOR='vim'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/.emacs.d/bin"
@@ -175,7 +205,7 @@ https://chrome.google.com/webstore/detail/disable-download-bar/gjdldigdojpjlmphn
 
 $ sudo apt-get install autoconf
 $ sudo apt-get install texinfo
-$ sudo apt-get install libgccjit-9-jit
+$ sudo apt-get install libgccjit-9-dev
 $ sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
 $ sudo apt install gcc-10 g++-10 libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev
 # These could be done on a single line
@@ -205,6 +235,8 @@ $ ~/.emacs.d/bin/doom install
 
 # For Emacs to appear in rofi or Dmenu: Create a emacs.desktop file
 
+# Must have dmenu-run on i3 config file.
+
 # in ~/.local/share/applications/
 $ touch ~/.local/share/application/emacs.desktop
 
@@ -231,9 +263,3 @@ git config --global user.name "emanuel2718"
 git config --global user.email "eramirez2718@gmail.com"
 
 # Remeber to mkdir ~/Pictures/Wallpapers and add collection of wallpapers
-
-# Install fzf
-sudo apt-get install fzf
-
-# in ~/.bashrc
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
