@@ -1,0 +1,239 @@
+# adjust key repeat on GUI settings (set repeat to almost shortest)
+
+sudo apt-get update
+sudo apt-get upgrade -y (Q: how to make it accept Y as default like pacman -Syu)
+
+sudo apt install i3 (Q: how to change to i3 from a script)
+
+
+# Alt as meta key for i3
+# gnome-terminal background color: White on Black
+# gnonme-terminal Cursor::Cursor shape: Block
+# gnonme-terminal Cursor::Cursor blinking: Enabled
+# gnonme-terminal Custom Font: DejaVu Sans Mono Book 12
+# gnonme-terminal Shortcuts::Edit::Copy: Alt+C
+# gnonme-terminal Shortcuts::Edit::Paste: Alt+V
+# gnonme-terminal Shortcuts::Search::find: Alt+F
+# gone-terminal General::Show menubar by default in new terminals: Uncheck!
+
+
+cp dotfiles to their destination.
+
+mkdir ~/dev/jupyter-notebooks
+
+############ Caps lock/Control as Escape and Control ############
+sudo apt install xcape -y
+
+# in ~/.xprofile
+# Ask if user is using HKKB or regular keyboard with Caps lock:
+# Maybe use echo >> 
+# or have an hkkb_xprofile and .xprofile and save either one as .xprofile
+if HHKB:
+    xcape -e 'Control_L=Escape'
+
+
+else:
+    setxkbmap -option 'caps:ctrl_modifier'
+    xcape -e 'Caps_Lock=Escape'
+    setxkbmap -option 'caps:ctrl_modifier'
+    xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
+
+xset r rate 220 40
+
+#################################################################
+
+# in ~/.Xmodmap:
+if HHKB:
+    xmodmap -e 'keycode 49 = grave asciitilde'
+    xmodmap -e 'keycode 9 = Escape'
+else:
+    xmodmap -e 'keycode 51 = Backspace'
+    xmodmap -e 'keycode 22 = backslash'
+
+
+# Maybe ask for default shell?
+
+
+#######################
+# in ~/.inputrc
+set keymap vi-command
+v: ""
+#######################
+
+
+#### Packages to install ####
+
+** vim
+** feh
+** ranger
+** git
+** python-is-python3 (required for autojump)
+** rofi
+
+# install the ~/.config/i3/bin/ folder
+- ~/.config/i3/bin/logout
+- ~/.config/i3/bin/rofi
+# remeber to make them executables
+# TODO: themes for rofi
+
+#############################################
+# TODO: Missing neovim packages and setup
+# IDEA: Ask user if neovim or vim setup
+#############################################
+
+######################
+# install autojump:
+$ git clone git://github.com/wting/autojump.git ~/.config
+$ cd .config/autojump/
+$ ./install.py
+
+# copy this into ~/.bashrc
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+
+######################
+
+
+###########################################################################
+# Start installing native compilation of emacs
+** ripgrep
+** fd-find
+# TODO: FINISH ME!
+
+###########################################################################
+
+# For ranger previews
+** libjpeg8-dev
+** zlib1g-dev
+** python3-dev
+** libxext-dev # hard requirement for ueberzug
+
+###########################################
+# install PIP
+$ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+$ python3 get-pip.py
+
+# install npm for pyright
+sudo apt-get install npm
+
+# update npm
+sudo npm i -g npm
+
+# install node version manager
+sudo npm install -g n
+
+# install latest stable node version
+sudo n stable
+
+
+
+# install pyright
+#pip install pyright
+npm i pyright
+$ pyright # to install it
+
+
+# in ~/.bashrc (or .zshrc) --> Add .local/bin to path
+# Better: use ~/.xsession
+export EDITOR='vim'
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/emacs/src/"
+export PATH=$PATH:$HOME/bin
+
+
+# Remeber to install jupyter-notebook and the vim plugin: https://github.com/lambdalisue/jupyter-vim-binding
+
+###########################################
+
+pip install ueberzug
+
+** ############ Brave Browser
+sudo apt install apt-transport-https curl
+
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+
+sudo apt update
+
+sudo apt install brave-browser
+
+# install vimium extension
+# install Disable Download Bar
+https://chrome.google.com/webstore/detail/disable-download-bar/gjdldigdojpjlmphnogmcmhojfadfmem/related?hl=en-US
+################################
+
+
+# Ask if user wants rofi or dmenu?
+
+##############################################
+# NATIVE EMACS COMPILATION
+
+
+# This takes time. Ask the user if compile emacs or not
+# Install dependencies first
+
+$ sudo apt-get install autoconf
+$ sudo apt-get install texinfo
+$ sudo apt-get install libgccjit-9-jit
+$ sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+$ sudo apt install gcc-10 g++-10 libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev
+# These could be done on a single line
+$ sudo apt-get install libgif-dev
+$ sudo apt-get install libgnutls28-dev
+$ sudo apt-get install mailutils (Q: how to make no config by default)
+$ sudo apt-get install libc6-dev libncurses5-dev libpng-dev libtiff-dev xaw3dg-dev zlib1g-dev
+$ sudo apt-get install libice-dev libsm-dev libx11-dev libxext-dev libxi-dev libxmu-dev libxmuu-dev
+$ sudo apt-get install libxpm-dev libxrandr-dev libxt-dev libxtst-dev libxv-dev
+
+
+# FINALLY
+$ git clone git://git.savannah.gnu.org/emacs.git
+$ cd emacs
+$ ./autogen.sh
+$ ./configure --with-native-compilation
+$ make -j$(nproc)
+
+# make symbolic link of emacs
+# DONT DO THIS: This causes rofi error of too many symlinks
+# $ sudo ln -s ~/emacs/src/emacs /usr/bin/emacs
+
+# INSTALL DOOM EMACS
+$ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+
+$ ~/.emacs.d/bin/doom install
+
+# For Emacs to appear in rofi or Dmenu: Create a emacs.desktop file
+
+# in ~/.local/share/applications/
+$ touch ~/.local/share/application/emacs.desktop
+
+# insert this into the emacs.desktop
+[Desktop Entry]
+Exec=~/emacs/src/./emacs
+Type=Application
+Categories=Development
+Name=Emacs
+
+# install cmake for vterm
+$ sudo apt-get -y install cmake
+$ sudo apt-get install clang
+
+
+# TODO: think about how to install additional emacs packages
+
+##############################################
+
+
+# TODO: setup vim and neovim configurations
+
+git config --global user.name "emanuel2718"
+git config --global user.email "eramirez2718@gmail.com"
+
+# Remeber to mkdir ~/Pictures/Wallpapers and add collection of wallpapers
+
+# Install fzf
+sudo apt-get install fzf
+
+# in ~/.bashrc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
