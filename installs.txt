@@ -11,6 +11,10 @@ sudo apt install i3 (Q: how to change to i3 from a script)
 # gnonme-terminal Cursor::Cursor shape: Block
 # gnonme-terminal Cursor::Cursor blinking: Enabled
 # gnonme-terminal Custom Font: Spleen 32 * 64 Medium 14
+OR
+(NOTE: this will need to be set AFTER we install fonts-terminus package)
+# gnonme-terminal Custom Font: Terminus (TTF) Medium 15 
+
 // # gnonme-terminal Custom Font: DejaVu Sans Mono Book 12
 # gnonme-terminal Shortcuts::Edit::Copy: Alt+C
 # gnonme-terminal Shortcuts::Edit::Paste: Alt+V
@@ -91,6 +95,7 @@ sudo apt-get install --assume-yes **
 ** tmux
 ** htop
 ** fonts-spleen
+** fonts-terminus
 
 
 # Install Spleen font
