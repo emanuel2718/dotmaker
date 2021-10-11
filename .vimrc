@@ -123,7 +123,7 @@ nnoremap <silent> <Leader>o        :FZF ~<CR>
 nnoremap<Leader>O                  :Files ~/<C-r><Left>
 
 " Current folder file search
-nnoremap <silent> <expr> <Leader>m (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <expr> <Leader>. (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
 " Open GFiles using ctrl-p keybind. Only shows the git files
 nnoremap <C-p>                     :GFiles<Cr>

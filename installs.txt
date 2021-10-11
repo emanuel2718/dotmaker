@@ -93,7 +93,12 @@ sudo apt-get install --assume-yes **
 ** fonts-spleen
 
 
-
+# Install Spleen font
+# Upadte: font cache
+$ mkfontscale 
+$ mkfontdir  
+$ fc-cache -fv
+$ reboot
 
 # ADD FZF to bashrc
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
