@@ -49,6 +49,7 @@ set smartindent
 set updatetime=500
 set wildmenu
 set laststatus=1
+set incsearch
 
 let g:loaded_matchparen=1
 
