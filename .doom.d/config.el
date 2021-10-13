@@ -22,10 +22,19 @@
 
 
 ;;;;;;;;; FONTS BEG ;;;;;;;;;;
-(custom-set-faces
- '(default ((t (:inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 135 :width normal :family "terminus")))))
+;;(custom-set-faces
+;; '(default ((t (:inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 138 :width normal :family "terminus")))))
 
-;;(set-face-attribute 'default nil :font "-misc-spleen-medium-r-normal--16-*-*-*-c-*-iso10646-1" )
+;;(set-face-attribute 'default nil
+;;                    :family "Courier"
+;;                    :height 140
+;;                    :weight 'normal
+;;                    :width 'normal)
+(set-face-attribute 'default nil :font "-misc-spleen-medium-r-normal--16-*-*-*-c-*-iso10646-1" )
+;;(set-face-attribute 'default nil :font "-misc-fixed-medium-r-normal--16-*-*-*-c-*-iso8859-1" )
+;; Set the font face based on platform
+;;(add-to-list 'default-frame-alist
+;;             '(font . "DejaVu Sans Mono-14"))
 ;;;;;;;;; FONTS END ;;;;;;;;;;
 
 ;;;;;;;;; THEMES BEG ;;;;;;;;;;
@@ -117,7 +126,7 @@
                         ;; left
                         (format-mode-line "%b [%*]")
                         ;; right
-                        (format-mode-line "[%m] %l:%c")))))
+                        (format-mode-line "[%m] Row: %l  Col: %c ")))))
 ;; --- Modeline Format end ---
 
 ;;;;;;;;;; PACKAGES END ;;;;;;;;;;
