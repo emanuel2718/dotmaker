@@ -85,6 +85,7 @@ sudo apt-get install --assume-yes **
 ** rofi
 ** ripgrep
 ** fd-find
+** silversearcher-ag
 ** libjpeg8-dev
 ** zlib1g-dev
 ** python3-dev
@@ -96,7 +97,8 @@ sudo apt-get install --assume-yes **
 ** htop
 ** fonts-spleen
 ** fonts-terminus
-
+** zathura
+** ranger
 
 # Install Spleen font
 # Upadte: font cache
@@ -234,7 +236,11 @@ $ sudo apt-get install libxpm-dev libxrandr-dev libxt-dev libxtst-dev libxv-dev
 $ git clone git://git.savannah.gnu.org/emacs.git
 $ cd emacs
 $ ./autogen.sh
-$ ./configure --with-native-compilation
+# NOTE: this does not install support for freetype fonts and other stuff..
+#       try with the flags defined below
+# $ ./configure --with-native-compilation 
+# NOTE: Maybe some of these flags are not needed? Check me!
+$ ./configure --with-native-compilation --with-gnutls --with-imagemagick --with-tiff --with-xft --with-lfreetype --with-lm17n-flt --with-lotf --with-lcft
 $ make -j$(nproc)
 
 # make symbolic link of emacs
