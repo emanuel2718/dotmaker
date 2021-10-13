@@ -32,7 +32,7 @@ nnoremap <C-H> <C-W><C-H>
 
 autocmd FileType * set formatoptions-=cro
 set autoindent
-set clipboard=unamedplus
+set clipboard=unnamedplus
 set cmdheight=2
 set encoding=utf8
 set history=500
@@ -50,6 +50,7 @@ set updatetime=500
 set wildmenu
 set laststatus=1
 set incsearch
+set paste
 
 let g:loaded_matchparen=1
 
