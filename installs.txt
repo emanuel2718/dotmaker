@@ -217,6 +217,33 @@ https://chrome.google.com/webstore/detail/disable-download-bar/gjdldigdojpjlmphn
 # This takes time. Ask the user if compile emacs or not
 # Install dependencies first
 
+
+# NOTE: Mix these commands with the previously addded (SECTION 2)
+# 
+$ sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+$ sudo apt update
+$ sudo apt install libxpm-dev libgif-dev libjpeg-dev libpng-dev libtiff-dev libx11-dev libncurses5-dev automake autoconf texinfo libgtk2.0-dev gcc-10 g++-10 libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev
+
+
+$ git clone https://github.com/flatwhatson/emacs.git
+$ cd emacs
+$ git checkout pgtk-nativecomp
+$ export CC=/usr/bin/gcc-10 CXX=/usr/bin/gcc-10
+$ ./autogen.sh
+$ ./configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-gpm=no --with-xwidgets --with-modules --with-native-compilation --with-pgtk --with-json CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
+
+# FIX gtk-+3.0 package not found error
+
+$ sudo apt-get install --assume-yes libwebkit2gtk-4.0-dev  libgtk-3-dev libglib2.0-dev autogen autoconf libtool m4 automake pkg-config libtool intltool-debian
+
+# Compile
+$ make -j2 NATIVE_FULL_AOT=1
+
+# execute:
+$ ./src/emacs
+    
+
+# SECTION 2:
 # TODO: Add this commands on the package installation section
 $ sudo apt-get install autoconf
 $ sudo apt-get install texinfo
