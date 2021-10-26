@@ -222,7 +222,7 @@ https://chrome.google.com/webstore/detail/disable-download-bar/gjdldigdojpjlmphn
 # 
 $ sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
 $ sudo apt update
-$ sudo apt install libxpm-dev libgif-dev libjpeg-dev libpng-dev libtiff-dev libx11-dev libncurses5-dev automake autoconf texinfo libgtk2.0-dev gcc-10 g++-10 libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev
+$ sudo apt install libxpm-dev libgif-dev libjpeg-dev libpng-dev libtiff-dev libx11-dev libncurses5-dev automake autoconf texinfo libgtk2.0-dev gcc-10 g++-10 libgccjit0 libgccjit-10-dev libjansson4 libjansson-dev libtool-bin
 
 
 $ git clone https://github.com/flatwhatson/emacs.git
