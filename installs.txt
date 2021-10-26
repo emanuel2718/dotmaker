@@ -101,6 +101,17 @@ sudo apt-get install --assume-yes **
 ** ranger
 ** chromium-browser
 
+# Install snap store:
+
+$ sudo rm /etc/apt/preferences.d/nosnap.pref
+$ sudo apt update
+$ sudo apt install snapd
+
+
+# Install Clion classic (Stable):
+$ sudo snap install clion --classic
+
+
 # Install Spleen font
 # Upadte: font cache
 $ mkfontscale 
