@@ -99,6 +99,7 @@ sudo apt-get install --assume-yes **
 ** fonts-terminus
 ** zathura
 ** ranger
+** chromium-browser
 
 # Install Spleen font
 # Upadte: font cache
