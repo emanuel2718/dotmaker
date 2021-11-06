@@ -72,6 +72,7 @@ DOTFILES=(
     ".fehbg"
     ".inputrc"
     ".profile"
+    ".tmux.conf"
     ".vimrc"
     ".xprofile"
     ".xinitrc"
