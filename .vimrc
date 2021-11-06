@@ -136,3 +136,4 @@ nnoremap<silent><leader>gc         :Commits<CR>
 " Show the fzf window on the bottom
 let g:fzf_layout = { 'down':  '40%'}
 
+

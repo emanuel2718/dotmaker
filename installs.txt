@@ -98,8 +98,16 @@ sudo apt-get install --assume-yes **
 ** fonts-spleen
 ** fonts-terminus
 ** zathura
-** ranger
 ** chromium-browser
+** docker.io
+
+# Remember to add the ~/.config/ranger directory
+# with all the files AND make them executable:
+    - commands.py
+    - commands_full.py
+    - rc.conf
+    - rifle.conf
+    - scope.sh
 
 # Install snap store:
 

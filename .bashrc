@@ -1,29 +1,23 @@
-# Vim mode
-#set -o vi
+set -o vi
 
 # Aliases
+alias vimrc='vim ~/.vimrc'
 alias rc='vim ~/.bashrc'
 alias src='source ~/.bashrc'
 alias pip='pip3'
 alias python='python3'
 alias config='vim ~/.config/i3/config'
-alias vimrc='vim ~/.vimrc'
 alias doomsync='~/.emacs.d/bin/doom sync'
 alias doomupgrade='~/.emacs.d/bin/doom upgrade'
-alias tk="tmux kill-session"
-alias ta="tmux a -t"
-alias tl="tmux ls"
+alias tk='tmux kill-session'
+alias ta='tmux a -t'
+alias tl='tmux ls'
+
 
 # Sources
 source ~/.xprofile
 source ~/.xsession
 
-
-
-# DEFAULTS
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # If not running interactively, don't do anything
 case $- in
@@ -139,4 +133,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[[ -s /home/visquit/.autojump/etc/profile.d/autojump.sh ]] && source /home/visquit/.autojump/etc/profile.d/autojump.sh
+
+
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
+# autojump
+[[ -s /home/ema/.autojump/etc/profile.d/autojump.sh ]] && source /home/ema/.autojump/etc/profile.d/autojump.sh
