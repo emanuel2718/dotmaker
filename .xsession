@@ -7,5 +7,4 @@ export PATH="$PATH:$HOME/bin"
 
 
 export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g""'
 
