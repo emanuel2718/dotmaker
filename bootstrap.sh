@@ -96,7 +96,7 @@ check_config_folders() {
 
 }
 
-install_dotfile() {
+install_dotfiles() {
     echo "> Copying dotfiles..."
     for dotfile in "${DOTFILES[@]}"; do
         rm -rf ${HOME}/${dotfile}
