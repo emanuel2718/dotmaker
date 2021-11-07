@@ -140,4 +140,4 @@ fi
 
 
 # autojump
-[[ -s /home/ema/.autojump/etc/profile.d/autojump.sh ]] && source /home/ema/.autojump/etc/profile.d/autojump.sh
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
