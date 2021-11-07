@@ -25,6 +25,7 @@ apt_packages_to_install=(
     "fzf"
     "git"
     "htop"
+    "i3"
     "libjpeg8-dev"
     "libxext-dev"
     "neofetch"
