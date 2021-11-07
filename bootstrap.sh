@@ -7,11 +7,9 @@ script_location=$PWD
 sudo apt-get update --assume-yes
 sudo apt-get upgrade --assume-yes
 
-echo "- Installing snapd"
 if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
     sudo rm /etc/apt/preferences.d/nosnap.pref
 fi
-
 
 apt_packages_to_install=(
     "apt-transport-https"
@@ -66,6 +64,8 @@ DOTFILES=(
     ".xprofile"
     ".xinitrc"
     ".xsession"
+    ".config/i3/bin/logout"
+    ".config/i3/bin/rofi_app_launcher"
     ".config/i3/config"
     ".config/i3status/config"
     ".config/ranger/commands.py"
@@ -73,12 +73,16 @@ DOTFILES=(
     ".config/ranger/rc.conf"
     ".config/ranger/rifle.conf"
     ".config/ranger/scope.sh"
+    ".config/zathura/zathurarc"
 )
 
 excecutable_files=("${HOME}/.fehbg"
+                   "${HOME}/.config/i3/bin/logout"
+                   "${HOME}/.config/i3/bin/rofi_app_launcher"
                    "${HOME}/.config/ranger/commands.py"
                    "${HOME}/.config/ranger/commands_full.py"
-                   "${HOME}/.config/ranger/scope.sh")
+                   "${HOME}/.config/ranger/scope.sh"
+)
 
 
 check_config_folders() {
@@ -94,6 +98,16 @@ check_config_folders() {
         mkdir ${HOME}/.config/i3status
     fi
 
+    if [ ! -d ${HOME}/.config/zathura ]; then
+        echo "- Creating ${HOME}/.config/zathura folder"
+        mkdir ${HOME}/.config/zathura
+    fi
+
+    if [ ! -d ${HOME}/.config/i3/bin ]; then
+        echo "- Creating ${HOME}/.config/i3/bin folder"
+        mkdir ${HOME}/.config/i3/bin
+    fi
+
 }
 
 install_dotfiles() {
@@ -104,12 +118,14 @@ install_dotfiles() {
     done
 
     echo "> Dotfiles installed succesfully."
+    source ${HOME}/.bashrc
+}
 
+make_files_executable() {
     for exec in "${excecutable_files[@]}"; do
         echo "- Making ${exec} executable"
         chmod +x ${exec}
     done
-
     source ${HOME}/.bashrc
 }
 
@@ -315,6 +331,7 @@ install_emacs() {
 install_apt_packages
 check_config_folders
 install_dotfiles
+make_files_executable
 install_plugins
 install_pip
 install_pip_packages
