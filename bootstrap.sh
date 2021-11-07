@@ -117,10 +117,20 @@ excecutable_files=("${HOME}/.fehbg"
 #
 #
 #
-#echo "- Installing autojump"
-#git clone git://github.com/wting/autojump.git ${HOME}/.config
-#./${HOME}/.config/install.py
-#
+
+if [ ! -d ${HOME}/.config/autojump ]
+then
+    echo "- Installing autojump"
+    git clone git://github.com/wting/autojump.git ${HOME}/.config/autojump
+    cd $HOME/.config/autojump
+    ./install.py
+    cd $script_location
+else
+    echo "Autojump is already installed"
+fi
+
+source $HOME/.bashrc
+
 #
 #echo "- Installing PIP"
 #curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -200,11 +210,17 @@ install_emacs() {
         sudo apt-get -qq install -y "${package}" 2> /dev/null
     done
 
+    echo "- Cloning Emacs from github"
     git clone https://github.com/flatwhatson/emacs.git $HOME/emacs
+
     cd $HOME/emacs
+
     git checkout pgtk-nativecomp
+
     export CC=/usr/bin/gcc-10 CXX=/usr/bin/gcc-10
+
     ./autogen.sh
+
     ./configure --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-gpm=no --with-xwidgets --with-modules --with-native-compilation --with-pgtk --with-json --with-gnutls --with-lfreetype CFLAGS="-O3 -mtune=native -march=native -fomit-frame-pointer"
     
     make -j2 NATIVE_FULL_AOT=1
