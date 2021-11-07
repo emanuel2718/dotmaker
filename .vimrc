@@ -60,6 +60,7 @@ let g:loaded_matchparen=1
 "  --------
 
 set shiftwidth=4
+set tw=4
 set showtabline=0
 set softtabstop=4
 set tabstop=4
