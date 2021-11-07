@@ -1,12 +1,12 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-;;; Emanuel Ramirez Alsina 2021 Emacs configuration
+
+;;; created by Emanuel Ramirez Alsina on 01/15/2020
 
 
 ;;;;;;;;;; DEFAULTS BEG ;;;;;;;;;;
 (setq user-full-name "emanuel2718"
       user-mail-address "eramirez2718@gmail.com")
 (setq org-directory "~/git/org/")
-;;(add-to-list 'spleen-directory-list "/usr/local/share/emacs/fonts/spleen")
 (setq +workspaces-on-switch-project-behavior nil) ; open new project on current window
 (setq sentence-end-double-space nil)
 (setq evil-shift-width 4)
@@ -22,26 +22,20 @@
 
 
 ;;;;;;;;; FONTS BEG ;;;;;;;;;;
-;;(custom-set-faces
-;; '(default ((t (:inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 138 :width normal :family "terminus")))))
 
-;;(set-face-attribute 'default nil
-;;                    :family "Courier"
-;;                    :height 140
-;;                    :weight 'normal
-;;                    :width 'normal)
-(set-face-attribute 'default nil :font "-misc-spleen-medium-r-normal--16-*-*-*-c-*-iso10646-1" )
-;;(set-face-attribute 'default nil :font "-misc-fixed-medium-r-normal--16-*-*-*-c-*-iso8859-1" )
-;; Set the font face based on platform
-;;(add-to-list 'default-frame-alist
-;;             '(font . "DejaVu Sans Mono-14"))
+(add-to-list 'default-frame-alist
+             '(font . "DejaVu Sans Mono-12"))
+
 ;;;;;;;;; FONTS END ;;;;;;;;;;
 
 ;;;;;;;;; THEMES BEG ;;;;;;;;;;
 
+;; defualt theme
+(setq doom-theme 'doom-gruvbox)
+
 ;; --- Naysayer beg ---
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'naysayer t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'naysayer t)
 ;; --- Naysayer end ---
 
 
@@ -66,6 +60,7 @@
 ;;;;;;;;;; PACKAGES BEG ;;;;;;;;;;
 
 ;; --- Impatient Mode beg ---
+;; TODO: Install impatient-mode package
 ;; Start webserver: M-x httpd-start
 ;; Start impatient: M-x impatient-mode
 ;; Open browser at: localhost:8080/imp

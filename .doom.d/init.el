@@ -8,6 +8,7 @@
        ;;(ivy +fuzzy)
 
        :ui
+       doom
        doom-quit           ; DOOM quit-message prompts when you quit Emacs
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
