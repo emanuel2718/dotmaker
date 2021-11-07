@@ -111,6 +111,12 @@ check_config_folders() {
         mkdir ${HOME}/.config/i3/bin
     fi
 
+    if [ ! -d ${HOME}/Pictures/Wallpapers ]; then
+        echo "- Creating ${HOME}/Pictures/Wallpapers folder"
+        mkdir ${HOME}/Pictures/Wallpapers
+    fi
+
+
 }
 
 install_dotfiles() {
