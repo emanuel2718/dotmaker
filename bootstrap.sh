@@ -27,6 +27,7 @@ apt_packages_to_install=(
     "htop"
     "libjpeg8-dev"
     "libxext-dev"
+    "neofetch"
     "npm"
     "python-is-python3"
     "python3-apt"
@@ -36,6 +37,7 @@ apt_packages_to_install=(
     "ranger"
     "ripgrep"
     "rofi"
+    "scrot"
     "silversearcher-ag"
     "snapd"
     "tmux"
@@ -239,8 +241,8 @@ native_emacs_req_packages=(
     "libxpm-dev"
     "m4"
     "pkg-config"
-    "texinfo"
-)
+    "texinfo")
+
 
 install_native_emacs() {
     echo "- Installing Naitve Emacs required packages"
@@ -278,7 +280,6 @@ install_native_emacs() {
     $HOME/.emacs.d/bin/doom install
 }
 
-
 install_base_emacs() {
     echo "- Installing Base Emacs (Non native compiled)"
     sudo apt-get -qq install -y emacs 2> /dev/null
@@ -287,8 +288,6 @@ install_base_emacs() {
     git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
     $HOME/.emacs.d/bin/doom install
 }
-
-
 
 install_emacs() {
     # Install Emacs (Native compilation or base Emacs)
