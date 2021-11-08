@@ -114,6 +114,7 @@ check_config_folders() {
     if [ ! -d ${HOME}/Pictures/Wallpapers ]; then
         echo "- Creating ${HOME}/Pictures/Wallpapers folder"
         mkdir ${HOME}/Pictures/Wallpapers
+        cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers
     fi
 
 
