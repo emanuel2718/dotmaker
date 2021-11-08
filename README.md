@@ -2,7 +2,7 @@
 Dotmaker
 </h1>
 
-Simple script to bootstrap my linux development enviroments
+Simple script to bootstrap my linux development enviroments.
 
 *Note: this is intended for personal use only. Use at your own risk*
 
@@ -27,7 +27,9 @@ cd dotmaker
 
 # TODOLIST
 
-- [ ] add wallpaper instructions
+- [ ] improve vimrc
+- [ ] port vimrc to neovim lua config
+- [x] add wallpaper instructions
 - [x] install non-native emacs if user chose (n) on native emacs prompt
 - [x] add doom emacs config files
 - [x] add screenshot of emacs config
