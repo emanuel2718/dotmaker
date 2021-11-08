@@ -188,7 +188,7 @@ install_pip_packages() {
 
 install_external_packages() {
     echo "- Installing CLion IDE"
-    sudo apt-get -qq install -y clion --classic 2> /dev/null
+    sudo snap install clion --classic
 
     echo "- Installing brave"
 
