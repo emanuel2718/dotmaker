@@ -27,6 +27,7 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] add script to lock computer (with blurred background option)
 - [ ] improve vimrc
 - [ ] port vimrc to neovim lua config
 - [x] add wallpaper instructions
