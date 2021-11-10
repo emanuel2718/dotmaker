@@ -44,6 +44,9 @@ apt_packages_to_install=(
     "tmux"
     "vim"
     "xcape"
+    "xserver-xorg-core"
+    "xserver-xorg-input-all"
+    "xserver-xorg-input-synaptics"
     "zathura"
     "zlib1g-dev"
 )
