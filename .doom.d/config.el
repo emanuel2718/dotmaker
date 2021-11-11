@@ -21,6 +21,14 @@
 ;;;;;;;;;; DEFAULTS END ;;;;;;;;;;
 
 
+;;;;;;;;;; CUSTOM KEYBINDS BEG ;;;;;;;;;;
+(map! :leader
+      ;; <leader><leader> show corresponding file in other window
+      "SPC" #'projectile-find-other-file-other-window
+      ","   #'projectile-find-other-file)
+;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
+
+
 ;;;;;;;;; FONTS BEG ;;;;;;;;;;
 
 (add-to-list 'default-frame-alist
