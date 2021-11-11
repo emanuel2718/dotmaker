@@ -25,7 +25,11 @@
 (map! :leader
       ;; <leader><leader> show corresponding file in other window
       "SPC" #'projectile-find-other-file-other-window
-      ","   #'projectile-find-other-file)
+      ","   #'projectile-find-other-file
+      "pr"  #'projectile-replace
+)
+
+      ;; TODO: Add 'projectile-replace' keybind
 ;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
 
 
