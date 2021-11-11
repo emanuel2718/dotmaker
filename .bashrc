@@ -12,6 +12,7 @@ alias doomupgrade='~/.emacs.d/bin/doom upgrade'
 alias tk='tmux kill-session'
 alias ta='tmux a -t'
 alias tl='tmux ls'
+alias tidea='vim $HOME/git/.ideas.txt'
 
 
 # Sources
