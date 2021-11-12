@@ -2,6 +2,7 @@ set -o vi
 
 # Aliases
 alias vimrc='vim ~/.vimrc'
+alias nvimrc='nvim ~/.config/nvim/init.lua'
 alias rc='vim ~/.bashrc'
 alias src='source ~/.bashrc'
 alias pip='pip3'
