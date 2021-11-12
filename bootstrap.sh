@@ -197,6 +197,13 @@ install_pip_packages() {
 }
 
 install_external_packages() {
+    echo "- Installing Neovim"
+    mkdir ${HOME}/packages
+    git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
+    cd ${HOME}/packages/neovim/ && make -j4
+    sudo make install
+    cd ${script_location}
+
     echo "- Installing Spotify"
     sudo snap install spotify
 
