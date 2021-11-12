@@ -197,12 +197,20 @@ install_pip_packages() {
 }
 
 install_external_packages() {
+    echo "- Installing pyright"
+    sudo npm i -g pyright
+
     echo "- Installing Neovim"
     mkdir ${HOME}/packages
     git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
     cd ${HOME}/packages/neovim/ && make -j4
     sudo make install
     cd ${script_location}
+
+    echo "- Instlling nvim.packer"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 
     echo "- Installing Spotify"
     sudo snap install spotify
