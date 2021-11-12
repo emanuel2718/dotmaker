@@ -211,7 +211,6 @@ install_external_packages() {
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-
     echo "- Installing Spotify"
     sudo snap install spotify
 
@@ -224,7 +223,6 @@ install_external_packages() {
     sudo apt update
     sudo apt-get -qq install -y brave-browser 2> /dev/null
 
-
     echo "- Installing 1Password"
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
     echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
@@ -234,6 +232,10 @@ install_external_packages() {
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
     sudo apt update
     sudo apt-get -qq install -y 1password 2> /dev/null
+
+
+    echo "- Install Krita"
+    sudo snap install krita
 }
 
 
