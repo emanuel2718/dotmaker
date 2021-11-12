@@ -18,17 +18,20 @@ apt_packages_to_install=(
     "cmake"
     "curl"
     "docker.io"
+    "doxygen"
     "fd-find"
     "feh"
     "fonts-spleen"
     "fonts-terminus"
     "fzf"
+    "gettext"
     "git"
     "htop"
     "i3"
     "libjpeg8-dev"
     "libxext-dev"
     "neofetch"
+    "ninja-build"
     "npm"
     "python-is-python3"
     "python3-apt"
@@ -42,6 +45,7 @@ apt_packages_to_install=(
     "silversearcher-ag"
     "snapd"
     "tmux"
+    "unzip"
     "vim"
     "xcape"
     "xserver-xorg-core"
@@ -49,6 +53,8 @@ apt_packages_to_install=(
     "xserver-xorg-input-synaptics"
     "zathura"
     "zlib1g-dev"
+    
+
 )
 
 install_apt_packages() {
