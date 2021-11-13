@@ -3,11 +3,11 @@ set -o vi
 # Aliases
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
-alias rc='vim ~/.bashrc'
+alias rc='nvim ~/.bashrc'
 alias src='source ~/.bashrc'
 alias pip='pip3'
 alias python='python3'
-alias config='vim ~/.config/i3/config'
+alias config='nvim ~/.config/i3/config'
 alias doomsync='~/.emacs.d/bin/doom sync'
 alias doomupgrade='~/.emacs.d/bin/doom upgrade'
 alias tk='tmux kill-session'
