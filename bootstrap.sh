@@ -197,6 +197,10 @@ install_pip_packages() {
 }
 
 install_external_packages() {
+
+    #echo "- Installing Golang"
+    #sudo wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz $HOME/packages/&& sudo tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
+
     echo "- Installing pyright"
     sudo npm i -g pyright
 
@@ -210,6 +214,12 @@ install_external_packages() {
     echo "- Instlling nvim.packer"
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+    echo "- Installing lazygit"
+    sudo add-apt-repository ppa:lazygit-team/release -y
+    sudo apt-get update
+    sudo apt-get install lazygit -y
+
 
     echo "- Installing Spotify"
     sudo snap install spotify
@@ -232,7 +242,6 @@ install_external_packages() {
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
     sudo apt update
     sudo apt-get -qq install -y 1password 2> /dev/null
-
 
     echo "- Install Krita"
     sudo snap install krita
