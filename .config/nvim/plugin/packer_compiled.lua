@@ -74,6 +74,16 @@ _G.packer_plugins = {
     path = "/home/dimo/.local/share/nvim/site/pack/packer/start/elly.vim",
     url = "https://github.com/ulwlu/elly.vim"
   },
+  gruvbox = {
+    loaded = true,
+    path = "/home/dimo/.local/share/nvim/site/pack/packer/start/gruvbox",
+    url = "https://github.com/morhetz/gruvbox"
+  },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/dimo/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lightline.vim"] = {
     loaded = true,
     path = "/home/dimo/.local/share/nvim/site/pack/packer/start/lightline.vim",
@@ -84,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/dimo/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
     url = "https://github.com/onsails/lspkind-nvim"
   },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/home/dimo/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
+  },
   ["nlsp-settings.nvim"] = {
     loaded = true,
     path = "/home/dimo/.local/share/nvim/site/pack/packer/start/nlsp-settings.nvim",
@@ -93,6 +108,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/dimo/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/dimo/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-lspconfig"] = {
     loaded = true,

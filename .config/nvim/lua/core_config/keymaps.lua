@@ -28,6 +28,16 @@ vim.api.nvim_set_keymap('n', '<leader>fs', ':w<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap('n', '<leader>yp', ':set paste<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>np', ':set nopaste<CR>', { noremap = true, silent = true })
 
+-- Highlight wizard
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-a>', '<Esc>ggVG', { noremap = true, silent = true })
+
+-- Git
+vim.api.nvim_set_keymap('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, silent = true })
+
+-- Commentator
+vim.api.nvim_set_keymap('n', '<C-c><C-C>', ':CommentToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-c><C-C>', ':CommentToggle<CR>', { noremap = true, silent = true })
 
 -- NOTE: broken
 -- Replace all ocurrences of the word in the current file
@@ -41,7 +51,7 @@ vim.api.nvim_set_keymap('n', '<leader>np', ':set nopaste<CR>', { noremap = true,
 vim.api.nvim_set_keymap('n', '<leader>`', ':b#<CR>', { noremap = true, silent = true })
 
 -- open nvim tree
---vim.api.nvim_set_keymap('n', '<Leader>o-', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>o-', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 -- Packer manager
 vim.api.nvim_set_keymap('n', '<Leader>pc', ':PackerClean<CR>',    { noremap = true, silent = true })
@@ -54,24 +64,17 @@ vim.api.nvim_set_keymap('n', '<Leader>pu', ':PackerUpdate<CR>',   { noremap = tr
 vim.api.nvim_set_keymap('n', '<Leader>.', ':Telescope find_files<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope oldfiles<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>pf', ':Telescope git_files<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>o-', ':Telescope file_browser<CR>',     { noremap = true, silent = true })
-
--- Telescope (LSP)
-vim.api.nvim_set_keymap('n', '<Leader>gr', ':Telescope lsp_references<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>gi', ':Telescope lsp_implementation<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>gd', ':Telescope lsp_definitions<CR>',     { noremap = true, silent = true })
-
-
--- search string under cursor
+vim.api.nvim_set_keymap('n', '<Leader>ss', ':Telescope current_buffer_fuzzy_find<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>sw', ':Telescope grep_string<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>s.', ':Telescope live_grep<CR>',     { noremap = true, silent = true })
-
 vim.api.nvim_set_keymap('n', '<Leader>ht', ':Telescope colorscheme<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>bi', ':Telescope buffers<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fo', ':Telescope commands<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>fq', ':Telescope quick_fix<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':Telescope git_status<CR>',     { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgf', ':Telescope git_files<CR>',     { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgc', ':Telescope git_commits<CR>',     { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgb', ':Telescope git_branches<CR>',     { noremap = true, silent = true })
---vim.api.nvim_set_keymap('n', '<Leader>fgt', ':Telescope git_stash<CR>',     { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<Leader>o-', ':Telescope file_browser<CR>',     { noremap = true, silent = true })
+
+-- Telescope (LSP)
+vim.api.nvim_set_keymap('n', '<Leader>gr', ':Telescope lsp_references<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gi', ':Telescope lsp_implementation<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gd', ':Telescope lsp_definitions<CR>',     { noremap = true, silent = true })

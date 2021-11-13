@@ -14,10 +14,6 @@ require'nvim-tree'.setup {
   diagnostics         = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
     }
   },
   update_focused_file = {
@@ -44,3 +40,6 @@ require'nvim-tree'.setup {
     custom = {}
   }
 }
+
+
+vim.cmd('source ~/.config/nvim/lua/core_plugins/nvimtree/init.vim')

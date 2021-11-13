@@ -1,2 +1,2 @@
-vim.g.colors_name='wal'
-vim.cmd('color default')
+--vim.g.colors_name='gruvbox'
+vim.cmd('color gruvbox')

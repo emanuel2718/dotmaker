@@ -1,5 +1,5 @@
 vim.g.lightline = {
-  --colorscheme = 'onedark',
+  colorscheme = 'gruvbox',
   active = { left = { { 'mode', 'paste' }, { 'gitbranch', 'readonly', 'filename', 'modified' } } },
   component_function = { gitbranch = 'fugitive#head' },
 }

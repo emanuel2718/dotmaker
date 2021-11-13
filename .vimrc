@@ -37,10 +37,13 @@ set cmdheight=2
 set encoding=utf8
 set history=500
 set hlsearch
+set incsearch
+set laststatus=1
 set noerrorbells
 set noshowmatch
 set noswapfile
 set nowritebackup
+set paste
 set path+=**
 set ruler
 set scrolloff=4
@@ -48,9 +51,6 @@ set showcmd
 set smartindent
 set updatetime=500
 set wildmenu
-set laststatus=1
-set incsearch
-set paste
 
 let g:loaded_matchparen=1
 

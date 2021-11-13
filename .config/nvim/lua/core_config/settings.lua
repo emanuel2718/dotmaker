@@ -1,7 +1,10 @@
+vim.cmd [[au BufWinEnter * set formatoptions-=cro]]
+
 vim.o.background='dark'
 vim.o.backup=false
+vim.o.cindent=true
 vim.o.clipboard='unnamedplus'
-vim.o.cmdheight=2
+vim.o.cmdheight=1
 vim.o.encoding='utf-8'
 vim.o.errorbells=false
 vim.o.expandtab=true
@@ -15,7 +18,8 @@ vim.o.ruler=true
 vim.o.scrolloff=4
 vim.o.shiftround=true
 vim.o.shiftwidth=4
-vim.o.showmode=true
+vim.o.showcmd=false
+vim.o.showmode=false -- using airline atm
 vim.o.smartcase=true
 vim.o.softtabstop=4
 vim.o.splitbelow=true

@@ -10,10 +10,10 @@ return require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
   use 'onsails/lspkind-nvim'
 
-  -- Airline
-  --use 'vim-airline/vim-airline'
+  -- NERDTree
+  --use "preservim/nerdtree"
 
-  -- Lightline
+  -- Status line
   use 'itchyny/lightline.vim'
 
   -- Auto pairs
@@ -24,19 +24,32 @@ return require('packer').startup(function()
   use 'ulwlu/elly.vim'
   use 'mangeshrex/uwu.vim'
   use 'navarasu/onedark.nvim'
+  use 'morhetz/gruvbox'
 
   -- Fugitive
   use 'tpope/vim-fugitive'
+
+  -- Lazy Git
+  use 'kdheepak/lazygit.nvim'
 
   -- NvimTree
   use 'kyazdani42/nvim-tree.lua'
   use 'kyazdani42/nvim-web-devicons'
 
-
   -- Telescope
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
+
+  -- Markdown preview
+  use 'iamcco/markdown-preview.nvim'
+
+  -- Commentator
+  --use 'scrooloose/nerdcommenter'
+  use 'terrortylor/nvim-comment'
+
+  -- Completion
+  -- use 'hrsh7th/nvim-compe'
 
 end)
 
@@ -85,8 +98,6 @@ end)
 --  ---- Distraction free
 --  --use { 'junegunn/goyo.vim' }
 --
---  ---- Commenting
---  --use { 'scrooloose/nerdcommenter' }
 --
 --  ---- Auto pairs
 --  --use { 'windwp/nvim-autopairs' }
