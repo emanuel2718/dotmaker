@@ -198,8 +198,8 @@ install_pip_packages() {
 
 install_external_packages() {
 
-    #echo "- Installing Golang"
-    #sudo wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz $HOME/packages/&& sudo tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
+    echo "- Installing Golang"
+    sudo wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz $HOME/packages/&& sudo tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
 
     echo "- Installing pyright"
     sudo npm i -g pyright
