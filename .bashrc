@@ -15,6 +15,7 @@ alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tidea='vim $HOME/git/.ideas.txt'
 
+export TERM=xterm-256color
 
 # Sources
 source ~/.xprofile

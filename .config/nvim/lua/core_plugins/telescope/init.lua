@@ -10,9 +10,18 @@ require('telescope').setup{
     qflist_previewer =  require('telescope.previewers').vim_buffer_qflist.new,
 
     mappings = {
+	  n = {
+		["C-x"] = true
+	  },
+
+
       i = {
-        ["<C-x>"] = true,
-        ["<C-q>"] = actions.send_to_qflist,
+		["<C-h>"] = function() vim.cmd ":norm! h" end,
+		["<C-l>"] = function() vim.cmd ":norm! l" end,
+		["<C-a>"] = function() vim.cmd ":norm! A" end,
+		["<C-i>"] = function() vim.cmd ":norm! I" end,
+        -- ["<C-x>"] = true,
+        -- ["<C-q>"] = actions.send_to_qflist,
       },
     }
   },
