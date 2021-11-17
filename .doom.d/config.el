@@ -27,6 +27,9 @@
       "SPC" #'projectile-find-other-file-other-window
       ","   #'projectile-find-other-file
       "pr"  #'projectile-replace
+      "r"   #'replace-regexp
+      "ii"  #'evil-numbers/inc-at-pt-incremental
+      "id"  #'evil-numbers/dec-at-pt-incremental
 )
 
       ;; TODO: Add 'projectile-replace' keybind
