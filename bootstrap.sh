@@ -199,6 +199,12 @@ install_pip_packages() {
 }
 
 install_external_packages() {
+    echo "- Installing fzf"
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+    cd $HOME/.fzf/
+    ./install --all
+    cd ${script_location}
+
 
     echo "- Installing Golang"
     sudo wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz $HOME/packages/&& sudo tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz

@@ -1,6 +1,7 @@
 set -o vi
 
 # Aliases
+alias e='nvim $(fzf)' # open file from the terminal
 alias gm='sudo apt-get update && sudo apt upgrade -y'
 alias vimrc='vim ~/.vimrc'
 alias nvimrc='nvim ~/.config/nvim/init.lua'
