@@ -30,6 +30,8 @@
       "r"   #'replace-regexp
       "ii"  #'evil-numbers/inc-at-pt-incremental
       "id"  #'evil-numbers/dec-at-pt-incremental
+      "lc"  #'lsp
+      "ld"  #'lsp-disconnect
 )
 
       ;; TODO: Add 'projectile-replace' keybind
