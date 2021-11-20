@@ -91,6 +91,26 @@ DOTFILES=(
     ".config/ranger/rifle.conf"
     ".config/ranger/scope.sh"
     ".config/zathura/zathurarc"
+    ".config/nvim/init.lua"
+    ".config/nvim/ftplugin/lua.lua"
+    ".config/nvim/ftplugin/lua.vim"
+    ".config/nvim/lua/core_config/colorscheme.lua"
+    ".config/nvim/lua/core_config/keymaps.lua"
+    ".config/nvim/lua/core_config/lsp.lua"
+    ".config/nvim/lua/core_config/plugins.lua"
+    ".config/nvim/lua/core_config/settings.lua"
+    ".config/nvim/lua/core_plugins/airline/init.lua"
+    ".config/nvim/lua/core_plugins/airline/init.vim"
+    ".config/nvim/lua/core_plugins/autopairs/init.lua"
+    ".config/nvim/lua/core_plugins/compe/init.lua"
+    ".config/nvim/lua/core_plugins/lightline/init.lua"
+    ".config/nvim/lua/core_plugins/nerdcommenter/init.lua"
+    ".config/nvim/lua/core_plugins/nerdcommenter/init.vim"
+    ".config/nvim/lua/core_plugins/nerdcomment/init.lua"
+    ".config/nvim/lua/core_plugins/nvimtree/init.lua"
+    ".config/nvim/lua/core_plugins/nvimtree/init.vim"
+    ".config/nvim/lua/core_plugins/nvimtree/init.lua"
+    ".config/nvim/lua/core_plugins/telescope/init.lua"
 )
 
 excecutable_files=("${HOME}/.fehbg"
@@ -130,6 +150,27 @@ check_config_folders() {
         mkdir ${HOME}/Pictures/Wallpapers
         cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers
     fi
+
+    if [ ! -d ${HOME}/.config/nvim ]; then
+        echo "- Creating neovim required folders"
+        mkdir ${HOME}/.config/nvim
+        mkdir ${HOME}/.config/nvim/after
+        mkdir ${HOME}/.config/nvim/ftplugin
+        mkdir ${HOME}/.config/nvim/lua
+        mkdir ${HOME}/.config/nvim/lua/lsp
+        mkdir ${HOME}/.config/nvim/lua/core_config
+        mkdir ${HOME}/.config/nvim/lua/core_plugins
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/airline
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/autopairs
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/compe
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/lightline
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/nerdcommenter
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/nvimcomment
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/nvimtree
+        mkdir ${HOME}/.config/nvim/lua/core_plugins/telescope
+        #cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers
+    fi
+
 
 
 }
@@ -403,7 +444,7 @@ check_config_folders
 install_dotfiles
 make_files_executable
 install_plugins
-install_pip
-install_pip_packages
-install_external_packages
-install_emacs
+#install_pip
+#install_pip_packages
+#install_external_packages
+#install_emacs
