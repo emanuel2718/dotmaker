@@ -21,6 +21,7 @@ apt_packages_to_install=(
     "doxygen"
     "fd-find"
     "feh"
+    "ffmpeg"
     "fonts-spleen"
     "fonts-terminus"
     "fzf"
@@ -65,6 +66,8 @@ install_apt_packages() {
         echo "- Installing ${package}"
         sudo apt-get -qq install -y "${package}" 2> /dev/null
     done
+    # add syslink to be able to use fd as a binary name
+    ln -s $(which fdfind) $/HOME/.local/bin/fd
 }
 
 
@@ -253,6 +256,13 @@ install_external_packages() {
 
     echo "- Install Krita"
     sudo snap install krita
+
+    echo "- Install OBS"
+    # fgmpeg is also required but it's already installed in the apt_install
+    sudo apt install v4l2loopback-dkms -y
+    sudo add-apt-repository ppa:obsproject/obs-studio
+    sudo apt update
+    sudo apt install obs-studio -y
 }
 
 
