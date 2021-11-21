@@ -67,7 +67,7 @@ install_apt_packages() {
         sudo apt-get -qq install -y "${package}" 2> /dev/null
     done
     # add syslink to be able to use fd as a binary name
-    ln -s $(which fdfind) $/HOME/.local/bin/fd
+    sudo ln -s $(which fdfind) $/HOME/.local/bin/fd
 }
 
 
@@ -106,7 +106,7 @@ DOTFILES=(
     ".config/nvim/lua/core_plugins/lightline/init.lua"
     ".config/nvim/lua/core_plugins/nerdcommenter/init.lua"
     ".config/nvim/lua/core_plugins/nerdcommenter/init.vim"
-    ".config/nvim/lua/core_plugins/nerdcomment/init.lua"
+    ".config/nvim/lua/core_plugins/nvimcommnent/init.lua"
     ".config/nvim/lua/core_plugins/nvimtree/init.lua"
     ".config/nvim/lua/core_plugins/nvimtree/init.vim"
     ".config/nvim/lua/core_plugins/nvimtree/init.lua"
@@ -259,7 +259,7 @@ install_external_packages() {
     echo "- Installing Neovim"
     mkdir ${HOME}/packages
     git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
-    cd ${HOME}/packages/neovim/ && make -j4
+    cd ${HOME}/packages/neovim/ && sudo make -j4
     sudo make install
     cd ${script_location}
 
@@ -444,7 +444,7 @@ check_config_folders
 install_dotfiles
 make_files_executable
 install_plugins
-#install_pip
-#install_pip_packages
-#install_external_packages
-#install_emacs
+install_pip
+install_pip_packages
+install_external_packages
+install_emacs
