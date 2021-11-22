@@ -2,10 +2,24 @@
 
 
 script_location=$PWD
+# Color codes
+RED='\033[;31m'
+GREEN='\033[;32m'
+YELLOW='\033[;33m'
+NC='\033[0m'
+OK='\033[;32m[OK]\033[0m'
+INSTALLED='\033[;32m[INSTALLED]\033[0m'
+FAILED='\033[;31m[FAILED]\033[0m'
+LINKED='\033[;32m[LINKED]\033[0m'
+UPDATING='\033[0;33m[UPDATING]\033[0m'
+INSTALLING='\033[0;33m[INSTALLING]\033[0m'
 
 
-sudo apt-get update --assume-yes
-sudo apt-get upgrade --assume-yes
+
+echo -e "\033[;33m[UPDATING SYSTEM]\033[0m"
+sudo apt-get update --assume-yes >/dev/null
+sudo apt-get upgrade --assume-yes >/dev/null
+echo -e "\033[;32m[SYSTEM UPDATED]\033[0m"
 
 if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
     sudo rm /etc/apt/preferences.d/nosnap.pref
@@ -61,13 +75,23 @@ apt_packages_to_install=(
 )
 
 install_apt_packages() {
-    echo "> Installing base packages..."
+    echo -e "\033[;33m[INSTALLING BASE PACKAGES]\033[0m"
     for package in "${apt_packages_to_install[@]}"; do
-        echo "- Installing ${package}"
-        sudo apt-get -qq install -y "${package}" 2> /dev/null
+
+        # install package
+        #sudo apt-get -qq install -y "${package}" >/dev/null
+
+        # check if the package was installed succesfully
+        if [ "$(dpkg -l | grep ${package} --no-message | wc -l)" -ge 1 ]; then
+            echo -e "${INSTALLED}  - ${package}"
+        else
+            echo -e "${FAILED}     - ${package}"
+        fi
     done
+
     # add syslink to be able to use fd as a binary name
-    sudo ln -s $(which fdfind) $/HOME/.local/bin/fd
+    echo -e "${LINKED} - fd binary"
+    #sudo ln -s $(which fdfind) $/HOME/.local/bin/fd
 }
 
 
@@ -436,11 +460,11 @@ install_emacs() {
 
 
 install_apt_packages
-check_config_folders
-install_dotfiles
-make_files_executable
-install_plugins
-install_pip
-install_pip_packages
-install_external_packages
-install_emacs
+#check_config_folders
+#install_dotfiles
+#make_files_executable
+#install_plugins
+#install_pip
+#install_pip_packages
+#install_external_packages
+#install_emacs
