@@ -148,7 +148,7 @@ check_config_folders() {
     if [ ! -d ${HOME}/Pictures/Wallpapers ]; then
         echo "- Creating ${HOME}/Pictures/Wallpapers folder"
         mkdir ${HOME}/Pictures/Wallpapers
-        cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers
+        cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers/
     fi
 
     if [ ! -d ${HOME}/.config/nvim ]; then
@@ -168,11 +168,7 @@ check_config_folders() {
         mkdir ${HOME}/.config/nvim/lua/core_plugins/nvimcomment
         mkdir ${HOME}/.config/nvim/lua/core_plugins/nvimtree
         mkdir ${HOME}/.config/nvim/lua/core_plugins/telescope
-        #cp ${script_location}/wallpapers/wallpaper.jpg ${HOME}/Pictures/Wallpapers
     fi
-
-
-
 }
 
 install_dotfiles() {

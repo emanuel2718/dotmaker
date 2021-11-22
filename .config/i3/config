@@ -188,4 +188,4 @@ bar {
 }
 
 # set current wallpaper on startup
-exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.*
+exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.*
