@@ -50,5 +50,4 @@ return require('packer').startup(function()
 
   -- Completion
   -- use 'hrsh7th/nvim-compe'
-
 end)

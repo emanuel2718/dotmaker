@@ -2,6 +2,12 @@
 vim.api.nvim_set_keymap('n', '<leader>hr', ':source $MYVIMRC<CR>', { silent = false })
 vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { silent = true })
 
+-- Edit nvim config files
+vim.api.nvim_set_keymap('n', '<leader>nn', ':e $HOME/.config/nvim/init.lua<cr>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>nk', ':e $HOME/.config/nvim/lua/core_config/keymaps.lua<cr>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>np', ':e $HOME/.config/nvim/lua/core_config/plugins.lua<cr>', { silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ns', ':e $HOME/.config/nvim/lua/core_config/settings.lua<cr>', { silent = true })
+
 -- Vim window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { silent = true })
@@ -26,7 +32,7 @@ vim.api.nvim_set_keymap('n', '<Leader>wo', ':only<CR>', { noremap = true, silent
 vim.api.nvim_set_keymap('n', '<leader>q', ':q!<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fs', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>yp', ':set paste<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>np', ':set nopaste<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>kp', ':set nopaste<CR>', { noremap = true, silent = true })
 
 -- Highlight wizard
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', { noremap = true, silent = true })
@@ -60,8 +66,10 @@ vim.api.nvim_set_keymap('n', '<Leader>pl', ':PackerLoad<CR>',     { noremap = tr
 vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>pu', ':PackerUpdate<CR>',   { noremap = true, silent = true })
 
--- telescope
+-- Telescope
 vim.api.nvim_set_keymap('n', '<Leader>.', ':Telescope find_files<CR>',     { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files({hidden=true})<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope oldfiles<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>pf', ':Telescope git_files<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>ss', ':Telescope current_buffer_fuzzy_find<CR>',     { noremap = true, silent = true })
