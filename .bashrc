@@ -16,6 +16,8 @@ alias tk='tmux kill-session'
 alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tidea='vim $HOME/git/.ideas.txt'
+alias bg='ranger $HOME/Pictures/Wallpapers/'
+alias r='ranger'
 
 export TERM=xterm-256color
 
