@@ -143,9 +143,13 @@ fi
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export FZF_DEFAULT_COMMAND="fd . $HOME"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_G_COMMAND="fd -t d . $HOME"
+#export FZF_DEFAULT_COMMAND="fd . $HOME"
+#export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND -hidden"
+#export FZF_ALT_G_COMMAND="fd -t d . $HOME"
+
+export FZF_DEFAULT_COMMAND='fd . $HOME'
+export FZF_CTRL_T_COMMAND='rg . $HOME --hidden --no-ignore --files'
+export FZF_ALT_G_COMMAND='fd -t d . $HOME'
 
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
