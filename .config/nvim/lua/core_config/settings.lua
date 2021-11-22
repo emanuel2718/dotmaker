@@ -1,3 +1,5 @@
+-- Created by Emanuel Ramirez on 09/02/2021
+
 vim.cmd [[au BufWinEnter * set formatoptions-=cro]]
 
 vim.o.background='dark'

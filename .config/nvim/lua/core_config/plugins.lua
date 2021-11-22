@@ -1,3 +1,5 @@
+-- Created by Emanuel Ramirez on 09/02/2021
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()

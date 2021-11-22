@@ -1,4 +1,6 @@
--- Source Neovim config
+-- Created by Emanuel Ramirez on 09/02/2021
+
+-- Source Neovim config (TODO: not reloading the whole configuration. Research this)
 vim.api.nvim_set_keymap('n', '<leader>hr', ':source $MYVIMRC<CR>', { silent = false })
 vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { silent = true })
 
@@ -44,14 +46,6 @@ vim.api.nvim_set_keymap('n', '<Leader>gg', ':LazyGit<CR>', { noremap = true, sil
 -- Commentator
 vim.api.nvim_set_keymap('n', '<C-c><C-C>', ':CommentToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<C-c><C-C>', ':CommentToggle<CR>', { noremap = true, silent = true })
-
--- NOTE: broken
--- Replace all ocurrences of the word in the current file
---vim.api.nvim_set_keymap('n', '<leader>r', ':%s/\<<C-r><C-w>\>//g<Left><Left>', { noremap = true, silent = true })
-
--- Replace all ocurrences of the word in the current line
---vim.api.nvim_set_keymap('n', '<leader>rl', ':s/\<<C-r><C-w>\>//g<Left><Left>', { noremap = true, silent = true })
-
 
 -- switch to last opened buffer
 vim.api.nvim_set_keymap('n', '<leader>`', ':b#<CR>', { noremap = true, silent = true })
