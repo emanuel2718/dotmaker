@@ -34,7 +34,6 @@
       "ld"  #'lsp-disconnect
 )
 
-      ;; TODO: Add 'projectile-replace' keybind
 ;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
 
 
