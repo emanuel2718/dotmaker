@@ -228,16 +228,18 @@ install_plugins() {
     source $HOME/.bashrc
 }
 
-install_pip() {
-    echo -e "${INSTALLING} - PIP"
-    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    python3 get-pip.py
-
+update_npm() {
     echo -e "${UPDATING} - npm"
     sudo npm i -g npm
     sudo npm install -g n
     sudo n stable
     echo -e "${UPDATED} - npm"
+}
+
+install_pip() {
+    echo -e "${INSTALLING} - PIP"
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py
 }
 
 install_pip_packages() {
@@ -478,6 +480,7 @@ create_folders
 install_dotfiles
 make_files_executable
 install_plugins
+update_npm
 install_pip
 install_pip_packages
 install_external_packages
