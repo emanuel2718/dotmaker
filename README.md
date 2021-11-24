@@ -33,6 +33,8 @@ cd dotmaker
 # TODOLIST
 
 - [ ] add script to lock computer (with blurred background option)
+- [ ] add qutebrowser config
+- [ ] check if terminal supports color
 - [x] improve vimrc
 - [x] port vimrc to neovim lua config
 - [x] add wallpaper instructions
