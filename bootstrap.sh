@@ -74,6 +74,7 @@ apt_packages_to_install=(
     "unzip"
     "valgrind"
     "vim"
+    "python3.9-venv"
     "xcape"
     "xserver-xorg-core"
     "xserver-xorg-input-all"
