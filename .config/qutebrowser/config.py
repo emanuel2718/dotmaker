@@ -8,7 +8,7 @@ config.load_autoconfig(False)
 
 c.auto_save.session = False
 c.statusbar.widgets = ['keypress', 'history', 'progress']
-c.statusbar.show = 'always'
+c.statusbar.show = 'in-mode'
 c.tabs.title.format = '{private}{current_title}'
 c.tabs.show = 'multiple'
 c.fonts.web.size.default = 20
@@ -16,10 +16,12 @@ c.downloads.location.prompt = True
 c.content.autoplay = False
 c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 c.editor.encoding = 'utf-8'
-c.scrolling.smooth = False
 c.statusbar.position = 'bottom'
 c.tabs.background = True
-c.tabs.wrap = False
+c.tabs.wrap = True
+c.confirm_quit = ["downloads"]
+c.qt.highdpi = True
+c.scrolling.smooth = True
 c.tabs.padding = {"left": 5, "right": 5, "top": 0, "bottom": 1}
 c.url.start_pages = ['https://start.duckduckgo.com']
 c.url.searchengines = {
@@ -48,6 +50,7 @@ bind('tm', 'messages --tab')
 bind('o', 'set-cmd-text -s :open')
 bind('O', 'set-cmd-text -s :open --tab')
 
+bind('h', 'history')
 bind('`', 'tab-focus last')
 bind('gp', 'open -p')
 bind('J', 'tab-prev')
@@ -58,6 +61,10 @@ bind("_", 'zoom-out')
 bind("0", 'zoom 100')
 bind('p', 'open --tab -- {clipboard}')
 bind('P', 'open -- {clipboard}')
+
+
+bind('<Ctrl-j>', 'completion-item-focus next', 'command')
+bind('<Ctrl-k>', 'completion-item-focus prev', 'command')
 
 
 unbind("'")
@@ -77,7 +84,6 @@ bind("'l", ':open --tab localhost:8080')
 # ================== ALIAS =========================
 c.aliases['w'] = 'session-save'
 c.aliases['wq'] = 'quit --save'
-c.aliases['h'] = 'help'
 c.aliases['archive'] = 'open --tab https://web.archive.org/save/{url}'
 c.aliases['va'] = 'open --tab https://web.archive.org/web/*/{url}'
 c.aliases['gg'] = 'open https://github.com/emanuel2718'
@@ -124,3 +130,22 @@ c.colors.tabs.odd.bg = '#1d2021'
 c.colors.tabs.odd.fg = '#d4be98'
 c.colors.tabs.selected.even.bg = '#32302f'
 c.colors.tabs.selected.odd.bg = '#32302f'
+# =====================================================
+
+
+
+# Anti-fingerprinting
+c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
+c.content.headers.accept_language = 'en-US,en;q=0.5'
+c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
+c.content.cookies.accept = "no-3rdparty"
+
+# Adblock filter lists
+c.content.blocking.adblock.lists = [
+        "https://easylist.to/easylist/easylist.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+        "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
+        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+]
+
