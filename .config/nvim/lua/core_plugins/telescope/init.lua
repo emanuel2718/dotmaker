@@ -3,7 +3,7 @@ require('telescope').setup{
   defaults = {
     file_sorter = require('telescope.sorters').get_fzy_sorter,
     prompt = ' >',
-    color_devicons = false,
+    color_devicons = true,
 
     file_previewer =    require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer =    require('telescope.previewers').vim_buffer_vimgrep.new,
@@ -33,4 +33,16 @@ require('telescope').setup{
   }
 }
 
-require('telescope')
+require('telescope').load_extension('fzy_native')
+
+local M = {}
+
+M.search_dotmaker = function()
+  require('telescope.builtin').find_files({
+	prompt_title = '<Dotmaker>',
+	cwd = '~/git/dotmaker/',
+	hidden = true,
+  })
+end
+
+return M

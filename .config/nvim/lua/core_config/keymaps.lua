@@ -5,10 +5,17 @@ vim.api.nvim_set_keymap('n', '<leader>hr', ':source $MYVIMRC<CR>', { silent = fa
 vim.api.nvim_set_keymap('n', '<leader>v', ':e $MYVIMRC<cr>', { silent = true })
 
 -- Edit nvim config files
-vim.api.nvim_set_keymap('n', '<leader>nn', ':e $HOME/.config/nvim/init.lua<cr>', { silent = true })
+-- vim.api.nvim_set_keymap('n', '<leader>nn', ':e $HOME/.config/nvim/init.lua<cr>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>nk', ':e $HOME/.config/nvim/lua/core_config/keymaps.lua<cr>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>np', ':e $HOME/.config/nvim/lua/core_config/plugins.lua<cr>', { silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ns', ':e $HOME/.config/nvim/lua/core_config/settings.lua<cr>', { silent = true })
+
+
+-- EXPERIMENTAL
+-- Search dotfiles in dotmaker
+vim.api.nvim_set_keymap('n', '<leader>nn', ':lua require("core_plugins.telescope").search_dotmaker()<CR>', { silent = true })
+
+-- vim.api.nvim_set_keymap('n', '<Leader>ff', ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', {noremap = true, silent = true})
 
 -- Vim window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { silent = true })
