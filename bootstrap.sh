@@ -108,6 +108,7 @@ install_apt_packages() {
 folders_to_create=(
     "${HOME}/.config/ranger"
     "${HOME}/.config/i3status"
+    "${HOME}/.config/qutebrowser"
     "${HOME}/.config/zathura"
     "${HOME}/.config/i3/bin"
     "${HOME}/.config/nvim"
@@ -133,7 +134,7 @@ folders_to_create=(
 create_folders() {
     for folder in "${folders_to_create[@]}"; do
         echo -e "${DIR_CREATED} - ${folder}"
-        mkdir ${folder}
+        mkdir -p ${folder}
     done
 }
 
@@ -165,6 +166,7 @@ DOTFILES=(
     "${HOME}/.config/ranger/rc.conf"
     "${HOME}/.config/ranger/rifle.conf"
     "${HOME}/.config/ranger/scope.sh"
+    "${HOME}/.config/qutebrowser/config.py"
     "${HOME}/.config/zathura/zathurarc"
     "${HOME}/.config/nvim/init.lua"
     "${HOME}/.config/nvim/ftplugin/lua.lua"
