@@ -21,7 +21,7 @@ c.tabs.background = True
 c.tabs.wrap = True
 c.confirm_quit = ["downloads"]
 c.qt.highdpi = True
-c.scrolling.smooth = True
+c.scrolling.smooth = False
 c.tabs.padding = {"left": 5, "right": 5, "top": 0, "bottom": 1}
 c.url.start_pages = ['https://start.duckduckgo.com']
 c.url.searchengines = {
@@ -76,6 +76,7 @@ bind("'g", ':open --tab https://github.com/emanuel2718')
 bind("'y", ':open --tab https://youtube.com')
 bind("'p", ':open --tab https://privacytools.io')
 bind("'l", ':open --tab localhost:8080')
+bind("'w", ':open --tab https://wallhaven.cc/toplist?page=2')
 # =====================================================
 
 
