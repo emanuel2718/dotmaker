@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Author: Emanuel Ramirez Alsina (eramirez2718@gmail.com)
+# Date: 10/06/2021
+# Project: Dotmaker
+
 
 script_location=$PWD
 
@@ -22,16 +26,17 @@ DIR_CREATED='\033[0;32m[DIRECTORY+]\033[0m'
 EXECUTABLE='\033[0;33m[EXECUTABLE]\033[0m'
 
 
+update_system() {
+    echo -e "\033[;33m[UPDATING SYSTEM]\033[0m"
+    sudo apt-get update --assume-yes >/dev/null
+    sudo apt-get upgrade --assume-yes
+    echo -e "\033[;32m[SYSTEM UPDATED]\033[0m"
 
-echo -e "\033[;33m[UPDATING SYSTEM]\033[0m"
-sudo apt-get update --assume-yes >/dev/null
-sudo apt-get upgrade --assume-yes
-echo -e "\033[;32m[SYSTEM UPDATED]\033[0m"
-
-# Needed for snap package installation (sometimes?)
-if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
-    sudo rm /etc/apt/preferences.d/nosnap.pref
-fi
+    # Needed for snap package installation (sometimes?)
+    if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
+        sudo rm /etc/apt/preferences.d/nosnap.pref
+    fi
+}
 
 apt_packages_to_install=(
     "apt-transport-https"
@@ -149,54 +154,54 @@ excecutable_files=(
 )
 
 DOTFILES=(
-    "${HOME}/.bashrc"
-    "${HOME}/.fehbg"
-    "${HOME}/.inputrc"
-    "${HOME}/.profile"
-    "${HOME}/.tmux.conf"
-    "${HOME}/.vimrc"
-    "${HOME}/.xprofile"
-    "${HOME}/.xinitrc"
-    "${HOME}/.xsession"
-    "${HOME}/.config/i3/bin/logout"
-    "${HOME}/.config/i3/bin/rofi_app_launcher"
-    "${HOME}/.config/i3/config"
-    "${HOME}/.config/i3status/config"
-    "${HOME}/.config/ranger/commands.py"
-    "${HOME}/.config/ranger/commands_full.py"
-    "${HOME}/.config/ranger/rc.conf"
-    "${HOME}/.config/ranger/rifle.conf"
-    "${HOME}/.config/ranger/scope.sh"
-    "${HOME}/.config/qutebrowser/config.py"
-    "${HOME}/.config/zathura/zathurarc"
-    "${HOME}/.config/nvim/init.lua"
-    "${HOME}/.config/nvim/ftplugin/lua.lua"
-    "${HOME}/.config/nvim/ftplugin/lua.vim"
-    "${HOME}/.config/nvim/lua/core_config/colorscheme.lua"
-    "${HOME}/.config/nvim/lua/core_config/keymaps.lua"
-    "${HOME}/.config/nvim/lua/core_config/lsp.lua"
-    "${HOME}/.config/nvim/lua/core_config/plugins.lua"
-    "${HOME}/.config/nvim/lua/core_config/settings.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/airline/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/airline/init.vim"
-    "${HOME}/.config/nvim/lua/core_plugins/autopairs/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/compe/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/lightline/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/nerdcommenter/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/nerdcommenter/init.vim"
-    "${HOME}/.config/nvim/lua/core_plugins/nvimcommnent/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/nvimtree/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/nvimtree/init.vim"
-    "${HOME}/.config/nvim/lua/core_plugins/nvimtree/init.lua"
-    "${HOME}/.config/nvim/lua/core_plugins/telescope/init.lua"
+    "/.bashrc"
+    "/.fehbg"
+    "/.inputrc"
+    "/.profile"
+    "/.tmux.conf"
+    "/.vimrc"
+    "/.xprofile"
+    "/.xinitrc"
+    "/.xsession"
+    "/.config/i3/bin/logout"
+    "/.config/i3/bin/rofi_app_launcher"
+    "/.config/i3/config"
+    "/.config/i3status/config"
+    "/.config/ranger/commands.py"
+    "/.config/ranger/commands_full.py"
+    "/.config/ranger/rc.conf"
+    "/.config/ranger/rifle.conf"
+    "/.config/ranger/scope.sh"
+    "/.config/qutebrowser/config.py"
+    "/.config/zathura/zathurarc"
+    "/.config/nvim/init.lua"
+    "/.config/nvim/ftplugin/lua.lua"
+    "/.config/nvim/ftplugin/lua.vim"
+    "/.config/nvim/lua/core_config/colorscheme.lua"
+    "/.config/nvim/lua/core_config/keymaps.lua"
+    "/.config/nvim/lua/core_config/lsp.lua"
+    "/.config/nvim/lua/core_config/plugins.lua"
+    "/.config/nvim/lua/core_config/settings.lua"
+    "/.config/nvim/lua/core_plugins/airline/init.lua"
+    "/.config/nvim/lua/core_plugins/airline/init.vim"
+    "/.config/nvim/lua/core_plugins/autopairs/init.lua"
+    "/.config/nvim/lua/core_plugins/compe/init.lua"
+    "/.config/nvim/lua/core_plugins/lightline/init.lua"
+    "/.config/nvim/lua/core_plugins/nerdcommenter/init.lua"
+    "/.config/nvim/lua/core_plugins/nerdcommenter/init.vim"
+    "/.config/nvim/lua/core_plugins/nvimcommnent/init.lua"
+    "/.config/nvim/lua/core_plugins/nvimtree/init.lua"
+    "/.config/nvim/lua/core_plugins/nvimtree/init.vim"
+    "/.config/nvim/lua/core_plugins/nvimtree/init.lua"
+    "/.config/nvim/lua/core_plugins/telescope/init.lua"
 )
 
 install_dotfiles() {
     echo -e "${NOTE} - Copying dotfiles"
     for dotfile in "${DOTFILES[@]}"; do
-        rm -rf ${dotfile}
-        ln -sf ${script_location}/${dotfile} ${dotfile}
-        if [ -L ${dotfile} ] && [ -e ${link} ]; then
+        rm -rf ${HOME}/${dotfile}
+        ln -sf ${script_location}/${dotfile} ${HOME}/${dotfile}
+        if [ -L ${HOME}/${dotfile} ] && [ -e ${link} ]; then
             echo -e "${LINKED} - ${dotfile}"
         else
             echo -e "${LINKED_FAILED} - ${dotfile}"
@@ -480,13 +485,15 @@ install_emacs() {
 
 
 
-install_apt_packages
-create_folders
-install_dotfiles
-make_files_executable
-install_plugins
-update_npm
-install_pip
-install_pip_packages
-install_external_packages
-install_emacs
+init
+#update_system
+#install_apt_packages
+#create_folders
+#install_dotfiles
+#make_files_executable
+#install_plugins
+#update_npm
+#install_pip
+#install_pip_packages
+#install_external_packages
+#install_emacs
