@@ -161,7 +161,6 @@ DOTFILES=(
     "/.tmux.conf"
     "/.vimrc"
     "/.xprofile"
-    "/.xinitrc"
     "/.xsession"
     "/.config/i3/bin/logout"
     "/.config/i3/bin/rofi_app_launcher"
@@ -485,15 +484,14 @@ install_emacs() {
 
 
 
-init
-#update_system
-#install_apt_packages
-#create_folders
-#install_dotfiles
-#make_files_executable
-#install_plugins
-#update_npm
-#install_pip
-#install_pip_packages
-#install_external_packages
-#install_emacs
+update_system
+install_apt_packages
+create_folders
+install_dotfiles
+make_files_executable
+install_plugins
+update_npm
+install_pip
+install_pip_packages
+install_external_packages
+install_emacs
