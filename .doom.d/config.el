@@ -140,4 +140,19 @@
                         (format-mode-line "[%m] Row: %l  Col: %c ")))))
 ;; --- Modeline Format end ---
 
+;; --- LSP beg ---
+(setq lsp-enable-symbol-highlighting nil)
+(setq lsp-ui-doc-enable nil)
+(setq lsp-lens-enable nil)
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq lsp-ui-sideline-enable nil)
+(setq lsp-ui-sideline-show-hover nil)
+(setq lsp-diagnostics-provider :none)
+(setq lsp-ui-sideline-enable nil)
+(setq lsp-signature-auto-activate nil) ;; you could manually request them via `lsp-signature-activate`
+(setq lsp-completion-provider :none)
+(setq lsp-enable-snippet nil)
+(setq lsp-enable-indentation nil)
+;; --- LSP end ---
+
 ;;;;;;;;;; PACKAGES END ;;;;;;;;;;
