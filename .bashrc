@@ -18,6 +18,7 @@ alias tl='tmux ls'
 alias tidea='vim $HOME/git/.ideas.txt'
 alias bg='ranger $HOME/Pictures/Wallpapers/'
 alias r='ranger'
+alias dot='nvim $HOME/git/dotmaker/bootstrap.sh'
 
 export TERM=xterm-256color
 
