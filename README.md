@@ -32,6 +32,7 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] test recursive folder/dotfile search instead of hardcoding the dotfiles.
 - [ ] add script to lock computer (with blurred background option)
 - [ ] add qutebrowser config
 - [ ] check if terminal supports color
