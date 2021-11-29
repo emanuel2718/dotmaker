@@ -8,7 +8,7 @@ config.load_autoconfig(False)
 
 c.auto_save.session = False
 c.statusbar.widgets = ['keypress', 'history', 'progress']
-c.statusbar.show = 'in-mode'
+#c.statusbar.show = 'in-mode'
 c.tabs.title.format = '{private}{current_title}'
 c.tabs.show = 'multiple'
 c.fonts.web.size.default = 20
@@ -134,19 +134,4 @@ c.colors.tabs.selected.odd.bg = '#32302f'
 # =====================================================
 
 
-
-# Anti-fingerprinting
-c.content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36'
-c.content.headers.accept_language = 'en-US,en;q=0.5'
-c.content.headers.custom = {"accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"}
-c.content.cookies.accept = "no-3rdparty"
-
-# Adblock filter lists
-c.content.blocking.adblock.lists = [
-        "https://easylist.to/easylist/easylist.txt",
-        "https://easylist.to/easylist/easyprivacy.txt",
-        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
-        "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
-        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
-]
 
