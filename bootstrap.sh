@@ -271,24 +271,6 @@ install_external_packages() {
     sudo npm i -g pyright
     echo " Installed  - Pyright"
 
-    echo " Installing - Neovim"
-    git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
-    cd ${HOME}/packages/neovim/ && sudo make -j4
-    sudo make install
-    cd ${script_location}
-    echo " Installed  - Neovim"
-
-    echo " Installing - nvim.packer"
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    echo " Installed  - nvim.packer"
-
-    echo " Installing - lazygit"
-    sudo add-apt-repository ppa:lazygit-team/release -y
-    sudo apt-get update
-    sudo apt-get install lazygit -y
-    echo " Installed  - lazygit"
-
 
     echo " Installing - Spotify"
     sudo snap install spotify
@@ -462,6 +444,26 @@ install_emacs() {
     fi
 }
 
+install_neovim() {
+    echo " Installing - Neovim"
+    git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
+    cd ${HOME}/packages/neovim/ && sudo make -j4
+    sudo make install
+    cd ${script_location}
+    echo " Installed  - Neovim"
+
+    echo " Installing - nvim.packer"
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    echo " Installed  - nvim.packer"
+
+    echo " Installing - lazygit"
+    sudo add-apt-repository ppa:lazygit-team/release -y
+    sudo apt-get update
+    sudo apt-get install lazygit -y
+    echo " Installed  - lazygit"
+}
+
 
 
 
@@ -476,3 +478,4 @@ install_pip
 install_pip_packages
 install_external_packages
 install_emacs
+install_neovim
