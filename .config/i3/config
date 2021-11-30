@@ -55,7 +55,7 @@ bindsym $mod+p exec --no-startup-id ~/.config/i3/bin/logout
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 
-bindsym $mod+x exec ~/Pictures/screenshots/sc.sh
+bindsym $mod+u exec ~/Pictures/screenshots/sc.sh
 
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
