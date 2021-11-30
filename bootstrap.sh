@@ -7,12 +7,16 @@
 
 script_location=$PWD
 
+set -e
+source bin/common
+
+
 
 update_system() {
-    echo " > Updating system"
+    log_note "Updating system"
     sudo apt-get update --assume-yes >/dev/null
     sudo apt-get upgrade --assume-yes
-    echo " > System updated"
+    log_note "System updated"
 
     # Needed for snap package installation (sometimes?)
     if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
@@ -22,6 +26,7 @@ update_system() {
 
 apt_packages_to_install=(
     "apt-transport-https"
+    "apt-file"
     "chromium-browser"
     "clang"
     "cmake"
@@ -41,10 +46,13 @@ apt_packages_to_install=(
     "i3"
     "libboost-all-dev"
     "libjpeg8-dev"
+    "libsdl2-dev"
+    "libsdl2-image-dev"
     "libxext-dev"
     "neofetch"
     "ninja-build"
     "npm"
+    "pulsemixer"
     "python-is-python3"
     "python3-apt"
     "python3-dev"
@@ -71,6 +79,7 @@ apt_packages_to_install=(
 )
 
 install_apt_packages() {
+    log_note "Installing packages"
     for package in "${apt_packages_to_install[@]}"; do
 
         # install package
@@ -78,9 +87,9 @@ install_apt_packages() {
 
         # check if the package was installed succesfully
         if [ "$(dpkg -l | grep ${package} --no-message | wc -l)" -ge 1 ]; then
-            echo " Installed - ${package}"
+            log_ok "Installed $package"
         else
-            echo " Failed - ${package}"
+            log_error "$package not installed"
         fi
     done
 }
@@ -115,7 +124,7 @@ folders_to_create=(
 create_folders() {
     for folder in "${folders_to_create[@]}"; do
         mkdir -p ${folder}
-        echo " Directory Created - ${folder}"
+        log_info "Directory created: $folder"
     done
 }
 
@@ -167,17 +176,17 @@ install_dotfiles() {
         rm -rf ${HOME}/${dotfile}
         sudo ln -sf ${script_location}/${dotfile} ${HOME}/${dotfile}
         if [ -L ${HOME}/${dotfile} ] && [ -e ${link} ]; then
-            echo " Linked -->  ${dotfile}"
+            log_ok "Linked --> $dotfile"
         else
-            echo " Link Failed -->  ${dotfile}"
+            log_error "Link Failed --> $dotfile"
         fi
     done
 
     # add syslink to be able to use fd as a binary name
-    echo " Linked -->  fd binary"
+    log_ok "Linked --> fd binary"
     sudo ln -sf $(which fdfind) $/HOME/.local/bin/fd
 
-    echo " > Copying wallpaper"
+    log_note "Copying Wallpaper"
     cp ${script_location}/wallpapers/wallpaper.jpg \
     ${HOME}/Pictures/Wallpapers/pepoo_sad.jpg
 
@@ -196,7 +205,7 @@ excecutable_files=(
 make_files_executable() {
     for ex in "${excecutable_files[@]}"; do
         chmod +x ${ex}
-        echo " Executable - ${ex}"
+        log_info "chmod+x $ex"
     done
     source ${HOME}/.bashrc
 }
@@ -204,91 +213,83 @@ make_files_executable() {
 install_plugins() {
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo " Installed - vim pluggin manager"
+    log_info "Installed - vim plugin manager"
 
     if [ ! -d ${HOME}/.config/autojump ]; then
         git clone git://github.com/wting/autojump.git ${HOME}/.config/autojump
         cd $HOME/.config/autojump
         ./install.py
         cd $script_location
-        echo " Installed - autojump"
+        log_info "Installed - autojump"
     else
-        echo " Note - Autojump is already installed"
+        log_note "Autojump is already installed"
     fi
 
     source $HOME/.bashrc
 }
 
 update_npm() {
-    echo " Updating - npm"
+    log_note "Updating npm"
     sudo npm i -g npm
     sudo npm install -g n
     sudo n stable
-    echo " Updated  - npm"
+    log_check npm
 }
 
 install_pip() {
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
     python3 get-pip.py
-    echo " Installed - pip"
+    log_check pip3
 }
 
 install_pip_packages() {
 
-    echo " Installing - virtualenv"
     pip3 install -q virtualenv
-    echo " Installed  - virtualenv"
+    log_check virtualenv
 
-    echo " Installing - ueberzu"
     pip3 install -q ueberzug
-    echo " Installed  - ueberzu"
+    log_check ueberzug
 
-    echo " Installing - Jupyter Notebooks"
     pip3 install -q jupyter
-    echo " Installed  - Jupyter Notebooks"
+    log_check jupyter
 
-    echo " Installing - Jupyter-vim-binding plugin"
     mkdir -p $(jupyter --data-dir)/nbextensions
     git clone https://github.com/lambdalisue/jupyter-vim-binding ${HOME}/vim_binding
     jupyter nbextension enable ${HOME}/vim_binding/vim_binding
-    echo " Installed  - Jupyter-vim-binding plugin"
+    log_ok "Installed Jupyter-vim-binding plugin"
 }
 
 install_external_packages() {
-    echo " Installing - fzf"
     git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
     cd $HOME/.fzf/
     ./install --all
     cd ${script_location}
-    echo " Installed  - fzf"
+    log_check fzf
 
+    sudo snap install go --classic &>/dev/null
+    log_check go
 
-    echo " Installing - Golang"
-    sudo wget https://golang.org/dl/go1.15.5.linux-amd64.tar.gz $HOME/packages/&& sudo tar -C /usr/local -xzf go1.15.5.linux-amd64.tar.gz
-    echo " Installed  - Golang"
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source $HOME/.cargo/env
+    log_check rustc
 
-    echo " Installing - Pyright"
     sudo npm i -g pyright
-    echo " Installed  - Pyright"
+    log_check pyright
 
 
-    echo " Installing - Spotify"
     sudo snap install spotify
-    echo " Installed  - Spotify"
+    log_check spotify
 
 
-    echo " Installing - Clion IDE"
     sudo snap install clion --classic
-    echo " Installed  - Clion IDE"
+    log_check clion
 
-    echo " Installing - Brave Browser"
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
     sudo apt update
     sudo apt-get -qq install -y brave-browser 2> /dev/null
-    echo " Installed  - Brave Browser"
+    log_check brave-browser
 
-    echo " Installing - 1Password"
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
     echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
     sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
@@ -297,19 +298,17 @@ install_external_packages() {
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
     sudo apt update
     sudo apt-get -qq install -y 1password 2> /dev/null
-    echo " Installed  - 1Password"
+    log_check 1password
 
-    echo " Installing - Krita"
     sudo snap install krita
-    echo " Installed  - Krita"
+    log_check krita
 
-    echo " Installing - OBS"
     # fgmpeg is also required but it's already installed in the apt_install
     sudo apt install v4l2loopback-dkms -y
     sudo add-apt-repository ppa:obsproject/obs-studio
     sudo apt update
     sudo apt install obs-studio -y
-    echo " Installed  - OBS"
+    log_check obs
 }
 
 
@@ -363,17 +362,18 @@ native_emacs_req_packages=(
 
 
 install_native_emacs() {
-    echo " > Installing Naitve Emacs required packages"
+    log_note "Installing Native Emacs required packages"
     sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa --assume-yes
     sudo apt update --assume-yes
     for package in "${native_emacs_req_packages[@]}"; do
         sudo apt-get -qq install -y "${package}" 2> /dev/null
-        echo  " Installed  - ${package}"
+        log_ok "Installed $package"
     done
 
-    echo " > Cloning Emacs from github"
+    log_note "Cloning Emacs from Github"
     git clone https://github.com/flatwhatson/emacs.git $HOME/emacs
 
+    log_note "cd $HOME/emacs"
     cd $HOME/emacs
 
     git checkout pgtk-nativecomp
@@ -388,25 +388,21 @@ install_native_emacs() {
 
     sudo ln -s $HOME/emacs/src/emacs /usr/bin/emacs
 
-    #./src/emacs
-
-    echo " > Back to dotmaker..."
+    log_note "Back to Dotmaker"
     cd $script_location
 
-    echo " Installing - Doom Emacs"
+    log_note "Installing Doom Emacs"
     git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
     $HOME/.emacs.d/bin/doom install
 }
 
 install_base_emacs() {
-    echo " Installing - Base Emacs (Non-native compiled)"
     sudo apt-get -qq install -y emacs 2> /dev/null
-    echo " Installed  - Base Emacs (Non-native compiled)"
+    log_check emacs
 
-    echo " Installing - Doom Emacs"
     git clone --depth 1 https://github.com/hlissner/doom-emacs $HOME/.emacs.d
     $HOME/.emacs.d/bin/doom install
-    echo " Installed  - Doom Emacs"
+    log_ok "Installed Doom Emacs"
 }
 
 install_emacs() {
@@ -421,47 +417,44 @@ install_emacs() {
             install_base_emacs
         fi
 
-        echo " > Copying naysayer theme to ~/.emacs.d/themes/"
+        log_note "Copying Naysayer theme to ~/.emacs.d/themes"
         mkdir ${HOME}/.emacs.d/themes
         cp ${script_location}/emacs_themes/naysayer-theme.el ${HOME}/.emacs.d/themes
     else
-        echo " > Emacs already installed in this system"
+        log_warning "Emacs already installed in this system"
     fi
 
     # Install personal doom configuration files
     if [ -d ${HOME}/.doom.d ]; then
         rm -rf ${HOME}/.doom.d/config.el
         sudo ln -sf ${script_location}/.doom.d/config.el ${HOME}/.doom.d/config.el
-        echo " Linked -->  ${HOME}/.doom.d/config.el"
+        log_ok "Linked -->  ${HOME}/.doom.d/config.el"
 
         rm -rf ${HOME}/.doom.d/init.el
         sudo ln -sf ${script_location}/.doom.d/init.el ${HOME}/.doom.d/init.el
-        echo " Linked -->  ${HOME}/.doom.d/init.el"
+        log_ok "Linked -->  ${HOME}/.doom.d/init.el"
 
         rm -rf ${HOME}/.doom.d/packages.el
         sudo ln -sf ${script_location}/.doom.d/packages.el ${HOME}/.doom.d/packages.el
-        echo " Linked -->  ${HOME}/.doom.d/packages.el"
+        log_ok "Linked -->  ${HOME}/.doom.d/packages.el"
     fi
 }
 
 install_neovim() {
-    echo " Installing - Neovim"
     git clone https://github.com/neovim/neovim ${HOME}/packages/neovim
     cd ${HOME}/packages/neovim/ && sudo make -j4
     sudo make install
     cd ${script_location}
-    echo " Installed  - Neovim"
+    log_check nvim
 
-    echo " Installing - nvim.packer"
     git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    echo " Installed  - nvim.packer"
+    log_ok "Installed nvim.packer"
 
-    echo " Installing - lazygit"
     sudo add-apt-repository ppa:lazygit-team/release -y
     sudo apt-get update
     sudo apt-get install lazygit -y
-    echo " Installed  - lazygit"
+    log_check lazygit
 }
 
 
