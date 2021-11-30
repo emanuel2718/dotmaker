@@ -156,3 +156,4 @@ export FZF_ALT_G_COMMAND='fd -t d . $HOME'
 
 # autojump
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+. "$HOME/.cargo/env"
