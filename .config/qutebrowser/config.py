@@ -77,6 +77,8 @@ bind("'y", ':open --tab https://youtube.com')
 bind("'p", ':open --tab https://privacytools.io')
 bind("'l", ':open --tab localhost:8080')
 bind("'w", ':open --tab https://wallhaven.cc/toplist?page=2')
+bind("'c", ':open --tab https://cheats.rs/')
+
 # =====================================================
 
 
