@@ -14,8 +14,8 @@ source bin/common
 
 update_system() {
     log_note "Updating system"
-    sudo apt-get update --assume-yes >/dev/null
-    sudo apt-get upgrade --assume-yes
+    sudo apt-get update -y >/dev/null
+    sudo apt-get upgrade -y
     log_note "System updated"
 
     # Needed for snap package installation (sometimes?)
@@ -51,7 +51,6 @@ apt_packages_to_install=(
     "libxext-dev"
     "neofetch"
     "ninja-build"
-    "npm"
     "pulsemixer"
     "python-is-python3"
     "python3-apt"
@@ -183,8 +182,9 @@ install_dotfiles() {
     done
 
     # add syslink to be able to use fd as a binary name
-    log_ok "Linked --> fd binary"
-    sudo ln -sf $(which fdfind) $/HOME/.local/bin/fd
+    # TODO: check why this is failing on Linux Mint
+    # log_ok "Linked --> fd binary"
+    # sudo ln -sf $(which fdfind) $/HOME/.local/bin/fd
 
     log_note "Copying Wallpaper"
     cp ${script_location}/wallpapers/wallpaper.jpg \
@@ -228,11 +228,10 @@ install_plugins() {
     source $HOME/.bashrc
 }
 
-update_npm() {
-    log_note "Updating npm"
-    sudo npm i -g npm
-    sudo npm install -g n
-    sudo n stable
+install_npm() {
+    log_note "Installing npm"
+    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash
+    sudo apt-get install -y nodejs
     log_check npm
 }
 
@@ -266,7 +265,7 @@ install_external_packages() {
     cd ${script_location}
     log_check fzf
 
-    sudo snap install go --classic &>/dev/null
+    sudo snap install go --classic
     log_check go
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -363,8 +362,8 @@ native_emacs_req_packages=(
 
 install_native_emacs() {
     log_note "Installing Native Emacs required packages"
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa --assume-yes
-    sudo apt update --assume-yes
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
+    sudo apt update -y
     for package in "${native_emacs_req_packages[@]}"; do
         sudo apt-get -qq install -y "${package}" 2> /dev/null
         log_ok "Installed $package"
@@ -466,7 +465,7 @@ create_folders
 install_dotfiles
 make_files_executable
 install_plugins
-update_npm
+install_npm
 install_pip
 install_pip_packages
 install_external_packages
