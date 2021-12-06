@@ -27,7 +27,6 @@ update_system() {
 apt_packages_to_install=(
     "apt-transport-https"
     "apt-file"
-    "chromium-browser"
     "clang"
     "cmake"
     "cppcheck"
@@ -46,6 +45,7 @@ apt_packages_to_install=(
     "i3"
     "libboost-all-dev"
     "libjpeg8-dev"
+    "libjpeg62-turbo-dev"
     "libsdl2-dev"
     "libsdl2-image-dev"
     "libxext-dev"
@@ -81,8 +81,12 @@ install_apt_packages() {
     log_note "Installing packages"
     for package in "${apt_packages_to_install[@]}"; do
 
-        # install package
-        sudo apt-get -qq install -y "${package}" >/dev/null
+    # install package
+	if [ -z "$(apt-cache madison ${package} 2>/dev/null)" ]; then
+	    log_warning "$pacakge not found"
+	else
+            sudo apt-get -qq install -y "${package}" >/dev/null
+	fi
 
         # check if the package was installed succesfully
         if [ "$(dpkg -l | grep ${package} --no-message | wc -l)" -ge 1 ]; then
@@ -265,8 +269,8 @@ install_external_packages() {
     cd ${script_location}
     log_check fzf
 
-    sudo snap install go --classic
-    log_check go
+    # sudo snap install go --classic
+    # log_check go
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     source $HOME/.cargo/env
@@ -362,14 +366,14 @@ native_emacs_req_packages=(
 
 install_native_emacs() {
     log_note "Installing Native Emacs required packages"
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
     sudo apt update -y
     for package in "${native_emacs_req_packages[@]}"; do
-        sudo apt-get -qq install -y "${package}" 2> /dev/null
+        sudo apt-get -qq install -y "${package}" >/dev/null
         log_ok "Installed $package"
     done
 
     log_note "Cloning Emacs from Github"
+
     git clone https://github.com/flatwhatson/emacs.git $HOME/emacs
 
     log_note "cd $HOME/emacs"
@@ -450,10 +454,17 @@ install_neovim() {
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     log_ok "Installed nvim.packer"
 
-    sudo add-apt-repository ppa:lazygit-team/release -y
-    sudo apt-get update
-    sudo apt-get install lazygit -y
-    log_check lazygit
+    curl -O https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+    sha256sum go1.12.7.linux-amd64.tar.gz
+    tar xvf go1.12.7.linux-amd64.tar.gz
+    sudo chown -R root:root ./go
+    sudo mv go /usr/local
+    log_check go
+
+
+    git clone https://github.com/jesseduffield/lazygit.git $HOME/packages/lazygit/
+    go $HOME/packages/lazygit/install
+    log_ok "Installed lazygit"
 }
 
 
