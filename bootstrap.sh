@@ -28,6 +28,7 @@ apt_packages_to_install=(
     "apt-transport-https"
     "apt-file"
     "clang"
+    "clang-format"
     "cmake"
     "cppcheck"
     "curl"
