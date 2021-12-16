@@ -16,8 +16,23 @@
 (setq ranger-show-hidden t)
 (setq inhibit-startup-screen t)
 (setq display-line-numbers-type nil)
+(setq compilation-scroll-output t)
+(setq compilation-window-height 25)
 (setq-default tab-width 4)
 (global-hl-line-mode 1)
+
+
+(defun aoc-compile-test()
+  (interactive)
+  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve --test")
+  (call-interactively 'compile))
+
+(defun aoc-compile()
+  (interactive)
+  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve")
+  (call-interactively 'compile))
+
+
 ;;;;;;;;;; DEFAULTS END ;;;;;;;;;;
 
 
@@ -32,6 +47,9 @@
       "id"  #'evil-numbers/dec-at-pt-incremental
       "lc"  #'lsp
       "ld"  #'lsp-disconnect
+      "cf"  #'clang-format-buffer
+      "c."  #'aoc-compile-test
+      "cm"  #'aoc-compile
 )
 
 ;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
@@ -50,12 +68,13 @@
 ;;(setq doom-theme 'doom-gruvbox)
 
 ;; --- Naysayer beg ---
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'naysayer t)
+;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+;;(load-theme 'naysayer t)
 ;; --- Naysayer end ---
 
 
 ;; --- Modus beg ---
+(load-theme 'modus-vivendi)
 ;;(set-face-background 'hl-line "#3e4446")
 ;;(use-package modus-themes
 ;;  :ensure
@@ -128,16 +147,16 @@
 ;; --- Dashboard end ---
 
 ;; --- Modeline Format beg ---
-(defun simple-mode-line-render (left right)
-  (let* ((available-width (- (window-width) (length left) 2)))
-    (format (format " %%s %%%ds " available-width) left right)))
-
-(setq-default mode-line-format
-              '((:eval (simple-mode-line-render
-                        ;; left
-                        (format-mode-line "%b [%*]")
-                        ;; right
-                        (format-mode-line "[%m] Row: %l  Col: %c ")))))
+;;(defun simple-mode-line-render (left right)
+;;  (let* ((available-width (- (window-width) (length left) 2)))
+;;    (format (format " %%s %%%ds " available-width) left right)))
+;;
+;;(setq-default mode-line-format
+;;              '((:eval (simple-mode-line-render
+;;                        ;; left
+;;                        (format-mode-line "%b [%*]")
+;;                        ;; right
+;;                        (format-mode-line "[%m] Row: %l  Col: %c ")))))
 ;; --- Modeline Format end ---
 
 ;; --- LSP beg ---
@@ -154,5 +173,23 @@
 (setq lsp-enable-snippet nil)
 (setq lsp-enable-indentation nil)
 ;; --- LSP end ---
+
+
+;; --- CLANG-FORMAT beg ---
+;;(add-hook 'c-mode-common-hook #'clang-format+-mode)
+;;(defun clang-format-buffer-smart ()
+;;  "Reformat buffer if .clang-format exists in the projectile root."
+;;  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
+;;    (clang-format-buffer)))
+;;
+;;(defun clang-format-buffer-smart-on-save ()
+;;  "Add auto-save hook for clang-format-buffer-smart."
+;;  (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
+;;
+;;(add-hook! 'clang-format-buffer-smart-on-save
+;;           '(c-mode-hook c++-mode-hook))
+
+;; --- CLANG-FORMAT end ---
+
 
 ;;;;;;;;;; PACKAGES END ;;;;;;;;;;

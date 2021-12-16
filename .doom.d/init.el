@@ -10,6 +10,7 @@
        :ui
        doom
        doom-quit           ; DOOM quit-message prompts when you quit Emacs
+       doom-modeline
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
        unicode             ; extended unicode support for various languages
