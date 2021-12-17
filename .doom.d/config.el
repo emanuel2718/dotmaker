@@ -16,23 +16,10 @@
 (setq ranger-show-hidden t)
 (setq inhibit-startup-screen t)
 (setq display-line-numbers-type nil)
-(setq compilation-scroll-output t)
+(setq compilation-scroll-output 'first-error)
 (setq compilation-window-height 25)
 (setq-default tab-width 4)
 (global-hl-line-mode 1)
-
-
-(defun aoc-compile-test()
-  (interactive)
-  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve --test")
-  (call-interactively 'compile))
-
-(defun aoc-compile()
-  (interactive)
-  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve")
-  (call-interactively 'compile))
-
-
 ;;;;;;;;;; DEFAULTS END ;;;;;;;;;;
 
 
@@ -49,7 +36,8 @@
       "ld"  #'lsp-disconnect
       "cf"  #'clang-format-buffer
       "c."  #'aoc-compile-test
-      "cm"  #'aoc-compile
+      "mc"  #'aoc-compile
+      "mm"  #'compile-again
 )
 
 ;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
@@ -175,20 +163,65 @@
 ;; --- LSP end ---
 
 
-;; --- CLANG-FORMAT beg ---
-;;(add-hook 'c-mode-common-hook #'clang-format+-mode)
-;;(defun clang-format-buffer-smart ()
-;;  "Reformat buffer if .clang-format exists in the projectile root."
-;;  (when (f-exists? (expand-file-name ".clang-format" (projectile-project-root)))
-;;    (clang-format-buffer)))
-;;
-;;(defun clang-format-buffer-smart-on-save ()
-;;  "Add auto-save hook for clang-format-buffer-smart."
-;;  (add-hook 'before-save-hook 'clang-format-buffer-smart nil t))
-;;
-;;(add-hook! 'clang-format-buffer-smart-on-save
-;;           '(c-mode-hook c++-mode-hook))
+;; --- Compile beg ---
 
+(require 'compile)
+(setq compilation-last-buffer nil)
+;; save all modified buffers without asking before compilation
+(setq compilation-ask-about-save nil)
+(defun compile-again (ARG)
+  "Run the same compile as the last time.
+
+With a prefix argument or no last time, this acts like M-x compile,
+and you can reconfigure the compile args."
+  (interactive "p")
+  ;; the following two lines create bug: split a new window every time
+  ;; (if (not (get-buffer-window "*compilation*"))
+  ;;      (split-window-below))
+  (if (and (eq ARG 1) compilation-last-buffer)
+      (recompile)
+    (call-interactively 'smart-compile)))
+;;(bind-key* "C-m" 'compile-again)
+;; create a new small frame to show the compilation info
+;; will be auto closed if no error
+(setq special-display-buffer-names
+      `(("*compilation*" . ((name . "*compilation*")
+                            ,@default-frame-alist
+                            (left . (- 1))
+                            (top . 0)))))
+(setq compilation-finish-functions
+      (lambda (buf str)
+        (if (null (string-match ".*exited abnormally.*" str))
+            ;;no errors, make the compilation window go away in a few seconds
+            (progn
+              (run-at-time
+               "1 sec" nil 'delete-windows-on
+               (get-buffer-create "*compilation*"))
+              (message "No Compilation Errors!")))))
+
+
+(defun aoc-compile-test()
+  (interactive)
+  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve --test")
+  (call-interactively 'compile))
+
+(defun aoc-compile()
+  (interactive)
+  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp")
+  (call-interactively 'compile))
+
+;; --- Compile end ---
+
+
+
+
+;; --- CLANG-FORMAT beg ---
+
+; Clang format on save
+(add-hook 'c-mode-common-hook
+          (function (lambda ()
+                    (add-hook 'before-save-hook
+                              'clang-format-buffer))))
 ;; --- CLANG-FORMAT end ---
 
 
