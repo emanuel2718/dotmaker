@@ -53,7 +53,7 @@
 ;;;;;;;;; THEMES BEG ;;;;;;;;;;
 
 ;; defualt theme
-;;(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-gruvbox)
 
 ;; --- Naysayer beg ---
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -62,7 +62,7 @@
 
 
 ;; --- Modus beg ---
-(load-theme 'modus-vivendi)
+;;(load-theme 'modus-vivendi)
 ;;(set-face-background 'hl-line "#3e4446")
 ;;(use-package modus-themes
 ;;  :ensure
@@ -218,10 +218,10 @@ and you can reconfigure the compile args."
 ;; --- CLANG-FORMAT beg ---
 
 ; Clang format on save
-(add-hook 'c-mode-common-hook
-          (function (lambda ()
-                    (add-hook 'before-save-hook
-                              'clang-format-buffer))))
+;;(add-hook 'c-mode-common-hook
+;;          (function (lambda ()
+;;                    (add-hook 'before-save-hook
+;;                              'clang-format-buffer))))
 ;; --- CLANG-FORMAT end ---
 
 
