@@ -32,6 +32,8 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] add system identifier (Arch based vs Debian based etc)
+- [ ] refactor script to handle `--minimal` which install min reqs.
 - [ ] test recursive folder/dotfile search instead of hardcoding the dotfiles.
 - [ ] add script to lock computer (with blurred background option)
 - [ ] add qutebrowser config
