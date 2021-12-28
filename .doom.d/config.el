@@ -34,10 +34,14 @@
       "id"  #'evil-numbers/dec-at-pt-incremental
       "lc"  #'lsp
       "ld"  #'lsp-disconnect
-      "cf"  #'clang-format-buffer
-      "c."  #'aoc-compile-test
-      "mc"  #'aoc-compile
+      "c."  #'aoc-compile
       "mm"  #'compile-again
+      "cf"  #'clang-format-buffer
+      "lt"  #'evil-toggle-fold
+      ;;"c>"  #'mc/mark-next-like-this
+      ;;"c<"  #'mc/mark-previous-like-this
+      ;;"cm"  #'mc/edit-lines
+      ;;"cv"  #'mc/mark-all-in-region
 )
 
 ;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
@@ -53,7 +57,8 @@
 ;;;;;;;;; THEMES BEG ;;;;;;;;;;
 
 ;; defualt theme
-(setq doom-theme 'doom-gruvbox)
+;;(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-homage-black)
 
 ;; --- Naysayer beg ---
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
