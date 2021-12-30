@@ -37,6 +37,7 @@ apt_packages_to_install=(
     "fd-find"
     "feh"
     "ffmpeg"
+    "ffmpegthumbnailer"
     "fonts-spleen"
     "fonts-terminus"
     "fzf"
