@@ -32,6 +32,7 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] improve script
 - [ ] add system identifier (Arch based vs Debian based etc)
 - [ ] refactor script to handle `--minimal` which install min reqs.
 - [ ] test recursive folder/dotfile search instead of hardcoding the dotfiles.
