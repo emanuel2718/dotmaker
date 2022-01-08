@@ -61,7 +61,7 @@
 (setq doom-theme 'doom-homage-black)
 
 ;; --- Naysayer beg ---
-;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'naysayer t)
 ;; --- Naysayer end ---
 
