@@ -3,17 +3,11 @@
 #setxkbmap -option 'caps:ctrl_modifier'
 #xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
-
 # IBM MODEL M map
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape'
 setxkbmap -option 'caps:ctrl_modifier'
 xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
-
-# HHKB only: Swap Esc with 'grave_tilde (`)'
-
-xmodmap -e "keycode 49 = Escape"
-xmodmap -e "keycode 9 = grave asciitilde"
 
 xset r rate 220 40
