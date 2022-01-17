@@ -66,6 +66,7 @@ apt_packages_to_install=(
     "scrot"
     "silversearcher-ag"
     "snapd"
+    "sqlitebrowser"
     "tmux"
     "unzip"
     "valgrind"
