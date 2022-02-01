@@ -19,6 +19,7 @@
 (setq compilation-scroll-output 'first-error)
 (setq compilation-window-height 25)
 (setq-default tab-width 4)
+(setq scroll-step 1)
 (global-hl-line-mode 1)
 ;;;;;;;;;; DEFAULTS END ;;;;;;;;;;
 

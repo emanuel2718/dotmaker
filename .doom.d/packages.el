@@ -12,6 +12,7 @@
 (package! base16-theme)
 (package! multiple-cursors)
 (package! github-theme)
+(package! smooth-scrolling)
 ;;(package! modus-themes)
 ;;(package! modus-vivendi-theme)
 ;;(package! modus-operandi-theme)
