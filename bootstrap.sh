@@ -27,6 +27,7 @@ update_system() {
 apt_packages_to_install=(
     "apt-transport-https"
     "apt-file"
+    "ccache"
     "clang"
     "clang-format"
     "cmake"
