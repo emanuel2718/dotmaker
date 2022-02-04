@@ -280,6 +280,10 @@ install_external_packages() {
     source $HOME/.cargo/env
     log_check rustc
 
+    rustup update
+    rustup component add rls rust-analysis rust-src
+    log_check rustup
+
     sudo npm i -g pyright
     log_check pyright
 
