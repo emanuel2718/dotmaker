@@ -58,8 +58,8 @@
 ;;;;;;;;; THEMES BEG ;;;;;;;;;;
 
 ;; defualt theme
-;;(setq doom-theme 'doom-gruvbox)
-(setq doom-theme 'doom-homage-black)
+(setq doom-theme 'doom-gruvbox)
+;;(setq doom-theme 'doom-homage-black)
 
 ;; --- Naysayer beg ---
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
