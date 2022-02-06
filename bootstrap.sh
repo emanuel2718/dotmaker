@@ -283,6 +283,8 @@ install_external_packages() {
     rustup update
     rustup toolchain add nightly
     rustup component add rls rust-analysis rust-src
+    cargo +nightly install racer
+
     log_check rustup
 
     sudo npm i -g pyright
