@@ -281,6 +281,7 @@ install_external_packages() {
     log_check rustc
 
     rustup update
+    rustup toolchain add nightly
     rustup component add rls rust-analysis rust-src
     log_check rustup
 
