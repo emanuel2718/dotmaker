@@ -285,6 +285,12 @@ install_external_packages() {
     rustup component add rls rust-analysis rust-src
     cargo +nightly install racer
 
+    git clone https://github.com/rust-analyzer/rust-analyzer.git
+    $HOME/packages/rust-analyzer
+    cd $HOME/packages/rust-analyzer
+    cargo xtask install --server
+    cd ${script_location}
+
     log_check rustup
 
     sudo npm i -g pyright
