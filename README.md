@@ -32,6 +32,7 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] add package folder like `script_location`
 - [ ] improve script
 - [ ] add system identifier (Arch based vs Debian based etc)
 - [ ] refactor script to handle `--minimal` which install min reqs.
