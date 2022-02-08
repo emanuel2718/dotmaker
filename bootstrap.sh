@@ -456,7 +456,10 @@ install_emacs() {
         rm -rf ${HOME}/.doom.d/packages.el
         sudo ln -sf ${script_location}/.doom.d/packages.el ${HOME}/.doom.d/packages.el
         log_ok "Linked -->  ${HOME}/.doom.d/packages.el"
+
+        $HOME/.emacs.d/bin/doom sync
     fi
+
 }
 
 install_neovim() {
