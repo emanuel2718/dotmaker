@@ -12,6 +12,12 @@ return require('packer').startup(function()
   use 'kabouzeid/nvim-lspinstall'
   use 'onsails/lspkind-nvim'
 
+  -- Syntactic language support
+  use 'rust-lang/rust.vim'
+  use 'rhysd/vim-clang-format'
+  use 'godlygeek/tabular'
+  use 'plasticboy/vim-markdown'
+
   -- NERDTree
   --use "preservim/nerdtree"
 
@@ -20,6 +26,11 @@ return require('packer').startup(function()
 
   -- Auto pairs
   use 'windwp/nvim-autopairs'
+
+  -- Fuzzy finder
+  use 'airblade/vim-rooter'
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
 
   -- Colorschemes
   use 'dylanaraps/wal.vim'
