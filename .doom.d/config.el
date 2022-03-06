@@ -3,232 +3,195 @@
 ;;; created by Emanuel Ramirez Alsina on 01/15/2020
 
 
-;;;;;;;;;; DEFAULTS BEG ;;;;;;;;;;
-(setq user-full-name "emanuel2718"
-      user-mail-address "eramirez2718@gmail.com")
-(setq org-directory "~/git/org/")
-(setq +workspaces-on-switch-project-behavior nil) ; open new project on current window
-(setq sentence-end-double-space nil)
-(setq evil-shift-width 4)
-(setq evil-shift-round nil)
-(setq fill-column 80)
-(setq whitespace-line-column 80)
-(setq ranger-show-hidden t)
-(setq inhibit-startup-screen t)
-(setq display-line-numbers-type nil)
-(setq compilation-scroll-output 'first-error)
-(setq compilation-window-height 25)
-(setq-default tab-width 4)
-(setq scroll-step 1)
-(global-hl-line-mode 1)
-;;;;;;;;;; DEFAULTS END ;;;;;;;;;;
+(use-package emacs
+ :config
+ (setq user-full-name "Emanuel Ramirez Alsina")
+ (setq user-mail-address "eramirez2718@gmail.com")
+ (setq frame-title-format '("Emacs " emacs-version))
+ (setq +workspaces-on-switch-project-behavior nil)
+ (setq auto-window-vscroll nil)
+ (setq compilation-scroll-output 'first-error)
+ (setq compilation-window-height 25)
+ (setq display-line-numbers-type nil)
+ (setq display-line-numbers-type nil)
+ (setq evil-shift-round nil)
+ (setq evil-shift-width 4)
+ (setq fill-column 80)
+ (setq frame-resize-pixelwise t)
+ (setq hscroll-margin 0)
+ (setq hscroll-step 1)
+ (setq inhibit-compacting-font-caches t)
+ (setq inhibit-startup-screen t)
+ (setq initial-scratch-message "")
+ (setq max-lisp-eval-depth 10000)
+ (setq max-specpdl-size 10000)
+ (setq ranger-show-hidden t)
+ (setq ring-bell-function nil)
+ (setq scroll-preserve-screen-position t)
+ (setq scroll-step 1)
+ (setq scroll-step 1)
+ (setq sentence-end-double-space nil)
+ (setq whitespace-line-column 80)
+ (setq-default tab-width 4)
+ (add-to-list 'default-frame-alist '(inhibit-double-buffering . t)))
 
 
-;;;;;;;;;; CUSTOM KEYBINDS BEG ;;;;;;;;;;
 (map! :leader
-      ;; <leader><leader> show corresponding file in other window
-      "SPC" #'projectile-find-other-file-other-window
-      ","   #'projectile-find-other-file
-      "pr"  #'projectile-replace
-      "r"   #'replace-regexp
-      "ii"  #'evil-numbers/inc-at-pt-incremental
-      "id"  #'evil-numbers/dec-at-pt-incremental
-      "lc"  #'lsp
-      "ld"  #'lsp-disconnect
-      "c."  #'aoc-compile
-      "mm"  #'compile-again
-      "cf"  #'clang-format-buffer
-      "lt"  #'evil-toggle-fold
-      ;;"c>"  #'mc/mark-next-like-this
-      ;;"c<"  #'mc/mark-previous-like-this
-      ;;"cm"  #'mc/edit-lines
-      ;;"cv"  #'mc/mark-all-in-region
-)
-
-;;;;;;;;;; CUSTOM KEYBINDS END ;;;;;;;;;;
+      "SPC"  #'projectile-find-other-file-other-window
+      ","    #'projectile-find-other-file
+      "pr"   #'projectile-replace-regexp
+      "ii"   #'evil-numbers/inc-at-pt-incremental
+      "id"   #'evil-numbers/dec-at-pt-incremental
+      "lc"   #'lsp
+      "ld"   #'lsp-disconnect
+      "c."   #'recompile
+      "lt"   #'evil-toggle-fold)
 
 
-;;;;;;;;; FONTS BEG ;;;;;;;;;;
-
-(add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono-12"))
-
-;;;;;;;;; FONTS END ;;;;;;;;;;
-
-;;;;;;;;; THEMES BEG ;;;;;;;;;;
-
-;; defualt theme
-(setq doom-theme 'doom-gruvbox)
-;;(setq doom-theme 'doom-homage-black)
-
-;; --- Naysayer beg ---
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-;;(load-theme 'naysayer t)
-;; --- Naysayer end ---
+(use-package eldoc
+  :ensure nil
+  :config
+  (global-eldoc-mode -1)
+  (setq eldoc-echo-area-use-multiline-p nil)
+  (setq eldoc-idle-delay 0.4))
 
 
-;; --- Modus beg ---
-;;(load-theme 'modus-vivendi)
-;;(set-face-background 'hl-line "#3e4446")
-;;(use-package modus-themes
-;;  :ensure
-;;  :init
-;;  (setq modus-themes-slanted-constructs t
-;;        modus-themes-bold-constructs nil
-;;        modus-themes-region 'no-extend)
-;;
-;;  (modus-themes-load-themes)
-;;  :config
-;;  (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
-;;  :bind ("<f5>" . modus-themes-toggle))
-;; --- Modus end ---
-
-;;;;;;;;; THEMES END ;;;;;;;;;;
+(use-package mwheel
+  :ensure nil
+  :config
+  (setq mouse-wheel-scroll-amount '(7 ((shift) . 1) ((control) . nil)))
+  (setq mouse-wheel-progressive-speed nil))
 
 
-;;;;;;;;;; PACKAGES BEG ;;;;;;;;;;
+(use-package recentf
+  :ensure nil
+  :config
+  (add-to-list 'recentf-exclude (format "%s/\\.emacs.d/early-init.el" (getenv "HOME")))
+  (add-to-list 'recentf-exclude (format "%s/\\.emacs.d/init.el" (getenv "HOME")))
+  (add-to-list 'recentf-exclude (format "%s/\\.emacs.d/elpa/.*" (getenv "HOME")))
+  (add-to-list 'recentf-exclude (format "%s/\\.emacs.d/workspace/.*" (getenv "HOME")))
+  (add-to-list 'recentf-exclude (format "%s/\\.local/lib/python3.9/site-packages/.*" (getenv "HOME")))
+  (add-to-list 'recentf-exclude "/usr/lib/.*")
+  (recentf-mode +1))
 
-;; --- Impatient Mode beg ---
-;; TODO: Install impatient-mode package
-;; Start webserver: M-x httpd-start
-;; Start impatient: M-x impatient-mode
-;; Open browser at: localhost:8080/imp
-;; Tell impatient to use it: M-x imp-set-user-filter RET markdown-html RET
-(defun markdown-html (buffer)
-  (princ (with-current-buffer buffer
-           (format "<!DOCTYPE html><html><title>Impatient Markdown</title><xmp theme=\"united\" style=\"display:none;\"> %s  </xmp><script src=\"http://strapdownjs.com/v/0.2/strapdown.js\"></script></html>" (buffer-substring-no-properties (point-min) (point-max))))
-         (current-buffer)))
-;; --- Impatient Mode end ---
+(use-package doom-themes
+  :preface (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;; --- Projectile beg ---
-(setq projectile-project-search-path '("~/git/"))
-;; --- Projectile end ---
+  :config
+  (load-theme 'naysayer t))
+  ;;(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight: 'light)
+  ;;      doom-variable-pitch-font (font-spec :family "sans" :size 14)))
 
 
-;; --- Company beg ---
+
 (use-package company
   :ensure t
   :init
   (add-hook 'after-init-hook 'global-company-mode)
   :config
-  (setq company-tooltip-align-annotations t
-        company-minimum-prefix-length 2
-        company-idle-delay 0.1))
+  (setq company-tooltip-align-annotations t)
+  (setq company-minimum-prefix-length 2)
+  (setq company-idle-delay 0.1)
+  (global-set-key (kbd "C-;") 'recenter-top-bottom)
+  (define-key evil-insert-state-map (kbd "C-l") #'company-complete)
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "M-n") nil)
+    (define-key company-active-map (kbd "M-p") nil)
+    (define-key company-active-map (kbd "C-j") #'company-select-next)
+    (define-key company-active-map (kbd "C-k") #'company-select-previous)
+    (define-key company-active-map (kbd "C-l") #'company-complete)))
 
-(define-key evil-insert-state-map (kbd "C-l") #'company-complete)
-(global-set-key (kbd "C-;") 'recenter-top-bottom)
-(with-eval-after-load 'company
-  (define-key company-active-map (kbd "M-n") nil)
-  (define-key company-active-map (kbd "M-p") nil)
-  (define-key company-active-map (kbd "C-j") #'company-select-next)
-  (define-key company-active-map (kbd "C-k") #'company-select-previous)
-  (define-key company-active-map (kbd "C-l") #'company-complete))
-;; --- Company end ---
-
-;; --- Dashboard beg ---
-(use-package dashboard
-  :init
-  (add-hook 'after-init-hook 'dashboard-refresh-buffer)
+(use-package ranger
   :config
-  (setq dashboard-startup-banner 'official
-        dashboard-banner-logo-title "Welcome to Emacs"
-        dashboard-center-content t
-        dashboard-show-shortcuts nil
-        dashboard-items '((recents  . 10)
-                          (projects  . 10))
-        dashboard-projects-switch-function 'projectile-persp-switch-project)
-  (dashboard-setup-startup-hook))
-;; --- Dashboard end ---
-
-;; --- Modeline Format beg ---
-;;(defun simple-mode-line-render (left right)
-;;  (let* ((available-width (- (window-width) (length left) 2)))
-;;    (format (format " %%s %%%ds " available-width) left right)))
-;;
-;;(setq-default mode-line-format
-;;              '((:eval (simple-mode-line-render
-;;                        ;; left
-;;                        (format-mode-line "%b [%*]")
-;;                        ;; right
-;;                        (format-mode-line "[%m] Row: %l  Col: %c ")))))
-;; --- Modeline Format end ---
-
-;; --- LSP beg ---
-(setq lsp-enable-symbol-highlighting nil)
-(setq lsp-ui-doc-enable nil)
-(setq lsp-lens-enable nil)
-(setq lsp-headerline-breadcrumb-enable nil)
-(setq lsp-ui-sideline-enable nil)
-(setq lsp-ui-sideline-show-hover nil)
-(setq lsp-diagnostics-provider :none)
-(setq lsp-ui-sideline-enable nil)
-(setq lsp-signature-auto-activate nil) ;; you could manually request them via `lsp-signature-activate`
-(setq lsp-completion-provider :none)
-(setq lsp-enable-snippet nil)
-(setq lsp-enable-indentation nil)
-;; --- LSP end ---
+  (setq ranger-width-preview 0.5)
+  (setq ranger-width-parents 0.125)
+  (setq ranger-cleanup-eagerly t)
+  (setq ranger-show-hidden t)
+  (define-key ranger-mode-map (kbd "i") #'dired-toggle-read-only)
+  (define-key ranger-mode-map (kbd "C-h") nil))
 
 
-;; --- Compile beg ---
-
-(require 'compile)
-(setq compilation-last-buffer nil)
-;; save all modified buffers without asking before compilation
-(setq compilation-ask-about-save nil)
-(defun compile-again (ARG)
-  "Run the same compile as the last time.
-
-With a prefix argument or no last time, this acts like M-x compile,
-and you can reconfigure the compile args."
-  (interactive "p")
-  ;; the following two lines create bug: split a new window every time
-  ;; (if (not (get-buffer-window "*compilation*"))
-  ;;      (split-window-below))
-  (if (and (eq ARG 1) compilation-last-buffer)
-      (recompile)
-    (call-interactively 'smart-compile)))
-;;(bind-key* "C-m" 'compile-again)
-;; create a new small frame to show the compilation info
-;; will be auto closed if no error
-(setq special-display-buffer-names
-      `(("*compilation*" . ((name . "*compilation*")
-                            ,@default-frame-alist
-                            (left . (- 1))
-                            (top . 0)))))
-(setq compilation-finish-functions
-      (lambda (buf str)
-        (if (null (string-match ".*exited abnormally.*" str))
-            ;;no errors, make the compilation window go away in a few seconds
-            (progn
-              (run-at-time
-               "1 sec" nil 'delete-windows-on
-               (get-buffer-create "*compilation*"))
-              (message "No Compilation Errors!")))))
-
-
-(defun aoc-compile-test()
-  (interactive)
-  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp && ./solve --test")
-  (call-interactively 'compile))
-
-(defun aoc-compile()
-  (interactive)
-  (setq compile-command "g++ -Werror -Wextra -pedantic -std=c++2a -O2 -o solve solve.cpp")
-  (call-interactively 'compile))
-
-;; --- Compile end ---
+(use-package all-the-icons
+  :if (display-graphic-p)
+  :config
+  (setq all-the-icons-scale-factor 0.8))
 
 
 
-
-;; --- CLANG-FORMAT beg ---
-
-; Clang format on save
-;;(add-hook 'c-mode-common-hook
-;;          (function (lambda ()
-;;                    (add-hook 'before-save-hook
-;;                              'clang-format-buffer))))
-;; --- CLANG-FORMAT end ---
+(use-package yasnippet
+  :ensure t
+  :hook ((lsp-mode . yas-minor-mode)))
 
 
-;;;;;;;;;; PACKAGES END ;;;;;;;;;;
+(use-package rustic
+  :ensure
+  :bind (:map rustic-mode-map
+              ("M-j" . lsp-ui-imenu)
+              ("M-?" . lsp-find-references)
+              ("C-c C-c l" . flycheck-list-errors)
+              ("C-c C-c a" . lsp-execute-code-action)
+              ("C-c C-c r" . lsp-rename)
+              ("C-c C-c q" . lsp-workspace-restart)
+              ("C-c C-c Q" . lsp-workspace-shutdown)
+              ("C-c C-c s" . lsp-rust-analyzer-status))
+  :config
+  ;; uncomment for less flashiness
+  (setq lsp-eldoc-hook nil)
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-signature-auto-activate nil)
+
+  ;; comment to disable rustfmt on save
+  (setq rustic-format-on-save t)
+  (add-hook 'rustic-mode-hook 'rk/rustic-mode-hook))
+
+(defun rk/rustic-mode-hook ()
+  ;; so that run C-c C-c C-r works without having to confirm, but don't try to
+  ;; save rust buffers that are not file visiting. Once
+  ;; https://github.com/brotzeit/rustic/issues/253 has been resolved this should
+  ;; no longer be necessary.
+  (when buffer-file-name
+    (setq-local buffer-save-without-query t)))
+
+(use-package lsp-mode
+  :ensure
+  :commands lsp
+  :custom
+  ;; what to use when checking on-save. "check" is default, I prefer clippy
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  (lsp-eldoc-render-all t)
+  (lsp-idle-delay 0.6)
+  (lsp-rust-analyzer-server-display-inlay-hints t)
+
+  :config
+  (setq lsp-auto-guess-root t)
+  (setq lsp-eldoc-enable-hover nil)
+  (setq lsp-eldoc-hook nil)
+  (setq lsp-eldoc-hook nil)
+  (setq lsp-enable-file-watchers nil)
+  (setq lsp-enable-folding nil)
+  (setq lsp-enable-imenu nil)
+  (setq lsp-enable-indentation nil)
+  (setq lsp-enable-links nil)
+  (setq lsp-enable-on-type-formatting nil)
+  (setq lsp-enable-snippet nil)
+  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-idle-delay 0.5)
+  (setq lsp-lens-enable nil)
+  (setq lsp-log-io nil)
+  (setq lsp-modeline-code-actions-enable nil)
+  (setq lsp-modeline-diagnostics-enable nil)
+  (setq lsp-semantic-tokens-enable nil)
+  (setq lsp-signature-auto-activate nil)
+  (setq lsp-signature-render-documentation nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq read-process-output-max (* 1024 1024)) ;; 1MB
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode))
+
+(use-package lsp-ui
+  :ensure
+  :commands lsp-ui-mode
+  :custom
+  (lsp-ui-peek-always-show nil)
+  (lsp-ui-sideline-show-hover nil)
+  (lsp-ui-doc-enable nil))
