@@ -79,6 +79,9 @@
 
   :config
   (load-theme 'naysayer t))
+  (setq doom-font (font-spec :family "Ubuntu Mono" :size 18))
+
+  ;; Windows font
   ;;(setq doom-font (font-spec :family "JetBrains Mono" :size 16 :weight: 'light)
   ;;      doom-variable-pitch-font (font-spec :family "sans" :size 14)))
 
@@ -110,6 +113,18 @@
   (define-key ranger-mode-map (kbd "i") #'dired-toggle-read-only)
   (define-key ranger-mode-map (kbd "C-h") nil))
 
+(use-package dashboard
+  :init
+  (add-hook 'after-init-hook 'dashboard-refresh-buffer)
+  :config
+  (setq dashboard-startup-banner 'official
+        dashboard-banner-logo-title "Welcome to Emacs"
+        dashboard-center-content t
+        dashboard-show-shortcuts nil
+        dashboard-items '((recents  . 10)
+                          (projects  . 10))
+        dashboard-projects-switch-function 'projectile-persp-switch-project)
+  (dashboard-setup-startup-hook))
 
 (use-package all-the-icons
   :if (display-graphic-p)
