@@ -106,6 +106,7 @@ install_apt_packages() {
 
 
 folders_to_create=(
+    "${HOME}/.config/alacritty"
     "${HOME}/.config/ranger"
     "${HOME}/.config/i3status"
     "${HOME}/.config/qutebrowser"
@@ -148,6 +149,7 @@ DOTFILES=(
     ".vimrc"
     ".xprofile"
     ".xsession"
+    ".config/alacritty/alacritty.yml"
     ".config/i3/bin/logout"
     ".config/i3/bin/rofi_app_launcher"
     ".config/i3/config"
