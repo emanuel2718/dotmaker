@@ -5,83 +5,55 @@
 (scroll-bar-mode -1)
 (defun display-startup-echo-area-message () (message ""))
 
+(savehist-mode 1)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+
 (setq default-buffer-file-coding-system 'utf-8)
-
-(setq visible-bell 1)
-
-(setq-default frame-title-format "%b %& emacs")
-
-
-(setq use-dialog-box nil)
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(savehist-mode 1)
-(setq savehist-additional-variables '(register-alist))
-
-(setq backup-inhibited t)
 (setq auto-save-default nil)
-
-(setq-default indicate-empty-lines t)
-
-(setq cursor-in-non-selected-windows 'hollow)
-(setq highlight-nonselected-windows t)
+(setq backup-inhibited t)
 (setq bidi-display-reordering nil)
-
-(setq inhibit-startup-screen t)
-
-(setq inhibit-startup-buffer-menu t)
-
-(setq make-pointer-invisible t)
-
-(setq sentence-end-double-space nil)
-
-(setq scroll-margin 2)
-
-(setq scroll-conservatively scroll-margin)
-
-(setq scroll-step 1)
-(setq mouse-wheel-scroll-amount '(6 ((shift) . 1)))
-(setq mouse-wheel-progressive-speed nil)
-(setq mouse-wheel-inhibit-click-time nil)
-
-(setq scroll-preserve-screen-position t)
-(setq scroll-error-top-bottom t)
-
-(setq next-error-recenter (quote (4)))
-
-(setq fast-but-imprecise-scrolling nil)
-(setq jit-lock-defer-time 0)
-
-(setq select-enable-clipboard t)
-
-(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
-
-(setq mouse-yank-at-point t)
-
-(fset 'undo-auto-amalgamate 'ignore)
-
-(setq undo-limit 6710886400)
-(setq undo-strong-limit 100663296)
-(setq undo-outer-limit 1006632960)
-
-
-(setq-default case-fold-search nil)
+(setq cursor-in-non-selected-windows 'hollow)
 (setq dabbrev-case-fold-search nil)
-(setq-default search-upper-case nil)
-
-
-(setq default-tab-width 4)
-(setq tab-width 4)
 (setq default-fill-column 80)
+(setq default-tab-width 4)
+(setq fast-but-imprecise-scrolling nil)
 (setq fill-column 80)
+(setq highlight-nonselected-windows t)
+(setq inhibit-startup-buffer-menu t)
+(setq inhibit-startup-screen t)
+(setq jit-lock-defer-time 0)
+(setq make-pointer-invisible t)
+(setq mouse-wheel-inhibit-click-time nil)
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-scroll-amount '(6 ((shift) . 1)))
+(setq mouse-yank-at-point t)
+(setq next-error-recenter (quote (4)))
+(setq savehist-additional-variables '(register-alist))
+(setq scroll-conservatively scroll-margin)
+(setq scroll-error-top-bottom t)
+(setq scroll-margin 2)
+(setq scroll-preserve-screen-position t)
+(setq scroll-step 1)
+(setq select-enable-clipboard t)
+(setq sentence-end-double-space nil)
+(setq tab-width 4)
+(setq undo-limit 6710886400)
+(setq undo-outer-limit 1006632960)
+(setq undo-strong-limit 100663296)
+(setq use-dialog-box nil)
+(setq visible-bell 1)
+(setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+(setq-default case-fold-search nil)
 (setq-default evil-indent-convert-tabs nil)
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
 (setq-default evil-shift-round nil)
+(setq-default frame-title-format "%b %& emacs")
+(setq-default indent-tabs-mode nil)
+(setq-default indicate-empty-lines t)
+(setq-default search-upper-case nil)
+(setq-default tab-width 4)
 
 ;; ----------------------------------------------------------------------------
 ;; Packages
