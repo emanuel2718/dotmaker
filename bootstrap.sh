@@ -16,6 +16,9 @@ update_system() {
     log_note "Updating system"
     sudo apt-get update -y >/dev/null
     sudo apt-get upgrade -y
+    sudo apt-get install apt-transport-https apt-file
+    sudo apt-get update -y >/dev/null
+
     log_note "System updated"
 
     # Needed for snap package installation (sometimes?)
@@ -27,8 +30,9 @@ update_system() {
 apt_packages_to_install=(
     "apt-transport-https"
     "apt-file"
-    "chromium-browser"
+    "ccache"
     "clang"
+    "clang-format"
     "cmake"
     "cppcheck"
     "curl"
@@ -37,6 +41,7 @@ apt_packages_to_install=(
     "fd-find"
     "feh"
     "ffmpeg"
+    "ffmpegthumbnailer"
     "fonts-spleen"
     "fonts-terminus"
     "fzf"
@@ -46,6 +51,7 @@ apt_packages_to_install=(
     "i3"
     "libboost-all-dev"
     "libjpeg8-dev"
+    "libjpeg62-turbo-dev"
     "libsdl2-dev"
     "libsdl2-image-dev"
     "libxext-dev"
@@ -64,6 +70,7 @@ apt_packages_to_install=(
     "scrot"
     "silversearcher-ag"
     "snapd"
+    "sqlitebrowser"
     "tmux"
     "unzip"
     "valgrind"
@@ -81,8 +88,12 @@ install_apt_packages() {
     log_note "Installing packages"
     for package in "${apt_packages_to_install[@]}"; do
 
-        # install package
-        sudo apt-get -qq install -y "${package}" >/dev/null
+    # install package
+	if [ -z "$(apt-cache madison ${package} 2>/dev/null)" ]; then
+	    log_warning "$pacakge not found"
+	else
+            sudo apt-get -qq install -y "${package}" >/dev/null
+	fi
 
         # check if the package was installed succesfully
         if [ "$(dpkg -l | grep ${package} --no-message | wc -l)" -ge 1 ]; then
@@ -95,6 +106,7 @@ install_apt_packages() {
 
 
 folders_to_create=(
+    "${HOME}/.config/alacritty"
     "${HOME}/.config/ranger"
     "${HOME}/.config/i3status"
     "${HOME}/.config/qutebrowser"
@@ -115,7 +127,7 @@ folders_to_create=(
     "${HOME}/.config/nvim/lua/core_plugins/nvimcomment"
     "${HOME}/.config/nvim/lua/core_plugins/nvimtree"
     "${HOME}/.config/nvim/lua/core_plugins/telescope"
-    "${HOME}/jupyter-notebooks"
+    "${HOME}/packages/jupyter-notebooks"
     "${HOME}/Pictures/Wallpapers"
     "${HOME}/packages"
 )
@@ -137,6 +149,7 @@ DOTFILES=(
     ".vimrc"
     ".xprofile"
     ".xsession"
+    ".config/alacritty/alacritty.yml"
     ".config/i3/bin/logout"
     ".config/i3/bin/rofi_app_launcher"
     ".config/i3/config"
@@ -253,24 +266,33 @@ install_pip_packages() {
     log_check jupyter
 
     mkdir -p $(jupyter --data-dir)/nbextensions
-    git clone https://github.com/lambdalisue/jupyter-vim-binding ${HOME}/vim_binding
-    jupyter nbextension enable ${HOME}/vim_binding/vim_binding
+    git clone https://github.com/lambdalisue/jupyter-vim-binding ${HOME}/packages/vim_binding
+    jupyter nbextension enable ${HOME}/packages/vim_binding/vim_binding
     log_ok "Installed Jupyter-vim-binding plugin"
 }
 
 install_external_packages() {
-    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
-    cd $HOME/.fzf/
+    git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/packages/.fzf
+    cd $HOME/packages/.fzf/
     ./install --all
     cd ${script_location}
     log_check fzf
 
-    sudo snap install go --classic
-    log_check go
 
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     source $HOME/.cargo/env
     log_check rustc
+
+    rustup update
+    rustup toolchain add nightly
+    rustup component add rls rust-analysis rust-src
+
+    git clone https://github.com/rust-analyzer/rust-analyzer.git $HOME/packages/rust-analyzer
+    
+    cd $HOME/packages/rust-analyzer
+    cargo xtask install --server
+    cd ${script_location}
+    log_check rustup
 
     sudo npm i -g pyright
     log_check pyright
@@ -362,14 +384,14 @@ native_emacs_req_packages=(
 
 install_native_emacs() {
     log_note "Installing Native Emacs required packages"
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa -y
     sudo apt update -y
     for package in "${native_emacs_req_packages[@]}"; do
-        sudo apt-get -qq install -y "${package}" 2> /dev/null
+        sudo apt-get -qq install -y "${package}" >/dev/null
         log_ok "Installed $package"
     done
 
     log_note "Cloning Emacs from Github"
+
     git clone https://github.com/flatwhatson/emacs.git $HOME/emacs
 
     log_note "cd $HOME/emacs"
@@ -436,7 +458,10 @@ install_emacs() {
         rm -rf ${HOME}/.doom.d/packages.el
         sudo ln -sf ${script_location}/.doom.d/packages.el ${HOME}/.doom.d/packages.el
         log_ok "Linked -->  ${HOME}/.doom.d/packages.el"
+
+        $HOME/.emacs.d/bin/doom sync
     fi
+
 }
 
 install_neovim() {
@@ -450,10 +475,21 @@ install_neovim() {
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     log_ok "Installed nvim.packer"
 
-    sudo add-apt-repository ppa:lazygit-team/release -y
+    #curl -O https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+    #sha256sum go1.12.7.linux-amd64.tar.gz
+    #tar xvf go1.12.7.linux-amd64.tar.gz
+    #sudo chown -R root:root ./go
+    #sudo mv go /usr/local
+    sudo snap install go --classic
+    log_check go
+
+
+    #git clone https://github.com/jesseduffield/lazygit.git $HOME/packages/lazygit/
+    #go $HOME/packages/lazygit/install
+    sudo add-apt-repository ppa:lazygit-team/release
     sudo apt-get update
-    sudo apt-get install lazygit -y
-    log_check lazygit
+    sudo apt-get install lazygit
+    log_ok "Installed lazygit"
 }
 
 

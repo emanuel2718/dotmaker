@@ -1,0 +1,55 @@
+# Emanuel Alacritty configuration
+window:
+  dimensions:
+    columns: 100
+    lines: 50
+
+  padding:
+    x: 2
+    y: 2
+
+  dynamic_padding: false
+  decorations: Full
+
+title: Alacritty
+
+scrolling:
+  history: 5000
+
+shell:
+  program: C:\Program Files\Git\usr\bin\bash.exe
+  args:
+  - --login
+
+working_directory: C:\Users\razer\Home
+
+key_bindings:
+  - { key: V,         mods: Alt,        action: Paste }
+  - { key: C,         mods: Alt,        action: Copy  }
+  - { key: Q,         mods: Alt,        action: Quit  }
+  - { key: N,         mods: Alt,        action: SpawnNewInstance  }
+  - { key: F,         mods: Alt|Shift,  action: ToggleFullScreen  }
+  - { key: Equals,    mods: Alt|Shift,  action: ResetFontSize  }
+  - { key: Equals,    mods: Alt,        action: IncreaseFontSize  }
+  - { key: Minus,     mods: Alt,        action: DecreaseFontSize  }
+
+
+mouse:
+  hide_when_typing: true
+
+
+
+
+
+mouse_bindings:
+  - { mouse: Middle, action: PasteSelection }
+
+live_config_reload: true
+
+
+debug:
+  render_time: true
+  persistent_loggin: false
+  log_level: INFO
+
+

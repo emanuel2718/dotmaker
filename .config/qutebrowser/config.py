@@ -69,15 +69,37 @@ bind('<Ctrl-k>', 'completion-item-focus prev', 'command')
 
 unbind("'")
 
-bind("'8", ':open --tab https://8kun.top/index.html')
-bind("'n", ':open --tab https://news.ycombinator.com/news')
-bind("'r", ':open --tab https://reddit.com/')
-bind("'g", ':open --tab https://github.com/emanuel2718')
-bind("'y", ':open --tab https://youtube.com')
+# use normal letter to open in same page and Shift-letter to open in new tab
+bind("'8", ':open https://8kun.top/index.html')
+bind("'*", ':open --tab https://8kun.top/index.html')
+
+bind("'4", ':open https://boards.4channel.org/g/')
+bind("'$", ':open --tab https://boards.4channel.org/g/')
+
+bind("'n", ':open https://news.ycombinator.com/news')
+bind("'N", ':open --tab https://news.ycombinator.com/news')
+
+bind("'R", ':open --tab https://reddit.com/')
+bind("'r", ':open https://reddit.com/')
+
+bind("'g", ':open https://github.com/emanuel2718')
+bind("'G", ':open --tab https://github.com/emanuel2718')
+
+bind("'y", ':open https://youtube.com')
+bind("'Y", ':open --tab https://youtube.com')
+
 bind("'p", ':open --tab https://privacytools.io')
+
 bind("'l", ':open --tab localhost:8080')
-bind("'w", ':open --tab https://wallhaven.cc/toplist?page=2')
-bind("'c", ':open --tab https://cheats.rs/')
+
+bind("'w", ':open https://wallhaven.cc/toplist?page=2')
+bind("'W", ':open --tab https://wallhaven.cc/toplist?page=2')
+
+bind("'c", ':open https://cheats.rs/')
+bind("'C", ':open --tab https://cheats.rs/')
+
+bind("'a", ':open https://adventofcode.com/')
+bind("'A", ':open --tab https://adventofcode.com/')
 
 # =====================================================
 

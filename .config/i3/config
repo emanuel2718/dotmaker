@@ -1,4 +1,7 @@
+# Mod 1: Alt
+# Mod 4: Windows key
 set $mod Mod1
+#set $mod Mod4
 
 #font pango:monospace 12
 

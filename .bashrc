@@ -12,6 +12,7 @@ alias python='python3'
 alias config='nvim ~/.config/i3/config'
 alias doomsync='~/.emacs.d/bin/doom sync'
 alias doomupgrade='~/.emacs.d/bin/doom upgrade'
+alias doomdoctor='~/.emacs.d/bin/doom doctor'
 alias tk='tmux kill-session'
 alias ta='tmux a -t'
 alias tl='tmux ls'
@@ -19,6 +20,11 @@ alias tidea='vim $HOME/git/.ideas.txt'
 alias bg='ranger $HOME/Pictures/Wallpapers/'
 alias r='ranger'
 alias dot='nvim $HOME/git/dotmaker/bootstrap.sh'
+alias aoc='python3 $HOME/git/Advent_of_code/setup.py'
+alias cformat='clang-format -style=llvm -dump-config > .clang-format'
+# TODO: add this to path. Don't be lazy
+alias pypy='$HOME/packages/pypy3.8-v7.3.7-linux64/bin/pypy'
+
 
 export TERM=xterm-256color
 
@@ -41,8 +47,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=
+HISTFILESIZE=
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

@@ -49,6 +49,7 @@ set ruler
 set scrolloff=4
 set showcmd
 set smartindent
+set ttyfast
 set updatetime=500
 set wildmenu
 

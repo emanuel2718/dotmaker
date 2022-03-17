@@ -32,10 +32,15 @@ cd dotmaker
 
 # TODOLIST
 
+- [ ] add package folder like `script_location`
+- [ ] improve script
+- [ ] add system identifier (Arch based vs Debian based etc)
+- [ ] refactor script to handle `--minimal` which install min reqs.
 - [ ] test recursive folder/dotfile search instead of hardcoding the dotfiles.
 - [ ] add script to lock computer (with blurred background option)
 - [ ] add qutebrowser config
 - [ ] check if terminal supports color
+- [ ] add missing packages from thinkpad
 - [x] improve vimrc
 - [x] port vimrc to neovim lua config
 - [x] add wallpaper instructions
