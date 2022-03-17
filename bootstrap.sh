@@ -294,6 +294,10 @@ install_external_packages() {
     cd ${script_location}
     log_check rustup
 
+
+    curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+    log_check wasm-pack
+
     sudo npm i -g pyright
     log_check pyright
 
