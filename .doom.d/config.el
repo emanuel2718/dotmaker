@@ -12,8 +12,7 @@
  (setq auto-window-vscroll nil)
  (setq compilation-scroll-output 'first-error)
  (setq compilation-window-height 25)
- (setq display-line-numbers-type nil)
- (setq display-line-numbers-type nil)
+ (setq display-line-numbers-type 'relative)
  (setq evil-shift-round nil)
  (setq evil-shift-width 4)
  (setq fill-column 80)
@@ -33,7 +32,9 @@
  (setq sentence-end-double-space nil)
  (setq whitespace-line-column 80)
  (setq-default tab-width 4)
- (add-to-list 'default-frame-alist '(inhibit-double-buffering . t)))
+ (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
+ (add-to-list 'initial-frame-alist '(fullscreen . maximixed))
+ )
 
 
 (map! :leader
@@ -46,6 +47,25 @@
       "ld"   #'lsp-disconnect
       "c."   #'recompile
       "lt"   #'evil-toggle-fold)
+
+
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(use-package web-mode
+  :ensure t
+  :mode (("\\.js\\'" . web-mode)
+         ("\\.jsx\\'" . web-mode)
+         ("\\.ts\\'" . web-mode)
+         ("\\.tsx\\'" . web-mode)
+         ("\\.html\\'" . web-mode)
+         ("\\.css\\'" . web-mode))
+  :commands web-mode)
+
+(use-package exec-path-from-shell
+  :ensure t
+  :config
+  (exec-path-from-shell-initialize))
 
 
 (use-package eldoc
@@ -165,14 +185,14 @@
   :custom
   ;; what to use when checking on-save. "check" is default, I prefer clippy
   (lsp-rust-analyzer-cargo-watch-command "clippy")
-  (lsp-eldoc-render-all t)
+  (lsp-eldoc-render-all nil)
   (lsp-idle-delay 0.6)
-  (lsp-rust-analyzer-server-display-inlay-hints t)
+  ;;(lsp-rust-analyzer-server-display-inlay-hints nil)
 
   :config
+  (setq lsp-prefer-capf t)
   (setq lsp-auto-guess-root t)
-  (setq lsp-eldoc-enable-hover nil)
-  (setq lsp-eldoc-hook nil)
+  (setq lsp-eldoc-enable-hover t)
   (setq lsp-eldoc-hook nil)
   (setq lsp-enable-file-watchers nil)
   (setq lsp-enable-folding nil)
@@ -180,7 +200,7 @@
   (setq lsp-enable-indentation nil)
   (setq lsp-enable-links nil)
   (setq lsp-enable-on-type-formatting nil)
-  (setq lsp-enable-snippet nil)
+  (setq lsp-enable-snippet t)
   (setq lsp-enable-symbol-highlighting nil)
   (setq lsp-headerline-breadcrumb-enable nil)
   (setq lsp-idle-delay 0.5)
@@ -202,3 +222,11 @@
   (lsp-ui-peek-always-show nil)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-doc-enable nil))
+
+
+(require 'prettier-js)
+(add-hook 'js2-mode-hook 'prettier-js-mode)
+(add-hook 'web-mode-hook 'prettier-js-mode)
+
+
+(setq +lsp-company-backends '(company-capf company-yasnippet company-dabbrev company-dabbrev-code))

@@ -4,8 +4,8 @@
 
        :completion
        company
-       ;;vertico
-       (ivy +fuzzy)
+       vertico
+       ;;(ivy +fuzzy)
 
        :ui
        doom

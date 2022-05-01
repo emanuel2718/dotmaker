@@ -16,6 +16,8 @@
 (package! rustic)
 (package! company-racer)
 (package! yasnippet)
+(package! prettier-js)
+(package! exec-path-from-shell)
 ;;(package! modus-themes)
 ;;(package! modus-vivendi-theme)
 ;;(package! modus-operandi-theme)
