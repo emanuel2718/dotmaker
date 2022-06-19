@@ -228,15 +228,16 @@ install_plugins() {
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     log_info "Installed - vim plugin manager"
 
-    if [ ! -d ${HOME}/.config/autojump ]; then
-        git clone git://github.com/wting/autojump.git ${HOME}/.config/autojump
-        cd $HOME/.config/autojump
-        ./install.py
-        cd $script_location
-        log_info "Installed - autojump"
-    else
-        log_note "Autojump is already installed"
-    fi
+    sudo apt install autojump
+    #if [ ! -d ${HOME}/.config/autojump ]; then
+    #    # git clone git://github.com/wting/autojump.git ${HOME}/.config/autojump
+    #    # cd $HOME/.config/autojump
+    #    # ./install.py
+    #    cd $script_location
+    #    log_info "Installed - autojump"
+    #else
+    #    log_note "Autojump is already installed"
+    #fi
 
     source $HOME/.bashrc
 }
@@ -308,6 +309,9 @@ install_external_packages() {
 
     sudo snap install clion --classic
     log_check clion
+
+    sudo snap install code --classic
+    log_check code
 
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
@@ -499,15 +503,15 @@ install_neovim() {
 
 
 
-update_system
-install_apt_packages
-create_folders
-install_dotfiles
-make_files_executable
-install_plugins
-install_npm
-install_pip
-install_pip_packages
-install_external_packages
-install_emacs
+#update_system
+#install_apt_packages
+#create_folders
+#install_dotfiles
+#make_files_executable
+#install_plugins
+#install_npm
+#install_pip
+#install_pip_packages
+#install_external_packages
+#install_emacs
 install_neovim
