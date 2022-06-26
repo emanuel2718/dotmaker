@@ -6,6 +6,9 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.easymotion": true,
+  "vim.handleKeys": {
+    "<C-n>": true
+  },
 
   "vim.normalModeKeyBindings": [
     {
@@ -59,6 +62,12 @@
       "commands": ["editor.action.quickFix"]
     }
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "commands": ["editor.action.clipboardPasteAction"]
+    }
+  ],
 
   // General settings
   "editor.wordWrap": "on",
@@ -67,8 +76,9 @@
   "editor.linkedEditing": true,
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
+  "editor.inlayHints.enabled": "offUnlessPressed",
   "editor.hover.enabled": true,
-  "editor.hover.delay": 600,
+  "editor.hover.delay": 200,
   "editor.renderWhitespace": "none",
   "editor.bracketPairColorization.enabled": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -83,6 +93,8 @@
   // use vim keys to navigate folders
   "workbench.list.keyboardNavigation": "simple",
   "workbench.list.automaticKeyboardNavigation": false,
+  "vim.statusBarColors.insert": "#333",
+  "vim.statusBarColors.normal": "#282922",
 
   // Font settings
   "editor.fontSize": 16,
@@ -96,23 +108,25 @@
   "terminal.integrated.tabs.enabled": false,
   "terminal.integrated.gpuAcceleration": "on",
 
-  "workbench.colorCustomizations": {
-    "terminal.foreground": "#cccccc",
-    "terminal.background": "#070808",
+  // Black colorscheme
+  // "workbench.colorCustomizations": {
+  //   "terminal.foreground": "#cccccc",
+  //   "terminal.background": "#070808",
 
-    "quickInput.background": "#1d2021",
-    "quickInputList.focusBackground": "#070808",
+  //   "quickInput.background": "#1d2021",
+  //   "quickInputList.focusBackground": "#070808",
 
-    "editor.background": "#070808",
-    "sideBar.background": "#070808",
-    "tab.activeBackground": "#070808",
-    "statusBar.background": "#070808",
-    "activityBar.background": "#070808",
+  //   "editor.background": "#070808",
+  //   "sideBar.background": "#070808",
+  //   "tab.activeBackground": "#070808",
+  //   "statusBar.background": "#070808",
+  //   "activityBar.background": "#070808",
 
-    "editorLineNumber.activeForeground": "#cccccc"
-  },
+  //   "editorLineNumber.activeForeground": "#cccccc"
+  // },
+
   "window.title": "${folderName}/${activeEditorShort}",
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "material-icon-theme",
   // "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.tree.renderIndentGuides": "none",
 
@@ -135,5 +149,9 @@
     // "**/node_modules/**": true,
     "**/bower_components/**": true,
     "**/dist/**": true
-  }
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "rust-analyzer.checkOnSave.command": "clippy"
 }
