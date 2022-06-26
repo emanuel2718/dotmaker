@@ -12,6 +12,11 @@
     "when": "inQuickOpen"
   },
   {
+    "key": "ctrl+k",
+    "command": "extension.vim_ctrl+p",
+    "when": "suggestWidgetVisible && vim.active && vim.use<C-p>"
+  },
+  {
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
