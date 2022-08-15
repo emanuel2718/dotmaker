@@ -1,38 +1,46 @@
--- Created by Emanuel Ramirez on 09/02/2021
+vim.opt['relativenumber'] = true
+vim.opt['ruler'] = true
+vim.opt['numberwidth'] = 1
+vim.opt['tabstop'] = 2
+vim.opt['shiftwidth'] = 2
+vim.opt['shiftround'] = true
+vim.opt['expandtab'] = true
+vim.opt['mouse'] = 'a'
+vim.opt['foldlevel'] = 99
+vim.opt['foldmethod'] = 'indent'
+vim.opt['foldenable'] = true
+vim.opt['autoindent'] = true
+vim.opt['termguicolors'] = true
+vim.opt['hlsearch'] = true
+vim.opt['encoding'] = 'utf-8'
+vim.opt['fileencoding'] = 'utf-8'
+vim.opt['showmode'] = false
+vim.opt['clipboard'] = 'unnamedplus'
+vim.opt['swapfile'] = false
+vim.opt['laststatus'] = 3
+vim.opt['splitbelow'] = true
+vim.opt['splitright'] = true
+vim.opt['textwidth'] = 79
+vim.opt['wildmenu'] = true
+vim.opt['writebackup'] = false
+vim.opt['smartcase'] = true
+vim.opt['errorbells'] = false
+vim.opt['cindent'] = true
+vim.opt['ignorecase'] = true
+vim.opt['incsearch'] = true
+vim.opt['wrap'] = false
+vim.opt['scrolloff'] = 4
+vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
 
-vim.cmd [[au BufWinEnter * set formatoptions-=cro]]
 
-vim.o.background='dark'
-vim.o.backup=false
-vim.o.cindent=true
-vim.o.clipboard='unnamedplus'
-vim.o.cmdheight=1
-vim.o.encoding='utf-8'
-vim.o.errorbells=false
-vim.o.expandtab=true
-vim.o.fileencoding='utf-8'
-vim.o.hidden=true
-vim.o.ignorecase=true
-vim.o.incsearch=true
-vim.o.laststatus=2
-vim.o.mouse='a'
-vim.o.ruler=true
-vim.o.scrolloff=4
-vim.o.shiftround=true
-vim.o.shiftwidth=4
-vim.o.showcmd=false
-vim.o.showmode=false -- using airline atm
-vim.o.smartcase=true
-vim.o.softtabstop=4
-vim.o.splitbelow=true
-vim.o.splitright=true
-vim.o.swapfile=false
-vim.o.tabstop=4
-vim.o.visualbell=false
-vim.o.wildignore='*.swp,*.bak,*.pyc,*.class'
-vim.o.wrap=false
-vim.o.writebackup=false
-vim.o.hlsearch=false
-vim.o.history=500
-vim.o.wildmenu=true
-vim.o.textwidth=79
+-- NEVER insert comment on newline
+vim.cmd('autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o')
+vim.cmd('command CDD cd %:p:h')
+
+
+vim.opt['undofile'] = true
+vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'
+vim.opt['undolevels'] = 1000
+vim.opt['undoreload'] = 10000
+
+
