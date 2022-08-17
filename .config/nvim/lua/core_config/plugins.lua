@@ -72,7 +72,10 @@ return require('packer').startup(function(use)
   -- themes
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
+  use 'ellisonleao/gruvbox.nvim'
 
 
+  -- experimental
+  use "github/copilot.vim"
 
 end)

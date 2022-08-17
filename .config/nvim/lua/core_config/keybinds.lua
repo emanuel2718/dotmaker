@@ -1,4 +1,4 @@
-keymap = vim.keymap.set
+local keymap = vim.keymap.set
 
 -- Space leader
 vim.g.mapleader = " "
@@ -8,6 +8,8 @@ keymap('n', '<leader>.', '<cmd> Telescope find_files <cr>') -- search files in c
 keymap('n', '<leader>ff', '<cmd> Telescope file_browser <cr>', { noremap = true, silent = true })
 keymap('n', '<leader>fr', '<cmd> Telescope oldfiles <cr>')
 keymap('n', '<leader>s.', '<cmd> Telescope grep_string <cr>') -- search for string under cursor
+keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols <cr>')
+keymap('n', '<leader>sI', '<cmd> Telescope lsp_document_symbols <cr>')
 keymap('n', '<leader>sp', '<cmd> Telescope live_grep <cr>') -- search string in cwd
 keymap('n', '<leader>pf', '<cmd> Telescope git_files <cr>') -- search files in project
 keymap('n', '<leader>ss', '<cmd> Telescope current_buffer_fuzzy_find <cr>')
@@ -28,6 +30,10 @@ keymap('n', '<leader>ga', '<cmd> Telescope git_branches <cr>')
 keymap('n', '<leader>gl', '<cmd> Telescope git_commits <cr>')
 keymap('n', '<leader>gbl', '<cmd> Telescope git_bcommits <cr>')
 
+-- neovim specific keybinds
+keymap('n', '<leader>nc', nvim_config)
+keymap('n', '<leader>rr', '<cmd> so % <cr>')
+
 -- Emacs window movement
 keymap('n', '<leader>wh', '<C-w>h')
 keymap('n', '<leader>wj', '<C-w>j')
@@ -43,7 +49,8 @@ keymap('n', '<leader>wv', ':vsplit<cr>')
 keymap('n', '<leader>ws', ':split<cr>')
 
 -- nvimTree
-keymap('n', '<leader>bt', '<cmd> NvimTreeToggle <cr>')
+keymap('n', '<leader>bb', '<cmd> NvimTreeToggle <cr>')
+keymap('n', '<leader>br', '<cmd> NvimTreeRefresh <cr>')
 
 -- lazygit
 keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
@@ -55,8 +62,8 @@ keymap('n', '<leader>wd', '<cmd> q<cr>', { silent = true })
 keymap('n', '<leader>q', '<cmd> q!<cr>', { silent = true })
 keymap('n', '<leader>fs', '<cmd> w<cr>')
 keymap('n', '<leader>`', '<cmd> b#<cr>', { silent = true }) -- switch to last buffer
-keymap('n', '[[', '<cmd> vertical resize +7 <cr>')
-keymap('n', ']]', '<cmd> vertical resize -7 <cr>')
+keymap('n', '<F2>', '<cmd> vertical resize +7 <cr>')
+keymap('n', '<F3>', '<cmd> vertical resize -7 <cr>')
 keymap('n', '=', '<cmd> resize +1 <cr>')
 keymap('n', '-', '<cmd> resize -1 <cr>')
 keymap('n', '<leader><leader>', '<cmd> noh <cr>', { silent = true })
@@ -73,6 +80,7 @@ vim.cmd(':tnoremap <Esc><Esc> <C-\\><C-n>')
 
 
 -- LSP binds
+keymap('n', '<leader>lc', '<cmd> LspRestart <cr>')
 keymap('n', 'gD', '<cmd> lua vim.lsp.buf.declaration() <cr>')
 keymap('n', 'gd', '<cmd> lua vim.lsp.buf.definition() <cr>')
 keymap('n', 'K', '<cmd> lua vim.lsp.buf.hover() <cr>')
@@ -81,7 +89,7 @@ keymap('n', 'gi', '<cmd> lua vim.lsp.buf.implementation() <cr>')
 keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
 keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
-keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
+keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')

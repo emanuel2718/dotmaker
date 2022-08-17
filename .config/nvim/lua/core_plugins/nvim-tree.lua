@@ -5,7 +5,7 @@ require'nvim-tree'.setup {
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   hijack_cursor       = false,
-  update_cwd          = false,
+  respect_buf_cwd     = true,
   filters = {
     custom = {".git", "node_modules", ".build", ".vscode"}
   },
@@ -34,12 +34,14 @@ require'nvim-tree'.setup {
   },
 
   view = {
-    width = 30,
-    height = 30,
+    width = 40,
+    height = 40,
     side = 'left',
     mappings = {
       custom_only = false,
-      list = {}
+      list = {
+        { key = '<C-h>', action = 'dir_up' }
+      }
     }
   }
 }

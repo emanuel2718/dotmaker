@@ -1,3 +1,4 @@
+vim.opt['background'] = 'dark'
 vim.opt['relativenumber'] = true
 vim.opt['ruler'] = true
 vim.opt['numberwidth'] = 1

@@ -1,1 +1,2 @@
-vim.cmd('color tokyonight')
+-- vim.cmd('color default')
+vim.cmd('colorscheme gruvbox')

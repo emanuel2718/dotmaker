@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -98,6 +103,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
