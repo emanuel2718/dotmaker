@@ -26,6 +26,14 @@ alias cformat='clang-format -style=llvm -dump-config > .clang-format'
 alias pypy='$HOME/packages/pypy3.8-v7.3.7-linux64/bin/pypy'
 
 
+# i3 laptop monitor on/off
+alias lapon="randr --output eDP-1 --auto"
+alias lapoff="randr --output eDP-1 --off"
+# dual monitor command in i3 with XPS
+alias dual="xrandr --output eDP-1 --off --output DP-1-2 --auto --output DP-1-1 --rotate left --left-of DP-1-2"
+
+
+
 export TERM=xterm-256color
 
 # Sources
@@ -148,6 +156,9 @@ if ! shopt -oq posix; then
 fi
 
 
+# autojump
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+. "$HOME/.cargo/env"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -160,6 +171,8 @@ export FZF_DEFAULT_COMMAND='fd . $HOME'
 export FZF_CTRL_T_COMMAND='rg . $HOME --hidden --no-ignore --files'
 export FZF_ALT_G_COMMAND='fd -t d . $HOME'
 
-# autojump
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
-. "$HOME/.cargo/env"
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+
+alias luamake=/home/emal/dev/forks/lua-language-server/3rd/luamake/luamake
