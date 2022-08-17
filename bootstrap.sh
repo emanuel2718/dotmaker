@@ -246,7 +246,16 @@ install_npm() {
     log_note "Installing npm"
     curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash
     sudo apt-get install -y nodejs
+    npm config set prefix $HOME/.npm
     log_check npm
+
+
+    log_note "installing nodenv"
+    git clone https://github.com/nodenv/nodenv.git $HOME/.nodenv
+    echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> $HOME/.bash_profile
+    $HOME/.nodenv/bin/nodenv init
+    echo eval '"$(nodenv init -)"' >> $HOME/.bash_profile
+
 }
 
 install_pip() {
