@@ -157,7 +157,6 @@ fi
 
 
 # autojump
-[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 . "$HOME/.cargo/env"
 
 # fzf
@@ -176,3 +175,6 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 
 alias luamake=/home/emal/dev/forks/lua-language-server/3rd/luamake/luamake
+export PATH="$HOME/.nodenv/bin:$PATH"
+
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
