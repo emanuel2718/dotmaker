@@ -253,6 +253,11 @@ install_npm() {
     $HOME/.nodenv/bin/nodenv init
     echo eval '"$(nodenv init -)"' >> $HOME/.bash_profile
 
+    # install node-build to be able to run nodenv install
+    mkdir -p "$(nodenv root)"/plugins
+    git clone https://github.com/nodenv/node-build.git "$(nodenv root)"/plugins/node-build
+
+
 }
 
 install_pip() {
@@ -500,24 +505,27 @@ install_neovim() {
 
     #git clone https://github.com/jesseduffield/lazygit.git $HOME/packages/lazygit/
     #go $HOME/packages/lazygit/install
-    sudo add-apt-repository ppa:lazygit-team/release
-    sudo apt-get update
-    sudo apt-get install lazygit
+    # sudo add-apt-repository ppa:lazygit-team/release
+    # sudo apt-get update
+    # sudo apt-get install lazygit
+    git clone https://github.com/jesseduffield/lazygit.git
+    cd lazygit
+    go install
     log_ok "Installed lazygit"
 }
 
 
 
 
-#update_system
-#install_apt_packages
-#create_folders
-#install_dotfiles
-#make_files_executable
-#install_plugins
-#install_npm
-#install_pip
-#install_pip_packages
-#install_external_packages
-#install_emacs
+update_system
+install_apt_packages
+create_folders
+install_dotfiles
+make_files_executable
+install_plugins
+install_npm
+install_pip
+install_pip_packages
+install_external_packages
+install_emacs
 install_neovim
