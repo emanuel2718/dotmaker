@@ -27,7 +27,7 @@ keymap('n', '<leader>km', '<cmd> Telescope keymaps <cr>')
 
 keymap('n', '<leader>gs', '<cmd> Telescope git_status <cr>')
 keymap('n', '<leader>ga', '<cmd> Telescope git_branches <cr>')
-keymap('n', '<leader>gl', '<cmd> Telescope git_commits <cr>')
+keymap('n', '<leader>gc', '<cmd> Telescope git_commits <cr>')
 keymap('n', '<leader>gbl', '<cmd> Telescope git_bcommits <cr>')
 
 -- neovim specific keybinds
