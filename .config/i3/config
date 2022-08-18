@@ -8,6 +8,7 @@ set $mod Mod1
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 12
+#font xft:Terminus (TTF) 14
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -196,3 +197,6 @@ bar {
 
 # set current wallpaper on startup
 exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.*
+
+# Dual monitor setup at home
+# exec --no-startup-id xrandr --output eDP-1 --off --output DP-1-2 --auto --output DP-1-1 --rotate left --left-of DP-1-2
