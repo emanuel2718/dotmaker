@@ -31,7 +31,6 @@ vim.opt['ignorecase'] = true
 vim.opt['incsearch'] = true
 vim.opt['wrap'] = false
 vim.opt['scrolloff'] = 4
-vim.opt['autochdir'] = true
 vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
 
 

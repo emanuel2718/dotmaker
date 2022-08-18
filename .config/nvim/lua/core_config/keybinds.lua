@@ -8,7 +8,8 @@ keymap('n', '<leader>.', '<cmd> Telescope find_files <cr>') -- search files in c
 keymap('n', '<leader>ff', '<cmd> Telescope file_browser <cr>', { noremap = true, silent = true })
 keymap('n', '<leader>fr', '<cmd> Telescope oldfiles <cr>')
 keymap('n', '<leader>s.', '<cmd> Telescope grep_string <cr>') -- search for string under cursor
-keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols <cr>')
+keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols symbols=["function", "constant"] <cr>')
+-- keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols symbols=["function"] <cr>')
 keymap('n', '<leader>sI', '<cmd> Telescope lsp_document_symbols <cr>')
 keymap('n', '<leader>sp', '<cmd> Telescope live_grep <cr>') -- search string in cwd
 keymap('n', '<leader>pf', '<cmd> Telescope git_files <cr>') -- search files in project
