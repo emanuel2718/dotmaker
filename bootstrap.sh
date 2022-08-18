@@ -228,16 +228,13 @@ install_plugins() {
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     log_info "Installed - vim plugin manager"
 
-    sudo apt install autojump
-    #if [ ! -d ${HOME}/.config/autojump ]; then
-    #    # git clone git://github.com/wting/autojump.git ${HOME}/.config/autojump
-    #    # cd $HOME/.config/autojump
-    #    # ./install.py
-    #    cd $script_location
-    #    log_info "Installed - autojump"
-    #else
-    #    log_note "Autojump is already installed"
-    #fi
+
+    # install autojump
+    git clone https://github.com/wting/autojump.git $HOME/packages/
+    cd $HOME/packages/autojump
+    ./install.py
+    echo '[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh' >> $HOME/.bashrc
+    log_check autojump 
 
     source $HOME/.bashrc
 }
