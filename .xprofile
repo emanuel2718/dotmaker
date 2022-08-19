@@ -5,7 +5,8 @@
 
 # IBM MODEL M map
 # setxkbmap -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
+#xcape -e 'Caps_Lock=Escape'
+setxkbmap -option caps:escape
 # setxkbmap -option 'caps:ctrl_modifier'
 # xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
