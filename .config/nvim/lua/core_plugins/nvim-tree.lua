@@ -5,9 +5,14 @@ require'nvim-tree'.setup {
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   hijack_cursor       = false,
-  respect_buf_cwd     = true,
+  -- respect_buf_cwd     = true,
   filters = {
-    custom = {".git", "node_modules", ".build", ".vscode"}
+    custom = {".git/*", "node_modules", ".build", ".vscode"}
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    }
   },
   diagnostics = {
     enable = false,
@@ -37,6 +42,8 @@ require'nvim-tree'.setup {
     width = 40,
     height = 40,
     side = 'left',
+    number = false,
+    hide_root_folder = false,
     mappings = {
       custom_only = false,
       list = {
@@ -45,3 +52,25 @@ require'nvim-tree'.setup {
     }
   }
 }
+
+vim.g.nvim_tree_icons = {
+  default = "",
+  symlink = "",
+  git = {
+    unstaged = "",
+    staged = "S",
+    unmerged = "",
+    renamed = "➜",
+    deleted = "",
+    untracked = "U",
+    ignored = "◌",
+  },
+  folder = {
+    default = "",
+    open = "",
+    empty = "",
+    empty_open = "",
+    symlink = "",
+  },
+}
+

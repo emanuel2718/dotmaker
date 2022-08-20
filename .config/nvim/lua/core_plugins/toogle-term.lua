@@ -6,9 +6,10 @@ require('toggleterm').setup{
   shade_terminals = true,
   shading_factor = 1,
   start_in_insert = true,
-  insert_mappings = true,
+  insert_mappings = false,
   persist_size = true,
   direction = 'horizontal',
+  float_opts = { border = 'rounded', winblend = 3 },
   close_on_exit = true,
   shell = vim.o.shell, -- change the default shell
 }

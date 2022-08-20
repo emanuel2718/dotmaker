@@ -73,6 +73,7 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
   use 'ellisonleao/gruvbox.nvim'
+  use 'navarasu/onedark.nvim'
 
 
   -- experimental

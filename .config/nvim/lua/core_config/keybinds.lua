@@ -94,7 +94,7 @@ keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace
 keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
 keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
 keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
