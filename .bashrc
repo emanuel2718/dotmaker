@@ -24,11 +24,15 @@ alias aoc='python3 $HOME/git/Advent_of_code/setup.py'
 alias cformat='clang-format -style=llvm -dump-config > .clang-format'
 # TODO: add this to path. Don't be lazy
 alias pypy='$HOME/packages/pypy3.8-v7.3.7-linux64/bin/pypy'
+alias lg="lazygit"
+
+alias ncc='nvim $HOME/.config/nvim'
+alias vim="nvim"
 
 
 # i3 laptop monitor on/off
-alias lapon="randr --output eDP-1 --auto"
-alias lapoff="randr --output eDP-1 --off"
+alias lapon="xrandr --output eDP-1 --auto"
+alias lapoff="xrandr --output eDP-1 --off"
 # dual monitor command in i3 with XPS
 alias dual="xrandr --output eDP-1 --off --output DP-1-2 --auto --output DP-1-1 --rotate left --left-of DP-1-2"
 
