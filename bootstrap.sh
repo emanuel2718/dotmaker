@@ -144,6 +144,7 @@ DOTFILES=(
     ".config/alacritty/alacritty.yml"
     ".config/i3/bin/logout"
     ".config/i3/bin/rofi_app_launcher"
+    ".config/i3/bin/i3-lock.sh"
     ".config/i3/config"
     ".config/i3status/config"
     ".config/ranger/commands.py"

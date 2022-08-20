@@ -7,8 +7,8 @@ set $mod Mod1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
-#font xft:Terminus (TTF) 14
+#font pango:DejaVu Sans Mono 12
+font xft:Terminus (TTF) 14
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -194,9 +194,11 @@ bar {
         status_command i3status
 }
 
+bindsym $mod+x exec $HOME/.config/i3/bin/i3-lock.sh
 
 # set current wallpaper on startup
-exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.*
+# exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.*
+exec --no-startup-id feh --bg-fill $HOME/Pictures/left-wallpaper.* --bg-fill $HOME/Pictures/right-wallpaper.*
 
 # Dual monitor setup at home
-# exec --no-startup-id xrandr --output eDP-1 --off --output DP-1-2 --auto --output DP-1-1 --rotate left --left-of DP-1-2
+exec --no-startup-id xrandr --output eDP-1 --off --output DP-1-2 --auto --output DP-1-1 --rotate left --left-of DP-1-2
