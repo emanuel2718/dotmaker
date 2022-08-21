@@ -1,27 +1,30 @@
-# Emanuel Alacritty configuration
-window:
-  dimensions:
-    columns: 100
-    lines: 50
+live_config_reload: true
 
-  padding:
-    x: 2
-    y: 2
+env:
+  TERM: xterm-256color
 
-  dynamic_padding: false
-  decorations: Full
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
 
 title: Alacritty
 
 scrolling:
-  history: 5000
+  history: 10000
 
-shell:
-  program: C:\Program Files\Git\usr\bin\bash.exe
-  args:
-  - --login
+window:
+  dimensions:
+    columns: 158
+    lines: 45
 
-working_directory: C:\Users\razer\Home
+font:
+  normal:
+    family: 'TerminessTTF Nerd Font'
+  size: 17.0
+  use_thin_strokes: true
+
+mouse:
+  hide_when_typing: true
 
 key_bindings:
   - { key: V,         mods: Alt,        action: Paste }
@@ -32,24 +35,3 @@ key_bindings:
   - { key: Equals,    mods: Alt|Shift,  action: ResetFontSize  }
   - { key: Equals,    mods: Alt,        action: IncreaseFontSize  }
   - { key: Minus,     mods: Alt,        action: DecreaseFontSize  }
-
-
-mouse:
-  hide_when_typing: true
-
-
-
-
-
-mouse_bindings:
-  - { mouse: Middle, action: PasteSelection }
-
-live_config_reload: true
-
-
-debug:
-  render_time: true
-  persistent_loggin: false
-  log_level: INFO
-
-
