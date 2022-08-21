@@ -84,10 +84,10 @@ disableStartupPopups: false
 notARepository: 'prompt' # one of: 'prompt' | 'create' | 'skip'
 promptToReturnFromSubprocess: false # display confirmation when subprocess terminates
 customCommands:
-  - key: "p"
+  - key: "<c-p>"
     command: "git pull --rebase"
-    context: "files"
-    loadingText: "pull --rebasing"
+    context: "global"
+    loadingText: "pullng with rebase"
     subprocess: true
 keybinding:
   universal:
@@ -131,9 +131,9 @@ keybinding:
     executeCustomCommand: ':'
     createRebaseOptionsMenu: 'm'
     pushFiles: 'P'
-    # pullFiles: 'p'
+    pullFiles: 'p'
     refresh: 'R'
-    createPatchOptionsMenu: '<c-p>'
+    # createPatchOptionsMenu: '<c-p>'
     nextTab: ']'
     prevTab: '['
     nextScreenMode: '+'
