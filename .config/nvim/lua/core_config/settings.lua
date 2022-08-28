@@ -10,6 +10,7 @@ vim.opt['mouse'] = 'a'
 vim.opt['foldlevel'] = 99
 vim.opt['foldmethod'] = 'indent'
 vim.opt['foldenable'] = true
+vim.opt['smartindent'] = true
 vim.opt['autoindent'] = true
 vim.opt['termguicolors'] = true
 vim.opt['hlsearch'] = true
