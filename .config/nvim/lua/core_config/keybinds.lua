@@ -4,13 +4,11 @@ local keymap = vim.keymap.set
 vim.g.mapleader = " "
 
 -- Telescope
-keymap('n', '<leader>.', '<cmd> Telescope find_files <cr>') -- search files in cwd and beyond
+keymap('n', '<leader>.', '<cmd> Telescope find_files hidden={true} <cr>') -- search files in cwd and beyond
 keymap('n', '<leader>ff', '<cmd> Telescope file_browser <cr>', { noremap = true, silent = true })
 keymap('n', '<leader>fr', '<cmd> Telescope oldfiles <cr>')
 keymap('n', '<leader>s.', '<cmd> Telescope grep_string <cr>') -- search for string under cursor
-keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols symbols=["function", "constant"] <cr>')
--- keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols symbols=["function"] <cr>')
-keymap('n', '<leader>sI', '<cmd> Telescope lsp_document_symbols <cr>')
+keymap('n', '<leader>si', '<cmd> Telescope lsp_document_symbols <cr>')
 keymap('n', '<leader>sp', '<cmd> Telescope live_grep <cr>') -- search string in cwd
 keymap('n', '<leader>pf', '<cmd> Telescope git_files <cr>') -- search files in project
 keymap('n', '<leader>ss', '<cmd> Telescope current_buffer_fuzzy_find <cr>')
@@ -28,7 +26,7 @@ keymap('n', '<leader>km', '<cmd> Telescope keymaps <cr>')
 
 keymap('n', '<leader>gs', '<cmd> Telescope git_status <cr>')
 keymap('n', '<leader>ga', '<cmd> Telescope git_branches <cr>')
-keymap('n', '<leader>gc', '<cmd> Telescope git_commits <cr>')
+keymap('n', '<leader>gl', '<cmd> Telescope git_commits <cr>')
 keymap('n', '<leader>gbl', '<cmd> Telescope git_bcommits <cr>')
 
 -- neovim specific keybinds
@@ -72,7 +70,8 @@ keymap('n', '<leader><leader>', '<cmd> noh <cr>', { silent = true })
 
 
 -- Buffer managment
-keymap('n', '<leader>bd', '<cmd> bdelete<cr>', { silent = true })
+-- nmap <leader>d :bprevious<CR>:bdelete #<CR>
+keymap('n', '<leader>bd', '<cmd> bprevious<cr> <cmd> bdelete #', { silent = true })
 
 
 
@@ -94,7 +93,7 @@ keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace
 keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
 keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>')
+keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
 keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
