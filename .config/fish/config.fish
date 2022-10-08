@@ -15,3 +15,6 @@ abbr -a vim 'nvim'
 
 fish_vi_key_bindings insert
 
+zoxide init fish | source
+
+export PATH="$HOME/.cargo/bin:$PATH"
