@@ -128,10 +128,11 @@
             ],
             "commands": [
                 {
-                    "command": "editor.action.goToImplementation"
+                    "command": "editor.action.goToImplementation",
                 }
             ]
         },
+        // show help
         {
             "before": [
                 "leader",
@@ -158,7 +159,7 @@
                 ";"
             ],
             "commands": [
-                "workbench.action.showCommands"
+                "workbench.action.showCommands",
             ]
         },
         {
@@ -167,7 +168,7 @@
                 "p"
             ],
             "commands": [
-                "workbench.action.showCommands"
+                "workbench.action.showCommands",
             ]
         },
         {
@@ -176,7 +177,7 @@
                 "z"
             ],
             "commands": [
-                "workbench.action.toggleEditorWidths"
+                "workbench.action.toggleEditorWidths",
             ]
         },
         {
@@ -186,7 +187,7 @@
                 "i"
             ],
             "commands": [
-                "workbench.action.gotoSymbol"
+                "workbench.action.gotoSymbol",
             ]
         },
         // next error or warning
@@ -217,7 +218,7 @@
                 "leader"
             ],
             "commands": [
-                ":nohl"
+                ":nohl",
             ]
         },
         {
@@ -255,7 +256,7 @@
             "commands": [
                 "editor.action.outdentLines"
             ]
-        }
+        },
     ],
     "window.zoomLevel": 1,
     "editor.stickyScroll.enabled": true,
@@ -266,7 +267,7 @@
     "editor.scrollBeyondLastLine": false,
     "editor.rulers": [
         100
-    ],
+    ], // 100 character limit
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": false,
     "editor.inlayHints.enabled": "offUnlessPressed",
@@ -287,13 +288,13 @@
                     "string.quoted.docstring.multi.python",
                     "punctuation.definition.comment",
                     "punctuation.definition.comment.begin.documentation",
-                    "punctuation.definition.comment.end.documentation"
+                    "punctuation.definition.comment.end.documentation",
                 ],
                 "settings": {
                     "fontStyle": "italic",
-                    "foreground": "#808080"
+                    "foreground": "#808080",
                 }
-            }
+            },
         ]
     },
     // --- Python ---
@@ -311,7 +312,7 @@
         "formatting.local": "iam",
         "ui.navigation.importShortcut": "Definition",
         "ui.documentation.hoverKind": "NoDocumentation",
-        "ui.completion.usePlaceholders": true
+        "ui.completion.usePlaceholders": true,
     },
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
@@ -320,7 +321,7 @@
     "go.testFlags": [
         "-mod=vendor",
         "-gcflags=all=-l",
-        "-covermode=count"
+        "-covermode=count",
     ],
     "go.coverageDecorator": {
         "type": "gutter",
@@ -346,11 +347,11 @@
         "templates_module/": true,
         "**/.project": true,
         ".mypy_cache/": true,
-        "**/.coverage": true
+        "**/.coverage": true,
     },
-    // Extension: scrolloff
+    // ## Extension: scrolloff
     "scrolloff.scrolloff": 7,
-    // Extension: errorLens
+    // ## Extension: errorLens
     "errorLens.statusBarColorsEnabled": true,
     "errorLens.margin": "6ch",
     "errorLens.fontWeight": "100",
@@ -361,8 +362,9 @@
     "errorLens.excludeBySource": [
         "cSpell"
     ],
+    // not show in real
     "errorLens.onSave": true,
-    // Extension: better-comments
+    // ## Extension: better-comments
     "better-comments.multilineComments": false,
     "search.showLineNumbers": true,
     "search.smartCase": true,
@@ -376,8 +378,25 @@
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.tabs.enabled": false,
     "terminal.integrated.gpuAcceleration": "on",
-    "breadcrumbs.enabled": false,
+    "breadcrumbs.enabled": true,
     "explorer.compactFolders": false,
-    "errorLens.enabled": true,
-    "window.menuBarVisibility": "toggle"
+    "errorLens.enabled": false,
+    "window.menuBarVisibility": "toggle",
+    // ## Extension: Settings Cycler
+    "settings.cycle": [
+        {
+            "id": "copilot",
+            "overrideWorkspaceSettings": true,
+            "values": [
+                {
+                    "github.copilot.inlineSuggest.enable": false
+                },
+                {
+                    "github.copilot.inlineSuggest.enable": true
+                }
+            ]
+        }
+    ],
+    "github.copilot.inlineSuggest.enable": false,
+    // "github.copilot.inlineSuggest.enable": false
 }
