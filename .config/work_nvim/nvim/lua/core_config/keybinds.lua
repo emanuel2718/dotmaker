@@ -23,11 +23,16 @@ keymap('n', '<leader>ll', '<cmd> Telescope loclist <cr>')
 -- keymap('n', '<leader>tt', '<cmd> Telescope help_tags <cr>')
 keymap('n', '<leader>mp', '<cmd> Telescope man_pages <cr>')
 keymap('n', '<leader>km', '<cmd> Telescope keymaps <cr>')
+keymap('n', '<leader>sc', '<cmd> luafile% <cr>')
 
 keymap('n', '<leader>gs', '<cmd> Telescope git_status <cr>')
 keymap('n', '<leader>ga', '<cmd> Telescope git_branches <cr>')
 keymap('n', '<leader>gl', '<cmd> Telescope git_commits <cr>')
 keymap('n', '<leader>gbl', '<cmd> Telescope git_bcommits <cr>')
+-- keymap('n', '<leader>ht',
+--   function()
+--     require('telescope.builtin').colorscheme({theme = 'dropdown', enable_preview = true})
+--   end)
 
 -- neovim specific keybinds
 keymap('n', '<leader>nc', nvim_config)
@@ -52,7 +57,8 @@ keymap('n', '<leader>bb', '<cmd> NvimTreeToggle <cr>')
 keymap('n', '<leader>br', '<cmd> NvimTreeRefresh <cr>')
 
 -- lazygit
-keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
+-- keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
+keymap('n', '<leader>gg', '<cmd> Neogit<cr>')
 
 
 
@@ -71,7 +77,8 @@ keymap('n', '<leader><leader>', '<cmd> noh <cr>', { silent = true })
 
 -- Buffer managment
 -- nmap <leader>d :bprevious<CR>:bdelete #<CR>
-keymap('n', '<leader>bd', '<cmd> bprevious<cr> <cmd> bdelete #<cr>', { silent = true })
+-- keymap('n', '<leader>bd', '<cmd> bprevious<cr> <cmd> bdelete #<cr>', { silent = true })
+keymap('n', '<leader>bd', '<cmd> BufDel<cr>', { silent = true})
 
 
 
@@ -106,6 +113,17 @@ keymap('n', '<leader>ds', '<Plug>(toggle-lsp-diag-signs)')
 keymap('n', '<leader>dv', '<Plug>(toggle-lsp-diag-vtext)')
 keymap('n', '<leader>di', '<Plug>(toggle-lsp-diag-update_in_insert)')
 
+
+-- Cargo commands
+keymap('n', '<leader>cb', '<cmd> !cargo build <cr>')
+keymap('n', '<leader>ct', '<cmd> !cargo test <cr>')
+keymap('n', '<leader>cr', '<cmd> !cargo run <cr>')
+
+
+
+-- indent magic
+keymap('v', '>', '<cmd> >gv <cr>')
+keymap('v', '<', '<cmd> <gv <cr>')
 
 
 

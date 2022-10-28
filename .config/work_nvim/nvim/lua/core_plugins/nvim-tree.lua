@@ -5,7 +5,7 @@ require 'nvim-tree'.setup {
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   hijack_cursor       = false,
-  update_cwd          = true,
+  -- update_cwd          = true,
   -- respect_buf_cwd     = true,
   filters             = {
     dotfiles = true,
@@ -31,8 +31,8 @@ require 'nvim-tree'.setup {
     },
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
+    enable      = true,
+    update_cwd  = true,
     ignore_list = {}
   },
   system_open         = {
@@ -41,7 +41,8 @@ require 'nvim-tree'.setup {
   },
 
   view = {
-    width = 40,
+    -- width = 40,
+    adaptive_size = true,
     side = 'left',
     number = false,
     hide_root_folder = false,

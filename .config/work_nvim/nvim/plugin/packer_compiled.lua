@@ -119,11 +119,6 @@ _G.packer_plugins = {
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
-  ["lazygit.nvim"] = {
-    loaded = true,
-    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
-    url = "https://github.com/kdheepak/lazygit.nvim"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -144,15 +139,35 @@ _G.packer_plugins = {
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/material.nvim",
     url = "https://github.com/marko-cerovac/material.nvim"
   },
+  melange = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/melange",
+    url = "https://github.com/savq/melange"
+  },
   neoformat = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
   },
+  neogit = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/neogit",
+    url = "https://github.com/TimUntersberger/neogit"
+  },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-bufdel"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/nvim-bufdel",
+    url = "https://github.com/ojroques/nvim-bufdel"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -251,6 +266,11 @@ _G.packer_plugins = {
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tender.vim"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/tender.vim",
+    url = "https://github.com/jacoborus/tender.vim"
+  },
   ["toggle-lsp-diagnostics.nvim"] = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/toggle-lsp-diagnostics.nvim",
@@ -260,6 +280,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  ["vim-moonfly-colors"] = {
+    loaded = true,
+    path = "/Users/emanuel/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
+    url = "https://github.com/bluz71/vim-moonfly-colors"
   },
   ["vim-vsnip"] = {
     loaded = true,

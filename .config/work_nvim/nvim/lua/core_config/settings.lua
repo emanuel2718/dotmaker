@@ -1,6 +1,8 @@
 -- vim.opt['background'] = 'dark'
 vim.opt['termguicolors'] = true
-vim.opt['relativenumber'] = true
+vim.opt['number'] = true
+vim.opt['guifont'] = 'TerminessTTF Nerd Font:h18'
+-- vim.opt['relativenumber'] = true
 vim.opt['ruler'] = true
 vim.opt['numberwidth'] = 1
 vim.opt['tabstop'] = 2
@@ -45,5 +47,6 @@ vim.opt['undofile'] = true
 vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'
 vim.opt['undolevels'] = 1000
 vim.opt['undoreload'] = 10000
+
 
 

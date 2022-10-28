@@ -1,7 +1,7 @@
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'material-nvim',
+    theme = 'auto',
   },
   sections = {
     lualine_a = {'mode'},
@@ -10,7 +10,8 @@ require'lualine'.setup {
       'filename',
       file_status = true,
       newfile_status = true,
-      path = 1,
+      path = 3,
+      shorting_target = 40,
     }},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
       lualine_y = {
