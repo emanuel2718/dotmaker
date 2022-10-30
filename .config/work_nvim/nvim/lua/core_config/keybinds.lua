@@ -24,6 +24,7 @@ keymap('n', '<leader>ll', '<cmd> Telescope loclist <cr>')
 keymap('n', '<leader>mp', '<cmd> Telescope man_pages <cr>')
 keymap('n', '<leader>km', '<cmd> Telescope keymaps <cr>')
 keymap('n', '<leader>sc', '<cmd> luafile% <cr>')
+keymap('n', '<leader>cc', ':Z ')
 
 keymap('n', '<leader>gs', '<cmd> Telescope git_status <cr>')
 keymap('n', '<leader>ga', '<cmd> Telescope git_branches <cr>')

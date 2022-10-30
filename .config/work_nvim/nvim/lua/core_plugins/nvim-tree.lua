@@ -5,8 +5,8 @@ require 'nvim-tree'.setup {
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   hijack_cursor       = false,
-  -- update_cwd          = true,
-  -- respect_buf_cwd     = true,
+  update_cwd          = true,
+  respect_buf_cwd     = true,
   filters             = {
     dotfiles = true,
     custom = { ".git/*", "node_modules", ".build", ".vscode" }

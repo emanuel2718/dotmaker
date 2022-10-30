@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
       require 'surround'.setup { mappings_style = 'surround' }
     end
   }
+  use 'nanotee/zoxide.vim'
 
   use {
     'lewis6991/gitsigns.nvim',
