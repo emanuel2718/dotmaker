@@ -9,7 +9,6 @@ require('toggleterm').setup{
   insert_mappings = false,
   persist_size = true,
   direction = 'horizontal',
-  float_opts = { border = 'rounded', winblend = 3 },
   close_on_exit = true,
   shell = vim.o.shell, -- change the default shell
 }

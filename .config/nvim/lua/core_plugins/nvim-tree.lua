@@ -1,20 +1,22 @@
-require'nvim-tree'.setup {
+require 'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   hijack_cursor       = false,
-  -- respect_buf_cwd     = true,
-  filters = {
-    custom = {".git/*", "node_modules", ".build", ".vscode"}
+  update_cwd          = true,
+  respect_buf_cwd     = true,
+  filters             = {
+    dotfiles = true,
+    custom = { ".git/*", "node_modules", ".build", ".vscode" }
   },
-  renderer = {
+  renderer            = {
     indent_markers = {
       enable = true,
     }
   },
-  diagnostics = {
+  diagnostics         = {
     enable = false,
     icons = {
       hint = '',
@@ -23,24 +25,24 @@ require'nvim-tree'.setup {
       error = '',
     }
   },
-  actions = {
+  actions             = {
     open_file = {
       quit_on_open = true,
     },
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
+    enable      = true,
+    update_cwd  = true,
     ignore_list = {}
   },
-  system_open = {
+  system_open         = {
     cmd  = nil,
     args = {}
   },
 
   view = {
-    width = 40,
-    height = 40,
+    -- width = 40,
+    adaptive_size = true,
     side = 'left',
     number = false,
     hide_root_folder = false,
@@ -73,4 +75,3 @@ vim.g.nvim_tree_icons = {
     symlink = "",
   },
 }
-

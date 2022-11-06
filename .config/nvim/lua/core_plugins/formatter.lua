@@ -27,4 +27,4 @@ augroup FormatAutogroup
 augroup END
 ]], true)
 
-vim.api.nvim_command("autocmd BufWritePre *.ex,*.go lua vim.lsp.buf.formatting()")
+-- vim.api.nvim_command("autocmd BufWritePre *.ex,*.go,*.tsx,*.ts,*.jsx,*.js,*.json,*.graphql lua vim.lsp.buf.formatting()")

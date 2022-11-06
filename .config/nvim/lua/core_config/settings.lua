@@ -1,5 +1,8 @@
-vim.opt['background'] = 'dark'
-vim.opt['relativenumber'] = true
+-- vim.opt['background'] = 'dark'
+vim.opt['termguicolors'] = true
+vim.opt['number'] = true
+vim.opt['guifont'] = 'TerminessTTF Nerd Font:h18'
+-- vim.opt['relativenumber'] = true
 vim.opt['ruler'] = true
 vim.opt['numberwidth'] = 1
 vim.opt['tabstop'] = 2
@@ -7,13 +10,13 @@ vim.opt['shiftwidth'] = 2
 vim.opt['shiftround'] = true
 vim.opt['expandtab'] = true
 vim.opt['mouse'] = 'a'
-vim.opt['foldlevel'] = 99
-vim.opt['foldmethod'] = 'indent'
+vim.opt['foldlevel'] = 20
 vim.opt['foldenable'] = true
-vim.opt['smartindent'] = true
+vim.opt['foldmethod'] = 'expr'
+vim.opt['foldexpr'] = 'nvim_treesitter#foldexpr()'
 vim.opt['autoindent'] = true
-vim.opt['termguicolors'] = true
 vim.opt['hlsearch'] = true
+vim.opt['cursorline'] = true
 vim.opt['encoding'] = 'utf-8'
 vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
@@ -32,7 +35,6 @@ vim.opt['ignorecase'] = true
 vim.opt['incsearch'] = true
 vim.opt['wrap'] = false
 vim.opt['scrolloff'] = 4
-vim.opt['sidescrolloff'] = 4
 vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
 
 
@@ -45,5 +47,6 @@ vim.opt['undofile'] = true
 vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'
 vim.opt['undolevels'] = 1000
 vim.opt['undoreload'] = 10000
+
 
 

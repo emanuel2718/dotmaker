@@ -31,6 +31,11 @@ alias ncc='nvim $HOME/.config/nvim'
 alias vim="nvim"
 
 
+alias cb='cargo build'
+alias cr='cargo run'
+alias ct='cargo test'
+
+
 # i3 laptop monitor on/off
 alias lapon="xrandr --output eDP-1 --auto"
 alias lapoff="xrandr --output eDP-1 --off"
@@ -183,3 +188,9 @@ alias luamake=/home/emal/dev/forks/lua-language-server/3rd/luamake/luamake
 export PATH="$HOME/.nodenv/bin:$PATH"
 
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$(zoxide init bash)"

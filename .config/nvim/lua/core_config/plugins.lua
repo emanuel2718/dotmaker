@@ -19,23 +19,27 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
   use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-  use 'kdheepak/lazygit.nvim'
+  use 'stsewd/gx-extended.vim' -- open links in browser with `gx`
+  -- use 'kdheepak/lazygit.nvim'
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'terrortylor/nvim-comment'
   use 'rafamadriz/friendly-snippets'
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+  use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
   use 'sbdchd/neoformat'
   use 'mhartington/formatter.nvim'
+  use { 'ojroques/nvim-bufdel' }
   use {
-    "ur4ltz/surround.nvim",
+    'ur4ltz/surround.nvim',
     config = function()
-        require"surround".setup {mappings_style = "surround"}
+      require 'surround'.setup { mappings_style = 'surround' }
     end
   }
+  use 'nanotee/zoxide.vim'
 
   use {
     'lewis6991/gitsigns.nvim',
     requires = {
-        'nvim-lua/plenary.nvim'
+      'nvim-lua/plenary.nvim'
     }
   }
 
@@ -52,31 +56,35 @@ return require('packer').startup(function(use)
     run = 'make'
   }
 
-  use { "nvim-telescope/telescope-file-browser.nvim" }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
 
   use {
     'hoob3rt/lualine.nvim',
     requires = {
-        'kyazdani42/nvim-web-devicons',
-        opt = true
+      'kyazdani42/nvim-web-devicons',
+      opt = true
     }
   }
 
   use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-    }
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
 
   -- use_rocks {'lunajson'}
 
   -- themes
+  use 'savq/melange'
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
   use 'ellisonleao/gruvbox.nvim'
-  use 'navarasu/onedark.nvim'
+  use 'EdenEast/nightfox.nvim'
+  use 'jacoborus/tender.vim'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
+  use { 'bluz71/vim-moonfly-colors', branch = 'cterm-compat' }
 
 
   -- experimental
-  use "github/copilot.vim"
+  use 'github/copilot.vim'
 
 end)
