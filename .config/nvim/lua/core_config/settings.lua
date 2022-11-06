@@ -3,6 +3,7 @@ vim.opt['termguicolors'] = true
 vim.opt['number'] = true
 vim.opt['guifont'] = 'TerminessTTF Nerd Font:h18'
 -- vim.opt['relativenumber'] = true
+vim.opt['modifiable'] = true
 vim.opt['ruler'] = true
 vim.opt['numberwidth'] = 1
 vim.opt['tabstop'] = 2
@@ -41,6 +42,8 @@ vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
 -- NEVER insert comment on newline
 vim.cmd('autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatoptions-=o')
 vim.cmd('command CDD cd %:p:h')
+
+vim.cmd('autocmd BufWinEnter * setlocal modifiable')
 
 
 vim.opt['undofile'] = true

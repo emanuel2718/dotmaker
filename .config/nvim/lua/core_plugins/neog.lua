@@ -73,7 +73,8 @@ neogit.setup {
       -- Adds a mapping with "B" as key that does the "BranchPopup" command
       ["B"] = "BranchPopup",
       -- Removes the default mapping of "s"
-      ["s"] = "",
+      -- NOTE: don't copy paste blindly....
+      -- ["s"] = "",
     }
   }
 }
