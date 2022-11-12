@@ -24,7 +24,7 @@ require 'nvim-tree'.setup {
     },
     highlight_git = true,
     icons = {
-      web_devicons = true,
+      -- web_devicons = true,
       glyphs = {
         default = '',
         symlink = '',
