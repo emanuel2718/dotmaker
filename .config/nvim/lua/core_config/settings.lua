@@ -22,6 +22,7 @@ vim.opt['encoding'] = 'utf-8'
 vim.opt['fileencoding'] = 'utf-8'
 vim.opt['showmode'] = false
 vim.opt['clipboard'] = 'unnamedplus'
+vim.opt['updatetime'] = 100 -- faster completion
 vim.opt['swapfile'] = false
 vim.opt['laststatus'] = 3
 vim.opt['splitbelow'] = true
@@ -35,7 +36,8 @@ vim.opt['cindent'] = true
 vim.opt['ignorecase'] = true
 vim.opt['incsearch'] = true
 vim.opt['wrap'] = false
-vim.opt['scrolloff'] = 4
+vim.opt['scrolloff'] = 8
+vim.opt['sidescrolloff'] = 8
 vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
 
 
@@ -44,7 +46,6 @@ vim.cmd('autocmd BufWinEnter * :set formatoptions-=c formatoptions-=r formatopti
 vim.cmd('command CDD cd %:p:h')
 
 vim.cmd('autocmd BufWinEnter * setlocal modifiable')
-
 
 vim.opt['undofile'] = true
 vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'

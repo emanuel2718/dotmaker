@@ -1,9 +1,8 @@
 require('nvim-treesitter.configs').setup{
-  --ensure_installed = {'c', 'cpp', 'python', 'lua', 'typescript', 'tsx',
-  --                  'regex', 'bash', 'cmake', 'css', 'javascript',
-  --                  'html', 'comment', 'java', 'rust', 'go', 'markdown',
-  --                  'make', 'json', 'vim'},
-  ensure_installed = 'all',
+  ensure_installed = {'c', 'cpp', 'python', 'lua', 'typescript', 'tsx',
+                    'regex', 'bash', 'cmake', 'css', 'javascript',
+                    'html', 'comment', 'java', 'rust', 'go', 'markdown',
+                    'make', 'json', 'vim'},
   sync_install = false,
   ingnore_install = false,
   highlight = {

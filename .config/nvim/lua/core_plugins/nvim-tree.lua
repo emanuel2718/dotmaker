@@ -1,12 +1,19 @@
 require 'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
+  hijack_directories  = {
+    enable = false,
+  },
   open_on_setup       = false,
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
-  hijack_cursor       = false,
   update_cwd          = true,
   respect_buf_cwd     = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+    ignore_list = {},
+  },
   filters             = {
     dotfiles = true,
     custom = { ".git/*", "node_modules", ".build", ".vscode" }
@@ -14,6 +21,29 @@ require 'nvim-tree'.setup {
   renderer            = {
     indent_markers = {
       enable = true,
+    },
+    highlight_git = true,
+    icons = {
+      web_devicons = true,
+      glyphs = {
+        default = '',
+        symlink = '',
+        folder = {
+          default = "",
+          open = "",
+          symlink = "",
+          symlink_open = "",
+        },
+        git = {
+          unstaged = "",
+          staged = "S",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "U",
+          deleted = ",",
+          ignored = "◌",
+        },
+      },
     }
   },
   diagnostics         = {
@@ -49,29 +79,32 @@ require 'nvim-tree'.setup {
     mappings = {
       custom_only = false,
       list = {
-        { key = '<C-h>', action = 'dir_up' }
+        { key = '<C-h>', action = 'dir_up' },
+        { key = 'l', action = '<CR>' },
+        { key = 'h', action = 'close_node' }
       }
     }
-  }
+  },
+
 }
 
-vim.g.nvim_tree_icons = {
-  default = "",
-  symlink = "",
-  git = {
-    unstaged = "",
-    staged = "S",
-    unmerged = "",
-    renamed = "➜",
-    deleted = "",
-    untracked = "U",
-    ignored = "◌",
-  },
-  folder = {
-    default = "",
-    open = "",
-    empty = "",
-    empty_open = "",
-    symlink = "",
-  },
-}
+-- vim.g.nvim_tree_icons = {
+--   default = "",
+--   symlink = "",
+--   git = {
+--     unstaged = "",
+--     staged = "S",
+--     unmerged = "",
+--     renamed = "➜",
+--     deleted = "",
+--     untracked = "U",
+--     ignored = "◌",
+--   },
+--   folder = {
+--     default = "",
+--     open = "",
+--     empty = "",
+--     empty_open = "",
+--     symlink = "",
+--   },
+-- }

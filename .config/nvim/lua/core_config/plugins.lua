@@ -19,7 +19,9 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
   use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
-  use 'stsewd/gx-extended.vim' -- open links in browser with `gx`
+  use 'stsewd/gx-extended.vim'
+  use "kyazdani42/nvim-web-devicons"
+
   -- use 'kdheepak/lazygit.nvim'
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'terrortylor/nvim-comment'
@@ -28,12 +30,17 @@ return require('packer').startup(function(use)
   use 'sbdchd/neoformat'
   use 'mhartington/formatter.nvim'
   use { 'ojroques/nvim-bufdel' }
-  use {
-    'ur4ltz/surround.nvim',
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
-      require 'surround'.setup { mappings_style = 'surround' }
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
     end
-  }
+})
+    
+
   use 'nanotee/zoxide.vim'
 
   use {
@@ -70,6 +77,7 @@ return require('packer').startup(function(use)
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
   }
+  use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
   -- use_rocks {'lunajson'}
 
