@@ -83,8 +83,8 @@ keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>")
 
 
 -- defaults
-keymap('n', '<leader>wd', '<cmd> q<cr>', { silent = true })
-keymap('n', '<leader>q', '<cmd> lua require("toggleterm").close_all() <cr>')
+keymap('n', '<leader>wd', '<cmd>q<cr>', { silent = true })
+keymap('n', '<leader>q', '<cmd>qa!<cr>')
 keymap('n', '<leader>fs', '<cmd> w<cr>')
 keymap('n', '<leader>`', '<cmd> b#<cr>', { silent = true }) -- switch to last buffer
 keymap('n', '<F2>', '<cmd> vertical resize +7 <cr>')
@@ -98,7 +98,7 @@ keymap('n', '<leader><leader>', '<cmd> noh <cr>', { silent = true })
 -- Buffer managment
 -- nmap <leader>d :bprevious<CR>:bdelete #<CR>
 -- keymap('n', '<leader>bd', '<cmd> bprevious<cr> <cmd> bdelete #<cr>', { silent = true })
-keymap('n', '<leader>bd', '<cmd> BufDel<cr>', { silent = true })
+keymap('n', '<leader>bd', '<cmd>BufDel<cr>', { silent = true })
 
 
 

@@ -1,19 +1,19 @@
 require 'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
-  hijack_directories  = {
-    enable = false,
-  },
-  open_on_setup       = false,
+  -- hijack_directories  = {
+  --   enable = false,
+  -- },
+  open_on_setup       =  true,
   ignore_ft_on_setup  = {},
   open_on_tab         = false,
   update_cwd          = true,
   respect_buf_cwd     = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
+  -- update_focused_file = {
+  --   enable = true,
+  --   update_cwd = true,
+  --   ignore_list = {},
+  -- },
   filters             = {
     dotfiles = true,
     custom = { ".git/*", "node_modules", ".build", ".vscode" }
@@ -60,19 +60,19 @@ require 'nvim-tree'.setup {
       quit_on_open = true,
     },
   },
-  update_focused_file = {
-    enable      = true,
-    update_cwd  = true,
-    ignore_list = {}
-  },
+  -- update_focused_file = {
+  --   enable      = true,
+  --   update_cwd  = true,
+  --   ignore_list = {}
+  -- },
   system_open         = {
     cmd  = nil,
     args = {}
   },
 
   view = {
-    -- width = 40,
-    adaptive_size = true,
+    width = 45,
+    -- adaptive_size = true,
     side = 'left',
     number = false,
     hide_root_folder = false,
@@ -87,24 +87,3 @@ require 'nvim-tree'.setup {
   },
 
 }
-
--- vim.g.nvim_tree_icons = {
---   default = "",
---   symlink = "",
---   git = {
---     unstaged = "",
---     staged = "S",
---     unmerged = "",
---     renamed = "➜",
---     deleted = "",
---     untracked = "U",
---     ignored = "◌",
---   },
---   folder = {
---     default = "",
---     open = "",
---     empty = "",
---     empty_open = "",
---     symlink = "",
---   },
--- }

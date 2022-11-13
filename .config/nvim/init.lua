@@ -35,7 +35,7 @@ require('core_plugins.toogle-term')
 require('core_plugins.toogle-lsp-diagnostics')
 require('core_plugins.treesitter')
 require('core_plugins.copilot')
-require('core_plugins.bufferline')
+-- require('core_plugins.bufferline')
 require('core_plugins.web-devicons')
 -- require('core_plugins.gruvbox')
 
