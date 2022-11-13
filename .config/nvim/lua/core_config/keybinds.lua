@@ -14,7 +14,7 @@ keymap('n', '<leader>pf', '<cmd>Telescope git_files <cr>') -- search files in pr
 keymap('n', '<leader>ss', '<cmd>Telescope current_buffer_fuzzy_find <cr>')
 keymap('n', '<leader>sh', '<cmd>Telescope search_history <cr>')
 keymap('n', '<leader>ht', "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>")
-          
+
 -- keymap('n', '<leader>ht', '<cmd> Telescope colorscheme <cr>')
 
 keymap('n', '<leader>bf', '<cmd>Telescope buffers <cr>')
@@ -72,13 +72,17 @@ keymap('n', '<leader>br', '<cmd>NvimTreeRefresh <cr>')
 -- lazygit
 -- keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
 keymap('n', '<leader>gg', '<cmd>Neogit<cr>')
-keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>")
-keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>")
+-- keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>")
+-- keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>")
 keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>")
 keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
 keymap('n', '<leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
 keymap('n', '<leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>")
 keymap('n', '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>")
+
+-- Github Copilot
+keymap('n', '<leader>g.', "<cmd>Copilot enable<cr>")
+keymap('n', '<leader>gk', "<cmd>Copilot disable<cr>")
 
 
 
@@ -120,7 +124,7 @@ keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
 keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+-- keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 keymap('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
@@ -140,6 +144,12 @@ keymap('n', '<leader>di', '<Plug>(toggle-lsp-diag-update_in_insert)')
 keymap('n', '<leader>cb', '<cmd> !cargo build <cr>')
 keymap('n', '<leader>ct', '<cmd> !cargo test <cr>')
 keymap('n', '<leader>cr', '<cmd> !cargo run <cr>')
+
+-- Spectre (search/replace)
+keymap('n', '<leader>R', '<cmd>lua require("spectre").open()<cr>')
+keymap('n', '<leader>rf', '<esc>:lua require("spectre").open_visual()<cr>')
+keymap('n', '<leader>rp', 'viw:lua require("spectre").open_file_search()<cr>')
+
 
 
 

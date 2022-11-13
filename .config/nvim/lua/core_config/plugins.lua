@@ -22,6 +22,7 @@ return require('packer').startup(function(use)
   use 'stsewd/gx-extended.vim'
   use "kyazdani42/nvim-web-devicons"
 
+
   -- use 'kdheepak/lazygit.nvim'
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'terrortylor/nvim-comment'
@@ -94,5 +95,5 @@ return require('packer').startup(function(use)
 
   -- experimental
   use 'github/copilot.vim'
-
+  use 'windwp/nvim-spectre'
 end)
