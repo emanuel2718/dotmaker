@@ -12,6 +12,7 @@ if fn.exists('g:neovide') then
   vim.g.neovide_cursor_animation_length = 0.0
 end
 
+-- Core Config
 require('core_config.plugins')
 require('core_config.helpers')
 require('core_config.keybinds')
@@ -19,6 +20,7 @@ require('core_config.settings')
 require('core_config.colorscheme')
 
 
+-- Core Plugins
 require('core_plugins.lsp-installer')
 require('core_plugins.autopairs')
 -- require('core_plugins.material')
@@ -37,7 +39,7 @@ require('core_plugins.treesitter')
 require('core_plugins.copilot')
 -- require('core_plugins.bufferline')
 require('core_plugins.web-devicons')
-require('core_plugins.spectre')
+require('core_plugins.fold-cycle')
 -- require('core_plugins.gruvbox')
 
 

@@ -145,11 +145,9 @@ keymap('n', '<leader>cb', '<cmd> !cargo build <cr>')
 keymap('n', '<leader>ct', '<cmd> !cargo test <cr>')
 keymap('n', '<leader>cr', '<cmd> !cargo run <cr>')
 
--- Spectre (search/replace)
-keymap('n', '<leader>R', '<cmd>lua require("spectre").open()<cr>')
-keymap('n', '<leader>rf', '<esc>:lua require("spectre").open_visual()<cr>')
-keymap('n', '<leader>rp', 'viw:lua require("spectre").open_file_search()<cr>')
-
+-- Fold cycle
+keymap('n', '<tab>', function() return require('fold-cycle').open() end, { silent = true })
+keymap('n', '<s-tab>', function() return require('fold-cycle').close_all() end, { remap = true, silent = true })
 
 
 

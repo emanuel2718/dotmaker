@@ -104,6 +104,12 @@ _G.packer_plugins = {
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/copilot.vim",
     url = "https://github.com/github/copilot.vim"
   },
+  ["fold-cycle.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15fold-cycle\frequire\0" },
+    loaded = true,
+    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/fold-cycle.nvim",
+    url = "https://github.com/jghauser/fold-cycle.nvim"
+  },
   ["formatter.nvim"] = {
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/formatter.nvim",
@@ -209,11 +215,6 @@ _G.packer_plugins = {
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
-  ["nvim-spectre"] = {
-    loaded = true,
-    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/nvim-spectre",
-    url = "https://github.com/windwp/nvim-spectre"
-  },
   ["nvim-surround"] = {
     config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
     loaded = true,
@@ -244,6 +245,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
@@ -317,6 +323,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
+-- Config for: fold-cycle.nvim
+time([[Config for fold-cycle.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15fold-cycle\frequire\0", "config", "fold-cycle.nvim")
+time([[Config for fold-cycle.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

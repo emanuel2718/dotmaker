@@ -95,5 +95,10 @@ return require('packer').startup(function(use)
 
   -- experimental
   use 'github/copilot.vim'
-  use 'windwp/nvim-spectre'
+  use {
+    'jghauser/fold-cycle.nvim',
+    config = function()
+      require('fold-cycle').setup()
+    end
+  }
 end)
