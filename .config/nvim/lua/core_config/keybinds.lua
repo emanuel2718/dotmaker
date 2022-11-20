@@ -47,7 +47,7 @@ keymap('n', '<leader>gbl', '<cmd>Telescope git_bcommits <cr>')
 
 -- neovim specific keybinds
 keymap('n', '<leader>nc', nvim_config)
-keymap('n', '<leader>rr', '<cmd> so % <cr>')
+-- keymap('n', '<leader>rr', '<cmd> so % <cr>')
 
 -- Emacs window movement
 keymap('n', '<leader>wh', '<C-w>h')
@@ -124,9 +124,9 @@ keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
 keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
 keymap('n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
--- keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
+keymap('n', '<leader>lf', '<cmd>lua vim.lsp.buf.format { async = true }<CR>')
 keymap('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
 keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
@@ -148,7 +148,6 @@ keymap('n', '<leader>cr', '<cmd> !cargo run <cr>')
 -- Fold cycle
 keymap('n', '<tab>', function() return require('fold-cycle').open() end, { silent = true })
 keymap('n', '<s-tab>', function() return require('fold-cycle').close_all() end, { remap = true, silent = true })
-
 
 
 -- indent magic
