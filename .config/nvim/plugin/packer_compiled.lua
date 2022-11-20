@@ -135,6 +135,11 @@ _G.packer_plugins = {
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/gx-extended.vim",
     url = "https://github.com/stsewd/gx-extended.vim"
   },
+  ["lazygit.nvim"] = {
+    loaded = true,
+    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -164,11 +169,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/neoformat",
     url = "https://github.com/sbdchd/neoformat"
-  },
-  neogit = {
-    loaded = true,
-    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
   },
   ["nightfox.nvim"] = {
     loaded = true,
@@ -266,17 +266,6 @@ _G.packer_plugins = {
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["popup.nvim"] = {
-    loaded = true,
-    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/popup.nvim",
-    url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["substitute.nvim"] = {
-    config = { "\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15substitute\frequire\0" },
-    loaded = true,
-    path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/substitute.nvim",
-    url = "https://github.com/gbprod/substitute.nvim"
-  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -288,6 +277,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
+    config = { "\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0" },
     loaded = true,
     path = "/home/visqwit/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
@@ -325,10 +315,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: substitute.nvim
-time([[Config for substitute.nvim]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\15substitute\frequire\0", "config", "substitute.nvim")
-time([[Config for substitute.nvim]], false)
 -- Config for: fold-cycle.nvim
 time([[Config for fold-cycle.nvim]], true)
 try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15fold-cycle\frequire\0", "config", "fold-cycle.nvim")
@@ -337,6 +323,10 @@ time([[Config for fold-cycle.nvim]], false)
 time([[Config for nvim-surround]], true)
 try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
 time([[Config for nvim-surround]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

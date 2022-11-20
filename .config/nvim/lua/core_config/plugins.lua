@@ -22,9 +22,14 @@ return require('packer').startup(function(use)
   use 'stsewd/gx-extended.vim'
   use "kyazdani42/nvim-web-devicons"
 
-
-  -- use 'kdheepak/lazygit.nvim'
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/plenary.nvim" }, { "kdheepak/lazygit.nvim" } },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
+  })
+  -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'terrortylor/nvim-comment'
   use 'rafamadriz/friendly-snippets'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }

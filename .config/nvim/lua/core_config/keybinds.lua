@@ -70,8 +70,8 @@ keymap('n', '<leader>br', '<cmd>NvimTreeRefresh <cr>')
 
 --- Git
 -- lazygit
--- keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
-keymap('n', '<leader>gg', '<cmd>Neogit<cr>')
+keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
+-- keymap('n', '<leader>gg', '<cmd>Neogit<cr>')
 -- keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>")
 -- keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>")
 keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>")
