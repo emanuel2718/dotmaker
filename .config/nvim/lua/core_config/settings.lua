@@ -11,7 +11,7 @@ vim.opt['shiftwidth'] = 2
 vim.opt['shiftround'] = true
 vim.opt['expandtab'] = true
 vim.opt['mouse'] = 'a'
-vim.opt['foldlevel'] = 20
+vim.opt['foldlevel'] = 99
 vim.opt['foldenable'] = true
 vim.opt['foldmethod'] = 'expr'
 vim.opt['foldexpr'] = 'nvim_treesitter#foldexpr()'
@@ -39,6 +39,11 @@ vim.opt['wrap'] = false
 vim.opt['scrolloff'] = 8
 vim.opt['sidescrolloff'] = 8
 vim.opt['wildignore'] = '*.swp, *.bak, *.pyc, *.class'
+vim.opt['undofile'] = true
+vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'
+vim.opt['undolevels'] = 1000
+vim.opt['undoreload'] = 10000
+
 
 
 -- NEVER insert comment on newline
@@ -47,10 +52,24 @@ vim.cmd('command CDD cd %:p:h')
 
 vim.cmd('autocmd BufWinEnter * setlocal modifiable')
 
-vim.opt['undofile'] = true
-vim.opt['undodir'] = os.getenv('HOME')..'/.cache/nvim/undo'
-vim.opt['undolevels'] = 1000
-vim.opt['undoreload'] = 10000
+-- trim whitespace
+--autocmd("BufWritePre", {
+--  pattern = "*",
+--  callback = function()
+--    exec(
+--      [[
+--        function! NoWhitespace()
+--          let l:save = winsaveview()
+--          keeppatterns %s/\s\+$//e
+--          call winrestview(l:save)
+--        endfunction
+--        call NoWhitespace()
+--        ]],
+--      true
+--    )
+--  end,
+--})
+
 
 
 

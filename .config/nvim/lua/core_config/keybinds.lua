@@ -119,7 +119,7 @@ keymap('n', 'gd', '<cmd> lua vim.lsp.buf.definition() <cr>')
 keymap('n', 'K', '<cmd> lua vim.lsp.buf.hover() <cr>')
 keymap('n', 'gi', '<cmd> lua vim.lsp.buf.implementation() <cr>')
 
-keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+keymap('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
 keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
 keymap('n', '<leader>wf', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
@@ -151,5 +151,7 @@ keymap('n', '<s-tab>', function() return require('fold-cycle').close_all() end, 
 
 
 -- indent magic
+-- keymap("v", "<", ">gv")
+-- keymap("v", ">", "<gv")
 -- keymap('v', '>', '<cmd> >gv<cr>')
 -- keymap('v', '<', '<cmd> <gv<cr>')

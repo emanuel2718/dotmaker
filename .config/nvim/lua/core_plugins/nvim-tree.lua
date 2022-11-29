@@ -1,6 +1,10 @@
 require 'nvim-tree'.setup {
   disable_netrw       = true,
   hijack_netrw        = true,
+  hijack_unnamed_buffer_when_opening = false,
+  hijack_cursor       = true,
+
+
   -- hijack_directories  = {
   --   enable = false,
   -- },
@@ -9,20 +13,24 @@ require 'nvim-tree'.setup {
   open_on_tab         = false,
   update_cwd          = true,
   respect_buf_cwd     = true,
-  -- update_focused_file = {
-  --   enable = true,
-  --   update_cwd = true,
-  --   ignore_list = {},
-  -- },
+  update_focused_file = {
+    enable = true,
+    update_cwd = false,
+    ignore_list = {},
+  },
   filters             = {
     dotfiles = true,
     custom = { ".git/*", "node_modules", ".build", ".vscode" }
   },
+  filesystem_watchers = {
+    enable = true,
+  },
   renderer            = {
     indent_markers = {
-      enable = true,
+      enable = false,
     },
-    highlight_git = true,
+    highlight_git = false,
+    highlight_opened_files = "none",
     icons = {
       -- web_devicons = true,
       glyphs = {
@@ -57,6 +65,7 @@ require 'nvim-tree'.setup {
   },
   actions             = {
     open_file = {
+      resize_window = true,
       quit_on_open = true,
     },
   },
@@ -71,11 +80,11 @@ require 'nvim-tree'.setup {
   },
 
   view = {
+    adaptive_size = true,
     width = 45,
-    -- adaptive_size = true,
     side = 'left',
     number = false,
-    hide_root_folder = false,
+    hide_root_folder = true,
     mappings = {
       custom_only = false,
       list = {

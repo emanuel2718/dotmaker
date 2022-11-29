@@ -94,7 +94,10 @@ return require('packer').startup(function(use)
   use 'jacoborus/tender.vim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
   use { 'bluz71/vim-moonfly-colors', branch = 'cterm-compat' }
-
+  use "rebelot/kanagawa.nvim"
+  use 'sainnhe/gruvbox-material'
+  use 'bluz71/vim-nightfly-colors'
+  use 'tomasiser/vim-code-dark'
 
   -- experimental
   use 'github/copilot.vim'
