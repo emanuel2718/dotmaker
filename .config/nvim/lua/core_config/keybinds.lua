@@ -70,8 +70,8 @@ keymap('n', '<leader>br', '<cmd>NvimTreeRefresh <cr>')
 
 --- Git
 -- lazygit
-keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
--- keymap('n', '<leader>gg', '<cmd>Neogit<cr>')
+-- keymap('n', '<leader>gg', '<cmd> LazyGit <cr>')
+keymap('n', '<leader>gg', '<cmd>Neogit<cr>')
 -- keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>")
 -- keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>")
 keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>")
@@ -131,6 +131,7 @@ keymap('n', '<leader>i', '<cmd>lua vim.diagnostic.open_float()<CR>')
 keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+keymap('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 -- LSP diagnostics
 keymap('n', '<Leader>dd', '<cmd> ToggleDiag <cr>')
@@ -145,9 +146,16 @@ keymap('n', '<leader>cb', '<cmd> !cargo build <cr>')
 keymap('n', '<leader>ct', '<cmd> !cargo test <cr>')
 keymap('n', '<leader>cr', '<cmd> !cargo run <cr>')
 
+-- Fold
+keymap('n', '<leader>fo', '<cmd>foldopen<cr>')
+keymap('n', '<leader>fc', '<cmd>foldclose<cr>')
+
 -- Fold cycle
-keymap('n', '<tab>', function() return require('fold-cycle').open() end, { silent = true })
-keymap('n', '<s-tab>', function() return require('fold-cycle').close_all() end, { remap = true, silent = true })
+-- keymap('n', '<tab>', function() return require('fold-cycle').open() end, { silent = true })
+-- keymap('n', '<s-tab>', function() return require('fold-cycle').close_all() end, { remap = true, silent = true })
+
+-- Scratch window
+keymap('n', '<leader>x', '<cmd> Scratch <cr>')
 
 
 -- indent magic

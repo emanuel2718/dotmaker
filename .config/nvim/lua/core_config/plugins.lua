@@ -29,7 +29,7 @@ return require('packer').startup(function(use)
       require("telescope").load_extension("lazygit")
     end,
   })
-  -- use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use 'terrortylor/nvim-comment'
   use 'rafamadriz/friendly-snippets'
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install' }
@@ -98,6 +98,14 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'bluz71/vim-nightfly-colors'
   use 'tomasiser/vim-code-dark'
+  use 'tanvirtin/monokai.nvim'
+  use 'meain/hima-vim'
+  use ({ 'projekt0n/github-nvim-theme' })
+  use "lewpoly/sherbet.nvim"
+
+  -- scratch window
+  use 'mtth/scratch.vim'
+
 
   -- experimental
   use 'github/copilot.vim'
@@ -108,4 +116,5 @@ return require('packer').startup(function(use)
     end
   }
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  use {'mg979/vim-visual-multi', branch = 'master' }
 end)
