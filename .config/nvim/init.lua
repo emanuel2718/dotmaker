@@ -12,6 +12,3 @@ require('core.keymaps')
 require('core.settings')
 require('core.plugins')
 require('core.color')
-
--- Plugins
--- require('plugins.telescope')

@@ -10,25 +10,25 @@ return require('packer').startup(function(use)
     use {
         'neovim/nvim-lspconfig',
         requires = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
-        -- Autocompletion
-        'hrsh7th/nvim-cmp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'saadparwaiz1/cmp_luasnip',
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-nvim-lua',
+            -- Autocompletion
+            'hrsh7th/nvim-cmp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'saadparwaiz1/cmp_luasnip',
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-nvim-lua',
 
-        -- status update for lsp
-        'j-hui/fidget.nvim',
+            -- status update for lsp
+            'j-hui/fidget.nvim',
 
-        'folke/neodev.nvim',
+            'folke/neodev.nvim',
 
-        -- Snippets
-        'L3MON4D3/LuaSnip',
-        'rafamadriz/friendly-snippets',
+            -- Snippets
+            'L3MON4D3/LuaSnip',
+            'rafamadriz/friendly-snippets',
         },
     }
     use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
@@ -38,7 +38,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
-        pcall(require('nvim-treesitter.install').update { with_sync = true })
+            pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     }
     use {
@@ -81,8 +81,8 @@ return require('packer').startup(function(use)
     use {
         'hoob3rt/lualine.nvim',
         requires = {
-          'kyazdani42/nvim-web-devicons',
-          opt = true
+            'kyazdani42/nvim-web-devicons',
+            opt = true
         }
     }
 
@@ -135,7 +135,7 @@ return require('packer').startup(function(use)
     -- Custom plugins
     local has_plugins, plugins = pcall(require, 'custom.plugins')
     if has_plugins then
-      plugins(use)
+        plugins(use)
     end
 
     -- Source and re-compile Packer on save of init.lua

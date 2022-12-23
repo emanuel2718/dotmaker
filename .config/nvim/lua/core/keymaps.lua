@@ -52,7 +52,7 @@ keymap("n", "N", "Nzzzv")
 
 
 -- respect system clipboard unless told otherwise
-keymap({"n", "v"}, "<leader>y", [["+y]])
+keymap({ "n", "v" }, "<leader>y", [["+y]])
 keymap("n", "<leader>Y", [["+Y]])
 
 -- Q don't do random shit
@@ -108,7 +108,6 @@ keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>")
 
 -- Telescope
 local builtin = require('telescope.builtin')
-local theme = require('telescope.themes')
 keymap('n', '<leader>pf', builtin.git_files)
 keymap('n', '<leader>fr', builtin.oldfiles)
 keymap('n', '<leader>.', builtin.find_files)
@@ -117,15 +116,14 @@ keymap('n', '<leader>sp', builtin.live_grep)
 keymap('n', '<leader>ss', builtin.current_buffer_fuzzy_find)
 -- keymap('n', '<leader>/', builtin.current_buffer_fuzzy_find(theme.get_dropdown { winblend = 10, peviewer = false }))
 keymap('n', '<leader>sd', builtin.diagnostics)
--- TODO: search old keybind that allowed preview
 keymap('n', '<leader>ht', builtin.colorscheme)
 keymap('n', '<leader>/', function()
-    -- You can pass additional configuration to telescope to change theme, layout, etc.
-    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-      winblend = 10,
-      previewer = false,
-    })
-  end, { desc = '[/] Fuzzily search in current buffer]' })
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
 
 
 -- Zen mode
@@ -135,10 +133,10 @@ keymap('n', '<leader>zz', require('zen-mode').toggle)
 
 -- LSP
 local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  if desc then
+    desc = 'LSP: ' .. desc
+  end
+  keymap('n', keys, func)
 end
 keymap('n', '<leader>lc', '<cmd>LspRestart <cr>')
 keymap('n', '<Leader>dd', '<cmd>ToggleDiag <cr>')
@@ -147,6 +145,7 @@ keymap('n', 'dn', vim.diagnostic.goto_next)
 keymap('n', '<leader>i', vim.diagnostic.open_float)
 keymap('n', '<leader>ll', vim.diagnostic.setloclist)
 nmap('<leader>rr', vim.lsp.buf.rename)
+nmap('<leader>f', vim.lsp.buf.format)
 nmap('<leader>ca', vim.lsp.buf.code_action)
 nmap('<leader>gd', vim.lsp.buf.definition)
 nmap('<leader>gD', vim.lsp.buf.declaration)
@@ -160,11 +159,3 @@ nmap('<leader>sw', builtin.lsp_dynamic_workspace_symbols)
 
 nmap('<leader>wa', vim.lsp.buf.add_workspace_folder)
 nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder)
-
-
-
-
-
-
-
-

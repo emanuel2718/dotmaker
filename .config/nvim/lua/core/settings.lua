@@ -6,7 +6,7 @@ vim.opt.errorbells = false
 vim.opt.expandtab = true
 vim.opt.fileencoding = 'utf-8'
 vim.opt.guicursor = ""
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
 vim.opt.mouse = 'a'
@@ -15,9 +15,9 @@ vim.opt.relativenumber = true
 vim.opt.scrolloff = 8
 vim.opt.shiftwidth = 2
 vim.opt.showmode = false
-vim.opt.signcolumn = 'yes'
+-- vim.opt.signcolumn = 'yes'
 vim.opt.smartcase = true
-vim.opt.smartindent= true
+vim.opt.smartindent = true
 vim.opt.softtabstop = 2
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -49,6 +49,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
-
-
