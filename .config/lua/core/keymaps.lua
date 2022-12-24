@@ -74,18 +74,18 @@ keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 
 -- Quickfix navigation
-keymap("n", "<C-k>", "<cmd>cnext<CR>zz")
-keymap("n", "<C-j>", "<cmd>cprev<CR>zz")
-keymap("n", "<leader>k", "<cmd>lnext<CR>zz")
-keymap("n", "<leader>j", "<cmd>lprev<CR>zz")
+keymap("n", "<C-k>", "<cmd>cnext<CR>zz", { desc = 'Next Quickfix' })
+keymap("n", "<C-j>", "<cmd>cprev<CR>zz", { desc = 'Previous Quickfix' })
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = 'Next Location' })
+keymap("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = 'Previous Location' })
 
 -- Search and replace for current word
-keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = '[R]eplace word under cursor' })
 
 -- Cargo commands
-keymap('n', '<leader>cb', '<cmd>!cargo build<cr>')
-keymap('n', '<leader>ct', '<cmd>!cargo test<cr>')
-keymap('n', '<leader>cr', '<cmd>!cargo run<cr>')
+keymap('n', '<leader>cb', '<cmd>!cargo build<cr>', { desc = '[C]argo [B]uild' })
+keymap('n', '<leader>ct', '<cmd>!cargo test<cr>', { desc = '[C]argo [T]est' })
+keymap('n', '<leader>cr', '<cmd>!cargo run<cr>', { desc = '[C]argo [R]un' })
 
 
 
@@ -94,41 +94,41 @@ keymap('n', '<leader>cr', '<cmd>!cargo run<cr>')
 --------- Plugin keymaps ---------
 
 -- NvimTree
-keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>')
-keymap('n', '<leader>br', '<cmd>NvimTreeRefresh<cr>')
+keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', { desc = '[E]xplorer Toogle' })
+keymap('n', '<leader>er', '<cmd>NvimTreeRefresh<cr>', { desc = '[E]xplorer [R]efresh' })
 
 -- Git Neogit
-keymap('n', '<leader>gg', '<cmd>Neogit<cr>') -- neogit
+keymap('n', '<leader>gg', '<cmd>Neogit<cr>', { desc = 'Git'}) -- neogit
 
 
 -- Github Copilot
-keymap('n', '<leader>g.', "<cmd>Copilot enable<cr>")
-keymap('n', '<leader>gk', "<cmd>Copilot disable<cr>")
+keymap('n', '<leader>g.', "<cmd>Copilot enable<cr>", { desc = 'Enable Github Copilot' })
+keymap('n', '<leader>gk', "<cmd>Copilot disable<cr>", { desc = 'Disable Github Copilot' })
 
 
 -- UndoTree
-keymap('n', '<leader>u', '<cmd>UndotreeToggle<cr>')
+keymap('n', '<leader>u', '<cmd>UndotreeToggle<cr>', { desc = '[U]ndo Tree Toogle' })
 
 -- Packer
-keymap('n', '<leader>ps', '<cmd>PackerSync <cr>')
-keymap('n', '<leader>pi', '<cmd>PackerInstall <cr>')
+keymap('n', '<leader>ps', '<cmd>PackerSync <cr>', { desc = '[P]acker [S]ync' })
+keymap('n', '<leader>pi', '<cmd>PackerInstall <cr>', { desc = '[P]acker [I]nstall' })
 
 -- Gitsigns
-keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>")
+keymap('n', '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>", { desc = '[G]it [L]ine Blame' })
 
 
 
 -- Telescope
 local builtin = require('telescope.builtin')
-keymap('n', '<leader>pf', builtin.git_files)
-keymap('n', '<leader>fr', builtin.oldfiles)
-keymap('n', '<leader>.', builtin.find_files)
-keymap('n', '<leader>s.', builtin.grep_string)
-keymap('n', '<leader>sp', builtin.live_grep)
-keymap('n', '<leader>ss', builtin.current_buffer_fuzzy_find)
+keymap('n', '<leader>pf', builtin.git_files, { desc = '[P]roject [F]iles' })
+keymap('n', '<leader>fr', builtin.oldfiles, { desc = '[F]ile [R]ecent' })
+keymap('n', '<leader>.', builtin.find_files, { desc = '[F]ile [.] Find' })
+keymap('n', '<leader>s.', builtin.grep_string, { desc = '[S]earch [.] String' })
+keymap('n', '<leader>sp', builtin.live_grep, { desc = '[S]earch [P]attern' })
+keymap('n', '<leader>ss', builtin.current_buffer_fuzzy_find, { desc = '[S]earch [S]tring' })
 -- keymap('n', '<leader>/', builtin.current_buffer_fuzzy_find(theme.get_dropdown { winblend = 10, peviewer = false }))
-keymap('n', '<leader>sd', builtin.diagnostics)
-keymap('n', '<leader>ht', builtin.colorscheme)
+keymap('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+keymap('n', '<leader>ht', builtin.colorscheme, { desc = '[H]elp [T]heme' })
 keymap('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -139,35 +139,35 @@ end, { desc = '[/] Fuzzily search in current buffer]' })
 
 
 -- Zen mode
-keymap('n', '<leader>zz', require('zen-mode').toggle)
+keymap('n', '<leader>zz', require('zen-mode').toggle, { desc = '[Z]en mode' })
 
 
 
 -- LSP
-local nmap = function(keys, func, desc)
-  if desc then
-    desc = 'LSP: ' .. desc
-  end
-  keymap('n', keys, func)
-end
-keymap('n', '<leader>lc', '<cmd>LspRestart <cr>')
-keymap('n', '<Leader>dd', '<cmd>ToggleDiag <cr>')
-keymap('n', 'dp', vim.diagnostic.goto_prev)
-keymap('n', 'dn', vim.diagnostic.goto_next)
-keymap('n', '<leader>i', vim.diagnostic.open_float)
-keymap('n', '<leader>ll', vim.diagnostic.setloclist)
-nmap('<leader>rr', vim.lsp.buf.rename)
-nmap('<leader>f', vim.lsp.buf.format)
-nmap('<leader>ca', vim.lsp.buf.code_action)
-nmap('<leader>gd', vim.lsp.buf.definition)
-nmap('<leader>gD', vim.lsp.buf.declaration)
-nmap('<leader>gi', vim.lsp.buf.implementation)
-nmap('<leader>D', vim.lsp.buf.type_definition)
-nmap('K', vim.lsp.buf.hover)
-nmap('<C-K>', vim.lsp.buf.signature_help)
-nmap('<leader>gr', builtin.lsp_references)
-nmap('<leader>si', builtin.lsp_document_symbols)
-nmap('<leader>sw', builtin.lsp_dynamic_workspace_symbols)
+-- local keymap = function(keys, func, desc)
+--   if desc then
+--     desc = 'LSP: ' .. desc
+--   end
+--   keymap('n', keys, func, {desc})
+-- end
+keymap('n', '<leader>lc', '<cmd>LspRestart <cr>', { desc = 'LSP Restart' })
+keymap('n', '<Leader>dd', '<cmd>ToggleDiag <cr>', { desc = 'Toogle Diagnostics' })
+keymap('n', 'dp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic' })
+keymap('n', 'dn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic' })
+keymap('n', '<leader>i', vim.diagnostic.open_float, { desc = 'Open float diagnostic' })
+keymap('n', '<leader>ll', vim.diagnostic.setloclist, { desc = 'Open location list' })
+keymap('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'LSP Rename' })
+keymap('n', '<leader>f', vim.lsp.buf.format, { desc = 'LSP Format' })
+keymap('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
+keymap('n', '<leader>gd', vim.lsp.buf.definition, { desc = 'LSP Go To Definition' })
+keymap('n', '<leader>gD', vim.lsp.buf.declaration, { desc = 'LSP Go To Declaration' })
+keymap('n', '<leader>gi', vim.lsp.buf.implementation, { desc = 'LSP Go To Implementation' })
+keymap('n', '<leader>D', vim.lsp.buf.type_definition, { desc = 'LSP Type Definition' })
+keymap('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover' })
+keymap('n', '<C-K>', vim.lsp.buf.signature_help, { desc = 'LSP Signature Help' })
+keymap('n', '<leader>gr', builtin.lsp_references, { desc = 'LSP References' })
+keymap('n', '<leader>si', builtin.lsp_document_symbols, { desc = 'LSP Document Symbols' })
+keymap('n', '<leader>sw', builtin.lsp_dynamic_workspace_symbols, { desc = 'LSP Workspace Symbols' })
 
-nmap('<leader>wa', vim.lsp.buf.add_workspace_folder)
-nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder)
+keymap('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = 'LSP Add Workspace Folder' })
+keymap('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = 'LSP Remove Workspace Folder' })
