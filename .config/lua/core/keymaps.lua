@@ -128,7 +128,8 @@ keymap('n', '<leader>sp', builtin.live_grep, { desc = '[S]earch [P]attern' })
 keymap('n', '<leader>ss', builtin.current_buffer_fuzzy_find, { desc = '[S]earch [S]tring' })
 -- keymap('n', '<leader>/', builtin.current_buffer_fuzzy_find(theme.get_dropdown { winblend = 10, peviewer = false }))
 keymap('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-keymap('n', '<leader>ht', "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", { desc = "[H]elp [T]heme" })
+keymap('n', '<leader>ht', builtin.colorscheme, { desc = 'Change color scheme' })
+-- keymap('n', '<leader>ht', "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", { desc = "[H]elp [T]heme" })
 keymap('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
