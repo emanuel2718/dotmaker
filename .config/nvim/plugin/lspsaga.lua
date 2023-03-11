@@ -1,0 +1,37 @@
+-- --local status, saga = pcall(require, "lspsaga")
+-- --if not status then
+-- --	return
+-- --end
+-- --
+-- --saga.init_lsp_saga({
+-- --	server_filetype_map = {
+-- --		typescript = "typescript",
+-- --	},
+-- --})
+--
+--
+-- local map = vim.keymap.set
+-- local opts = { noremap = true, silent = true }
+--
+-- map('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>')
+-- map({ "n", "v" }, '<leader>ca', '<cmd>Lspsaga code_action<CR>')
+--
+-- -- Rename all occurrences of the hovered word for the entire file
+-- map("n", "gr", "<cmd>Lspsaga rename<CR>")
+-- -- Rename all occurrences of the hovered word for the selected files
+-- map("n", "gr", "<cmd>Lspsaga rename ++project<CR>")
+--
+-- map("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+-- map("n", "gD", "<cmd>Lspsaga goto_definition<CR>")
+--
+-- map("n", "<leader>i", "<cmd>Lspsaga show_line_diagnostics<CR>")
+--
+-- -- Show buffer diagnostics
+-- map("n", "<leader>db", "<cmd>Lspsaga show_buf_diagnostics<CR>")
+--
+-- map("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+-- map("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
+--
+-- map("n", "K", "<cmd>Lspsaga hover_doc<CR>")
+--
+-- map({ "n", "t" }, "<C-\\>", "<cmd>Lspsaga term_toggle<CR>")
