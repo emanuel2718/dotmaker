@@ -1,6 +1,7 @@
 return {
   "williamboman/mason.nvim",
   dependencies = {
+    "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
@@ -12,6 +13,7 @@ return {
     local mason_tool_installer = require("mason-tool-installer")
     local mason = require("mason")
     mason.setup({
+      PATH = 'prepend',
       ui = {
         icons = {
           package_installed = "✓",
@@ -32,6 +34,29 @@ return {
       },
       run_on_start = true,
       debounce_hours = 24
+    })
+
+    local mason_lspconfig = require("mason-lspconfig")
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "tsserver",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "svelte",
+        "lua_ls",
+        "prismals",
+        "pyright",
+        "jsonls",
+        "bashls",
+        "clangd",
+        "cmake",
+        "sqlls",
+        "volar",
+        "vimls",
+        "yamlls",
+        "rust_analyzer",
+      }
     })
   end,
 }

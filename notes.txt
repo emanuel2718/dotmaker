@@ -31,6 +31,10 @@ lf
 autorandr
 python3-pip
 python3.11-venv
+flatpak
+copyq
+xclip
+flameshot
 
 
 
@@ -124,6 +128,11 @@ source $HOME/.zshrc
 cd ~/dev/pkgs && git clone https://github.com/jesseduffield/lazygit.git
 cd lazygit
 go install
+
+
+-- Intall Obsidian
+flatpak install flathub md.obsidian.Obsidian
+sudo ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/obsidian
 
 
 
