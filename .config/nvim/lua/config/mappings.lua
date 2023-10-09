@@ -65,7 +65,9 @@ map('n', '<leader>dd', '<cmd>ToggleDiag<cr>', opts)
 
 -- Telescope
 local telescope_builtin = require('telescope.builtin')
+map('n', '<leader>ff', '<cmd>Telescope find_files hidden=true<cr>')
 map("n", "<leader>.", telescope_builtin.find_files, opts)
+map("n", "<leader>fr", telescope_builtin.oldfiles, opts)
 map("n", "<leader>sp", telescope_builtin.live_grep, opts)
 map("n", "<leader>b", telescope_builtin.buffers, opts)
 map("n", "<leader>fh", telescope_builtin.help_tags, opts)

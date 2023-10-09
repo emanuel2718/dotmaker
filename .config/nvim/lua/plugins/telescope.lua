@@ -23,6 +23,9 @@ return {
         find_files = {
           disable_devicons = true
         },
+        oldfiles = {
+          disable_devicons = true
+        },
         live_grep = {
           disable_devicons = true
         },
