@@ -76,6 +76,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 source $HOME/.zshrc
 nvm install node
 
+
+-- Install pnpm and yarn
+npm i -g pnpm@latest
+npm i -g yarn@latest
+
+
 -- Install Neovim from source
 git clone https://github.com/neovim/neovim $DEV/pkgs/neovim
 cd $DEV/pkgs/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -133,9 +139,6 @@ go install
 -- Intall Obsidian
 flatpak install flathub md.obsidian.Obsidian
 sudo ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/obsidian
-
-
-
 
 
 

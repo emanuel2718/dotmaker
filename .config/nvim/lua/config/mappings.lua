@@ -76,4 +76,8 @@ map('n', '<leader>sI', telescope_builtin.lsp_workspace_symbols, opts)
 map('n', '<leader>bb', ':Telescope buffers<CR>', opts)
 
 
+-- Neogit
+map('n', '<leader>g.', '<cmd>Neogit<cr>', opts)
+
+
 
