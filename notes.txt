@@ -158,6 +158,7 @@ gh config set editor vim
 .config/i3status/config
 ~/.local/share/konsole/Rami.profile # indirectly changed
 ~/.tmux.conf
+~/.local/bin/tmux-sessionizer.sh
 
 ~/dev/bin/i3-lock.sh
 ~/dev/bin/rofi-logout.sh
