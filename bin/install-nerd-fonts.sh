@@ -1,29 +1,8 @@
 #!/bin/bash
 
 declare -a fonts=(
-    BitstreamVeraSansMono
-    CodeNewRoman
-    DroidSansMono
-    FiraCode
-    FiraMono
-		EnvyCodeR
-    Go-Mono
-		Gohu
-    Hack
-    Hermit
-		IosevkaTerm
-    JetBrainsMono
-    Meslo
-    Noto
-    Overpass
-    RobotoMono
-    SourceCodePro
-		ShareTechMono
-    SpaceMono
-    Terminus
-    Ubuntu
-    UbuntuMono
-		VictorMono
+  Terminus
+  UbuntuMono
 )
 
 version='3.0.2'
@@ -37,7 +16,7 @@ for font in "${fonts[@]}"; do
     zip_file="${font}.zip"
     download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
     echo "Downloading $download_url"
-    wget "$download_url"
+    wget -O "$download_url"
     unzip "$zip_file" -d "$fonts_dir"
     rm "$zip_file"
 done
