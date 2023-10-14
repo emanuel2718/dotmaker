@@ -1,33 +1,56 @@
 {
   "editor.tabSize": 2,
-  "workbench.startupEditor": "none",
-  "explorer.confirmDelete": false,
+  "editor.lineNumbers": "on",
+  "workbench.editor.showTabs": false,
+  // "workbench.colorCustomizations": {
+  //   "editor.background": "#252829",
+  //   "editor.foreground": "#76787d"
+  // },
+  "editor.linkedEditing": true,
+  "editor.fontFamily": "TerminessTTF Nerd Font Mono",
+  "terminal.integrated.fontSize": 18,
+  "editor.fontSize": 18,
   "editor.fontLigatures": false,
-  "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
+  "editor.bracketPairColorization.enabled": false,
+
+  // "editor.suggest.insertMode": "replace",
+  "editor.formatOnSave": true,
   "editor.stickyScroll.enabled": true,
   "editor.suggestSelection": "first",
   "editor.renderLineHighlight": "gutter",
   "editor.hideCursorInOverviewRuler": true,
+  "editor.scrollBeyondLastLine": false,
+  "editor.snippetSuggestions": "none",
   "editor.lightbulb.enabled": false,
+  "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
+  "editor.mouseWheelZoom": true,
+  "terminal.integrated.allowChords": false,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontalScrollbarSize": 0,
+  "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?_-",
   "editor.wordBasedSuggestions": false,
+  "editor.renderWhitespace": "trailing",
+  "editor.guides.indentation": false,
   "editor.accessibilitySupport": "off",
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "off",
     "strings": "off"
   },
+  // "editor.codeActionsOnSave": {
+  //   "source.organizeImports": true
+  // },
   "files.exclude": {
     "**/*.bs.js": true,
     "**/.DS_Store": true,
     "**/.git": true,
     "**/.next": true,
     "**/__pycache__/**": true,
-    "**/node_modules/": true,
+    // "**/node_modules/": true,
     "**/npm-debug.log": true,
     "**/package-lock.json": true,
     "**/yarn.lock": true,
@@ -36,6 +59,14 @@
   },
   "workbench.panel.defaultLocation": "bottom",
   "workbench.sideBar.location": "right",
+  "breadcrumbs.filePath": "on",
+  "breadcrumbs.enabled": true,
+  "debug.openDebug": "neverOpen",
+  "debug.showInStatusBar": "never",
+  "debug.toolBarLocation": "hidden",
+  "debug.console.fontSize": 15,
+  "search.quickOpen.includeHistory": false,
+  "search.searchEditor.defaultNumberOfContextLines": null,
   "search.smartCase": true,
   "search.exclude": {
     "**/node_modules": true,
@@ -44,7 +75,38 @@
     "out": true,
     "coverage": true
   },
+  "workbench.editor.enablePreviewFromQuickOpen": true,
   "files.trimTrailingWhitespace": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.compactFolders": false,
+  "terminal.integrated.copyOnSelection": true,
+  "zenMode.hideLineNumbers": false,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
+  "settings.cycle": [
+    {
+      "id": "copilot",
+      "overrideWorkspaceSettings": true,
+      "values": [
+        {
+          "github.copilot.inlineSuggest.enable": false
+        },
+        {
+          "github.copilot.inlineSuggest.enable": true
+        }
+      ]
+    }
+  ],
+  "extensions.ignoreRecommendations": true,
+  "extensions.autoUpdate": "onlyEnabledExtensions",
+  "security.workspace.trust.untrustedFiles": "open",
+  "projectManager.git.baseFolders": [
+    "$HOME/developer/personal",
+    "$HOME/developer/work",
+    "$HOME/developer/work"
+  ],
+  "projectManager.sortList": "Recent",
+  "workbench.settings.editor": "json",
   "typescript.updateImportsOnFileMove.enabled": "prompt",
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "[javascript]": {
@@ -56,24 +118,45 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "python.linting.flake8Args": ["--max-line-length=120", "--max-complexity=12"],
+  "python.linting.mypyEnabled": true,
+  "python.formatting.provider": "black",
+  "rust-analyzer.inlayHints.enable": false,
+  "github.copilot.inlineSuggest.enable": false,
+  "errorLens.statusBarColorsEnabled": true,
+  "errorLens.margin": "6ch",
+  "errorLens.fontWeight": "100",
+  "errorLens.fontStyleItalic": true,
+  "errorLens.fontSize": "13",
+  "editor.lineDecorationsWidth": 0, // undocumented
+  "editor.lineNumbersMinChars": 0, // undocumented
+  // "errorLens.followCursor": "closestProblem",
+  "errorLens.gutterIconsEnabled": true,
+  // VIM Settings
   "vim.leader": "<space>",
   "vim.useSystemClipboard": false,
   "vim.useCtrlKeys": true,
   "vim.foldfix": true,
   "vim.hlsearch": true,
-  "vim.highlightedyank.enable": true,
-  "vim.highlightedyank.color": "rgba(255, 127, 0, 0.6)",
-  "vim.highlightedyank.textColor": "black",
+  // "vim.highlightedyank.enable": true,
+  // "vim.highlightedyank.color": "rgba(255, 127, 0, 0.6)",
+  // "vim.highlightedyank.textColor": "black",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false,
     "<C-j>": false,
     "<C-,>": false
   },
+  // "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
   "vim.normalModeKeyBindingsNonRecursive": [
+    // {
+    //   "before": ["u"],
+    //   "commands": ["undo"]
+    // },
+    // {
+    //   "before": ["c-r"],
+    //   "commands": ["redo"]
+    // },
     {
       "before": ["leader", "f", "s"],
       "commands": [":w!"]
@@ -84,15 +167,23 @@
     },
     {
       "before": ["leader", "o"],
-      "commands": [":x!"]
+      "commands": ["workbench.action.closeEditorsInGroup"]
     },
     {
       "before": ["leader", "."],
       "commands": ["workbench.action.quickOpen"]
     },
     {
+      "before": ["leader", "f"],
+      "commands": ["find-it-faster.findFiles"]
+    },
+    // {
+    //   "before": ["leader", "s", "p"],
+    //   "commands": ["workbench.action.findInFiles"]
+    // },
+    {
       "before": ["leader", "s", "p"],
-      "commands": ["workbench.action.findInFiles"]
+      "commands": ["find-it-faster.findWithinFiles"]
     },
     {
       "before": ["leader", "m"],
@@ -103,8 +194,16 @@
       "commands": ["workbench.action.splitEditorDown"]
     },
     {
+      "before": ["<c-a>"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
       "before": ["K"],
       "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["R"],
+      "commands": ["editor.action.rename"]
     },
     {
       "before": ["[", "d"],
@@ -119,8 +218,12 @@
       "commands": ["settings.cycle.copilot"]
     },
     {
-      "before": ["leader", "s", "i"],
+      "before": ["leader", "s", "I"],
       "commands": ["workbench.action.showAllSymbols"]
+    },
+    {
+      "before": ["leader", "s", "i"],
+      "commands": ["workbench.action.gotoSymbol"]
     },
     {
       "key": "gd",
@@ -136,7 +239,7 @@
       "commands": ["editor.action.startFindReplaceAction"]
     },
     {
-      "before": ["leader", "f"],
+      "before": ["leader", "l", "f"],
       "commands": ["editor.action.formatDocument"]
     },
     {
@@ -162,8 +265,49 @@
       ]
     }
   ],
-  "[jsonc]": {
+  "projectManager.projectsLocation": "/Users/emanuel/.config/project-manager",
+  "editor.inlineSuggest.enabled": true,
+  "cSpell.userWords": [
+    "authed",
+    "Chakra",
+    "chatbox",
+    "clustername",
+    "composables",
+    "emptychatbar",
+    "extralight",
+    "foldfix",
+    "GROUPVIEW",
+    "hookform",
+    "kobalte",
+    "LEAVECLUSTER",
+    "linebreak",
+    "passhphrase",
+    "Petch",
+    "pickone",
+    "pinia",
+    "vuejs",
+    "webrtc",
+    "zustand"
+  ],
+  "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.iconTheme": "material-icon-theme"
+  "git.confirmSync": false,
+  "playwright.reuseBrowser": false,
+  "playwright.showTrace": true,
+  "errorLens.enabledDiagnosticLevels": ["warning", "info", "error"],
+  "window.commandCenter": false,
+  "errorLens.messageEnabled": false,
+  "workbench.colorTheme": "Default Dark+",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["comment", "punctuation.definition.comment"],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "window.zoomLevel": -1
 }

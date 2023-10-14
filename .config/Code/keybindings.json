@@ -1,12 +1,102 @@
-// Place your key bindings in this file to override the defaultsauto[]
 [
   {
-    "key": "alt+v",
-    "command": "editor.action.clipboardPasteAction"
+    "key": "cmd+o",
+    "command": "projectManager.listGitProjects#sideBarGit"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "cmd+;",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "editor.action.showHover"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "editor.action.quickFix"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "Enter",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "Tab",
+    "command": "filesExplorer.openFilePreserveFocus",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "cmd+c",
+    "command": "editor.action.clipboardCopyAction"
   },
   {
     "key": "cmd+v",
     "command": "editor.action.clipboardPasteAction"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "-extension.vim_ctrl+j",
+    "when": "editorTextFocus && vim.active && vim.use<C-j> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown",
+    "when": "!inQuickOpen || !suggestWidgetVisible || codeActionMenuVisible"
   },
   {
     "key": "ctrl+j",
@@ -20,94 +110,77 @@
   },
   {
     "key": "ctrl+k",
-    "command": "extension.vim_ctrl+p",
-    "when": "suggestWidgetVisible && vim.active && vim.use<C-p>"
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
   },
   {
     "key": "ctrl+k",
-    "command": "workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen"
+    "when": "codeActionMenuVisible",
+    "command": "selectPrevCodeAction"
   },
   {
-    "key": "alt+j",
-    "command": "workbench.action.terminal.toggleTerminal"
+    "key": "ctrl+j",
+    "when": "codeActionMenuVisible",
+    "command": "selectNextCodeAction"
   },
   {
-    "key": "cmd+j",
-    "command": "workbench.action.terminal.toggleTerminal"
-  },
-  {
-    "key": "cmd+k",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "alt+k",
-    "command": "workbench.action.focusActiveEditorGroup",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "alt+z",
-    "command": "workbench.action.toggleZenMode"
+    "key": "ctrl+j",
+    "when": "search"
   },
   {
     "key": "cmd+z",
     "command": "workbench.action.toggleZenMode"
   },
   {
-    "key": "q",
-    "when": "sideBarVisible && filesExplorerFocus",
-    "command": "workbench.action.closeSidebar"
+    "key": "cmd+w",
+    "command": "workbench.action.closeActiveEditor"
   },
   {
-    "key": "ctrl+r",
-    "command": "editor.action.startFindReplaceAction",
-    "when": "editorFocus || editorIsOpen"
+    "key": "ctrl+.",
+    "command": "editor.toggleFold",
+    "when": "editorTextFocus && foldingEnabled"
   },
   {
-    "key": "f4",
-    "command": "toggleSearchEditorRegex",
-    "when": "inSearchEditor && searchInputBoxFocus"
+    "key": "ctrl+k ctrl+l",
+    "command": "-editor.toggleFold",
+    "when": "editorTextFocus && foldingEnabled"
   },
   {
-    "key": "ctrl+=",
-    "command": "-workbench.action.zoomIn"
+    "key": "cmd+.",
+    "command": "workbench.action.files.copyPathOfActiveFile"
   },
   {
-    "key": "ctrl+-",
-    "command": "-workbench.action.zoomOut"
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal"
   },
   {
-    "key": "a",
-    "command": "explorer.newFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    "key": "cmd+[",
+    "command": "search.action.focusPreviousSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
   },
   {
-    "key": "r",
-    "command": "renameFile",
-    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    "key": "cmd+]",
+    "command": "search.action.focusNextSearchResult",
+    "when": "hasSearchResult || inSearchEditor"
   },
   {
-    "key": "f",
-    "command": "revealFileInOS",
-    "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    "key": "cmd+r",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+p",
-    "command": "editor.action.inlineSuggest.commit",
-    "when": "textInputFocus && inlineSuggestionHasIndentationLessThanTabSize && inlineSuggestionVisible && !editorTabMovesFocus"
+    "key": "cmd+enter",
+    "command": "-interactive.acceptChanges",
+    "when": "inlineChatHasProvider && inlineChatVisible && !inlineChatDocumentChanged || inlineChatHasProvider && inlineChatVisible && config.inlineChat.editMode != 'preview'"
   },
   {
-    "key": "ctrl+i",
-    "command": "settings.cycle.copilot",
-    "when": "editorFocus"
-  },
-  {
-    "key": "cmd+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  {
-    "key": "alt+b",
-    "command": "workbench.action.toggleSidebarVisibility"
+    "key": "ctrl+enter",
+    "command": "-github.copilot.generate",
+    "when": "editorTextFocus && github.copilot.activated && !inInteractiveInput && !interactiveEditorFocused"
   }
 ]
