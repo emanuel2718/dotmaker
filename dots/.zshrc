@@ -53,3 +53,10 @@ eval "$(zoxide init zsh)"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 
+
+# bun completions
+[ -s "/home/rami/.bun/_bun" ] && source "/home/rami/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

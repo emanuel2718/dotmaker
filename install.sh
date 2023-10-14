@@ -163,9 +163,8 @@ install_external() {
   gh config set git_protocol ssh --host github.com
   gh config set editor nvim
 
-
-
-
+  echo "✔ Installing bun"
+  curl -fsSL https://bun.sh/install | bash
 }
 
 
