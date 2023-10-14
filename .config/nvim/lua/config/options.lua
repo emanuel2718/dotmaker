@@ -2,11 +2,12 @@ local opt = vim.opt
 local cmd = vim.cmd
 
 cmd([[ filetype plugin indent on ]])
-	
+
 opt.number = true
 opt.backspace = { "eol", "start", "indent" } -- allow backspacing over everything in insert mode
 opt.fileencoding = "utf-8"                   -- the encoding written to a file
 opt.matchpairs = { "(:)", "{:}", "[:]", "<:>" }
+opt.termguicolors = true
 opt.syntax = "enable"
 opt.autoindent = true  -- auto indentation
 opt.expandtab = true   -- convert tabs to spaces
@@ -16,11 +17,11 @@ opt.softtabstop = 2    -- when hitting <BS>, pretend like a tab is removed, even
 opt.tabstop = 2        -- insert 2 spaces for a tab
 opt.shiftround = true  -- use multiple of shiftwidth when indenting with "<" and ">"
 opt.wildignore = opt.wildignore + { "*/node_modules/*", "*/.git/*", "*/vendor/*" }
-opt.hlsearch = true   -- highlight all matches on previous search pattern
-opt.ignorecase = true -- ignore case in search patterns
-opt.smartcase = true  -- smart case
-opt.laststatus = 2    -- only the last window will always have a status line
-opt.lazyredraw = true -- don"t update the display while executing macros
+opt.hlsearch = true    -- highlight all matches on previous search pattern
+opt.ignorecase = true  -- ignore case in search patterns
+opt.smartcase = true   -- smart case
+opt.laststatus = 2     -- only the last window will always have a status line
+opt.lazyredraw = true  -- don"t update the display while executing macros
 opt.list = true
 -- You can also add "space" or "eol", but I feel it"s quite annoying
 opt.listchars = {
@@ -30,18 +31,18 @@ opt.listchars = {
   precedes = "«",
   nbsp = "×"
 }
-opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
-opt.mouse = "a" -- allow the mouse to be used in neovim
-opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
+opt.cmdheight = 0     -- more space in the neovim command line for displaying messages
+opt.mouse = "a"       -- allow the mouse to be used in neovim
+opt.scrolloff = 18    -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.splitbelow = true -- open new split below
 opt.splitright = true -- open new split to the right
-opt.wrap = false -- display a long line
+opt.wrap = false      -- display a long line
 opt.modifiable = true
 
-opt.backup = false -- create a backup file
-opt.swapfile = false -- creates a swapfile
-opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+opt.backup = false                                             -- create a backup file
+opt.swapfile = false                                           -- creates a swapfile
+opt.writebackup = false                                        -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 opt.completeopt = { "menu", "menuone", "preview", "noselect" } -- cmp
 opt.shortmess = opt.shortmess + { c = true }
 opt.showmode = false
@@ -70,4 +71,9 @@ end
 
 
 
-vim.cmd.colorscheme("carbonfox")
+-- vim.cmd.colorscheme("carbonfox")
+-- vim.cmd.colorscheme("mellow")
+-- vim.cmd.colorscheme('substrata')
+vim.cmd.colorscheme('arctic') -- vsCodeDark
+-- vim.cmd.colorscheme("ofirkai")
+-- vim.cmd.colorscheme("blue-moon")
