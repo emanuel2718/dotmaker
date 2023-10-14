@@ -210,7 +210,8 @@ create_sym_links() {
   ln -s -f $script_dir/bin/i3-lock.sh $HOME/dev/bin/i3-lock.sh
   ln -s -f $script_dir/bin/rofi-logout.sh $HOME/dev/bin/rofi-logout.sh
   ln -s -f $script_dir/bin/screenshot-area.sh $HOME/dev/bin/screenshot-area.sh
-  ln -s -f $script_dir/bin/tmux-sessionizer.sh $HOME/dev/bin/tmux-sessionizer.sh
+  ln -s -f $script_dir/bin/show-desktop.sh $HOME/dev/bin/show-desktop.sh
+  ln -s -f $script_dir/bin/tmux-sessionizer.sh $HOME/.local/share/bin/tmux-sessionizer.sh
 
   echo "> Creating symlinks for config files"
   ln -s -f $script_dir/.config/Code $HOME/.config/Code

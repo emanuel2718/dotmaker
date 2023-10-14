@@ -117,6 +117,8 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws11 "11"
+set $ws12 "12"
 
 workspace 1 output $mm
 workspace 2 output $mm
@@ -198,6 +200,7 @@ exec_always autorandr --change
 exec --no-startup-id feh --randomize --bg-fill $HOME/Pictures/Wallpapers/*
 
 bindsym $mod+w exec feh --randomize --bg-fill $HOME/Pictures/Wallpapers/*
+bindsym $mod+Shift+d workspace number $ws12
 
 # Clipboard Manager
 bindsym $mod+Shift+f exec --no-startup-id copyq show
