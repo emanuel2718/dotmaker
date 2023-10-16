@@ -71,9 +71,9 @@ end
 
 
 
--- vim.cmd.colorscheme("carbonfox")
+vim.cmd.colorscheme("carbonfox")
 -- vim.cmd.colorscheme("mellow")
 -- vim.cmd.colorscheme('substrata')
-vim.cmd.colorscheme('arctic') -- vsCodeDark
+-- vim.cmd.colorscheme('arctic') -- vsCodeDark
 -- vim.cmd.colorscheme("ofirkai")
 -- vim.cmd.colorscheme("blue-moon")
