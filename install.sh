@@ -27,6 +27,7 @@ declare -a apt_pkgs=(
   "cmake"
   "copyq"
   "curl"
+  "chromium"
   "fd-find"
   "feh"
   "flameshot"
@@ -136,10 +137,16 @@ install_external() {
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.21.2.linux-amd64.tar.gz
   # source $HOME/.zshrc
 
+  echo "✔ Adding Flathub remotes"
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+  echo "✔ Installing Whatsapp client"
+  flatpak install flathub com.github.eneshecan.WhatsAppForLinux -y
+  sudo ln -s /var/lib/flatpak/exports/bin/com.github.eneshecan.WhatsAppForLinux /usr/bin/whatsapp
 
 
   echo "> Installing Obsidian"
-  flatpak install flathub md.obsidian.Obsidian
+  flatpak install flathub md.obsidian.Obsidian -y
   sudo ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/obsidian
 
 
@@ -165,6 +172,19 @@ install_external() {
 
   echo "✔ Installing bun"
   curl -fsSL https://bun.sh/install | bash
+
+  # 2023.5
+  echo "✔ Installing MullvadVPN-2023"
+  wget --content-disposition https://mullvad.net/download/app/deb/latest
+  mv MullvadVPN-* $HOME/dev/bin
+  sudo apt install -y MullvadVPN-*
+
+
+
+  echo "✔ Installing Google Chrome"
+  cd $HOME/dev/pkgs
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  sudo dpkg -i google-chrome-stable_current_amd64.deb
 }
 
 
