@@ -43,6 +43,7 @@ alias tl='tmux ls'
 alias i3config='$EDITOR $HOME/.config/i3/config'
 alias code="code-insiders"
 alias ng="nvim +Neogit"
+alias tt='$HOME/dev/bin/tmux-sessionizer.sh | sh'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
