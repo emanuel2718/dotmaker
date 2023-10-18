@@ -84,6 +84,12 @@ install_external() {
   sudo apt update -y
   sudo apt install brave-browser -y
 
+  echo "> Intalling Thorium Browser"
+  cd $HOME/dev/pkgs
+  wget https://github.com/Alex313031/thorium/releases/download/M117.0.5938.157/thorium-browser_117.0.5938.157_amd64.deb
+  sudo dpkg -i thorium-browser_117.0.5938.157_amd64.deb
+  cd $script_dir
+
   echo "> Installing 1Password"
   # curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
   # echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
