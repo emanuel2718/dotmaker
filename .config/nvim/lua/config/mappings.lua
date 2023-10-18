@@ -46,7 +46,7 @@ map('n', '<leader>q', ':qa!<CR>', opts)
 map('n', '<leader>fs', ':w<CR>', opts)
 map('n', '<leader>`', ':b#<cr>', opts) -- switch to last buffer
 
-
+map('n', "<leader>fp", ":echo expand('%:p')<cr>")
 
 --------------------------- PLUGINS ---------------------------
 

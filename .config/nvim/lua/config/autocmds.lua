@@ -24,6 +24,20 @@ autocmd("BufWritePre", {
 --   command = ":silent lua vim.lsp.buf.format()"
 -- })
 
+-- local lsp_fmt_group = augroup("LspFormattingGroup", {})
+-- autocmd("BufWritePre", {
+--   group = lsp_fmt_group,
+--   callback = function()
+--     local efm = vim.lsp.get_active_clients({ name = "efm" })
+--
+--     if vim.tbl_isempty(efm) then
+--       return
+--     end
+--
+--     vim.lsp.buf.format({ name = "efm", async = true })
+--   end,
+-- })
+
 
 -- Don't auto commenting new lines
 autocmd("BufEnter", {

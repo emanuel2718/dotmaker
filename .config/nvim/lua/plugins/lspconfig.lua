@@ -21,6 +21,7 @@ return {
       map({ "n", "v" }, "<C-c>", vim.lsp.buf.code_action, opts)
       map("n", "<leader>rn", vim.lsp.buf.rename, opts)
       map("n", "<leader>df", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+      map("n", "<leader>di", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
       map("n", "<leader>dl", vim.diagnostic.open_float, opts)
       map("n", "[d", vim.diagnostic.goto_prev, opts)
       map("n", "]d", vim.diagnostic.goto_next, opts)
