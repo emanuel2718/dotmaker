@@ -35,7 +35,7 @@ opt.listchars = {
   nbsp = "×"
 }
 opt.autochdir = false
-opt.cmdheight = 1     -- more space in the neovim command line for displaying messages
+opt.cmdheight = 0     -- more space in the neovim command line for displaying messages
 opt.mouse = "a"       -- allow the mouse to be used in neovim
 opt.scrolloff = 20    -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 10 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
