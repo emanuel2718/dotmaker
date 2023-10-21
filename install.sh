@@ -196,6 +196,11 @@ install_external() {
   sudo apt update
   sudo apt install tableplus
 
+  echo "✔ Installing Pyenv"
+  cd $HOME/dev/pkgs
+  curl https://pyenv.run | bash
+  cd $script_dir
+
 }
 
 
@@ -234,6 +239,7 @@ create_sym_links() {
   ln -s -f $script_dir/dots/.zshrc $HOME/.zshrc
   ln -s -f $script_dir/dots/.tmux.conf $HOME/.tmux.conf
   ln -s -f $script_dir/dots/.xprofile $HOME/.xprofile
+  ln -s -f $script_dir/dots/.xprofile $HOME/.profile
   ln -s -f $script_dir/dots/.local/share/Konsole/Rami.profile $HOME/.local/share/konsole/rami.profile
 
 

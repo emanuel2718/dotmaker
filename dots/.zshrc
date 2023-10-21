@@ -28,6 +28,7 @@ export PATH=$PATH:$HOME/.local/share/nvim/mason/bin
 # export PATH=$PATH:/var/lib/flatpak/exports/bin
 
 source $HOME/.xprofile
+source $HOME/.profile
 
 
 # Aliases
@@ -44,6 +45,10 @@ alias i3config='$EDITOR $HOME/.config/i3/config'
 alias code="code-insiders"
 alias ng="nvim +Neogit"
 alias tt='$HOME/dev/bin/tmux-sessionizer.sh | sh'
+alias vpn='mullvad'
+alias vpns='mullvad status'
+alias vpnc='mullvad connect'
+alias vpnl='mullvad relay set location'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
