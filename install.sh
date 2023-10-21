@@ -58,6 +58,7 @@ declare -a apt_pkgs=(
   "zathura"
   "zoxide"
   "zsh"
+  "libssl-dev"
 )
 
 

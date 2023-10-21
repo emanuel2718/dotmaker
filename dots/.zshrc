@@ -49,6 +49,8 @@ alias vpn='mullvad'
 alias vpns='mullvad status'
 alias vpnc='mullvad connect'
 alias vpnl='mullvad relay set location'
+alias python='python3'
+alias penv='python3 -m venv venv && source venv/bin/activate'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
