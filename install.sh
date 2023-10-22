@@ -59,6 +59,7 @@ declare -a apt_pkgs=(
   "zoxide"
   "zsh"
   "libssl-dev"
+  "libsqlite3-dev"
 )
 
 
@@ -201,6 +202,9 @@ install_external() {
   cd $HOME/dev/pkgs
   curl https://pyenv.run | bash
   cd $script_dir
+
+  echo "✔ Installing Poetry"
+  curl -sSL https://install.python-poetry.org | python3 -
 
 }
 
