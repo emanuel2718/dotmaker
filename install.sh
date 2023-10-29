@@ -157,6 +157,9 @@ install_external() {
   flatpak install flathub md.obsidian.Obsidian -y
   sudo ln -s /var/lib/flatpak/exports/bin/md.obsidian.Obsidian /usr/bin/obsidian
 
+  echo "> Installing Discord"
+  flatpak install flathub com.discordapp.Discord
+  sudo ln -s /var/lib/flatpak/exports/bin/com.discordapp.Discord /usr/bin/discord
 
   echo "> Installing Nerdfonts"
   cd $script_dir

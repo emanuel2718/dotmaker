@@ -6,6 +6,7 @@ set $mm HDMI-1-1
 # second monitor
 set $sm DP-1-3
 
+# set $mod Mod1
 set $mod Mod4
 
 #font pango:monospace 10
@@ -213,6 +214,9 @@ bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
 
 
+for_window [class="Nemo"] floating enable, resize set 760 760, move position center
+for_window [class="1Password"] floating enable, resize set 760 760, move position center
+bindsym $mod+e exec --no-startup-id nemo
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
