@@ -211,6 +211,7 @@ for_window [instance="copyq"] border pixel 5
 exec copyq
 
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+bindsym $mod+Shift+o exec --no-startup-id obsidian
 
 
 
