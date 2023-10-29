@@ -137,7 +137,7 @@ install_external() {
   rm -f packages.microsoft.gpg
   sudo apt install apt-transport-https -y
   sudo apt update -y
-  sudo apt install code-insiders -y
+  sudo apt install code -y
 
 
   echo "> Installing Go"
@@ -263,7 +263,9 @@ create_sym_links() {
   ln -s -f $script_dir/bin/tmux-sessionizer.sh $HOME/.local/share/bin/tmux-sessionizer.sh
 
   echo "> Creating symlinks for config files"
-  ln -s -f $script_dir/.config/Code $HOME/.config/Code
+  # TODO: change to only symlink settings, keybinds, extensions and project manager
+  # ln -s -f $script_dir/.config/Code $HOME/.config/Code
+  ln -s -f $script_dir/.config/Code/settings.json $HOME/.config/Code/User/settings.json
   ln -s -f $script_dir/.config/alacritty $HOME/.config/alacritty
   ln -s -f $script_dir/.config/i3 $HOME/.config/i3
   ln -s -f $script_dir/.config/i3status $HOME/.config/i3status
