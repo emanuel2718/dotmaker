@@ -1,0 +1,116 @@
+{
+    "window.commandCenter": false,
+    "window.density.editorTabHeight": "compact",
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0,
+
+    "editor.accessibilitySupport": "off",
+    "editor.fontFamily": "Terminess Nerd Font",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 17,
+    "editor.formatOnSave": false,
+    "editor.minimap.enabled": false,
+    "editor.guides.indentation": true,
+    "editor.lightbulb.enabled": false,
+    "editor.lineNumbers": "relative",
+    "editor.mouseWheelZoom": true,
+    "editor.renderWhitespace": "trailing",
+    "editor.scrollBeyondLastLine": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "off",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.sideBar.location": "left",
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.settings.editor": "json",
+
+    "search.quickOpen.includeHistory": false,
+    "search.quickOpen.includeSymbols": false,
+    "search.smartCase": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/.turbo": true,
+        "**/dist": true,
+        "**/out": true,
+        "**/bower_components": true,
+        "**/*.code-search": true
+    },
+
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+
+    "terminal.integrated.copyOnSelection": true,
+    "projectManager.sortList": "Recent",
+
+    "breadcrumbs.enabled": false,
+
+    "telemetry.telemetryLevel": "off",
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.smartcase": true,
+    "vim.incsearch": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": false,
+    "vim.useCtrlKeys": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(255, 140, 0, 0.5)",
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-z>": false,
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-j>": false,
+        "<C-k>": false,
+        "<C-;>": false,
+        "<C-,>": false
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // { "before": ["leader", "leader"], "commands": ["workbench.action.files.save"] },
+        { "before": ["S-h"], "commands": [":tabp"] },
+        { "before": ["S-l"], "commands": [":tabnext"] },
+        { "before": ["S-;"], "commands": [":tabclose"] },
+        { "before": ["S-k"], "commands": ["editor.action.showHover"] },
+        { "before": ["<C-c>"], "commands": ["editor.action.quickFix"] },
+        { "before": ["<C-r>"], "after": [], "commands": [ { "command": "redo" }]},
+        { "before": ["u"], "after": [], "commands": [ { "command": "undo" }]},
+        { "before": ["leader", "f", "s"], "commands": ["workbench.action.files.save"] },
+        { "before": ["leader", "o"], "commands": ["workbench.action.closeEditorsInGroup"] },
+        { "before": ["leader", "m"], "commands": ["workbench.action.splitEditor"] },
+        { "before": ["leader", "n"], "commands": ["workbench.action.splitEditorDown"] },
+        { "before": ["leader", "."], "commands": ["workbench.action.quickOpen"] },
+        { "before": ["leader", "b"], "commands": ["workbench.action.showAllEditors"] },
+        { "before": ["leader", "s", "i"], "commands": ["workbench.action.showAllSymbols"] },
+        { "before": ["leader", "s", "p"], "commands": ["workbench.action.findInFiles"] },
+        { "before": ["leader", "s", "d"], "commands": ["workbench.actions.view.problems"] },
+        { "before": ["leader", "l", "f"], "commands": ["editor.action.format"] },
+        { "before": ["leader", "r", "n"], "commands": ["editor.action.startFindReplaceAction"] },
+        { "before": ["leader", "h", "t"], "commands": ["workbench.action.selectTheme"] }
+
+    ],
+    "vim.visualModeKeyBindings": [
+        { "before": [">"], "commands": ["editor.action.indentLines"] },
+        { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+        { "before": ["<S-j>"], "commands": ["editor.action.moveLinesDownAction"] },
+        { "before": ["<S-k>"], "commands": ["editor.action.moveLinesUpAction"] }
+    ],
+    "macros": {
+        "toggleSearchView": [
+          "workbench.action.findInFiles",
+          "workbench.action.toggleSidebarVisibility",
+        ]
+      }
+}

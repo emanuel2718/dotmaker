@@ -1,0 +1,38 @@
+[
+	{
+		"name": "propelti",
+		"rootPath": "/home/rami/dev/code/propelti",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "dotmaker",
+		"rootPath": "/home/rami/dev/code/dotmaker",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "bins",
+		"rootPath": "/home/rami/dev/bins",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "wiki",
+		"rootPath": "/home/rami/dev/wiki",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	},
+	{
+		"name": "playground",
+		"rootPath": "/home/rami/dev/xyz",
+		"paths": [],
+		"tags": [],
+		"enabled": true
+	}
+]
+
