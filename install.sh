@@ -181,6 +181,10 @@ install_external() {
   gh config set git_protocol ssh --host github.com
   gh config set editor nvim
 
+  echo "✔ Installing Github Desktop"
+  flatpak install -y flathub io.github.shiftey.Desktop
+  sudo ln -s /var/lib/flatpak/exports/bin/io.github.shiftey.Desktop /usr/bin/github-desktop
+
   echo "✔ Installing bun"
   curl -fsSL https://bun.sh/install | bash
 
