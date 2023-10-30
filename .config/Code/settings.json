@@ -82,7 +82,7 @@
         // { "before": ["leader", "leader"], "commands": ["workbench.action.files.save"] },
         { "before": ["S-h"], "commands": [":tabp"] },
         { "before": ["S-l"], "commands": [":tabnext"] },
-        { "before": ["S-;"], "commands": [":tabclose"] },
+        { "before": ["<C-w>"], "commands": [":tabclose"] },
         { "before": ["S-k"], "commands": ["editor.action.showHover"] },
         { "before": ["<C-c>"], "commands": ["editor.action.quickFix"] },
         { "before": ["<C-r>"], "after": [], "commands": [ { "command": "redo" }]},
@@ -107,10 +107,14 @@
         { "before": ["<S-j>"], "commands": ["editor.action.moveLinesDownAction"] },
         { "before": ["<S-k>"], "commands": ["editor.action.moveLinesUpAction"] }
     ],
-    "macros": {
-        "toggleSearchView": [
-          "workbench.action.findInFiles",
-          "workbench.action.toggleSidebarVisibility",
-        ]
-      }
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
