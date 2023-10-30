@@ -4,10 +4,6 @@
   { "key": "cmd+v", "command": "editor.action.clipboardPasteAction" },
   { "key": "cmd+.", "command": "editor.action.clipboardPasteAction" },
 
-  { "key": "ctrl+f", "command": "macros.toggleSearchView" },
-    
-    
-  
   { "key": "ctrl+;", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "ctrl+n", "command": "workbench.files.action.focusFilesExplorer", "when": "editorTextFocus" },
@@ -33,10 +29,11 @@
 
   { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "suggestWidgetVisible && textInputFocus" },
   { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "suggestWidgetVisible && textInputFocus" },
-    
+
   { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "codeActionMenuVisible" },
   { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "codeActionMenuVisible" },
 
   { "key": "ctrl+k", "command": "search.action.focusPreviousSearchResult", "when": "searchViewletVisible" },
   { "key": "ctrl+j", "command": "search.action.focusNextSearchResult", "when": "searchViewletVisible" },
+  { "key": "ctrl+.", "command": "editor.action.triggerParameterHints", "when": "editorHasSignatureHelpProvider && editorTextFocus" }
 ]
