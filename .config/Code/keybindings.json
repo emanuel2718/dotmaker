@@ -2,8 +2,8 @@
   { "key": "cmd+p", "command": "workbench.action.showCommands" },
   { "key": "cmd+c", "command": "editor.action.clipboardCopyAction" },
   { "key": "cmd+v", "command": "editor.action.clipboardPasteAction" },
-  { "key": "cmd+.", "command": "editor.action.clipboardPasteAction" },
   { "key": "cmd+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
+  { "key": "cmd+.", "command": "editor.action.triggerParameterHints", "when": "editorHasSignatureHelpProvider && editorTextFocus" },
 
   { "key": "ctrl+;", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
@@ -32,10 +32,9 @@
   { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "suggestWidgetVisible && textInputFocus" },
   { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "suggestWidgetVisible && textInputFocus" },
 
-  { "key": "ctrl+k", "command": "selectPrevSuggestion", "when": "codeActionMenuVisible" },
-  { "key": "ctrl+j", "command": "selectNextSuggestion", "when": "codeActionMenuVisible" },
+  { "key": "ctrl+k", "command": "selectPrevCodeAction", "when": "codeActionMenuVisible" },
+  { "key": "ctrl+j", "command": "selectNextCodeAction", "when": "codeActionMenuVisible" },
 
   { "key": "ctrl+k", "command": "search.action.focusPreviousSearchResult", "when": "searchViewletVisible" },
   { "key": "ctrl+j", "command": "search.action.focusNextSearchResult", "when": "searchViewletVisible" },
-  { "key": "ctrl+.", "command": "editor.action.triggerParameterHints", "when": "editorHasSignatureHelpProvider && editorTextFocus" }
 ]
