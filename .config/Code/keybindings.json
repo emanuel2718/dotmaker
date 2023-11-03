@@ -4,6 +4,7 @@
   { "key": "cmd+v", "command": "editor.action.clipboardPasteAction" },
   { "key": "cmd+z", "command": "editor.toggleFold", "when": "editorTextFocus && foldingEnabled" },
   { "key": "cmd+.", "command": "editor.action.triggerParameterHints", "when": "editorHasSignatureHelpProvider && editorTextFocus" },
+  { "key": "cmd+;", "command": "editor.action.inlineSuggest.commit",  "when": "editorFocus" },
 
   { "key": "ctrl+;", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility" },
