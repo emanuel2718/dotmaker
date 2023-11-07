@@ -75,7 +75,9 @@ end
 
 
 
-vim.cmd.colorscheme("carbonfox")
+vim.g.neon_style = "dark"
+vim.cmd.colorscheme("neon")
+-- vim.cmd.colorscheme("carbonfox")
 -- vim.cmd.colorscheme("mellow")
 -- vim.cmd.colorscheme('substrata')
 -- vim.cmd.colorscheme('arctic') -- vsCodeDark

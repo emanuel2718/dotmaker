@@ -22,9 +22,7 @@ return {
   },
   -- Sublime text monokai
   { 'ofirgall/ofirkai.nvim' },
-  { "kyazdani42/blue-moon" }
-
-
-
-
+  { "kyazdani42/blue-moon" },
+  { 'rockerBOO/boo-colorscheme-nvim' },
+  { "rafamadriz/neon" },
 }

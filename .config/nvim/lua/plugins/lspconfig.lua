@@ -29,6 +29,7 @@ return {
       map("n", "<leader>lr", ":LspRestart<CR>", opts)
       map("i", "<C-k>", vim.lsp.buf.signature_help, opts)
       map("n", "<leader>k", vim.lsp.buf.signature_help, opts)
+      map('n', "<leader>lc", "<cmd>LspRestart<CR>", opts)
     end
 
     local capabilities = cmp_lsp.default_capabilities()
