@@ -25,4 +25,7 @@ return {
   { "kyazdani42/blue-moon" },
   { 'rockerBOO/boo-colorscheme-nvim' },
   { "rafamadriz/neon" },
+  { 'kdheepak/monochrome.nvim' },
+  { 'sainnhe/gruvbox-material' },
+  { 'lourenci/github-colors' },
 }

@@ -75,8 +75,11 @@ end
 
 
 
-vim.g.neon_style = "dark"
-vim.cmd.colorscheme("neon")
+-- vim.g.neon_style = "dark"
+-- vim.cmd.colorscheme("neon")
+vim.g.gruvbox_material_background = "hard"
+vim.cmd.colorscheme("gruvbox-material")
+
 -- vim.cmd.colorscheme("carbonfox")
 -- vim.cmd.colorscheme("mellow")
 -- vim.cmd.colorscheme('substrata')
