@@ -1,0 +1,47 @@
+local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+
+-- Highlight on yank
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = "200"
+    })
+  end
+})
+
+-- Remove whitespace on save
+autocmd("BufWritePre", {
+  pattern = "",
+  command = ":%s/\\s\\+$//e"
+})
+
+
+-- Don't auto commenting new lines
+autocmd("BufEnter", {
+  pattern = "",
+  command = "set fo-=c fo-=r fo-=o"
+})
+
+
+-- Set filetype with 2 spaces indentation
+autocmd("Filetype", {
+  pattern = { "xml", "html", "xhtml", "css", "scss", "javascript", "typescript", "yaml", "lua" },
+  command = "setlocal shiftwidth=2 tabstop=2"
+})
+
+
+-- Set filetype with 4 spaces indentation
+autocmd("Filetype", {
+  pattern = { "python", "rust", "go", "ruby", "java", "c", "cpp", "php" },
+  command = "setlocal shiftwidth=4 tabstop=4"
+})
+
+autocmd("Filetype", {
+  pattern = { "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end
+})
