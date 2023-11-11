@@ -24,7 +24,7 @@ return {
         auto_trigger = false,
         debounce = 75,
         keymap = {
-          accept = "<M-;>",
+          accept = "<A-;>",
           next = "<M-]>",
           prev = "<M-[>",
           dismiss = "<C-]>",
