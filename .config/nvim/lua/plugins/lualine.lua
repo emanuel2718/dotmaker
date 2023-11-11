@@ -1,33 +1,30 @@
 return {
   "nvim-lualine/lualine.nvim",
-  opts = {
-    options = {
-      icons_enabled = true,
-      components_separators = { left = "", right = "" },
-      section_separators = { left = "", right = "" },
-      disabled_filetypes = {},
-      theme = "auto",
-      globalstatus = true,
-    },
-    sections = {
-      lualine_a = { "mode" },
-      lualine_b = { "buffers" },
-      lualine_c = { "diagnostics" },
-      lualine_x = { "encoding", "fileformat", "filetype" },
-      lualine_y = { "progress" },
-      lualine_z = { "location" },
-
-    },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {},
-    },
-    tabline = {},
-    -- extensions = { "fugitive", "nvim-tree", "trouble" },
-  },
-
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    local diagnostics = {
+        'diagnostics',
+        sources = { 'nvim_diagnostic' },
+        sections = { 'error', 'warn' },
+        symbols = { error = ' ', warn = ' ' },
+        colored = false,
+        update_in_insert = false,
+        always_visible = true,
+    }
+    require("lualine").setup({
+      options = {
+        component_separators = {},
+        globalstatus = true,
+        section_separators = {},
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch", diagnostics },
+        lualine_c = { {"filename", file_status = true, path = 1, shorting_target = 35 }},
+        lualine_x = { {"filetype"}, { "filesize"}},
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
+      },
+    })
+  end,
 }

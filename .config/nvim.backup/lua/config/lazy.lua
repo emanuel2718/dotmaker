@@ -15,7 +15,7 @@ require('lazy').setup({
   spec = { { import = 'plugins' } },
   lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
   defaults = { lazy = false, version = nil },
-  install = { missing = true, colorscheme = { 'habamax' } },
+  install = { missing = true, colorscheme = { 'carbonfox', 'habamax' } },
   checker = { enabled = true, notify = false, frequency = 86400 },
   change_detection = { notify = false },
   performance = { cache = { enabled = true } },
@@ -34,4 +34,3 @@ require('lazy').setup({
     },
   },
 })
-

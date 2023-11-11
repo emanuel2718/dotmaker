@@ -1,41 +1,27 @@
 return {
   "stevearc/conform.nvim",
-  lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+  event = "BufReadPre",
   config = function()
-    local conform = require("conform")
-
-    conform.setup({
+    require("conform").setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        vue = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        markdown = { "prettierd", "markdownlint" },
+        json = { "prettierd" },
+        javascript = { "prettierd", "eslint_d" },
+        typescript = { "prettierd", "eslint_d" },
+        ["_"] = { "trim_whitespace" },
       },
-      format_on_save = false,
-      --format_on_save = {
-      --  lsp_fallback = true,
-      --  async = false,
-      --  timeout_ms = 1000,
-      --},
     })
-
-    vim.keymap.set({ "n", "v" }, "<leader>lf", function()
-      conform.format({
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
-      })
+  end,
+  init = function()
+    require("utils").ensure_package_installed.add({
+      "stylua",
+      "prettierd",
+      "markdownlint",
+      "eslint_d",
+    })
+    require("utils").map("n", "<leader>lf", function()
+      require("conform").format({ lsp_fallback = true, async = true })
     end)
   end,
 }

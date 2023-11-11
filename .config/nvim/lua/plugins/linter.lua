@@ -1,30 +1,29 @@
 return {
-  "mfussenegger/nvim-lint",
+   "mfussenegger/nvim-lint",
   lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
   config = function()
-    local lint = require("lint")
-
-    lint.linters_by_ft = {
-      javascript = { "eslint_d" },
+    require("lint").linters_by_ft = {
+      lua = { "selene" },
       typescript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-      svelte = { "eslint_d" },
-      python = { "mypy" },
+      javascript = { "eslint_d" },
+      vue = { "eslint_d" },
+      markdown = { "markdownlint" },
     }
-
-    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-      group = lint_augroup,
-      callback = function()
-        lint.try_lint()
-      end,
+  end,
+  init = function()
+    require('utils').ensure_package_installed.add({
+      "selene",
+      "eslint_d",
+      "markdownlint",
     })
 
-    vim.keymap.set("n", "<leader>l", function()
-      lint.try_lint()
-    end, { desc = "Trigger linting for current file" })
+    vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+      desc = "Try linting on save or open",
+      callback = function()
+        require("lint").try_lint()
+      end,
+      group = require("utils").augroup("linter"),
+    })
   end,
+
 }
