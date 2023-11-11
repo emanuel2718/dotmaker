@@ -80,4 +80,7 @@ opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
 
 
 
-cmd.colorscheme('habamax')
+-- cmd.colorscheme('habamax')
+vim.g.gruvbox_material_background = "hard"
+cmd.colorscheme("gruvbox-material")
+

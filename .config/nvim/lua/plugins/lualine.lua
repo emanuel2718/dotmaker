@@ -7,7 +7,7 @@ return {
         sources = { 'nvim_diagnostic' },
         sections = { 'error', 'warn' },
         symbols = { error = ' ', warn = ' ' },
-        colored = false,
+        colored = true,
         update_in_insert = false,
         always_visible = true,
     }
