@@ -24,8 +24,16 @@ return {
       })
     end,
     init = function()
-      local map = require('utils.').map
-      map({ 'n', 'o', 'x'}, 'H', function() require('flash').jump() end)
-    end
+      local map = require("utils.").map
+      map({ "n", "o", "x" }, "H", function()
+        require("flash").jump()
+      end)
+    end,
+  },
+  {
+    "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    config = function()
+      require("toggle_lsp_diagnostics").init({ start_on = false })
+    end,
   },
 }

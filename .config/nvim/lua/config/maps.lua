@@ -44,9 +44,16 @@ map('n', '<leader>q', ':qa!<cr>', opts)
 map('n', '<leader>fs', ':w<cr>')
 map('n', '<leader>`', ':b#<cr>', opts) -- switch to last buffer
 map('n', '<leader>s.', ':source %<cr>')
+map('n', '<C-f>', ':e ')
 
 
 --------------------------- PLUGINS ---------------------------
+
+-- Lazy
+map('n', '<leader>L', ':Lazy<cr>', opts)
+
+-- Mason
+map('n', '<leader>M', ':Mason<cr>', opts)
 
 -- Telesccope
 local telescope = require('telescope.builtin')
@@ -65,7 +72,8 @@ map('n', '<leader>nm', ':Telescope node_modules<cr>', opts)
 -- Neotree
 map('n', '<C-n>', ":Neotree toggle<cr>", opts)
 
-
-
 -- Neogit
 map('n', '<leader>g.', ":Neogit<cr>", opts)
+
+-- Toggle Diagnostics
+map('n', '<leader>dd', '<cmd>ToggleDiag<cr>', opts)
