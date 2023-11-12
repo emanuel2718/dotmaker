@@ -82,5 +82,11 @@ opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
 
 -- cmd.colorscheme('habamax')
 vim.g.gruvbox_material_background = "hard"
-cmd.colorscheme("gruvbox-material")
+-- cmd.colorscheme("gruvbox-material")
+-- cmd.colorscheme("catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- cmd.colorscheme("carbonfox") -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+-- cmd.colorscheme("tokyonight-night") -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
+-- cmd.colorscheme("github_dark") -- github_dark, github_dark_high_contrast, github_dark_dimmed, github_dark_tritanopia, github_light....
+-- cmd.colorscheme('solarized-flat')
+cmd.colorscheme('arctic') -- vscode theme
 
