@@ -1,27 +1,10 @@
 return {
-    'nvim-pack/nvim-spectre',
-    dependencies = 'nvim-lua/plenary.nvim',
-    event = 'VeryLazy',
-    keys = {
-        {
-            '<leader>rr',
-            '<cmd>lua require("spectre").toggle()<cr>',
-            desc = 'Toggle Spectre',
-        },
-        {
-            '<leader>sw',
-            '<cmd>lua require("spectre").open_visual({select_word=true})<cr>',
-            desc = 'Search current word',
-        },
-        {
-            '<leader>sf',
-            '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
-            desc = 'Search on current file',
-        },
-    },
-    config = function()
-        require('spectre').setup({
-            live_update = false, -- auto execute search again when you write to any file in vim
-        })
-    end,
+  "nvim-pack/nvim-spectre",
+  build = false,
+  cmd = "Spectre",
+  opts = { open_cmd = "noswapfile vnew" },
+  -- stylua: ignore
+  keys = {
+    { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+  },
 }

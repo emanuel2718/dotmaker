@@ -1,18 +1,17 @@
 local M = {}
 
-
 function M.map(modes, lhs, rhs, opts)
   opts = opts or {}
   opts.noremap = opts.noremap == nil and true or opts.noremap
-  if type(modes) == 'string' then
+  if type(modes) == "string" then
     modes = { modes }
   end
   for _, mode in ipairs(modes) do
-    if type(rhs) == 'string' then
+    if type(rhs) == "string" then
       vim.api.nvim_set_keymap(mode, lhs, rhs, opts)
     else
       opts.callback = rhs
-      vim.api.nvim_set_keymap(mode, lhs, '', opts)
+      vim.api.nvim_set_keymap(mode, lhs, "", opts)
     end
   end
 end
@@ -69,6 +68,13 @@ M.ensure_package_installed = {
 
 M.augroup = function(name, options)
   return vim.api.nvim_create_augroup("rami_augroup_" .. name, options or {})
+end
+
+M.mergeTable = function(t1, t2)
+  for k, v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
 end
 
 return M

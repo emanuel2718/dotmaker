@@ -55,6 +55,9 @@ opt.undolevels = 1000
 opt.undoreload = 10000
 opt.errorbells = false
 opt.fcs = "eob: " -- hide `~` char on empty line at the end of the buffer
+opt.guicursor = 'n-v-c:block,i-ci-ve:ver100/,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
+opt.cursorline = true
+
 
 opt.path = '**'
 opt.wildignore = {
@@ -65,8 +68,8 @@ opt.wildignore = {
   '**/.nuxt/**',
 }
 
-opt.scrolloff = 5
-opt.sidescrolloff = 5
+opt.scrolloff = 10
+opt.sidescrolloff = 6
 
 -- Folds
 opt.foldcolumn = '0'
@@ -77,16 +80,21 @@ opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
 
+if vim.fn.has("nvim-0.10") == 1 then
+  opt.smoothscroll = true
+end
 
 
 
 -- cmd.colorscheme('habamax')
 vim.g.gruvbox_material_background = "hard"
--- cmd.colorscheme("gruvbox-material")
+cmd.colorscheme("gruvbox-material")
 -- cmd.colorscheme("catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
 -- cmd.colorscheme("carbonfox") -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
 -- cmd.colorscheme("tokyonight-night") -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
--- cmd.colorscheme("github_dark") -- github_dark, github_dark_high_contrast, github_dark_dimmed, github_dark_tritanopia, github_light....
+-- cmd.colorscheme("github_dark_colorblind") -- github_dark, github_dark_high_contrast, github_dark_dimmed, github_dark_tritanopia, github_light....
 -- cmd.colorscheme('solarized-flat')
-cmd.colorscheme('arctic') -- vscode theme
+-- cmd.colorscheme('arctic') -- vscode theme
+-- cmd.colorscheme('kanagawa-dragon')
+-- cmd.colorscheme('midnight')
 

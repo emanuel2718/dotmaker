@@ -8,9 +8,8 @@ return {
   },
   {
     "stevearc/dressing.nvim",
-    config = function()
-      require("dressing").setup({ input = { insert_only = false } })
-    end,
+    event = "BufReadPre",
+    opts = {},
   },
   {
     "folke/flash.nvim",

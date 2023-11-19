@@ -1,6 +1,12 @@
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+map({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- split windows
 map('n', '<leader>n', ':split<cr>', opts)
 map('n', '<leader>m', ':vsplit<cr>', opts)
@@ -38,11 +44,13 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", opts)
 -- https://www.reddit.com/r/vim/comments/3y2mgt/
 map("v", ".", "<cmd>norm .<cr>", opts)
 
+-- new file
+map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 -- General
 map('n', '<leader>q', ':qa!<cr>', opts)
-map('n', '<leader>fs', ':w<cr>')
-map('n', '<leader>`', ':b#<cr>', opts) -- switch to last buffer
+map('n', '<leader>fs', ':w!<cr>')
+map('n', '<leader>`', ':e #<cr>', opts)
 map('n', '<leader>s.', ':source %<cr>')
 map('n', '<C-f>', ':e ')
 
@@ -59,10 +67,11 @@ map('n', '<leader>M', ':Mason<cr>', opts)
 local telescope = require('telescope.builtin')
 map('n', '<leader>.', telescope.find_files, opts)
 map('n', '<leader>,', telescope.oldfiles, opts)
-map('n', '<leader>ff', ':Telescope find_files hidden=true no_ignore=true<cr>', opts)
-map('n', '<leader><leader>', telescope.buffers, opts)
+map('n', '<leader><leader>', ':Telescope find_files hidden=true no_ignore=true<cr>', opts)
+map('n', '<leader>bb', telescope.buffers, opts)
 map('n', '<leader>sp', telescope.live_grep, opts)
 map('n', '<leader>ss', telescope.current_buffer_fuzzy_find, opts)
+map('n', '<leader>sh', telescope.search_history, opts)
 map('n', '<leader>ht', telescope.colorscheme, opts)
 map('n', '<leader>hp', telescope.help_tags, opts)
 map('n', '<leader>gs', telescope.git_status, opts)

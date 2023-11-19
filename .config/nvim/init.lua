@@ -21,8 +21,7 @@ for _, cmd in ipairs({ "git", "rg", { "fd", "fdfind" } }) do
   end
 end
 
--- local modules = { 'lazy', 'options', 'autocmds', 'mappings' }
-local modules = { "lazy", "options", "maps", "autocmds" }
+local modules = { "lazy", "options", "keymaps", "autocmds" }
 for _, mod in ipairs(modules) do
   require('config.' .. mod)
 end
