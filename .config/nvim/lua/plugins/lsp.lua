@@ -148,6 +148,8 @@ return {
         tsserver = {},
         volar = {},
         bashls = {},
+        clangd = {},
+        clang_format = {}
       }
 
       mason_lspconfig.setup({

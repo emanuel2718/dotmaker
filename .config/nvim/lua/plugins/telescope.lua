@@ -38,6 +38,7 @@ return {
           "vendor/*",
           "%.lock",
           "__pycache__/*",
+          ".mypy_cache/*",
           "%.sqlite3",
           "%.ipynb",
           "node_modules/*",
