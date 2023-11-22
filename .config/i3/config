@@ -6,8 +6,8 @@ set $mm HDMI-1-1
 # second monitor
 set $sm DP-1-3
 
-# set $mod Mod1
-set $mod Mod4
+set $mod Mod1
+# set $mod Mod4
 
 #font pango:monospace 10
 #font pango:DejaVu Sans Mono 10

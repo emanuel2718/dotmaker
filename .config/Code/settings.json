@@ -2,17 +2,42 @@
     "window.commandCenter": false,
     "window.density.editorTabHeight": "compact",
     "window.menuBarVisibility": "toggle",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
+    // dont show hidden files
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.nuxt": true,
+        "**/.wrangler": true,
+        "**/.turbo": true
+    },
 
     "editor.accessibilitySupport": "off",
+    // "editor.cursorSmoothCaretAnimation": "on",
     "editor.fontFamily": "Terminess Nerd Font",
+    "editor.find.addExtraSpaceOnTop": false,
+    "editor.inlineSuggest.enabled": true,
+    "editor.unicodeHighlight.invisibleCharacters": false,
     "editor.fontLigatures": false,
+    "editor.stickyScroll.enabled": true,
     "editor.fontSize": 17,
+    "editor.hover.sticky": true,
     "editor.formatOnSave": false,
     "editor.minimap.enabled": false,
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.highlightModifiedTabs": true,
     "editor.guides.indentation": true,
     "editor.lightbulb.enabled": false,
     "editor.lineNumbers": "relative",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.value": 5,
+    "extensions.autoUpdate": "onlyEnabledExtensions",
     "editor.mouseWheelZoom": true,
     "editor.renderWhitespace": "trailing",
     "editor.scrollBeyondLastLine": false,
@@ -21,8 +46,9 @@
     "editor.scrollbar.vertical": "hidden",
     "editor.scrollbar.verticalScrollbarSize": 0,
     "editor.suggestSelection": "first",
-    "editor.tabSize": 2,
+    "editor.tabSize": 1,
     "editor.wordWrap": "off",
+    "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
@@ -34,19 +60,37 @@
     "workbench.panel.defaultLocation": "bottom",
     "workbench.settings.editor": "json",
 
+
     "search.quickOpen.includeHistory": false,
     "search.quickOpen.includeSymbols": false,
     "search.smartCase": true,
     "search.exclude": {
+        "**/.nuxt": true,
         "**/node_modules": true,
         "**/.git": true,
         "**/.turbo": true,
         "**/dist": true,
         "**/out": true,
+        "**/*.code-search": true,
+        "**/.github": true,
+        "**/.output": true,
+        "**/.pnpm": true,
+        "**/.vscode": true,
+        "**/.yarn": true,
         "**/bower_components": true,
-        "**/*.code-search": true
+        "**/dist/**": true,
+        "**/logs": true,
+        "**/out/**": true,
+        "**/package-lock.json": true,
+        "**/pnpm-lock.yaml": true,
+        "**/tmp": true,
+        "**/yarn.lock": true
     },
-
+    "errorLens.excludeBySource": [
+        "cSpell",
+        "Grammarly",
+        "eslint"
+    ],
     "explorer.compactFolders": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
@@ -115,6 +159,23 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.inlayHints.variableTypes.enabled": false,
+    "typescript.inlayHints.variableTypes.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.activityBar.location": "hidden",
+    "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
