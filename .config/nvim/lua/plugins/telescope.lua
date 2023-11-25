@@ -16,7 +16,20 @@ return {
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
 
-    map("n", "<leader>.", builtin.find_files)
+    -- Keymaps
+    map("n", "<leader>.", builtin.find_files, opts)
+    map("n", "<leader>,", builtin.oldfiles, opts)
+    map("n", "<leader>sp", builtin.live_grep, opts)
+    map("n", "<leader>ss", builtin.current_buffer_fuzzy_find, opts)
+    map("n", "<leader>gs", builtin.git_stash, opts)
+    map("n", "<leader>gc", builtin.git_commits, opts)
+    map("n", "<leader>bi", builtin.buffers, opts)
+    map("n", "<leader>ht", builtin.colorscheme, opts)
+    map("n", "<leader>hh", builtin.help_tags, opts)
+    map("n", "<C-p>", function()
+      require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
+    end, opts)
+
     require("telescope").setup({
       defaults = {
         prompt_prefix = "> ",
@@ -25,13 +38,11 @@ return {
           i = {
             ["<C-x>"] = false,
             ["<C-u>"] = false,
-            ["<C-k>"] = false,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
             ["<esc>"] = actions.close,
           },
           n = {
-            ["<C-k>"] = false,
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
             ["v"] = actions.file_vsplit,
