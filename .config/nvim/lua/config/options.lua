@@ -1,100 +1,88 @@
 local opt = vim.opt
 local cmd = vim.cmd
+local g = vim.g
 
-cmd([[ filetype plugin indent on ]])
+g.mapleader = ' '
+g.maplocalleader = ' '
+
+g.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.termguicolors = true
+
+opt.scrolloff = 10
+opt.sidescrolloff = 8
 
 opt.number = true
 opt.relativenumber = true
 
+opt.cursorline = true
+
+opt.hidden = true
+opt.mouse = "a"
+
 opt.autoindent = true
 opt.smartindent = true
 opt.expandtab = true
-opt.shiftwidth = 2
 opt.tabstop = 2
+opt.shiftwidth = 2
 opt.softtabstop = 2
-opt.shiftround = true  -- use multiple of shiftwidth when indenting with "<" and ">"
+opt.shiftround = true
 
-opt.modifiable = true
-
-opt.hidden = true -- Buffer switching without saving
-opt.termguicolors = true
-
+opt.ignorecase = true
+opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
 
-opt.ignorecase = true -- Case insensitive search
-opt.smartcase = true -- But sensitive if includes capital letter
-opt.grepprg = 'rg --ignore-case --vimgrep'
-opt.signcolumn = "yes"
-opt.fileencoding = "utf-8" -- the encoding written to a file
-opt.lazyredraw = true  -- don"t update the display while executing macros
-
-opt.list = true
-opt.listchars = {
-  tab = "┊ ",
-  trail = "·",
-  extends = "»",
-  precedes = "«",
-  nbsp = "×"
-}
-opt.cmdheight = 0     -- more space in the neovim command line for displaying messages
-opt.mouse = "a"       -- allow the mouse to be used in neovim
-opt.splitbelow = true -- open new split below
-opt.splitright = true -- open new split to the right
-opt.wrap = false      -- display a long line
-
-opt.backup = false                                             -- create a backup file
-opt.swapfile = false                                           -- creates a swapfile
-opt.writebackup = false                                        -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-opt.completeopt = { "menu", "menuone", "preview", "noselect" } -- cmp
+opt.cmdheight = 1
 opt.showmode = false
-opt.history = 100 -- keep 100 lines of history
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.lazyredraw = true
+
+opt.history = 5000
 opt.undofile = true
-opt.undolevels = 1000
-opt.undoreload = 10000
-opt.errorbells = false
+-- opt.timeoutlen = 400
+
+opt.grepprg = "rg --ignore-case --vimgrep"
+
+opt.splitbelow = true
+opt.splitright = true
+opt.wrap = false
+opt.linebreak = true
+
+opt.completeopt = { "menu", "menuone", "noselect", "noinsert" }
+
+opt.path = "**"
+opt.wildignorecase = true
+opt.wildignore = [[
+.git,.hg,.svn
+*.aux,*.out,*.toc
+*.o,*.obj,*.exe,*.dll,*.manifest,*.rbc,*.class
+*.ai,*.bmp,*.gif,*.ico,*.jpg,*.jpeg,*.png,*.psd,*.webp
+*.avi,*.divx,*.mp4,*.webm,*.mov,*.m2ts,*.mkv,*.vob,*.mpg,*.mpeg
+*.mp3,*.oga,*.ogg,*.wav,*.flac
+*.eot,*.otf,*.ttf,*.woff
+*.doc,*.pdf,*.cbr,*.cbz
+*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz,*.kgb
+*.swp,.lock,.DS_Store,._*
+*/tmp/*,*.so,*.swp,*.zip,**/node_modules/**,**/.nuxt/**,**/target/**,**.terraform/**,**/coverage/**"
+]]
+
 opt.fcs = "eob: " -- hide `~` char on empty line at the end of the buffer
-opt.guicursor = 'n-v-c:block,i-ci-ve:ver100/,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
-opt.cursorline = true
 
-
-opt.path = '**'
-opt.wildignore = {
-  '**/node_modules/**',
-  '**/coverage/**',
-  '**/.idea/**',
-  '**/.git/**',
-  '**/.nuxt/**',
+opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+opt.fillchars = {
+  eob = " ", -- Suppress ~ at EndOfBuffer
+  fold = " ", -- Hide trailing folding characters
+  diff = "╱",
+  foldopen = "",
+  foldclose = "",
 }
 
-opt.scrolloff = 10
-opt.sidescrolloff = 6
-
--- Folds
-opt.foldcolumn = '0'
-opt.foldlevel = 99
-opt.foldlevelstart = 99
-opt.foldenable = true
-opt.foldmethod = 'expr'
-opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-opt.foldtext = 'v:lua.vim.treesitter.foldtext()'
+-- opt.signcolumn = "yes"
+-- opt.statuscolumn =
+--   "%C%=%4{&nu && v:virtnum <= 0 ? (&rnu ? (v:lnum == line('.') ? v:lnum . ' ' : v:relnum) : v:lnum) : ''}%=%s"
 
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
 end
 
-
-
--- cmd.colorscheme('habamax')
-vim.g.gruvbox_material_background = "hard"
-cmd.colorscheme("gruvbox-material")
--- cmd.colorscheme("catppuccin-mocha") -- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
--- cmd.colorscheme("carbonfox") -- nightfox, dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
--- cmd.colorscheme("tokyonight-night") -- tokyonight-night, tokyonight-storm, tokyonight-day, tokyonight-moon
--- cmd.colorscheme("github_dark_colorblind") -- github_dark, github_dark_high_contrast, github_dark_dimmed, github_dark_tritanopia, github_light....
--- cmd.colorscheme('solarized-flat')
--- cmd.colorscheme('arctic') -- vscode theme
--- cmd.colorscheme('kanagawa-dragon')
--- cmd.colorscheme('midnight')
-
+cmd.colorscheme("habamax")

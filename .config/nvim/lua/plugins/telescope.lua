@@ -2,37 +2,41 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-telescope/telescope-ui-select.nvim" },
     {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      cond = function()
-        return vim.fn.executable("make") == 1
-      end,
+      "danielfalk/smart-open.nvim",
+      branch = "0.2.x",
+      dependencies = { "kkharji/sqlite.lua" },
     },
-    { "nvim-telescope/telescope-rg.nvim", lazy = true },
-    { "nvim-telescope/telescope-node-modules.nvim", lazy = true },
-    -- { "nvim-telescope/telescope-file-browser.nvim", lazy = true },
   },
   config = function()
-    local telescope = require("telescope")
+    local map = vim.keymap.set
+    local opts = { noremap = true, silent = true }
     local actions = require("telescope.actions")
-    -- local fb_actions = require "telescope._extensions.file_browser.actions"
-    telescope.setup({
+    local builtin = require("telescope.builtin")
+
+    map("n", "<leader>.", builtin.find_files)
+    require("telescope").setup({
       defaults = {
         prompt_prefix = "> ",
         selection_caret = " ",
-        winblend = 0,
-        vimgrep_arguments = {
-          "rg",
-          "--ignore",
-          "--hidden",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--trim",
+        mappings = {
+          i = {
+            ["<C-x>"] = false,
+            ["<C-u>"] = false,
+            ["<C-k>"] = false,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<esc>"] = actions.close,
+          },
+          n = {
+            ["<C-k>"] = false,
+            ["<C-k>"] = actions.move_selection_previous,
+            ["<C-j>"] = actions.move_selection_next,
+            ["v"] = actions.file_vsplit,
+            ["s"] = actions.file_split,
+          },
         },
         file_ignore_patterns = {
           "vendor/*",
@@ -61,44 +65,33 @@ return {
           "%.cache",
           "%.dylib",
         },
-        mappings = {
-          i = {
-            ["<C-x>"] = false,
-            ["<C-u>"] = false,
-            ["<C-k>"] = false,
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<esc>"] = actions.close,
-          },
-          n = {
-            ["<C-k>"] = false,
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["v"] = actions.file_vsplit,
-            ["s"] = actions.file_split,
-          },
-        },
       },
       pickers = {
+        oldfiles = {
+          sort_lastused = true,
+          cwd_only = true,
+          theme = "ivy",
+        },
         colorscheme = {
           enable_preview = true,
           theme = "ivy",
         },
         find_files = {
-          disable_devicons = true,
+          hidden = true,
           theme = "ivy",
+          find_command = {
+            "rg",
+            "--files",
+            "--color",
+            "never",
+          },
         },
-        oldfiles = {
-          disable_devicons = true,
+        buffers = {
           theme = "ivy",
         },
         live_grep = {
-          disable_devicons = true,
           theme = "ivy",
-        },
-        buffers = {
-          disable_devicons = true,
-          theme = "ivy",
+          path_display = { "shorten" },
         },
       },
       extensions = {
@@ -108,41 +101,19 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
-        -- file_browser ={
-        --   theme = 'ivy',
-        --   hijack_netrw = true,
-        --     mappings = {
-        --       ["i"] = {
-        --         ["<C-n>"] = false,
-        --         ["<C-n>"] = fb_actions.create,
-        --         ["<C-r>"] = fb_actions.rename,
-        --         ["<C-d>"] = fb_actions.remove,
-        --         ["<C-h>"] = fb_actions.backspace,
-        --         ["<C-.>"] = fb_actions.toggle_hidden,
-        --         -- your custom insert mode mappings
-        --       },
-        --       ["n"] = {
-        --         -- your custom normal mode mappings
-        --       },
-        --   },
-        -- }
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
+        smart_open = {
+          show_scores = true,
+          match_algorithm = "fzf",
+          ignore_patterns = { "*.git/*", "*/tmp/*", "node_modules/*", "dist/*" },
+        },
       },
     })
-    telescope.load_extension("fzf")
-    telescope.load_extension("node_modules")
-    telescope.load_extension("harpoon")
-    -- telescope.load_extension("file_browser")
-
-    -- QUICKFIX: telescope breaks folds, this is a workaround (https://github.com/nvim-telescope/telescope.nvim/issues/699#issuecomment-1745374486)
-    vim.api.nvim_create_autocmd("BufEnter", {
-      callback = function()
-        if vim.opt.foldmethod:get() == "expr" then
-          vim.schedule(function()
-            vim.opt.foldmethod = "expr"
-          end)
-        end
-      end,
-    })
+    require("telescope").load_extension("fzf")
+    require("telescope").load_extension("ui-select")
+    require("telescope").load_extension("smart_open")
+    require("telescope").load_extension("smart_open")
   end,
-  enabled = true,
 }

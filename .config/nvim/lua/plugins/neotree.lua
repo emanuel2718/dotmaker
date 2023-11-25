@@ -58,6 +58,8 @@ return {
     },
   },
   config = function()
+    local map = vim.keymap.set
+    map("n", "<C-n>", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true })
     require("window-picker").setup({
       hint = "floating-big-letter",
       filter_rules = {
@@ -90,21 +92,21 @@ return {
           folder_empty = "",
           folder_empt_open = "",
         },
-         git_status = {
-            symbols = {
-              -- Change type
-              added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
-              modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-              deleted   = "✖",-- this can only be used in the git_status source
-              renamed   = "󰁕",-- this can only be used in the git_status source
-              -- Status type
-              untracked = "",
-              ignored   = "",
-              unstaged  = "󰄱",
-              staged    = "",
-              conflict  = "",
-            }
+        git_status = {
+          symbols = {
+            -- Change type
+            added = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+            modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
+            deleted = "✖", -- this can only be used in the git_status source
+            renamed = "󰁕", -- this can only be used in the git_status source
+            -- Status type
+            untracked = "",
+            ignored = "",
+            unstaged = "󰄱",
+            staged = "",
+            conflict = "",
           },
+        },
       },
       event_handlers = {},
       filesystem = {
@@ -150,5 +152,5 @@ return {
         width = 35,
       },
     })
-  end
+  end,
 }

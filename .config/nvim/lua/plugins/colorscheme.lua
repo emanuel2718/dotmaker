@@ -16,36 +16,6 @@ return {
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
       vim.g.gruvbox_material_float_style = "dim" -- Background of floating windows
-
-    end,
-  },
-  { "EdenEast/nightfox.nvim" },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  { "folke/tokyonight.nvim", lazy = false, priority = 1000, opts = {} },
-  { "projekt0n/github-nvim-theme" },
-  { "ishan9299/nvim-solarized-lua" },
-  {
-    "rockyzhang24/arctic.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-    name = "arctic",
-    branch = "main",
-    priority = 1000,
-  },
-  { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
-  {
-    "rebelot/kanagawa.nvim",
-    config = function()
-      require("kanagawa").setup({
-        colors = {
-          theme = {
-            all = {
-              ui = {
-                bg_gutter = "none",
-              },
-            },
-          },
-        },
-      })
     end,
   },
 }
