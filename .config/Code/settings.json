@@ -48,11 +48,14 @@
     "editor.suggestSelection": "first",
     "editor.tabSize": 1,
     "editor.wordWrap": "off",
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
     "editor.quickSuggestions": {
         "other": "on",
         "comments": "off",
-        "strings": "off"
+        "strings": "on"
     },
 
     "workbench.startupEditor": "newUntitledFile",
@@ -174,8 +177,11 @@
         "scminput": false
     },
     "workbench.colorTheme": "Tokyo Night",
-    "workbench.activityBar.location": "hidden",
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "[lua]": {
+        "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
+    "git.openRepositoryInParentFolders": "never"
 }

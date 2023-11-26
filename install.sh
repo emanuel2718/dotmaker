@@ -161,6 +161,10 @@ install_external() {
   flatpak install flathub com.discordapp.Discord
   sudo ln -s /var/lib/flatpak/exports/bin/com.discordapp.Discord /usr/bin/discord
 
+  echo "> Installing Thunderbird"
+  flatpak install flathub org.mozilla.Thunderbird
+  sudo ln -s /var/lib/flatpak/exports/bin/org.mozilla.Thunderbird /usr/bin/thunderbird
+
   echo "> Installing Nerdfonts"
   cd $script_dir
   ./bin/install-nerd-fonts.sh
