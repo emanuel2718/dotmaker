@@ -13,9 +13,7 @@ return {
       "eslint-lsp",
       "graphql-language-service-cli",
       "html-lsp",
-      "intelephense",
       "json-lsp",
-      "ltex-ls",
       "lua-language-server",
       "prisma-language-server",
       "rust-analyzer",
@@ -24,17 +22,15 @@ return {
       "typescript-language-server",
       "vue-language-server",
       "yaml-language-server",
-      "zk",
 
       -- Linting and formatting
       "eslint_d",
       "stylua",
       "clang-format",
-      "rustfmt",
 
       -- DAP servers
-      "node-debug2-adapter",
-      "firefox-debug-adapter",
+      -- "node-debug2-adapter",
+      -- "firefox-debug-adapter",
     }
 
     vim.api.nvim_create_user_command("MasonInstallAll", function()
