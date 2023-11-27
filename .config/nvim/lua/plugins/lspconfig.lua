@@ -52,10 +52,11 @@ return {
       local map = vim.api.nvim_set_keymap
       local opts = { noremap = true, silent = true }
 
-      map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      -- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+      map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
       map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-      map("n", "gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-      map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+      map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+      map("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
       map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
       map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
       map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
