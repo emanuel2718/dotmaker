@@ -52,7 +52,6 @@ return {
       local map = vim.api.nvim_set_keymap
       local opts = { noremap = true, silent = true }
 
-      -- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
       map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
       map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
       map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
@@ -61,23 +60,19 @@ return {
       map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
       map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
       map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      map("n", "<C-s>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+      map("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
       map("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
       map("n", "<C-c>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
       map("n", "<leader>si", "<cmd>Telescope lsp_document_symbols<CR>", opts)
       map("n", "<C-]>", '<cmd>lua vim.diagnostic.goto_next({float = {border = "rounded"}})<CR>', opts)
       map("n", "<C-[>", '<cmd>lua vim.diagnostic.goto_prev({float = {border = "rounded"}})<CR>', opts)
+      map("n", "<leader>dl", "<cmd>vim.diagnostic.open_float<CR>", opts)
+      map("n", "<leader>di", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
-      local show_diagnostics = false
-      map("n", "<leader>dd", "", {
-        callback = function()
-          show_diagnostics = not show_diagnostics
-          vim.diagnostic.config({
-            virtual_lines = show_diagnostics,
-            virtual_text = not show_diagnostics,
-          })
-        end,
-      })
+      map("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
+      map("n", "<leader>li", "<cmd>LspInfo<CR>", opts)
+      map('n', '<leader>dl', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
     end
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
