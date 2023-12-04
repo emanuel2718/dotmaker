@@ -85,4 +85,3 @@ if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
 end
 
-cmd.colorscheme("habamax")
