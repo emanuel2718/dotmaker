@@ -144,7 +144,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "extensions.autoUpdate": "onlyEnabledExtensions",
-    "workbench.colorTheme": "Gitpod Dark",
+    "workbench.colorTheme": "Default Light Modern",
     "clangd.path": "/home/rami/.config/Code - OSS/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/17.0.3/clangd_17.0.3/bin/clangd",
     "cmake.showOptionsMovedNotification": false,
     "editor.tokenColorCustomizations": {

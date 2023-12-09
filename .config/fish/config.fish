@@ -17,6 +17,8 @@ abbr -a vpns 'mullvad status'
 abbr -a vpnc 'mullvad connect'
 abbr -a vpnd 'mullvad disconnect'
 abbr -a vpnl 'mullvad relay set location'
+abbr -a ct 'cargo test'
+abbr -a cr 'cargo run'
 
 
 if status is-interactive
@@ -27,7 +29,12 @@ end
 set -g fish_greeting
 fish_vi_key_bindings
 
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+
 source $HOME/.xprofile
+
+set -Ux PROJECTS $HOME/dev/code
 
 
 function fish_prompt
@@ -58,3 +65,4 @@ set -Ua fish_user_paths $HOME/.cargo/bin
 
 zoxide init fish | source
 starship init fish | source
+pyenv init - | source
