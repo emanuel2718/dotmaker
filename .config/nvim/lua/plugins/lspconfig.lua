@@ -234,6 +234,7 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
       handlers = handlers,
+      filetypes = { "typescript", "javascript", "jsx", "tsx" },
     })
   end,
 }
