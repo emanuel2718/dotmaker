@@ -51,27 +51,50 @@ return {
     local function on_attach(client, bufnr)
       local map = vim.api.nvim_set_keymap
       local opts = { noremap = true, silent = true }
-
-      map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
-      map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-      map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-      map("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-      map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+      require('fzf-lua').setup({})
+      map('n', 'gd', '<cmd>FzfLua lsp_definitions<cr>', opts)
+      map('n', 'gD', '<cmd>FzfLua lsp_declarations<cr>', opts)
+      map('n', 'gt', '<cmd>FzfLua lsp_typedefs<cr>', opts)
+      map('n', 'gr', '<cmd>FzfLua lsp_references<cr>', opts)
+      map('n', 'gi', '<cmd>FzfLua lsp_implementations<cr>', opts)
+      map('n', '<leader>si', '<cmd>FzfLua lsp_document_symbols<cr>', opts)
+      map('n', '<leader>sI', '<cmd>FzfLua lsp_workspace_symbols<cr>', opts)
+      map('n', '<leader>sw', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', opts)
+      map('n', '<C-c>', '<cmd>FzfLua lsp_code_actions<cr>', opts)
+      map('n', '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', opts)
+      map('n', '<leader>sD', '<cmd>FzfLua diagnostics_workspace<cr>', opts)
+      map('n', '<leader>dl', "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
       map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-      map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+      map("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
+      map("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
       map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-      map("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      map("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-      map("n", "<C-c>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-      map("n", "<leader>si", "<cmd>Telescope lsp_document_symbols<CR>", opts)
-      map("n", "<C-]>", '<cmd>lua vim.diagnostic.goto_next({float = {border = "rounded"}})<CR>', opts)
-      map("n", "<C-[>", '<cmd>lua vim.diagnostic.goto_prev({float = {border = "rounded"}})<CR>', opts)
-      map("n", "<leader>dl", "<cmd>vim.diagnostic.open_float<CR>", opts)
-      map("n", "<leader>di", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
-      map("n", "<leader>lr", "<cmd>LspRestart<CR>", opts)
-      map("n", "<leader>li", "<cmd>LspInfo<CR>", opts)
-      map('n', '<leader>dl', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+      map("n", "<leader>lc", "<cmd>LspRestart<cr>", opts)
+      map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", opts)
+      map("n", "<leader>li", "<cmd>LspInfo<cr>", opts)
+
+
+
+
+
+      -- map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+      -- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+      -- map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+      -- map("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
+      -- map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+      -- map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+      -- map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
+      -- map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+      -- map("n", "<leader>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+      -- map("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+      -- map("n", "<C-c>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+      -- map("n", "<leader>si", "<cmd>Telescope lsp_document_symbols<CR>", opts)
+      -- map("n", "<C-]>", '<cmd>lua vim.diagnostic.goto_next({float = {border = "rounded"}})<CR>', opts)
+      -- map("n", "<C-[>", '<cmd>lua vim.diagnostic.goto_prev({float = {border = "rounded"}})<CR>', opts)
+      -- map("n", "<leader>dl", "<cmd>vim.diagnostic.open_float<CR>", opts)
+      -- map("n", "<leader>di", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+      --
+      -- map('n', '<leader>dl', "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 
     end
     local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -230,11 +253,11 @@ return {
       },
     })
 
-    lspconfig.tsserver.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      handlers = handlers,
-      filetypes = { "typescript", "javascript", "jsx", "tsx" },
-    })
+    -- lspconfig.tsserver.setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   handlers = handlers,
+    --   filetypes = { "typescript", "javascript", "jsx", "tsx" },
+    -- })
   end,
 }
