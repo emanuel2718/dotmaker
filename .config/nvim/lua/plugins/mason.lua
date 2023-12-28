@@ -12,6 +12,8 @@ return {
       "emmet-ls",
       "eslint-lsp",
       "graphql-language-service-cli",
+      "mypy",
+      "pyright",
       "html-lsp",
       "json-lsp",
       "lua-language-server",
@@ -22,11 +24,14 @@ return {
       "typescript-language-server",
       "vue-language-server",
       "yaml-language-server",
+      "ocaml-lsp",
 
       -- Linting and formatting
       "eslint_d",
       "stylua",
       "clang-format",
+      "ocaml-format",
+      "isort"
 
       -- DAP servers
       -- "node-debug2-adapter",

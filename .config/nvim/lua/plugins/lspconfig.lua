@@ -181,12 +181,25 @@ return {
       },
     })
 
-    -- Pyright
+    -- Python
+    -- lspconfig.pyright.setup({
+    --   on_attach = on_attach,
+    --   capabilities = capabilities,
+    --   handlers = handlers,
+    -- })
+
+    lspconfig.ruff_lsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+
     lspconfig.pyright.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       handlers = handlers,
     })
+
 
     lspconfig.yamlls.setup({
       on_attach = on_attach,
@@ -205,11 +218,21 @@ return {
       },
     })
 
+    -- Rust
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       handlers = handlers,
     })
+
+
+    -- Ocaml
+    lspconfig.ocamllsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      handlers = handlers,
+    })
+
 
     -- Tailwincss
     lspconfig.tailwindcss.setup({
