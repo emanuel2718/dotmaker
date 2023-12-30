@@ -1,25 +1,50 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
+# increase frecency
+function increase
+    set selected "$argv[1]"
+    if test "$selected" = default
+        return 0
+    end
+    zoxide add $PROJECTS/$selected
+end
+
+function search
+    find "$PROJECTS" -maxdepth 1 -type d |
+        while read p
+            zoxide query -l -s "$p/"
+        end |
+        sed "s;$PROJECTS/;;" | # removes the ~/dev/ prefix
+        grep -v "$PROJECTS" | # removes the ~/dev folder itself
+        grep / | # removes entries without subfolders
+        sort -rnk1 | # sort by score
+        uniq | # dedup
+        awk '{print $2}' | # do not actually print the score
+        fzf-tmux -p --no-sort --prompt "  "
+end
+
+if test (count $argv) -eq 1
+    set selected "$argv[1]"
 else
-    selected=$(find ~/dev/code ~/dev/tmp ~/dev/xyz ~/dev/wiki -mindepth 1 -maxdepth 1 -type d | fzf)
-fi
+    set selected $(search)
+end
 
-if [[ -z $selected ]]; then
+if test -z $selected
     exit 0
-fi
+end
 
-selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+set selected_name (basename "$selected" | tr . _)
+set tmux_running (pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-    tmux new-session -s $selected_name -c $selected
+if test -z "$TMUX" && test -z "$tmux_running"
+    tmux new-session -s "$selected_name" -c "$PROJECTS/$selected"
+    increase "$selected"
     exit 0
-fi
+end
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    tmux new-session -ds $selected_name -c $selected
-fi
+if ! tmux has-session -t="$selected_name" 2>/dev/null
+    tmux new-session -ds "$selected_name" -c "$PROJECTS/$selected"
+end
 
-tmux switch-client -t $selected_name
+tmux switch-client -t "$selected_name"
+increase "$selected"
