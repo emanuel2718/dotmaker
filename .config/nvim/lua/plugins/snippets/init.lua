@@ -1,2 +1,2 @@
-require('plugins.snippets.vue')
+-- require('plugins.snippets.vue')
 return {}

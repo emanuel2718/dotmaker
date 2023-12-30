@@ -183,6 +183,6 @@ return {
 
     require("cmp_git").setup()
 
-    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
   end,
 }
