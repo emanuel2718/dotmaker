@@ -16,7 +16,6 @@ function search
         end |
         sed "s;$PROJECTS/;;" | # removes the ~/dev/ prefix
         grep -v "$PROJECTS" | # removes the ~/dev folder itself
-        grep / | # removes entries without subfolders
         sort -rnk1 | # sort by score
         uniq | # dedup
         awk '{print $2}' | # do not actually print the score
