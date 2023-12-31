@@ -9,7 +9,7 @@ end
 -- config.font = wezterm.font("FiraCode Nerd Font")
 -- config.font = wezterm.font("D2Coding Nerd Font")
 config.font = wezterm.font("Hasklug Nerd Font")
-config.font_size = 15.0
+config.font_size = 12.0
 config.warn_about_missing_glyphs = false
 config.color_scheme = 'Nord (base16)'
 -- config.color_scheme = 'nord'
