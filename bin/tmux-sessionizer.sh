@@ -10,7 +10,7 @@ function increase
 end
 
 function search
-    find "$PROJECTS" -maxdepth 1 -type d |
+    find "$PROJECTS" -maxdepth 2 -type d |
         while read p
             zoxide query -l -s "$p/"
         end |
