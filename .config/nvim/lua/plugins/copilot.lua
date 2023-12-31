@@ -1,3 +1,16 @@
+local system = vim.loop.os_uname().sysname
+local darwin_node = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v19.4.0/bin/node"
+local linux_node = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v18.18.2/bin/node"
+
+function cnc()
+  if system == 'Darwin' then
+    return darwin_node
+  else
+    return linux_node
+  end
+end
+
+
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
@@ -41,7 +54,7 @@ return {
         cvs = false,
         ["."] = false,
       },
-      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v18.18.2/bin/node", -- Node.js version must be > 18.x
+      copilot_node_command = cnc(),
       server_opts_overrides = {},
     })
 
