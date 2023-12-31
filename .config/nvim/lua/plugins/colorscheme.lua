@@ -23,14 +23,24 @@ return {
     dependencies = { "rktjmp/lush.nvim" },
     name = "arctic",
     branch = "main",
-    priority = 1000
+    priority = 1000,
   },
-  -- {
-  --   "AlexvZyl/nordic.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require("nordic").load()
-  --   end,
-  -- },
+  {
+    'behemothbucket/dirty-ice-theme.nvim',
+    config = function()
+      require('dirty-ice').setup()
+    end
+  },
+  {
+    "gbprod/nord.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nord").setup({
+        styles = {
+          comments = { italic = false },
+        },
+      })
+    end,
+  },
 }

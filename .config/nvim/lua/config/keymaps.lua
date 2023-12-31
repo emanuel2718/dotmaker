@@ -53,3 +53,6 @@ map("n", "<leader>fs", ":w!<cr>")
 map("n", "<leader>`", ":e #<cr>", opts)
 map("n", "<leader>s.", ":source %<cr>")
 map("n", "<C-f>", ":e ")
+
+map('n', '<leader>L', ":Lazy<cr>", opts)
+map('n', '<leader>M', ":Mason<cr>", opts)
