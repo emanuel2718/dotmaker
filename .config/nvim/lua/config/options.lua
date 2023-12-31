@@ -13,9 +13,9 @@ opt.scrolloff = 10
 opt.sidescrolloff = 8
 
 opt.number = true
-opt.relativenumber = true
+-- opt.relativenumber = true
 
-opt.cursorline = true
+-- opt.cursorline = true
 
 opt.hidden = true
 opt.mouse = "a"
