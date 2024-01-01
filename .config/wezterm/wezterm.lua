@@ -11,8 +11,11 @@ end
 config.font = wezterm.font("Hasklug Nerd Font")
 config.font_size = 12.0
 config.warn_about_missing_glyphs = false
-config.color_scheme = 'Nord (base16)'
--- config.color_scheme = 'nord'
+
+-- config.color_scheme = 'Modus-Vivendi'
+-- config.color_scheme = 'Oxocarbon Dark (Gogh)'
+-- config.color_scheme = 'Light White (terminal.sexy)'
+config.color_scheme = 'Pastel White (terminal.sexy)'
 
 config.animation_fps = 1
 
