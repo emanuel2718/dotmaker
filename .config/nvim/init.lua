@@ -1,7 +1,13 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+require("core.rami")
+require("core.options")
+require("core.keymaps")
 
-local modules = { "lazy", "autocmds", "keymaps", "options", "theme" }
-for _, mod in ipairs(modules) do
-  require("config." .. mod)
-end
+plug("plugins.autopairs")
+plug("plugins.colorscheme")
+plug("plugins.devicons")
+plug("plugins.treesitter")
+plug("plugins.whichkey")
+plug("plugins.mason")
+
+require("core.lazy")
+

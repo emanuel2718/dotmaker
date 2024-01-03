@@ -1,45 +1,42 @@
-return {
-  "williamboman/mason.nvim",
-  config = function()
-    require("mason").setup()
-
-    local ensure_installed = {
-      -- Language servers
-      "buf-language-server",
-      "clangd",
-      "css-lsp",
-      "dockerfile-language-server",
-      "emmet-ls",
-      "eslint-lsp",
-      "graphql-language-service-cli",
-      "mypy",
-      "pyright",
-      "html-lsp",
-      "json-lsp",
-      "lua-language-server",
-      "prisma-language-server",
-      "rust-analyzer",
-      "svelte-language-server",
-      "tailwindcss-language-server",
-      "typescript-language-server",
-      "vue-language-server",
-      "yaml-language-server",
-      "ocaml-lsp",
-
-      -- Linting and formatting
-      "eslint_d",
-      "stylua",
-      "clang-format",
-      "ocaml-format",
-      "isort"
-
-      -- DAP servers
-      -- "node-debug2-adapter",
-      -- "firefox-debug-adapter",
-    }
-
-    vim.api.nvim_create_user_command("MasonInstallAll", function()
-      vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
-    end, {})
-  end,
+local M = {
+ "williamboman/mason-lspconfig.nvim",
+ dependencies = {
+   "williamboman/mason.nvim",
+   "nvim-lua/plenary.nvim",
+ },
 }
+
+M.servers = {
+ "clangd",
+ "lua_ls",
+ "cssls",
+ "html",
+ "tsserver",
+ "astro",
+ "pyright",
+ "bashls",
+ "jsonls",
+ "yamlls",
+ "marksman",
+ "tailwindcss",
+ "rust-analyzer",
+ "volar",
+}
+
+function M.config()
+ local wk = require "which-key"
+ wk.register {
+   ["<leader>M"] = { "<cmd>Mason<cr>", "Mason Info" },
+ }
+
+ require("mason").setup {
+   ui = {
+     border = "rounded",
+   },
+ }
+ require("mason-lspconfig").setup {
+   ensure_installed = M.servers,
+ }
+end
+
+return M
