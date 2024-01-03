@@ -82,12 +82,14 @@ return {
           sort_lastused = true,
           cwd_only = true,
           theme = "ivy",
+          previewer = false,
         },
         colorscheme = {
           enable_preview = true,
           theme = "ivy",
         },
         find_files = {
+          previewer = false,
           hidden = true,
           theme = "ivy",
           find_command = {
@@ -99,6 +101,7 @@ return {
         },
         buffers = {
           theme = "ivy",
+          previewer = false,
         },
         live_grep = {
           theme = "ivy",
