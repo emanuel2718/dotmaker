@@ -5,11 +5,11 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- split windows
-map("n", "<leader>n", ":split<cr>", opts)
-map("n", "<leader>m", ":vsplit<cr>", opts)
+map("n", "<leader>n", "<cmd>split<cr>", opts)
+map("n", "<leader>m", "<cmd>vsplit<cr>", opts)
 
 -- close buffer
-map("n", "<leader>o", ":q<cr>", opts)
+map("n", "<leader>o", "<cmd>q<cr>", opts)
 
 -- window movement
 map("n", "<C-h>", "<C-w>h", opts)
@@ -46,7 +46,7 @@ map("x", "p", [["_dP]])
 map("n", "<leader>q", ":qa!<cr>", opts)
 map("n", "<leader>fs", ":w!<cr>")
 map("n", "<leader>`", ":e #<cr>", opts)
-map("n", "<leader>s.", ":source %<cr>")
+map("n", "<leader>s.", "<cmd>source %<cr>")
 map("n", "<C-f>", ":e ")
 
 -- experimental

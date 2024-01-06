@@ -1,42 +1,37 @@
-local M = {
- "williamboman/mason-lspconfig.nvim",
- dependencies = {
-   "williamboman/mason.nvim",
-   "nvim-lua/plenary.nvim",
- },
+return {
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "nvim-lua/plenary.nvim",
+  },
+  config = function()
+    local servers = {
+      "clangd",
+      "lua_ls",
+      "cssls",
+      "html",
+      "tsserver",
+      "pyright",
+      "bashls",
+      "jsonls",
+      "yamlls",
+      "marksman",
+      "tailwindcss",
+      "rust_analyzer",
+      "volar",
+    }
+
+    require('mason').setup({
+      ui = {
+        border = "rounded"
+      }
+    })
+
+    require('mason-lspconfig').setup({
+      ensure_installed = servers
+    })
+
+    local opts = { noremap = true, silent = true }
+    vim.keymap.set('n', '<leader>M', '<cmd>Mason<cr>', opts)
+  end
 }
-
-M.servers = {
- "clangd",
- "lua_ls",
- "cssls",
- "html",
- "tsserver",
- "astro",
- "pyright",
- "bashls",
- "jsonls",
- "yamlls",
- "marksman",
- "tailwindcss",
- "rust-analyzer",
- "volar",
-}
-
-function M.config()
- local wk = require "which-key"
- wk.register {
-   ["<leader>M"] = { "<cmd>Mason<cr>", "Mason Info" },
- }
-
- require("mason").setup {
-   ui = {
-     border = "rounded",
-   },
- }
- require("mason-lspconfig").setup {
-   ensure_installed = M.servers,
- }
-end
-
-return M
