@@ -4,7 +4,5 @@ return {
   opts = {},
   config = function()
     vim.keymap.set("n", "<leader>d.", function() require("trouble").toggle("document_diagnostics") end)
-
   end
-
 }

@@ -1,21 +1,25 @@
 return {
-  {
-    "NvChad/nvim-colorizer.lua", -- Preview colors
-    opts = {
-      filetypes = { "*", "!packer", "!yaml" },
-      user_default_options = {
-        tailwind = "lsp",
-        names = false,
-        sass = { enable = true, parsers = { css = true } },
+  "NvChad/nvim-colorizer.lua",
+  event = { "BufReadPost", "BufNewFile" },
+  config = function()
+    require("colorizer").setup {
+      filetypes = {
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact",
+        "css",
+        "html",
+        "astro",
+        "lua",
       },
-    },
-  },
-  {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end,
-  },
+      user_default_options = {
+        names = false,
+        rgb_fn = true,
+        hsl_fn = true,
+        tailwind = "both",
+      },
+      buftypes = {},
+    }
+  end
 }

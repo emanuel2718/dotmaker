@@ -1,69 +1,75 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",
-    "nvim-treesitter/playground",
+   { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   config = function()
-    local utils = require("rami.utils")
-    require("nvim-treesitter.install").compilers = { "gcc" }
-    require("nvim-treesitter.configs").setup({
-      highlight = {
-        enable = true,
-        use_languagetree = true,
-        disable = utils.check_file_size,
-      },
-      indent = {
-        enable = true,
-      },
-      playground = {
-        enable = false,
-        disable = {},
-        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
-        persist_queries = false, -- Whether the query persists across vim sessions
-      },
-      autotag = {
-        enable = true,
-        disable = utils.check_file_size,
-      },
-      autopairs = {
-        enable = true,
-      },
-      matchup = {
-        enable = true,
-      },
+    local utils = require('rami.utils')
+    require('nvim-treesitter.configs').setup({
       ensure_installed = {
         "bash",
         "c",
         "cpp",
         "css",
-        "graphql",
         "haskell",
-        "hcl",
-        "html",
         "javascript",
-        "jsdoc",
         "json",
         "lua",
         "markdown",
         "markdown_inline",
         "php",
-        "prisma",
-        "proto",
         "python",
-        "query",
-        "regex",
-        "scss",
-        "sql",
-        "svelte",
         "tsx",
         "typescript",
-        "vim",
         "vimdoc",
         "vue",
         "yaml",
       },
+      -- highlight = {
+      --   enable = true,
+      --   additional_vim_regex_highlighting = false,
+      --   disable = utils.check_file_size
+      -- },
+      -- indent = { enable = true },
+      -- autopairs = { enable = true },
+      -- textobjects = {
+      --   select = {
+      --     enable = true,
+      --     -- Automatically jump forward to textobj, similar to targets.vim
+      --     lookahead = true,
+      --     keymaps = {
+      --       -- You can use the capture groups defined in textobjects.scm
+      --       ["af"] = "@function.outer",
+      --       ["if"] = "@function.inner",
+      --       ["at"] = "@class.outer",
+      --       ["it"] = "@class.inner",
+      --       ["ac"] = "@call.outer",
+      --       ["ic"] = "@call.inner",
+      --       ["aa"] = "@parameter.outer",
+      --       ["ia"] = "@parameter.inner",
+      --       ["al"] = "@loop.outer",
+      --       ["il"] = "@loop.inner",
+      --       ["ai"] = "@conditional.outer",
+      --       ["ii"] = "@conditional.inner",
+      --       ["a/"] = "@comment.outer",
+      --       ["i/"] = "@comment.inner",
+      --       ["ab"] = "@block.outer",
+      --       ["ib"] = "@block.inner",
+      --       ["as"] = "@statement.outer",
+      --       ["is"] = "@scopename.inner",
+      --       ["aA"] = "@attribute.outer",
+      --       ["iA"] = "@attribute.inner",
+      --       ["aF"] = "@frame.outer",
+      --       ["iF"] = "@frame.inner",
+      --     },
+      --   },
+      -- }
     })
-  end,
+
+
+
+  end
+
+
+
 }

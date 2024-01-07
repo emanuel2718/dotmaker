@@ -1,23 +1,17 @@
 return {
-  "ThePrimeagen/harpoon",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  lazy = true,
-  config = function()
-    require("harpoon").setup()
-  end,
-  init = function()
-    local map = vim.keymap.set
+    "ThePrimeagen/harpoon",
+    dependencies = {{"nvim-lua/plenary.nvim"}},
+    config = function()
+        local opts = { noremap = true, silent = true }
+        local map = vim.keymap.set
+        local harpoon_mark = require('harpoon.mark')
 
-    map("n", "<leader>ha", function()
-      require("harpoon.mark").add_file()
-    end, { noremap = true, silent = true })
+        map("n", "<C-m>", function()
+            require('harpoon.mark').add_file()
+            vim.notify " marked file"
+        end, opts)
 
-    map("n", "<leader>hh", ":Telescope harpoon marks theme=ivy<cr>", { noremap = true, silent = true })
-
-    for i = 1, 4, 1 do
-      map("n", "<leader>" .. i, function()
-        require("harpoon.ui").nav_file(i)
-      end, { noremap = true, silent = true })
+        map("n", "<TAB>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", opts)
     end
-  end,
+
 }

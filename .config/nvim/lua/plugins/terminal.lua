@@ -5,10 +5,9 @@ return {
     { "<C-t>", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', mode = "t", desc = "toggle floatterm" },
   },
   config = function()
-    -- display
     require("FTerm").setup({
       border = "solid",
-      blend = 10, -- a little transparent
+      blend = 10,
     })
   end,
   event = { "BufEnter" },

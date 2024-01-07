@@ -1,14 +1,8 @@
 return {
-  "nvim-telescope/telescope.nvim",
+  'nvim-telescope/telescope.nvim',
   dependencies = {
-    "nvim-lua/plenary.nvim",
+    'nvim-lua/plenary.nvim',
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-    { "nvim-telescope/telescope-ui-select.nvim" },
-    {
-      "danielfalk/smart-open.nvim",
-      branch = "0.2.x",
-      dependencies = { "kkharji/sqlite.lua" },
-    },
   },
   config = function()
     local map = vim.keymap.set
@@ -16,24 +10,15 @@ return {
     local actions = require("telescope.actions")
     local builtin = require("telescope.builtin")
 
-    -- Keymaps
     map("n", "<leader>.", builtin.find_files, opts)
-    map("n", "<leader>,", builtin.oldfiles, opts)
-    map("n", "<leader>sp", builtin.live_grep, opts)
-    map("n", "<leader>ss", builtin.current_buffer_fuzzy_find, opts)
-    map("n", "<leader>gs", builtin.git_stash, opts)
-    map("n", "<leader>gc", builtin.git_commits, opts)
     map("n", "<leader>bi", builtin.buffers, opts)
-    map("n", "<leader>ht", builtin.colorscheme, opts)
+    map("n", "<leader>fr", builtin.oldfiles, opts)
     map("n", "<leader>hh", builtin.help_tags, opts)
-    map("n", "<C-p>", function()
-      require("telescope").extensions.smart_open.smart_open({ cwd_only = true })
-    end, opts)
+    map("n", "<leader>ht", builtin.colorscheme, opts)
+    map("n", "<leader>gc", builtin.git_commits, opts)
 
-    require("telescope").setup({
+    require('telescope').setup({
       defaults = {
-        prompt_prefix = "> ",
-        selection_caret = " ",
         mappings = {
           i = {
             ["<C-x>"] = false,
@@ -86,18 +71,9 @@ return {
         },
         colorscheme = {
           enable_preview = true,
-          theme = "ivy",
         },
-        find_files = {
-          previewer = false,
-          hidden = true,
-          theme = "ivy",
-          find_command = {
-            "rg",
-            "--files",
-            "--color",
-            "never",
-          },
+        help_tags = {
+          previewer = false
         },
         buffers = {
           theme = "ivy",
@@ -107,6 +83,18 @@ return {
           theme = "ivy",
           path_display = { "shorten" },
         },
+        find_files = {
+          previewer = false,
+          hidden = true,
+          theme = "ivy",
+          find_command = {
+            "rg",
+            "--files",
+            "--hidden",
+            "--color",
+            "never",
+          },
+        },
       },
       extensions = {
         fzf = {
@@ -115,19 +103,8 @@ return {
           override_file_sorter = true,
           case_mode = "smart_case",
         },
-        ["ui-select"] = {
-          require("telescope.themes").get_dropdown({}),
-        },
-        smart_open = {
-          show_scores = true,
-          match_algorithm = "fzf",
-          ignore_patterns = { "*.git/*", "*/tmp/*", "node_modules/*", "dist/*" },
-        },
       },
     })
     require("telescope").load_extension("fzf")
-    require("telescope").load_extension("ui-select")
-    require("telescope").load_extension("smart_open")
-    require("telescope").load_extension("smart_open")
-  end,
+  end
 }
