@@ -2,13 +2,20 @@ local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   local bmap = vim.api.nvim_buf_set_keymap
   local map = vim.keymap.set
-  bmap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-  bmap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+
+  bmap(bufnr, "n", "gd", "<cmd>FzfLua lsp_definitions<cr>", opts)
+  bmap(bufnr, "n", "gD", "<cmd>FzfLua lsp_declarations<cr>", opts)
+  bmap(bufnr, "n", "gt", "<cmd>FzfLua lsp_typedefs<cr>", opts)
+  bmap(bufnr, "n", "gr", "<cmd>FzfLua lsp_references<cr>", opts)
+  bmap(bufnr, "n", "gi", "<cmd>FzfLua lsp_implementations<cr>", opts)
+  bmap(bufnr, 'n', '<leader>si', '<cmd>FzfLua lsp_document_symbols<cr>', opts)
+  bmap(bufnr, 'n', '<leader>sI', '<cmd>FzfLua lsp_workspace_symbols<cr>', opts)
+  bmap(bufnr, 'n', '<C-c>', '<cmd>FzfLua lsp_code_actions<cr>', opts)
+  bmap(bufnr, 'n', '<leader>sd', '<cmd>FzfLua diagnostics_document<cr>', opts)
+  bmap(bufnr, 'n', '<leader>sD', '<cmd>FzfLua diagnostics_workspace<cr>', opts)
+
   bmap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-  bmap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-  bmap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
   bmap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
-  bmap(bufnr, "n", "<C-c>", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
   bmap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
   bmap(bufnr, "n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
   bmap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
@@ -52,7 +59,7 @@ end
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {{ "folke/neodev.nvim" }},
+  dependencies = {"folke/neodev.nvim", "ibhagwan/fzf-lua"},
   config = function()
     local lspconfig = require('lspconfig')
     local icons = require('rami.icons')
