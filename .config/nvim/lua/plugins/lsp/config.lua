@@ -71,6 +71,7 @@ return {
       "tailwindcss",
       "tsserver",
       "yamlls",
+      "volar",
     }
 
     local diagnostic_config = {
@@ -109,10 +110,10 @@ return {
 
     for _, server in ipairs(servers) do
       local opts = { on_attach = on_attach, capabilities = capabilities() }
-      -- local require_ok, settings = pcall(require, 'plugins.lsp.' .. server)
-      -- if (require_ok) then
-      --   opts = vim.tbl_deep_extend('force', settings, opts)
-      -- end
+      local require_ok, settings = pcall(require, 'plugins.lsp.servers.' .. server)
+      if (require_ok) then
+        opts = vim.tbl_deep_extend('force', settings, opts)
+      end
 
       if server == 'lua_ls' then
         require('neodev').setup({})
