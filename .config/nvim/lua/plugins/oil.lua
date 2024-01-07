@@ -6,19 +6,21 @@ return {
     local opts = { noremap = true, silent = true }
     local map = vim.keymap.set
 
-    map("n", "<C-n>", oil.open_float, opts)
+    map("n", "-", oil.open, opts)
 
     oil.setup({
       skip_confirm_for_simple_edits = true,
       use_default_keymaps = false,
       keymaps = {
         ["g?"] = "actions.show_help",
-        ["h"] = "actions.parent",
-        ["l"] = "actions.select",
+        ["<C-k>"] = "k",
+        ["<C-j>"] = "j",
+        ["<C-h>"] = "actions.parent",
+        ["<C-l>"] = "actions.select",
         ["<CR>"] = "actions.select",
         ["<C-r>"] = "actions.refresh",
         ["<C-c>"] = "actions.close",
-        ["<C-h>"] = "actions.toggle_hidden",
+        ["g."] = "actions.toggle_hidden",
         ["<C-m>"] = "actions.select_vsplit",
         ["<C-n>"] = "actions.select_split",
         ["gs"] = "actions.change_sort",

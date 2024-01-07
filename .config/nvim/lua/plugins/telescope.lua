@@ -15,7 +15,13 @@ return {
     map("n", "<leader>fr", builtin.oldfiles, opts)
     map("n", "<leader>hh", builtin.help_tags, opts)
     map("n", "<leader>ht", builtin.colorscheme, opts)
-    map("n", "<leader>gc", builtin.git_commits, opts)
+
+    -- TODO: move this from here to a fzf.lua dedicated file
+    map('n', '<leader>ss', '<cmd>FzfLua grep_curbuf<cr>', opts)
+    map('n', '<leader>sp', '<cmd>FzfLua grep<cr>', opts)
+    map('n', '<leader>sP', '<cmd>FzfLua grep_project<cr>', opts)
+    map('n', '<leader>gs', '<cmd>FzfLua git_status<cr>', opts)
+    map('n', '<leader>gc', '<cmd>FzfLua git_commits<cr>', opts)
 
     require('telescope').setup({
       defaults = {
@@ -81,6 +87,7 @@ return {
         },
         live_grep = {
           theme = "ivy",
+          previewer = false,
           path_display = { "shorten" },
         },
         find_files = {
