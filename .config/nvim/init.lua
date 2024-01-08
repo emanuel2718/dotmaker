@@ -22,8 +22,10 @@ PLUG("plugins.md-preview")
 PLUG("plugins.trouble")
 PLUG("plugins.copilot")
 PLUG("plugins.oil")
-PLUG("plugins.harpoon")
+PLUG("plugins.nvimtree")
+-- PLUG("plugins.harpoon")
 PLUG("plugins.colorizer")
+PLUG("plugins.toggle-diagnostics")
 
 PLUG('plugins.cellular-automaton')
 

@@ -15,6 +15,7 @@ local function lsp_keymaps(bufnr)
   bmap(bufnr, 'n', '<leader>sD', '<cmd>FzfLua diagnostics_workspace<cr>', opts)
 
   bmap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+  bmap(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
   bmap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
   bmap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
   bmap(bufnr, "n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
@@ -91,7 +92,7 @@ return {
           { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
         },
       },
-      virtual_text = false,
+      virtual_text = true,
       update_in_insert = false,
       underline = false,
       severity_sort = true,
