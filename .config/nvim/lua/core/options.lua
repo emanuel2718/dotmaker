@@ -7,7 +7,7 @@ opt.expandtab = true -- tabs -> spaces
 opt.fcs = 'eob: ' -- hide `~` char on empty line at the end of the buffer
 opt.hlsearch = true
 opt.ignorecase = true
--- opt.listchars = 'tab:│ ,trail:·,lead:·'
+opt.list = true
 opt.listchars = {
   tab = "┊ ",
   trail = "·",
@@ -15,11 +15,18 @@ opt.listchars = {
   precedes = "«",
   nbsp = "×"
 }
+opt.fillchars = {
+  eob = " ", -- Suppress ~ at EndOfBuffer
+  fold = " ", -- Hide trailing folding characters
+  diff = "╱",
+  foldopen = "",
+  foldclose = "",
+}
 opt.mouse = "a"
-opt.number = true   
+opt.number = true
 opt.pumblend = 10
 opt.pumheight = 10 -- pop up menu
-opt.ruler = false
+opt.ruler = true
 opt.scrolloff = 0
 opt.shiftround = true
 opt.shiftwidth = 2
@@ -31,7 +38,7 @@ opt.signcolumn = "yes" -- don't shift
 opt.smartcase = true
 opt.smartindent = true
 opt.splitbelow = true
-opt.splitright = true 
+opt.splitright = true
 opt.swapfile = false
 opt.tabstop = 2 -- two spaces per tab
 opt.termguicolors = true
@@ -41,3 +48,5 @@ opt.undofile = true
 opt.updatetime = 100 -- faster completion (4000ms default)
 opt.wrap = false
 opt.writebackup = false
+
+vim.cmd.colorscheme('lunaperche')
