@@ -47,14 +47,28 @@ return {
           end
         end,
        }),
-       sources = cmp.config.sources({
+      sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
        }, {
         { name = "path" },
         { name = "buffer", keyword_length = 5 },
-       }),
-       formatting = {
+      }),
+      confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+      },
+      view = {
+        docs = { auto_open = false },
+        entries = { name = "custom", selection_order = "top_down" }
+      },
+      window = {
+        documentation = {
+          border = "rounded"
+        }
+
+      },
+      formatting = {
         format = lspkind.cmp_format {
           with_text = true,
           menu = {
