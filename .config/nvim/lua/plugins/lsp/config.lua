@@ -68,6 +68,7 @@ return {
     local servers = {
       "bashls",
       "cssls",
+      "clangd",
       "eslint",
       "html",
       "jsonls",
@@ -86,13 +87,13 @@ return {
       signs = {
         active = true,
         values = {
-          { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-          { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-          { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-          { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+          { name = "DiagnosticSignError", text = 'E' },
+          { name = "DiagnosticSignWarn", text = 'W' },
+          { name = "DiagnosticSignHint", text = 'H' },
+          { name = "DiagnosticSignInfo", text = 'I' },
         },
       },
-      virtual_text = true,
+      virtual_text = false,
       update_in_insert = false,
       underline = false,
       severity_sort = true,
