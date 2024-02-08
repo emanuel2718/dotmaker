@@ -18,13 +18,14 @@ return {
 
     -- TODO: move this from here to a fzf.lua dedicated file
     map('n', '<leader>ss', '<cmd>FzfLua grep_curbuf<cr>', opts)
-    map('n', '<leader>sp', '<cmd>FzfLua grep<cr>', opts)
-    map('n', '<leader>sP', '<cmd>FzfLua grep_project<cr>', opts)
+    map('n', '<leader>sP', '<cmd>FzfLua grep<cr>', opts)
+    map('n', '<leader>sp', '<cmd>FzfLua live_grep<cr>', opts)
     map('n', '<leader>gs', '<cmd>FzfLua git_status<cr>', opts)
     map('n', '<leader>gc', '<cmd>FzfLua git_commits<cr>', opts)
 
     require('telescope').setup({
       defaults = {
+        path_display = { "shorten" },
         mappings = {
           i = {
             ["<C-x>"] = false,
@@ -72,7 +73,7 @@ return {
         oldfiles = {
           sort_lastused = true,
           cwd_only = true,
-          theme = "ivy",
+          -- theme = "ivy",
           previewer = false,
         },
         colorscheme = {
@@ -82,18 +83,18 @@ return {
           previewer = false
         },
         buffers = {
-          theme = "ivy",
+          -- theme = "ivy",
           previewer = false,
         },
         live_grep = {
-          theme = "ivy",
+          -- theme = "ivy",
           previewer = false,
           path_display = { "shorten" },
         },
         find_files = {
           previewer = false,
           hidden = true,
-          theme = "ivy",
+          -- theme = "ivy",
           find_command = {
             "rg",
             "--files",

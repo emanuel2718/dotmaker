@@ -130,6 +130,7 @@ return {
           enabled = true,
         },
         window = {
+          position = 'right',
           mappings = {
             ["<bs>"] = "close_node",
             ["!"] = "navigate_up",

@@ -121,9 +121,10 @@ return {
                     overlay0 = "#595959",
                     surface2 = "#4d4d4d",
                     surface1 = "#404040",
-                    surface0 = "#292929",
-                    base = "#1d2021",
-                    mantle = "#191b1c",
+                    surface0 = "#0C0C0C",
+                    surface3 = "#0000AA",
+                    base = "#0C0C0C",
+                    mantle = "#0C0C0C",
                     crust = "#141617",
                 },
             },
@@ -175,7 +176,7 @@ return {
                         NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
                         NormalFloat = { bg = colors.base },
                         Pmenu = { bg = colors.mantle, fg = "" },
-                        PmenuSel = { bg = colors.surface0, fg = "" },
+                        PmenuSel = { bg = colors.surface3, fg = "" },
                         TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
                         TelescopePreviewNormal = { bg = colors.crust },
                         TelescopePreviewTitle = { fg = colors.crust, bg = colors.crust },
@@ -187,7 +188,7 @@ return {
                         TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
                         TelescopeResultsNormal = { bg = colors.mantle },
                         TelescopeResultsTitle = { fg = colors.mantle, bg = colors.mantle },
-                        TelescopeSelection = { bg = colors.surface0 },
+                        TelescopeSelection = { bg = colors.surface3 },
                         VertSplit = { bg = colors.base, fg = colors.surface0 },
                         WhichKeyFloat = { bg = colors.mantle },
                         YankHighlight = { bg = colors.surface2 },
@@ -413,7 +414,31 @@ return {
                 end,
             },
         })
-        -- vim.api.nvim_command("colorscheme catppuccin")
+        vim.api.nvim_command("colorscheme catppuccin")
     end,
-  }
+  },
+  {
+  'projekt0n/github-nvim-theme',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require('github-theme').setup({
+        options = {
+          transparent = true,
+          dim_inactive_windows = true,
+        },
+        palletes = {
+          all = {
+            sel0 = '#0000AA',
+            sel1 = '#0000AA',
+            sel2 = '#0000AA'
+
+          }
+
+        }
+    })
+
+    -- vim.cmd('colorscheme github_dark_default')
+  end,
+}
 }
