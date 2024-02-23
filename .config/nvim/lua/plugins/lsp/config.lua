@@ -23,7 +23,7 @@ local function lsp_keymaps(bufnr)
   bmap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
   bmap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 
-  map("n", "<leader>lf", function()
+  map({"n", "v"}, "<leader>lf", function()
     require('conform').format({ bufnr = bufnr, lsp_fallback = true })
   end, opts)
 end

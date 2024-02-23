@@ -37,7 +37,7 @@ return {
         auto_trigger = false,
         debounce = 75,
         keymap = {
-          accept = "<A-;>",
+          accept = "<M-;>",
           next = "<M-]>",
           prev = "<M-[>",
           dismiss = "<C-]>",
@@ -54,13 +54,16 @@ return {
         cvs = false,
         ["."] = false,
       },
-      copilot_node_command = cnc(),
+      copilot_node_command = 'node',
       server_opts_overrides = {},
     })
 
     local map = vim.keymap.set
     map("n", "<leader>;", function()
       return require("copilot.suggestion").toggle_auto_trigger()
+    end)
+    map("n", "<C-;>", function()
+      return require("copilot.suggestion").accept()
     end)
   end,
 }

@@ -25,7 +25,6 @@ return {
 
     require('telescope').setup({
       defaults = {
-        path_display = { "shorten" },
         mappings = {
           i = {
             ["<C-x>"] = false,
@@ -89,7 +88,6 @@ return {
         live_grep = {
           -- theme = "ivy",
           previewer = false,
-          path_display = { "shorten" },
         },
         find_files = {
           previewer = false,
