@@ -1,7 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {
-    { "nvim-treesitter/nvim-treesitter-textobjects" },
+   { "nvim-treesitter/nvim-treesitter-textobjects" },
   },
   config = function()
     local utils = require('rami.utils')
