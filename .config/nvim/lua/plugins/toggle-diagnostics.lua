@@ -13,3 +13,4 @@ return {
     map("n", "<leader>dD", "<cmd>ToggleDiag<cr>", opts)
   end,
 }
+

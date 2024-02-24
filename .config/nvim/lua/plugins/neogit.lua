@@ -1,5 +1,6 @@
 return {
   "NeogitOrg/neogit",
+  event = 'VeryLazy',
   dependencies = {
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
@@ -8,7 +9,7 @@ return {
   config = function()
     local map = require('rami.utils').map
     require('neogit').setup {
-      auto_refresh = true,
+      -- auto_refresh = true,
       integrations = {
         diffview = true,
         fzf_lua = true

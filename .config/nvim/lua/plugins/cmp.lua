@@ -15,6 +15,7 @@ return {
 
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'roobert/tailwindcss-colorizer-cmp.nvim',
 
     -- 'rafamadriz/friendly-snippets',
   },
@@ -22,6 +23,10 @@ return {
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
     luasnip.config.setup {}
+
+    require("tailwindcss-colorizer-cmp").setup({
+      color_square_width = 2,
+    })
 
     cmp.setup {
       snippet = {
@@ -36,22 +41,22 @@ return {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
         ['<Enter>'] = cmp.mapping.confirm { select = true },
         ['<C-Space>'] = cmp.mapping.complete {},
-        ['<C-l>'] = cmp.mapping(function()
-          if luasnip.expand_or_locally_jumpable() then
-            luasnip.expand_or_jump()
+        ["<C-h>"] = function()
+          if cmp.visible_docs() then
+            cmp.close_docs()
+          else
+            cmp.open_docs()
           end
-        end, { 'i', 's' }),
-        ['<C-h>'] = cmp.mapping(function()
-          if luasnip.locally_jumpable(-1) then
-            luasnip.jump(-1)
-          end
-        end, { 'i', 's' }),
+        end,
       },
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
       },
+      view = {
+        docs = { auto_open = false },
+      }
     }
   end,
 

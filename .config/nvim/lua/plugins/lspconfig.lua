@@ -4,6 +4,7 @@ return {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    'folke/neodev.nvim',
     { 'j-hui/fidget.nvim', opts = {} },
   },
   config = function()
@@ -49,27 +50,50 @@ return {
     local servers = {
       rust_analyzer = {},
       volar = { filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' } }, -- take over mode
+      tailwindcss = {},
+      stylua = {},
       lua_ls = {
         capabilities = capabilities,
         settings = {
           Lua = {
-            runtime = { version = 'LuaJIT' },
+            format = {
+              enable = false,
+            },
+            diagnostics = {
+              globals = { "vim", "PLUG" },
+            },
+            runtime = {
+              version = "LuaJIT",
+              special = {
+                PLUG = "require",
+              },
+            },
             workspace = {
               checkThirdParty = false,
               library = {
-                '${3rd}/luv/library',
-                unpack(vim.api.nvim_get_runtime_file('', true)),
+                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                [vim.fn.stdpath "config" .. "/lua"] = true,
               },
             },
-            diagnostics = { disable = { 'missing-fields' } },
+            hint = {
+              enable = false,
+              arrayIndex = "Disable", -- "Enable" | "Auto" | "Disable"
+              await = true,
+              paramName = "Disable",  -- "All" | "Literal" | "Disable"
+              paramType = true,
+              semicolon = "All",      -- "All" | "SameLine" | "Disable"
+              setType = false,
+            },
+            telemetry = {
+              enable = false,
+            },
           },
         },
       },
     }
+
     local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      'stylua',
-    })
+    require('neodev').setup {}
 
     require('mason').setup()
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }

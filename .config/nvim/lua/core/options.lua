@@ -26,7 +26,7 @@ opt.fillchars = {
 }
 opt.mouse = "a"
 opt.number = true
-opt.pumblend = 10
+-- opt.pumblend = 10
 opt.pumheight = 10 -- pop up menu
 opt.ruler = true
 opt.scrolloff = 10

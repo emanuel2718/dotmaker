@@ -16,9 +16,33 @@ return {
   },
   config = function()
     local map = require('rami.utils').map
+    local actions = require("telescope.actions")
     local builtin = require 'telescope.builtin'
 
     require('telescope').setup {
+      -- defaults = {
+      --   mappings = {
+      --     i = {
+      --       ["<C-x>"] = false,
+      --       ["<C-u>"] = false,
+      --       ["<C-k>"] = actions.move_selection_previous,
+      --       ["<C-j>"] = actions.move_selection_next,
+      --       ["<esc>"] = actions.close,
+      --     },
+      --     n = {
+      --       ["<C-k>"] = actions.move_selection_previous,
+      --       ["<C-j>"] = actions.move_selection_next,
+      --       ["v"] = actions.file_vsplit,
+      --       ["s"] = actions.file_split,
+      --     },
+      --   },
+      -- },
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
