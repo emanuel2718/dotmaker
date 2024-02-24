@@ -23,5 +23,5 @@ return {
             disable_in_visualblock = false
         })
     end
-
 }
+

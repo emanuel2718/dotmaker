@@ -58,8 +58,8 @@ return {
     },
   },
   config = function()
-    local map = vim.keymap.set
-    map("n", "<C-n>", "<cmd>Neotree toggle<cr>", { noremap = true, silent = true })
+    local map = require('rami.utils').map
+    map("n", "<C-e>", "<cmd>Neotree toggle<cr>")
     require("window-picker").setup({
       hint = "floating-big-letter",
       filter_rules = {

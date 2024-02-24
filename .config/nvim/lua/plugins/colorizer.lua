@@ -12,6 +12,7 @@ return {
         "html",
         "astro",
         "lua",
+        "vue"
       },
       user_default_options = {
         names = false,
@@ -23,3 +24,4 @@ return {
     }
   end
 }
+

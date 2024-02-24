@@ -1,7 +1,6 @@
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
 
-
 -- Highlight on yank
 autocmd("TextYankPost", {
   callback = function()
@@ -62,16 +61,3 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
-
-
-autocmd("FileType", {
- pattern = "TelescopeResults",
- callback = function(ctx)
-   vim.api.nvim_buf_call(ctx.buf, function()
-     vim.fn.matchadd("TelescopeParent", "\t\t.*$")
-     vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
-   end)
- end,
-})
-
-
