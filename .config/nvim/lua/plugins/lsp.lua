@@ -25,6 +25,7 @@ return {
       map('i', '<C-k>', vim.lsp.buf.signature_help, opts)
       map('n', 'gd', vim.lsp.buf.definition, opts)
       map('n', 'gD', vim.lsp.buf.declaration, opts)
+      map('n', '<leader>rn', vim.lsp.buf.rename, opts)
       map('n', 'gi', '<cmd>FzfLua lsp_implementations<cr>', opts)
       map('n', 'gh', '<cmd>FzfLua lsp_references<cr>', opts)
       map('n', '<C-c>', '<cmd>FzfLua lsp_code_actions<cr>', opts)
