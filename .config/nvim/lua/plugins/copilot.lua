@@ -3,6 +3,12 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
+    local map = vim.keymap.set
+    local opts = { noremap = true, silent = true }
+    map("n", "<leader>;", function()
+      return require("copilot.suggestion").toggle_auto_trigger()
+    end, opts)
+
     require("copilot").setup {
       panel = {
         enabled = false,
@@ -13,7 +19,7 @@ return {
         auto_trigger = false,
         debounce = 75,
         keymap = {
-          accept = "<C-y>",
+          accept = "<C-f>",
           accept_word = false,
           accept_line = false,
           next = "<M-]>",
@@ -35,21 +41,5 @@ return {
       copilot_node_command = 'node', -- Node.js version must be > 18.x
       server_opts_overrides = {},
     }
-    local map = require('rami.utils').map
-    map("n", "<leader>;", function()
-      return require("copilot.suggestion").toggle_auto_trigger()
-    end)
-    -- local autopairs = require("nvim-autopairs")
-    -- local suggestion = require("copilot.suggestion")
-    -- map("i", "<C-;>", function()
-    --   autopairs.disable()
-    --   suggestion.accept()
-    --   autopairs.enable()
-    -- end)
-
-    -- map("i", "<C-;>", function()
-    --   return require("copilot.suggestion").accept()
-    -- end)
-  end,
-
+  end
 }

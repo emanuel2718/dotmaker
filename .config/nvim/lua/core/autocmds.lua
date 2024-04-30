@@ -29,6 +29,7 @@ autocmd("Filetype", {
   command = "setlocal shiftwidth=4 tabstop=4",
 })
 
+-- sometimes `wrap` helps, i guess
 autocmd("Filetype", {
   pattern = { "gitcommit", "markdown" },
   callback = function()
@@ -37,6 +38,7 @@ autocmd("Filetype", {
   end,
 })
 
+-- close with `q`
 autocmd("FileType", {
   group = augroup("close_with_q", { clear = true }),
   pattern = {
@@ -61,3 +63,4 @@ autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
   end,
 })
+

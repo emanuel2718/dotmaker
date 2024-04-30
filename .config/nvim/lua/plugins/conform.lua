@@ -11,7 +11,7 @@ return {
         typescript = { { "prettier" } },
         javascript = { { "prettier" } },
         vue = { { "prettier" } },
-      },
+      }
     }
   end
 }

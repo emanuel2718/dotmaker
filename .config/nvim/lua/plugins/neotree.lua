@@ -50,7 +50,7 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   -- branch = "v3.x",
   dependencies = {
-    -- "nvim-tree/nvim-web-devicons",
+    "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     {
       "s1n7ax/nvim-window-picker",
@@ -58,7 +58,7 @@ return {
     },
   },
   config = function()
-    local map = require('rami.utils').map
+    local map = vim.keymap.set
     map("n", "<C-e>", "<cmd>Neotree toggle<cr>")
     require("window-picker").setup({
       hint = "floating-big-letter",
