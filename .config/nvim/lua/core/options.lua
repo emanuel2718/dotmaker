@@ -14,6 +14,8 @@ opt.mouse = 'a'
 opt.showcmd = false
 opt.showmode = false
 opt.cursorline = true
+opt.splitbelow = true
+opt.splitright = true
 
 opt.list = true
 

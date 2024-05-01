@@ -44,15 +44,3 @@ map("n", "<leader>o", "<cmd>q<cr>", opts)
 
 -- last buffer
 map("n", "<leader>`", "<cmd>e #<cr>", opts)
-
-map("n", "<leader>j", function()
-    vim.diagnostic.goto_next { float = false }
-end)
-map("n", "<leader>k", function()
-    vim.diagnostic.goto_prev { float = false }
-end)
-
-
-
--- rename
-vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

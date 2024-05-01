@@ -41,6 +41,12 @@ return {
       map('n', "<leader>lf", function()
         require('conform').format({ bufnr = bufnr, lsp_fallback = true })
       end, opts)
+      map("n", "<leader>j", function()
+          vim.diagnostic.goto_next { float = false }
+      end)
+      map("n", "<leader>k", function()
+          vim.diagnostic.goto_prev { float = false }
+      end)
     end
 
 
