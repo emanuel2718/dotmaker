@@ -1,11 +1,10 @@
 #!/bin/bash
 
 declare -a fonts=(
-  Terminus
-  UbuntuMono
+Iosevka
 )
 
-version='3.0.2'
+version='3.2.0'
 fonts_dir="${HOME}/.local/share/fonts"
 
 if [[ ! -d "$fonts_dir" ]]; then

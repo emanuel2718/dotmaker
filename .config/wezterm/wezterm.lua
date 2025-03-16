@@ -11,9 +11,12 @@ end
 -- config.font = wezterm.font("D2Coding Nerd Font")
 -- config.font = wezterm.font("Hasklug Nerd Font")
 
-config.font = wezterm.font("TerminessTTF Nerd Font")
+-- config.font = wezterm.font("TerminessTTF Nerd Font")
+config.font = wezterm.font("FreeMono")
+config.font_size = 16.0
+-- config.font = wezterm.font("Monocraft")
+-- config.font_size = 16.0
 -- config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 17.0
 config.warn_about_missing_glyphs = false
 
 -- config.color_scheme = 'nord'
