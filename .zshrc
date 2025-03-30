@@ -11,6 +11,11 @@ source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export EDITOR=vim
+export HISTSIZE=100000000
+export SAVEHIST=$HISTSIZE
+export HISTFILE=$HOME/.local/zsh_history
+
+export XDG_CONFIG_HOME=$HOME/.config/
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -40,5 +45,27 @@ bindkey '^F' autosuggest-accept
 alias rc="vim $HOME/.zshrc"
 alias src="source $HOME/.zshrc"
 
+alias cr="cargo run"
+alias ct="cargo test"
+alias cc="cargo check"
+
+alias tn="tmux new -s"
+alias tk="tmux kill-session -t"
+alias ta="tmux a -t"
+alias tl="tmux ls"
+
+alias gs="git status"
+alias gl="git lg"
+alias gst="git stash"
+alias gsp="git stash pop"
+
+
+
+
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

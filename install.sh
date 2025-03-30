@@ -73,6 +73,8 @@ brew install ninja
 brew install cmake
 brew install gettext
 brew install curl
+brew install pnpm
+brew install oven-sh/bun/bun
 
 
 
@@ -134,5 +136,10 @@ sudo make install
 ln -s -f ~/git/dotmaker/.gitignore $HOME/.gitignore
 ln -s -f ~/git/dotmaker/dots/.vimrc $HOME/.vimrc
 ln -s -f ~/git/dotmaker/dots/.zshrc $HOME/.zshrc
+ln -s -f ~/git/dotmaker/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s -f ~/git/dotmaker/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s -f ~/git/dotmaker/.config/ghostty/config $HOME/.config/ghostty/config
+
+
 
 
