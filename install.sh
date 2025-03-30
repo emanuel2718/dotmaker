@@ -105,6 +105,9 @@ brew install --cask focusrite-control
 brew install --cask screenflow
 brew install --cask whatsapp
 brew install --cask bruno
+brew install --cask zed
+brew install --cask discord
+
 
 
 # install rust
