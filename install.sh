@@ -69,12 +69,14 @@ brew install fzf
 brew install libvirt
 brew install virt-manager
 brew install qemu
+brew install httpie
 brew install ninja
 brew install cmake
 brew install gettext
 brew install curl
 brew install pnpm
 brew install oven-sh/bun/bun
+brew install lazygit
 
 
 
@@ -109,6 +111,7 @@ brew install --cask whatsapp
 brew install --cask bruno
 brew install --cask zed
 brew install --cask discord
+brew install --cask brave-browser
 
 
 
