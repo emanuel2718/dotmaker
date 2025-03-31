@@ -4,7 +4,7 @@ return {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    { "j-hui/fidget.nvim",       opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
     "saghen/blink.cmp",
   },
   config = function()
@@ -17,30 +17,31 @@ return {
       volar = {
         init_options = {
           vue = {
+            filetype = { "vue" },
             hybridMode = false,
           },
         },
       },
-      -- TypeScript
-      ts_ls = {
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vim.fn.stdpath "data"
-                  .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-              languages = { "vue" },
-            },
-          },
-        },
-        settings = {
-          typescript = {
-            tsserver = {
-              useSyntaxServer = false,
-            },
-          },
-        },
-      },
+      -- -- TypeScript
+      -- ts_ls = {
+      --   init_options = {
+      --     plugins = {
+      --       {
+      --         name = "@vue/typescript-plugin",
+      --         location = vim.fn.stdpath "data"
+      --           .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+      --         languages = { "vue" },
+      --       },
+      --     },
+      --   },
+      --   settings = {
+      --     typescript = {
+      --       tsserver = {
+      --         useSyntaxServer = false,
+      --       },
+      --     },
+      --   },
+      -- },
       -- Lua
       lua_ls = {
         settings = {
@@ -110,12 +111,12 @@ return {
       },
       default_format_opts = {
         -- timeout_ms = 3000,
-        -- async = true,
+        async = true,
         -- quiet = false,
         lsp_format = "fallback",
       },
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 1500,
         lsp_format = "fallback",
       },
     }
@@ -133,7 +134,7 @@ return {
           buffer = args.buf,
           callback = function()
             if auto_format then
-              conform.format { lsp_format = "fallback", quiet = false }
+              conform.format { async = true, lsp_format = "fallback", quiet = false }
             end
             -- vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
           end,
