@@ -9,38 +9,38 @@
     "editor.renderWhitespace": "trailing",
     "editor.scrollbar.horizontal": "hidden",
     "editor.scrollbar.vertical": "hidden",
-
-
-
-    "telemetry.telemetryLevel": "off",
-    "workbench.settings.editor": "json",
-    "workbench.editor.closeOnFileDelete": true,
-    "workbench.panel.defaultLocation": "bottom",
-    "workbench.activityBar.location": "top",
-    "workbench.colorTheme": "Sublime Monokai Adaptive",
-
-    "window.titleBarStyle": "custom",
-    "window.commandCenter": false,
-
-    "search.smartCase": true,
-    "search.quickOpen.includeHistory": false,
     "editor.suggestSelection": "first",
     "editor.wordWrap": "off",
     "editor.tabSize": 2,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "explorer.compactFolders": false,
+    "editor.formatOnSave": true,
     "editor.quickSuggestions": {
         "other": "on",
         "strings": "on",
         "comments": "off"
     },
+
+    "search.smartCase": true,
+    "search.quickOpen.includeHistory": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.compactFolders": false,
     "search.exclude": {
         "**/out": true,
         "**/dist": true,
         "**/.git": true,
         "**/node_modules": true,
     },
+
+    "telemetry.telemetryLevel": "off",
+    "workbench.settings.editor": "json",
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.panel.defaultLocation": "bottom",
+    "workbench.activityBar.location": "top",
+    // "workbench.colorTheme": "Sublime Monokai Adaptive",
+
+    "window.titleBarStyle": "custom",
+    "window.commandCenter": false,
+
     "vim.leader": "<space>",
     "vim.easymotion": true,
     "vim.smartcase": true,
@@ -49,14 +49,13 @@
     "vim.useSystemClipboard": false,
     "vim.useCtrlKeys": true,
     "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(255, 140, 0, 0.5)",
+    "vim.highlightedyank.color": "rgba(0, 0, 170, 0.5)",
     "vim.statusBarColorControl": true,
-    // "vim.statusBarColors.normal": ["#8FBCBB", "#434C5E"],
-    "vim.statusBarColors.insert": "#BF616A",
-    "vim.statusBarColors.visual": "#B48EAD",
-    "vim.statusBarColors.visualline": "#B48EAD",
-    "vim.statusBarColors.visualblock": "#A3BE8C",
-    "vim.statusBarColors.replace": "#D08770",
+    "vim.statusBarColors.insert": "#5f8700",        // Greenish insert mode
+    "vim.statusBarColors.visual": "#af005f",        // Reddish visual mode
+    "vim.statusBarColors.visualline": "#af005f",
+    "vim.statusBarColors.visualblock": "#d78700",   // Yellowish-orange
+    "vim.statusBarColors.replace": "#d70000",       // Strong red for replace
     "vim.statusBarColors.commandlineinprogress": "#007ACC",
     "vim.statusBarColors.searchinprogressmode": "#007ACC",
     "vim.statusBarColors.easymotionmode": "#007ACC",
@@ -133,7 +132,11 @@
         {
             "before": ["<S-k>"],
             "commands": ["editor.action.moveLinesUpAction"]
-        }
+        },
+        {
+          "before": ["leader", "y"],
+          "commands": ["editor.action.clipboardCopyAction"]
+      }
     ],
     "workbench.colorCustomizations": {
       "statusBar.background": "#005f5f",
@@ -141,5 +144,8 @@
       "statusBar.debuggingBackground": "#005f5f",
       "statusBar.foreground": "#ffffff",
       "statusBar.debuggingForeground": "#ffffff"
-    }
+    },
+    "[lua]": {
+      "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
 }
