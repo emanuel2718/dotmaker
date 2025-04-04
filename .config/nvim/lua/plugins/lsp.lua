@@ -8,40 +8,11 @@ return {
     "saghen/blink.cmp",
   },
   config = function()
-    local capabilities = require("blink.cmp").get_lsp_capabilities {
-      textDocument = { completion = { completionItem = { snippetSupport = false } } },
-    }
+    -- local capabilities = require("blink.cmp").get_lsp_capabilities {
+    --   textDocument = { completion = { completionItem = { snippetSupport = false } } },
+    -- }
 
     local servers = {
-      -- Vue
-      volar = {
-        init_options = {
-          vue = {
-            filetype = { "vue" },
-            hybridMode = false,
-          },
-        },
-      },
-      -- -- TypeScript
-      -- ts_ls = {
-      --   init_options = {
-      --     plugins = {
-      --       {
-      --         name = "@vue/typescript-plugin",
-      --         location = vim.fn.stdpath "data"
-      --           .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
-      --         languages = { "vue" },
-      --       },
-      --     },
-      --   },
-      --   settings = {
-      --     typescript = {
-      --       tsserver = {
-      --         useSyntaxServer = false,
-      --       },
-      --     },
-      --   },
-      -- },
       -- Lua
       lua_ls = {
         settings = {
@@ -75,6 +46,24 @@ return {
       tailwindcss = {},
     }
 
+    local on_attach = function(client, bufnr)
+      local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+      if
+        client.name ~= "typescript-tools"
+        and (
+          filetype == "typescript"
+          or filetype == "javascript"
+          or filetype == "typescriptreact"
+          or filetype == "javascriptreact"
+          or filetype == "vue"
+        )
+      then
+        client.stop()
+        return false
+      end
+      return true
+    end
+
     local ensure_installed = vim.tbl_keys(servers)
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }
     local lspconfig = require "lspconfig"
@@ -84,7 +73,8 @@ return {
       handlers = {
         function(server_name)
           local opts = servers[server_name] or {}
-          opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, opts.capabilities or {})
+          opts.capabilities = vim.tbl_deep_extend("force", {}, {}, opts.capabilities or {})
+          opts.on_attach = on_attach
           lspconfig[server_name].setup(opts)
         end,
       },

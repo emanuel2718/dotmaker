@@ -8,6 +8,8 @@ return {
       on_attach = function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
+        
+        vim.api.nvim_buf_set_var(bufnr, "cmp_source_override", true)
       end,
       filetypes = {
         "javascript",
