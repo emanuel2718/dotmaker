@@ -49,6 +49,7 @@ alias cr="cargo run"
 alias ct="cargo test"
 alias cc="cargo check"
 
+alias tt="tms"
 alias tn="tmux new -s"
 alias tk="tmux kill-session -t"
 alias ta="tmux a -t"

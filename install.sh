@@ -77,6 +77,7 @@ brew install gettext
 brew install curl
 brew install pnpm
 brew install oven-sh/bun/bun
+brew install tmux-sessionizer
 brew install lazygit
 
 
@@ -94,6 +95,7 @@ brew install --cask obsidian
 brew install --cask zotero
 brew install --cask cursor
 brew install --cask google-chrome
+brew install --cask chromium
 brew install --cask raycast
 brew install --cask google-drive
 brew install --cask vlc
@@ -111,6 +113,7 @@ brew install --cask screenflow
 brew install --cask whatsapp
 brew install --cask bruno
 brew install --cask zed
+brew install --cask firefox
 brew install --cask discord
 brew install --cask brave-browser
 
@@ -143,6 +146,7 @@ ln -s -f ~/git/dotmaker/dots/.zshrc $HOME/.zshrc
 ln -s -f ~/git/dotmaker/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s -f ~/git/dotmaker/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ln -s -f ~/git/dotmaker/.config/ghostty/config $HOME/.config/ghostty/config
+ln -s -f ~/git/dotmaker/.tmux.conf $HOME/.tmux.conf
 
 
 # vim plug
