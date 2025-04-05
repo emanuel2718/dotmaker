@@ -1,5 +1,25 @@
-filetype plugin indent on
-syntax enable
+set nocompatible
+filetype off
+
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+              \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+call plug#end()
+
+
+filetype on
+filetype indent on
+filetype plugin on
 
 set number
 set ruler
@@ -15,16 +35,36 @@ set splitbelow
 set nowritebackup
 set noswapfile
 set nobackup
+set showmatch
 set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set t_Co=256
+set termguicolors
+set background=dark
+set tabpagemax=1000
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
 
 let mapleader = " "
 nnoremap <leader>w :w<cr>
-nnoremap <leader>q :q!<cr>
+nnoremap <leader>q :qa!<cr>
+nnoremap <leader>o :q!<cr>
 nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 
-set rtp+=/usr/local/opt/fzf
+nnoremap <leader>m :vs<cr>
+nnoremap <leader>n :split<cr>
+
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+
+
+nnoremap <leader>. :FZF<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>g :Rg<CR>

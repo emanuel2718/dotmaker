@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Theme list: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="eastwood"
-#ZSH_THEME="lambda"
+#ZSH_THEME="eastwood"
+ZSH_THEME="lambda"
 
 
 plugins=(git vi-mode zsh-autosuggestions zsh-syntax-highlighting)
