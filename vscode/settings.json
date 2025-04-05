@@ -12,6 +12,7 @@
   "editor.wordWrap": "off",
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
+  "editor.fontFamily": "Berkeley Mono",
   "editor.quickSuggestions": {
     "other": "on",
     "strings": "on",
@@ -141,9 +142,9 @@
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "workbench.colorCustomizations": {
-    "statusBar.background": "#005f5f",
-    "statusBar.noFolderBackground": "#005f5f",
-    "statusBar.debuggingBackground": "#005f5f",
+    "statusBar.background": "#0000ff",
+    "statusBar.noFolderBackground": "#0000ff",
+    "statusBar.debuggingBackground": "#0000ff",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   }
