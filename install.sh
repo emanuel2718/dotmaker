@@ -40,10 +40,10 @@ git config --global core.editor "vim"
 git config --global init.defaultBranch master
 git config --global --add --bool push.autoSetupRemote true
 git config --global core.excludesfile ~/.gitignore
+git config --global pull.rebase true
 git config --global user.name "emanuel2718"
 git config --global user.email "eramirez2718@gmail.com"
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
 
 
 # BREW
@@ -58,6 +58,7 @@ brew install direnv
 brew install ffmpeg
 brew install wget
 brew install jq
+brew install fish
 brew install neofetch
 brew install node
 brew install nvm
@@ -142,6 +143,15 @@ ln -s -f ~/git/dotmaker/dots/.zshrc $HOME/.zshrc
 ln -s -f ~/git/dotmaker/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 ln -s -f ~/git/dotmaker/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
 ln -s -f ~/git/dotmaker/.config/ghostty/config $HOME/.config/ghostty/config
+
+
+# vim plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# setup fish
+#echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+#chsh -s /opt/homebrew/bin/fish
 
 
 
