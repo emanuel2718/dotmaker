@@ -4,7 +4,7 @@ return {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
+    { "j-hui/fidget.nvim",       opts = {} },
     "saghen/blink.cmp",
   },
   config = function()
@@ -36,8 +36,13 @@ return {
       ruff = {},
       -- Rust
       rust_analyzer = {
-        checkOnSave = {
-          command = "clippy",
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy",
+              extraArgs = { "--no-deps" },
+            },
+          },
         },
       },
       -- C/C++
@@ -49,14 +54,14 @@ return {
     local on_attach = function(client, bufnr)
       local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
       if
-        client.name ~= "typescript-tools"
-        and (
-          filetype == "typescript"
-          or filetype == "javascript"
-          or filetype == "typescriptreact"
-          or filetype == "javascriptreact"
-          or filetype == "vue"
-        )
+          client.name ~= "typescript-tools"
+          and (
+            filetype == "typescript"
+            or filetype == "javascript"
+            or filetype == "typescriptreact"
+            or filetype == "javascriptreact"
+            or filetype == "vue"
+          )
       then
         client.stop()
         return false
@@ -67,6 +72,22 @@ return {
     local ensure_installed = vim.tbl_keys(servers)
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }
     local lspconfig = require "lspconfig"
+
+    vim.diagnostic.config {
+      virtual_text = {
+        prefix = "",
+        source = "if_many",
+        spacing = 4,
+      },
+      float = {
+        source = "if_many",
+        border = "rounded",
+      },
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+    }
 
     require("mason-lspconfig").setup {
       ensure_installed = ensure_installed,
@@ -106,7 +127,7 @@ return {
         lsp_format = "fallback",
       },
       format_on_save = {
-        timeout_ms = 1500,
+        timeout_ms = 3000,
         lsp_format = "fallback",
       },
     }
