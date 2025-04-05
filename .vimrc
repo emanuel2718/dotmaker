@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'emanuel2718/vanta.nvim', { 'as': 'vanta' }
+
 call plug#end()
 
 
@@ -49,6 +51,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+colorscheme vanta
 
 
 let mapleader = " "
