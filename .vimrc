@@ -65,6 +65,10 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <leader>m :vs<cr>
 nnoremap <leader>n :split<cr>
 
+" Yank to system clipboard only
+vnoremap <leader>y "+y
+nnoremap <leader>y ""+yy
+
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
