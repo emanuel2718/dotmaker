@@ -5,20 +5,22 @@ return {
   dependencies = { "echasnovski/mini.icons" },
   config = function()
     local fzf = require "fzf-lua"
-    fzf.setup {
-      winopts = {
-        --   hidden = "hidden",
-        -- },
-        height = 0.5,
-        width = 1,
-        row = 1,
-        col = 0.5,
-        -- border = "rounded",
-        winblend = 10,
-      },
-    }
+    fzf.setup({ { "fzf-vim", "ivy" } }, {
+      -- files = {
+      --   fd_opts = "--color=never --type f --hidden --follow --exclude .git",
+      --   rg_opts = "--color=never --files --hidden --follow -g '!.git'",
+      --   find_opts = "-type f -not -path '*/.git/*'",
+      -- },
+      -- grep = {
+      --   rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+      --   no_esc_esc = true,
+      -- },
+    })
     local map = vim.keymap.set
     map("n", "<leader>.", fzf.files)
+    map("n", "<leader>ff", function()
+      fzf.files { hidden = true }
+    end)
     map("n", "<leader>fo", fzf.oldfiles)
     map("n", "<leader><leader>", fzf.buffers)
     map("n", "<leader>hh", fzf.helptags)

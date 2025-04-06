@@ -60,6 +60,7 @@ brew install wget
 brew install jq
 brew install fish
 brew install neofetch
+brew install fastfetch
 brew install node
 brew install nvm
 brew install stats
@@ -116,6 +117,8 @@ brew install --cask zed
 brew install --cask firefox
 brew install --cask discord
 brew install --cask brave-browser
+brew install --cask mullvadvpn
+brew install --cask fork
 
 
 

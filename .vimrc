@@ -14,7 +14,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'emanuel2718/vanta.nvim', { 'as': 'vanta' }
+"Plug 'emanuel2718/vanta.nvim', { 'as': 'vanta' }
+Plug '~/git/vanta.nvim', { 'as': 'vanta' }
 
 call plug#end()
 
