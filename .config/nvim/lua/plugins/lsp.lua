@@ -4,7 +4,7 @@ return {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    { "j-hui/fidget.nvim",       opts = {} },
+    { "j-hui/fidget.nvim", opts = {} },
     "saghen/blink.cmp",
   },
   config = function()
@@ -14,6 +14,15 @@ return {
 
     local servers = {
       -- Lua
+      volar = {
+        filetypes = { "vue" },
+        init_options = {
+          vue = {
+            -- disable hybrid mode
+            hybridMode = false,
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
@@ -52,18 +61,9 @@ return {
     }
 
     local on_attach = function(client, bufnr)
-      local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-      if
-          client.name ~= "typescript-tools"
-          and (
-            filetype == "typescript"
-            or filetype == "javascript"
-            or filetype == "typescriptreact"
-            or filetype == "javascriptreact"
-            or filetype == "vue"
-          )
-      then
-        client.stop()
+      -- local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
+      if client.name ~= "typescript-tools" and (filetype == "vue") then
+        -- client.stop()
         return false
       end
       return true
