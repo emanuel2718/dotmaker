@@ -223,9 +223,9 @@
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "workbench.colorCustomizations": {
-    "statusBar.background": "#0000ff",
-    "statusBar.noFolderBackground": "#0000ff",
-    "statusBar.debuggingBackground": "#0000ff",
+    "statusBar.background": "#005f5f",
+    "statusBar.noFolderBackground": "#005f5f",
+    "statusBar.debuggingBackground": "#005f5f",
     "statusBar.foreground": "#ffffff",
     "statusBar.debuggingForeground": "#ffffff"
   }

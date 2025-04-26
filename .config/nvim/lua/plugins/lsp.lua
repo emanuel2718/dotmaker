@@ -3,7 +3,6 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", opts = {} },
     "saghen/blink.cmp",
   },
@@ -60,17 +59,7 @@ return {
       tailwindcss = {},
     }
 
-    local on_attach = function(client, bufnr)
-      -- local filetype = vim.api.nvim_buf_get_option(bufnr, "filetype")
-      if client.name ~= "typescript-tools" and (filetype == "vue") then
-        -- client.stop()
-        return false
-      end
-      return true
-    end
-
     local ensure_installed = vim.tbl_keys(servers)
-    require("mason-tool-installer").setup { ensure_installed = ensure_installed }
     local lspconfig = require "lspconfig"
 
     vim.diagnostic.config {
@@ -93,10 +82,10 @@ return {
       ensure_installed = ensure_installed,
       handlers = {
         function(server_name)
-          local opts = servers[server_name] or {}
-          opts.capabilities = vim.tbl_deep_extend("force", {}, {}, opts.capabilities or {})
-          opts.on_attach = on_attach
-          lspconfig[server_name].setup(opts)
+          local server_opts = servers[server_name] or {}
+          local capabilities = vim.lsp.protocol.make_client_capabilities()
+          server_opts.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server_opts.capabilities or {})
+          lspconfig[server_name].setup(server_opts)
         end,
       },
     }
@@ -135,19 +124,21 @@ return {
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(args)
         local auto_format = true
-        local c = vim.lsp.get_client_by_id(args.data.client_id)
-        if not c then
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if not client then
           return
         end
 
-        -- Format the current buffer on save
+        if not client.server_capabilities then
+          return
+        end
+
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = args.buf,
           callback = function()
             if auto_format then
               conform.format { async = true, lsp_format = "fallback", quiet = false }
             end
-            -- vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
           end,
         })
 
@@ -160,9 +151,8 @@ return {
         vim.keymap.set("n", "<leader>ll", fzf.lsp_document_symbols, opts)
         vim.keymap.set("n", "<leader>ls", fzf.lsp_live_workspace_symbols, opts)
 
-        vim.keymap.set("i", "<C-k>", function()
-          vim.lsp.buf.signature_help {}
-        end, opts)
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "gn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", "<leader>i", fzf.diagnostics_document, opts)
@@ -173,34 +163,29 @@ return {
         vim.keymap.set("n", "<leader>ti", "<cmd>InspectTree<cr>", opts)
 
         vim.keymap.set("n", "<leader>ff", function()
-          if auto_format then
-            auto_format = false
-            print "Toggling auto format OFF!"
-          else
-            print "Toggling auto format ON!"
-            auto_format = true
-          end
-          -- auto_format = not auto_format -- toggle it
+          auto_format = not auto_format
+          print("Toggling auto format " .. (auto_format and "ON" or "OFF"))
         end, opts)
         vim.keymap.set({ "n", "v" }, "<leader>lf", function()
           conform.format { lsp_format = "fallback", quiet = false }
-        end)
+        end, opts)
 
         vim.keymap.set("n", "<C-c>", vim.lsp.buf.code_action, opts)
 
         vim.keymap.set("n", "<leader>k", function()
-          vim.diagnostic.jump { count = -1 }
+          vim.diagnostic.jump { float = false, count = -1 }
           vim.cmd "norm zz"
-        end, opts)
-
-        -- No longer need https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim as is now builtin
-        vim.keymap.set("n", "<leader>dd", function()
-          vim.diagnostic.enable(not vim.diagnostic.is_enabled())
         end, opts)
 
         vim.keymap.set("n", "<leader>j", function()
-          vim.diagnostic.jump { count = 1 }
+          vim.diagnostic.jump { float = false, count = 1 }
           vim.cmd "norm zz"
+        end, opts)
+
+        vim.keymap.set("n", "<leader>dd", function()
+          local enabled = vim.diagnostic.is_enabled { bufnr = args.buf }
+          vim.diagnostic.enable(not enabled, { bufnr = args.buf })
+          print("[NOTE] Diagnostics " .. (not enabled and "enabled" or "disabled"))
         end, opts)
 
         vim.keymap.set("n", "<leader>v", function()
