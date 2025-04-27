@@ -3,7 +3,7 @@ return {
   dependencies = {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
-    { "j-hui/fidget.nvim", opts = {} },
+    { "j-hui/fidget.nvim",       opts = {} },
     "saghen/blink.cmp",
   },
   config = function()
@@ -151,7 +151,6 @@ return {
         vim.keymap.set("n", "<leader>ll", fzf.lsp_document_symbols, opts)
         vim.keymap.set("n", "<leader>ls", fzf.lsp_live_workspace_symbols, opts)
 
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "gn", vim.lsp.buf.rename, opts)
         vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
