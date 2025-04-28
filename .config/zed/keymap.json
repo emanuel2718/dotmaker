@@ -1,0 +1,64 @@
+[
+  {
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-e": "workspace::ToggleRightDock",
+      "ctrl-f": "editor::AcceptPartialCopilotSuggestion",
+      "cmd-p": "command_palette::Toggle",
+      "ctrl-s": "projects::OpenRecent",
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen || vim_mode == normal",
+    "bindings": {
+      "space .": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "ctrl-c": "editor::ToggleCodeActions",
+      "space l f": "editor::Format",
+      "space r": "editor::Rename",
+      "space d .": "editor::GoToDiagnostic",
+      "space l l": "outline::Toggle",
+      "space o": "pane::CloseAllItems",
+      "space g d": "editor::GoToDefinition",
+      "space w": "workspace::Save",
+      "space g r": "editor::FindAllReferences",
+      "space s p": "pane::DeploySearch",
+      "space m": "pane::SplitRight",
+      "space n": "pane::SplitDown",
+      "space space": "tab_switcher::Toggle",
+      "space h t": "theme_selector::Toggle"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "A": "project_panel::NewDirectory",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "c": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "x": "project_panel::Cut",
+      "s": [
+        "workspace::SendKeystrokes",
+        "ctrl-h cmd-k right right ctrl-l enter right right right right alt-cmd-t"
+      ]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
+    }
+  }
+]
