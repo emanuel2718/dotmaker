@@ -78,6 +78,9 @@
             "source.organizeImports": true
           }
         }
+      },
+      "Rust": {
+        "use_on_type_format": false
       }
     }
   }
