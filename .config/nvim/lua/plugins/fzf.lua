@@ -31,5 +31,7 @@ return {
         fzf.live_grep { search = current_filename, hidden = true }
       end
     end)
+    -- Add keybind to resume previous fzf search
+    map("n", "<leader>ss", fzf.resume)
   end,
 }
