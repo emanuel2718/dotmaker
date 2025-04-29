@@ -46,10 +46,10 @@ return {
       rust_analyzer = {
         settings = {
           ["rust-analyzer"] = {
-            checkOnSave = {
-              command = "clippy",
-              extraArgs = { "--no-deps" },
-            },
+            checkOnSave = true,
+            check = {
+              command = "clippy --no-deps"
+            }
           },
         },
       },
