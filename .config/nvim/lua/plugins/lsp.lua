@@ -48,7 +48,8 @@ return {
           ["rust-analyzer"] = {
             checkOnSave = true,
             check = {
-              command = "clippy --no-deps"
+              command = "clippy",
+              extraArgs = { "--no-deps" }
             }
           },
         },
