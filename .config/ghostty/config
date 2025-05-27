@@ -1,3 +1,13 @@
-theme = IR_Black
+# theme = IR_Black
+theme = Mathias
+# theme = Everforest Light - Med
+# theme = tokyonight
+# theme = Solarized Dark - Patched
+# theme = rose-pine
+# theme = Monokai Classic
 title = ghostty
 font-family = Berkeley Mono
+unfocused-split-opacity = 1
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor

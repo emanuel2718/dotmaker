@@ -80,6 +80,9 @@ brew install pnpm
 brew install oven-sh/bun/bun
 brew install tmux-sessionizer
 brew install lazygit
+brew install gdb
+brew install cargo-binstall
+brew install autoconf
 
 
 
@@ -159,6 +162,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # setup fish
 #echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
 #chsh -s /opt/homebrew/bin/fish
+
+# must have cargo already in path
+cargo binstall cargo-watch
 
 
 

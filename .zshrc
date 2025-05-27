@@ -16,6 +16,7 @@ export SAVEHIST=$HISTSIZE
 export HISTFILE=$HOME/.local/zsh_history
 
 export XDG_CONFIG_HOME=$HOME/.config/
+export PATH="$HOME/.config/emacs/bin:$PATH"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -70,3 +71,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Created by `pipx` on 2025-05-16 03:30:33
+export PATH="$PATH:/Users/vizquit/.local/bin"

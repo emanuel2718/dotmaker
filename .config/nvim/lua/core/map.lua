@@ -51,6 +51,9 @@ map("n", "<leader>a", "VggoG")
 -- source current lua file
 map("n", "<leader>x", "<cmd>source %<CR>")
 
+-- don't yank pasted over text
+map("v", "p", '"_dP')
+
 map("n", "<Esc>", function()
   ---@diagnostic disable-next-line: undefined-field
   if vim.opt.hlsearch:get() then
