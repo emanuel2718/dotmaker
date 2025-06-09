@@ -122,6 +122,7 @@ brew install --cask discord
 brew install --cask brave-browser
 brew install --cask mullvadvpn
 brew install --cask fork
+brew install --cask logi-options+
 
 
 
