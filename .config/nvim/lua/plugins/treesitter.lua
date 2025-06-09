@@ -1,5 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    { "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 5, multiline_threshold = 1 } },
+  },
   build = ":TSUpdate",
   config = function()
     local configs = require "nvim-treesitter.configs"
@@ -71,11 +74,11 @@ return {
           -- and should return the mode ('v', 'V', or '<c-v>') or a table
           -- mapping query_strings to modes.
           selection_modes = {
-            ["@function.inner"] = "V",    -- linewise
-            ["@function.outer"] = "V",    -- linewise
-            ["@class.outer"] = "V",       -- linewise
-            ["@class.inner"] = "V",       -- linewise
-            ["@parameter.outer"] = "v",   -- charwise
+            ["@function.inner"] = "V",  -- linewise
+            ["@function.outer"] = "V",  -- linewise
+            ["@class.outer"] = "V",     -- linewise
+            ["@class.inner"] = "V",     -- linewise
+            ["@parameter.outer"] = "v", -- charwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
           -- extended to include preceding or succeeding whitespace. Succeeding
