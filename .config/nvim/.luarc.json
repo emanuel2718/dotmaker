@@ -1,6 +1,0 @@
-{
-  "diagnostics.globals": ["Snacks", "vim"],
-    "diagnostics.disable": [
-        "undefined-doc-name"
-    ]
-}
