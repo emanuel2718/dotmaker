@@ -13,6 +13,12 @@ map("n", "<c-h>", "<c-w><c-h>")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 
+-- movement, but center me after
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
 -- resize
 map("n", "<Left>", "<c-w>5<")
 map("n", "<Right>", "<c-w>5>")
