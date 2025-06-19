@@ -5,10 +5,11 @@ local opt = vim.opt
 -- vim.cmd.colorscheme 'solarized'
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme('gruvbox-material')
-vim.cmd.colorscheme('tokyonight-night')
+-- vim.cmd.colorscheme('tokyonight-night')
 -- vim.cmd.colorscheme('kanagawa-paper')
 -- vim.cmd.colorscheme("classic-monokai")
 -- vim.cmd.colorscheme("modus")
+vim.cmd.colorscheme("lunaperche")
 
 opt.number = true
 opt.cursorline = true
@@ -57,3 +58,8 @@ opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
 -- performance improvements question mark
 vim.opt.redrawtime = 10000
 vim.opt.maxmempattern = 20000
+
+
+-- testing spell checkers
+opt.spell = true
+opt.spelllang = "en_us"

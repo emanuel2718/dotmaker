@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local builtin = require('telescope.builtin')
+-- local builtin = require('telescope.builtin')
 
 -- split
 map("n", "<leader>n", "<cmd>split<cr>")
@@ -74,9 +74,13 @@ map("n", "<leader>p", "m`o<ESC>p``")
 -- paste above the current line
 map("n", "<leader>P", "m`O<ESC>p``")
 
-map("n", "<leader>en", function()
-  builtin.find_files { cwd = vim.fn.stdpath "config" }
-end)
+-- map("n", "<leader>en", function()
+--   builtin.find_files { cwd = vim.fn.stdpath "config" }
+-- end)
+
+-- map("n", "<leader>en", function()
+--   builtin.find_files { cwd = vim.fn.stdpath "config" }
+-- end)
 
 
 -- map("n", "<leader>el", "<cmd>e $MYVIMRC <bar> tcd %:h<cr>", {
