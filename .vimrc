@@ -13,11 +13,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-commentary'
+" Plug 'airblade/vim-gitgutter'
 
 "Plug 'emanuel2718/vanta.nvim', { 'as': 'vanta' }
 "Plug '~/git/vanta.nvim', { 'as': 'vanta' }
@@ -77,44 +76,6 @@ command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-h
 nnoremap <leader>. :FZF<CR>
 nnoremap <leader>t :Tags<CR>
 nnoremap <leader>sp :Rg<CR>
-
-" lsp
-nnoremap <leader>k :coc-diagnostic-prev<CR>
-nnoremap <leader>j :coc-diagnostic-next<CR>
-
-nmap <silent><nowait> gd <Plug>(coc-definition)
-nmap <silent><nowait> gy <Plug>(coc-type-definition)
-nmap <silent><nowait> gi <Plug>(coc-implementation)
-nmap <silent><nowait> gr <Plug>(coc-references)
-nmap <leader>gn <Plug>(coc-rename)
-xmap <leader>lf  <Plug>(coc-format-selected)
-nmap <leader>lf  <Plug>(coc-format-selected)
-xmap <C-.>  <Plug>(coc-codeaction-selected)
-nmap <C-.>  <Plug>(coc-codeaction-selected)
-
-nnoremap <silent><nowait> <space>i  :<C-u>CocList outline<cr>
-
-inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
-inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<C-p>"
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-nnoremap <silent> K :call ShowDocumentation()<cr>
-
-command! -nargs=0 Format :call CocActionAsync('format')
-
-
-let g:coc_global_extensions = [
-  \ 'coc-rust-analyzer',
-  \ 'coc-tsserver',
-  \ 'coc-html'
-  \ ]
 
 " autosource .vimrc when saving
 autocmd BufWritePost *.vim source $MYVIMRC
