@@ -4,13 +4,13 @@ return {
     local gs = require("gitsigns")
 
     gs.setup {
-      signs = {
-        add = { text = "+" },
-        change = { text = "~" },
-        delete = { text = "_" },
-        topdelete = { text = "‾" },
-        changedelete = { text = "│" },
-      },
+      -- signs = {
+      --   add = { text = "+" },
+      --   change = { text = "~" },
+      --   delete = { text = "_" },
+      --   topdelete = { text = "‾" },
+      --   changedelete = { text = "│" },
+      -- },
       word_diff = false,
       on_attach = function(bufnr)
         local function map(mode, l, r, opts)
@@ -47,17 +47,6 @@ return {
         end, { desc = "blame hunk" })
       end,
     }
-
-    -- vim.api.nvim_create_autocmd("ColorScheme", {
-    --   pattern = "*",
-    --   callback = function()
-    --     vim.cmd([[
-    --     hi GitSignsChangeInline gui=reverse
-    --     hi GitSignsAddInline gui=reverse
-    --     hi GitSignsDeleteInline gui=reverse
-    --   ]])
-    --   end,
-    -- })
   end
 
 }

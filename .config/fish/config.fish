@@ -6,19 +6,6 @@ set -x FZF_DEFAULT_OPTS --exact
 
 function fish_mode_prompt; end
 
-function f
-  fd. -iname "*$1*" ${@:2}
-end
-
-function r
-  grep "$1" ${@:2} -R .
-end
-
-function fd
-  local dir
-  dir=$(fd ${1:-.} -path '*/\.*' -prune \
-    -o -type d -print 2> /dev/null | fzf +m) && cd "$dir"
-end
 
 function gf
   git fetch --all --prune --tags

@@ -1,3 +1,4 @@
+-- return {}
 return {
   "ibhagwan/fzf-lua",
   dependencies = { "echasnovski/mini.icons" },
@@ -6,6 +7,11 @@ return {
     local fzf = require 'fzf-lua'
     local opts = {
       { "fzf-vim", "max-perf" },
+      keymap  = {
+        fzf = {
+          ["alt-h"] = "toggle-preview",
+        },
+      },
       winopts = {
         preview = {
           hidden = "hidden",
@@ -17,7 +23,7 @@ return {
           winopts = { height = 0.5, width = 0.5 },
         },
       },
-      grep = {
+      grep    = {
         hidden = true,
       }
 

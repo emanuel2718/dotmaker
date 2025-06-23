@@ -19,7 +19,7 @@ return {
         source = "if_many",
         border = "rounded",
       },
-      signs = true,
+      signs = false,
       underline = false,
       update_in_insert = false,
       severity_sort = true,
@@ -30,7 +30,6 @@ return {
       group = vim.api.nvim_create_augroup("lsp_buf_conf", { clear = true }),
       callback = function(event_context)
         local client = vim.lsp.get_client_by_id(event_context.data.client_id)
-        -- vim.print(client.name, client.server_capabilities)
 
         if not client then
           return

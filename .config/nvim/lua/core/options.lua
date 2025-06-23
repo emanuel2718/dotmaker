@@ -1,15 +1,22 @@
 local opt = vim.opt
 
--- vim.cmd.colorscheme "vanta"
+vim.cmd.colorscheme "vanta"
 -- vim.cmd.colorscheme "nord"
 -- vim.cmd.colorscheme 'solarized'
+-- vim.cmd.colorscheme "monokai-pro"
 -- vim.cmd.colorscheme "gruvbox"
 -- vim.cmd.colorscheme('gruvbox-material')
 -- vim.cmd.colorscheme('tokyonight-night')
 -- vim.cmd.colorscheme('kanagawa-paper')
 -- vim.cmd.colorscheme("classic-monokai")
 -- vim.cmd.colorscheme("modus")
-vim.cmd.colorscheme("lunaperche")
+-- vim.cmd.colorscheme("lunaperche")
+-- vim.cmd.colorscheme('gruber-darker')
+-- vim.cmd.colorscheme('naysayer')
+-- vim.cmd.colorscheme('lipoide')
+-- vim.cmd.colorscheme("tokyobones")
+-- vim.cmd.colorscheme("forestbones")
+-- vim.cmd.colorscheme("vim")
 
 opt.number = true
 opt.cursorline = true
@@ -61,5 +68,5 @@ vim.opt.maxmempattern = 20000
 
 
 -- testing spell checkers
-opt.spell = true
+opt.spell = false
 opt.spelllang = "en_us"

@@ -5,7 +5,7 @@
   },
   "show_edit_predictions": true,
   // "theme": "Gruvbox Dark Hard",
-  "theme": "Nord Light",
+  "theme": "Gruvbox Dark Hard",
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
