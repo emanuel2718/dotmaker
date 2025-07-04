@@ -54,6 +54,9 @@ opt.undofile = true
 vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
 opt.completeopt = "menu,menuone,noinsert,popup,fuzzy"
 
+opt.list = true
+opt.listchars = "eol:␤,tab:␉·,trail:␠,nbsp:⎵"
+
 vim.opt.updatetime = 300 -- faster completion (defaults 4000)
 vim.opt.timeoutlen = 500 -- key timeout duration
 vim.opt.ttimeoutlen = 0  -- key timeout duration

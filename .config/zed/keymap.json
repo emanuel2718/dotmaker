@@ -1,41 +1,63 @@
 [
   {
     "bindings": {
-      "ctrl-h": "workspace::ActivatePaneLeft",
-      "ctrl-l": "workspace::ActivatePaneRight",
-      "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown",
       "ctrl-e": "workspace::ToggleRightDock",
-      "ctrl-f": "editor::AcceptPartialCopilotSuggestion",
       "cmd-p": "command_palette::Toggle",
-      "ctrl-s": "projects::OpenRecent",
       "ctrl-y": "editor::ConfirmCompletion"
     }
   },
   {
-    "context": "EmptyPane || SharedScreen || vim_mode == normal",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      "space .": "file_finder::Toggle"
+      "space d M": "markdown::OpenPreview",
+      "space d m": "markdown::OpenPreviewToTheSide",
+      "space f p": "projects::OpenRecent",
+      "space s p": "pane::DeploySearch"
     }
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "shift-k": "editor::Hover",
-      "ctrl-c": "editor::ToggleCodeActions",
-      "space l f": "editor::Format",
-      "space r": "editor::Rename",
-      "space d .": "editor::GoToDiagnostic",
-      "space l l": "outline::Toggle",
-      "space o": "pane::CloseAllItems",
-      "space g d": "editor::GoToDefinition",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "ctrl-f": "editor::AcceptPartialCopilotSuggestion",
+      "cmd-p": "command_palette::Toggle",
       "space w": "workspace::Save",
-      "space g r": "editor::FindAllReferences",
-      "space s p": "pane::DeploySearch",
+      "ctrl-c": "editor::ToggleCodeActions",
+      "gn": "editor::Rename",
+      "g d": "editor::GoToDefinition",
+      "space v": "editor::GoToDefinitionSplit",
+      "g i": "editor::GoToImplementation",
+      "g I": "editor::GoToImplementationSplit",
+      "g t": "editor::GoToTypeDefinition",
+      "g T": "editor::GoToTypeDefinitionSplit",
+      "g r": "editor::FindAllReferences",
       "space m": "pane::SplitRight",
       "space n": "pane::SplitDown",
+      "space j": "editor::GoToDiagnostic",
+      "space k": "editor::GoToPreviousDiagnostic",
+      "space l l": "outline::Toggle",
+      "space l L": "project_symbols::Toggle",
+      "space ]": "editor::GoToHunk",
+      "space [": "editor::GoToPreviousHunk",
+      "space o": "pane::CloseAllItems",
+      "space .": "file_finder::Toggle",
       "space space": "tab_switcher::Toggle",
-      "space h t": "theme_selector::Toggle"
+      "space h t": "theme_selector::Toggle",
+      "ctrl-e": "pane::RevealInProjectPanel",
+      "space l f": "editor::Format",
+      "shift-k": "editor::Hover"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      "space .": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent"
     }
   },
   {
@@ -59,6 +81,27 @@
     "bindings": {
       "shift-j": "editor::MoveLineDown",
       "shift-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "ctrl-enter": "editor::OpenExcerpts" // zed specific
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-/": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   }
 ]

@@ -3,16 +3,13 @@
     "metrics": false,
     "diagnostics": false
   },
-  "show_edit_predictions": true,
-  // "theme": "Gruvbox Dark Hard",
-  "theme": "Gruvbox Dark Hard",
+  "base_keymap": "VSCode",
+  "extend_comment_on_newline": false,
+  "theme": "Nord",
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
     "use_system_clipboard": "never"
-  },
-  "features": {
-    "copilot": true
   },
   "wrap_guides": [100],
   "use_autoclose": false,
@@ -23,64 +20,40 @@
   "ui_font_family": "Berkeley Mono",
   "ui_font_size": 14,
   "buffer_font_size": 14.0,
-  "cursor_blink": false,
-  "extend_comment_on_newline": false,
+  "file_finder": {
+    "file_icons": false,
+    "modal_width": "medium"
+  },
   "tab_bar": {
-    "show": false,
-    "show_nav_history_buttons": true,
-    "show_tab_bar_buttons": true
+    "show": true
+  },
+  "tabs": {
+    "show_diagnostics": "errors"
   },
   "project_panel": {
+    "button": true,
     "dock": "right",
-    "indent_size": 12,
-    "scrollbar": {
-      "show": "never"
-    }
+    "git_status": true
   },
-  "base_keymap": "VSCode",
-  "preview_tabs": {
-    "enable_preview_from_code_navigation": false
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
   },
   "calls": {
     "mute_on_join": true
   },
   "languages": {
-    "Markdown": {
-      "preferred_line_length": 80
-    },
     "Lua": {
       "tab_size": 2,
       "format_on_save": "on"
-    },
-    "JavaScript": {
-      "tab_size": 2,
-      "format_on_save": "prettier",
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true,
-          "source.organizeImports": true
-        }
-      }
-    },
-    "TypeScript": {
-      "tab_size": 2,
-      "format_on_save": "prettier",
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true,
-          "source.organizeImports": true
-        }
-      }
-    },
-    "Vue.js": {
-      "tab_size": 2,
-      "format_on_save": "prettier",
-      "formatter": {
-        "code_actions": {
-          "source.fixAll.eslint": true,
-          "source.organizeImports": true
-        }
-      }
     },
     "Rust": {
       "use_on_type_format": false
