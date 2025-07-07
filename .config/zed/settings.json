@@ -5,7 +5,7 @@
   },
   "base_keymap": "VSCode",
   "extend_comment_on_newline": false,
-  "theme": "Nord",
+  "theme": "Gruber Darker",
   "vim_mode": true,
   "vim": {
     "use_smartcase_find": true,
@@ -63,7 +63,8 @@
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy" // rust-analyzer.check.command (default: "check")
+          "command": "clippy", // rust-analyzer.check.command (default: "check")
+          "extraArgs": ["--release"]
         }
       }
     }

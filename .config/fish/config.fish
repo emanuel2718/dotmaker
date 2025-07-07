@@ -1,5 +1,5 @@
 set fish_greeting
-set fish_vi_key_bindings
+set -g fish_key_bindings fish_vi_key_bindings
 set -x EDITOR vim
 set -x DIRENV_LOG_FORMAT ""
 set -x FZF_DEFAULT_OPTS --exact
@@ -7,39 +7,20 @@ set -x FZF_DEFAULT_OPTS --exact
 function fish_mode_prompt; end
 
 
-function gf
-  git fetch --all --prune --tags
-end
+abbr -a rc '$EDITOR $HOME/.config/fish/config.fish'
+abbr -a src 'source $HOME/.config/fish/config.fish'
+abbr -a gs 'git status'
+abbr -a gl 'git log'
 
-function gs
-  git status
-end
+abbr -a tk 'tmux kill-session -t'
+abbr -a ta 'tmux a -t'
+abbr -a tn 'tmux new -s'
+abbr -a tl 'tmux ls'
+abbr -a tt 'tms'
 
-function gc
-  git commit $argv
-end
-
-function gca
-  git add -A; and git commit $argv
-end
-
-function gd
-  git diff $argv
-end
-
-function gl
-  git log $argv
-end
-
-function gp
-  git pull $argv
-end
-
-function gb
-  git push origin (git commit-tree -m "" (git mktree </dev/null) </dev/null):refs/heads/$argv[1]
-  git checkout -b $argv[1]
-  git push --set-upstream --force-with-lease origin $argv[1]
-end
-
+abbr -a cr 'cargo run'
+abbr -a ct 'cargo test'
+abbr -a cc 'cargo check'
+abbr -a cb 'cargo build'
 
 zoxide init fish | source

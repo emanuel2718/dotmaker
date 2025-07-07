@@ -28,7 +28,7 @@
       "cmd-p": "command_palette::Toggle",
       "space w": "workspace::Save",
       "ctrl-c": "editor::ToggleCodeActions",
-      "gn": "editor::Rename",
+      "g n": "editor::Rename",
       "g d": "editor::GoToDefinition",
       "space v": "editor::GoToDefinitionSplit",
       "g i": "editor::GoToImplementation",
