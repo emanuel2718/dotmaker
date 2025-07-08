@@ -1,5 +1,5 @@
-set fish_greeting
-set -g fish_key_bindings fish_vi_key_bindings
+set -g fish_greeting
+fish_vi_key_bindings
 set -x EDITOR vim
 set -x DIRENV_LOG_FORMAT ""
 set -x FZF_DEFAULT_OPTS --exact
