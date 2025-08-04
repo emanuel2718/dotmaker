@@ -246,7 +246,7 @@ local PLUG = {
       require("tokyonight").setup({
         style = "night",
       })
-      -- vim.cmd([[colorscheme tokyonight]])
+      vim.cmd([[colorscheme tokyonight]])
     end,
   },
   -- plugins/theme/oneokai
@@ -256,7 +256,7 @@ local PLUG = {
       require("oneokai").setup({
         style = "dark",
       })
-      require("oneokai").load()
+      -- require("oneokai").load()
     end,
   },
   -- plugins/statusline
@@ -307,24 +307,24 @@ local PLUG = {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
     keys = {
-      { "<leader>sp", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep" },
-      { "<leader>s.", "<cmd>FzfLua grep_cword<cr>", desc = "Grep word under cursor" },
-      { "<leader>/", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
-      { "<leader>su", "<cmd>FzfLua grep_cword<cr>", desc = "Grep WORD under cursor" },
-      { "<leader>.", "<cmd>FzfLua files<cr>", desc = "Find files" },
-      { "<leader>o", "<cmd>FzfLua oldfiles<cr>", desc = "Old files" },
-      { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Find buffers" },
+      { "<leader>sp",       "<cmd>FzfLua live_grep_native<cr>", desc = "Grep" },
+      { "<leader>s.",       "<cmd>FzfLua grep_cword<cr>",       desc = "Grep word under cursor" },
+      { "<leader>/",        "<cmd>FzfLua grep_curbuf<cr>",      desc = "Grep current buffer" },
+      { "<leader>su",       "<cmd>FzfLua grep_cword<cr>",       desc = "Grep WORD under cursor" },
+      { "<leader>.",        "<cmd>FzfLua files<cr>",            desc = "Find files" },
+      { "<leader>of",       "<cmd>FzfLua oldfiles<cr>",         desc = "Old files" },
+      { "<leader><leader>", "<cmd>FzfLua buffers<cr>",          desc = "Find buffers" },
 
-      { "<leader>ss", "<cmd>FzfLua spell_suggest<cr>", desc = "Spell suggest" },
-      { "<leader>ft", "<cmd>FzfLua filetypes<cr>", desc = "Change file-types" },
-      { "<leader>km", "<cmd>FzfLua keymaps<cr>", desc = "View keymaps" },
+      { "<leader>ss",       "<cmd>FzfLua spell_suggest<cr>",    desc = "Spell suggest" },
+      { "<leader>ft",       "<cmd>FzfLua filetypes<cr>",        desc = "Change file-types" },
+      { "<leader>km",       "<cmd>FzfLua keymaps<cr>",          desc = "View keymaps" },
 
-      { "<leader>ch", "<cmd>FzfLua command_history<cr>", desc = "Command history" },
-      { "<leader>sh", "<cmd>FzfLua search_history<cr>", desc = "Search history" },
-      { "<leader>hh", "<cmd>FzfLua help_tags<cr>", desc = "Help tags" },
-      { "<leader>hg", "<cmd>FzfLua highlights<cr>", desc = "Highlights" },
+      { "<leader>ch",       "<cmd>FzfLua command_history<cr>",  desc = "Command history" },
+      { "<leader>sh",       "<cmd>FzfLua search_history<cr>",   desc = "Search history" },
+      { "<leader>hh",       "<cmd>FzfLua help_tags<cr>",        desc = "Help tags" },
+      { "<leader>hg",       "<cmd>FzfLua highlights<cr>",       desc = "Highlights" },
 
-      { "<leader>sc", "<cmd>FzfLua git_bcommits<cr>", desc = "Source control commits" },
+      { "<leader>sc",       "<cmd>FzfLua git_bcommits<cr>",     desc = "Source control commits" },
     },
   },
   -- plugins/lazygit
@@ -346,9 +346,9 @@ local PLUG = {
     },
   },
   -- plugins/mini/icons
-  { "echasnovski/mini.icons", lazy = true, opts = {} },
+  { "echasnovski/mini.icons", lazy = true,        opts = {} },
   -- plugins/mini/diff
-  { "echasnovski/mini.diff", event = "VeryLazy", opts = { view = { style = "sign" } } },
+  { "echasnovski/mini.diff",  event = "VeryLazy", opts = { view = { style = "sign" } } },
   -- plugins/mini/hipatterns
   {
     "echasnovski/mini.hipatterns",
@@ -387,13 +387,13 @@ local PLUG = {
         filetypes = { "*" },
         user_default_options = {
           names = false,
-          RGB = true, -- #RGB hex codes
-          RGBA = true, -- #RGBA hex codes
-          RRGGBB = true, -- #RRGGBB hex codes
+          RGB = true,      -- #RGB hex codes
+          RGBA = true,     -- #RGBA hex codes
+          RRGGBB = true,   -- #RRGGBB hex codes
           RRGGBBAA = true, -- #RRGGBBAA hex codes
           AARRGGBB = true, -- 0xAARRGGBB hex codes
-          rgb_fn = true, -- CSS rgb() and rgba() functions
-          hsl_fn = true, -- CSS hsl() and hsla() functions
+          rgb_fn = true,   -- CSS rgb() and rgba() functions
+          hsl_fn = true,   -- CSS hsl() and hsla() functions
           tailwind = true,
         },
       })
@@ -482,10 +482,10 @@ local PLUG = {
           -- and should return the mode ('v', 'V', or '<c-v>') or a table
           -- mapping query_strings to modes.
           selection_modes = {
-            ["@function.inner"] = "V", -- linewise
-            ["@function.outer"] = "V", -- linewise
-            ["@class.outer"] = "V", -- linewise
-            ["@class.inner"] = "V", -- linewise
+            ["@function.inner"] = "V",  -- linewise
+            ["@function.outer"] = "V",  -- linewise
+            ["@class.outer"] = "V",     -- linewise
+            ["@class.inner"] = "V",     -- linewise
             ["@parameter.outer"] = "v", -- charwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
@@ -596,8 +596,8 @@ local PLUG = {
           require("mason-lspconfig").setup({
             ensure_installed = {},
             automatic_installation = false, -- MUST BE FALSE [dup issue]
-            automatic_setup = false, -- Disable automatic server setup
-            automatic_enable = false, -- but never auto‑attaches
+            automatic_setup = false,        -- Disable automatic server setup
+            automatic_enable = false,       -- but never auto‑attaches
             handlers = nil,
           })
         end,
@@ -611,7 +611,27 @@ local PLUG = {
         html = {},
         lemminx = {},
         yamlls = {},
-        ts_ls = {},
+        vtsls = {
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          settings = {
+            vtsls = { tsserver = { globalPlugins = {} } },
+          },
+          before_init = function(_, config)
+            table.insert(config.settings.vtsls.tsserver.globalPlugins, {
+              name = "@vue/typescript-plugin",
+              location = vim.fn.expand(
+                "$MASON/packages/vue-language-server/node_modules/@vue/language-server"
+              ),
+              languages = { "vue" },
+              configNamespace = "typescript",
+              enableForWorkspaceTypeScriptVersions = true,
+            })
+          end,
+          on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+          end,
+        },
         tailwindcss = {},
         rust_analyzer = {
           settings = {
