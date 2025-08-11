@@ -327,28 +327,34 @@ local PLUG = {
       { "<leader>sc",       "<cmd>FzfLua git_bcommits<cr>",     desc = "Source control commits" },
     },
   },
-  -- plugins/lazygit
   {
-    "kdheepak/lazygit.nvim",
-    lazy = true,
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-    },
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require('gitsigns').setup {
+        current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        current_line_blame_opts      = {
+          virt_text = true,
+          virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+          delay = 1000,
+          ignore_whitespace = false,
+          virt_text_priority = 100,
+          use_focus = true,
+        },
+        current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+        sign_priority                = 6,
+        update_debounce              = 100,
+        status_formatter             = nil,   -- Use default
+        max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+      }
+      vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame<cr>')
+      vim.keymap.set('n', '<leader>gh', ':Gitsigns blame<cr>')
+    end
+
   },
   -- plugins/mini/icons
-  { "echasnovski/mini.icons", lazy = true,        opts = {} },
+  { "echasnovski/mini.icons", lazy = true, opts = {} },
   -- plugins/mini/diff
-  { "echasnovski/mini.diff",  event = "VeryLazy", opts = { view = { style = "sign" } } },
+  -- { "echasnovski/mini.diff",  event = "VeryLazy", opts = { view = { style = "sign" } } },
   -- plugins/mini/hipatterns
   {
     "echasnovski/mini.hipatterns",
@@ -377,6 +383,24 @@ local PLUG = {
         },
       }
     end,
+  },
+  -- plugins/snacks.nvim
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      bigfile = { enabled = true },
+      input = { enabled = true },
+      git = { enabled = true },
+      lazygit = { enabled = true },
+      words = { enabled = true },
+    },
+    keys = {
+      { "<leader>lg", function() Snacks.lazygit() end,             desc = "Lazygit" },
+      { "<leader>gl", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
+    }
   },
   -- plugins/colorizer
   {
