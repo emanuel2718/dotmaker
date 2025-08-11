@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local opt = vim.opt
 local map = vim.keymap.set
@@ -60,7 +61,7 @@ opt.wildignore = ".hg,.svn,*~,*.png,*.jpg,*.gif,*.min.js,*.swp,*.o,vendor,dist,_
 -- better diffs
 opt.diffopt:append("iwhite")
 -- column to keep me away from long lines
-opt.colorcolumn = "80"
+opt.colorcolumn = "100"
 -- show hidden characters
 opt.list = true
 opt.listchars = "tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•"
@@ -130,8 +131,8 @@ map("n", "<leader>x", "<cmd>source %<CR>")
 -- don't yank pasted over text
 map("v", "p", '"_dP')
 
--- use <tab> for toggling folds
-map("n", "<Tab>", "za")
+-- use <leader><tab> for toggling folds
+map("n", "<leader><Tab>", "za")
 
 -- always center search results
 map("n", "n", "nzz", { silent = true })
@@ -307,49 +308,48 @@ local PLUG = {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
     keys = {
-      { "<leader>sp",       "<cmd>FzfLua live_grep_native<cr>", desc = "Grep" },
-      { "<leader>s.",       "<cmd>FzfLua grep_cword<cr>",       desc = "Grep word under cursor" },
-      { "<leader>/",        "<cmd>FzfLua grep_curbuf<cr>",      desc = "Grep current buffer" },
-      { "<leader>su",       "<cmd>FzfLua grep_cword<cr>",       desc = "Grep WORD under cursor" },
-      { "<leader>.",        "<cmd>FzfLua files<cr>",            desc = "Find files" },
-      { "<leader>of",       "<cmd>FzfLua oldfiles<cr>",         desc = "Old files" },
-      { "<leader><leader>", "<cmd>FzfLua buffers<cr>",          desc = "Find buffers" },
+      { "<leader>sp", "<cmd>FzfLua live_grep_native<cr>", desc = "Grep" },
+      { "<leader>s.", "<cmd>FzfLua grep_cword<cr>", desc = "Grep word under cursor" },
+      { "<leader>/", "<cmd>FzfLua grep_curbuf<cr>", desc = "Grep current buffer" },
+      { "<leader>su", "<cmd>FzfLua grep_cword<cr>", desc = "Grep WORD under cursor" },
+      { "<leader>.", "<cmd>FzfLua files<cr>", desc = "Find files" },
+      { "<leader>of", "<cmd>FzfLua oldfiles<cr>", desc = "Old files" },
+      { "<leader><leader>", "<cmd>FzfLua buffers<cr>", desc = "Find buffers" },
 
-      { "<leader>ss",       "<cmd>FzfLua spell_suggest<cr>",    desc = "Spell suggest" },
-      { "<leader>ft",       "<cmd>FzfLua filetypes<cr>",        desc = "Change file-types" },
-      { "<leader>km",       "<cmd>FzfLua keymaps<cr>",          desc = "View keymaps" },
+      { "<leader>ss", "<cmd>FzfLua spell_suggest<cr>", desc = "Spell suggest" },
+      { "<leader>ft", "<cmd>FzfLua filetypes<cr>", desc = "Change file-types" },
+      { "<leader>km", "<cmd>FzfLua keymaps<cr>", desc = "View keymaps" },
 
-      { "<leader>ch",       "<cmd>FzfLua command_history<cr>",  desc = "Command history" },
-      { "<leader>sh",       "<cmd>FzfLua search_history<cr>",   desc = "Search history" },
-      { "<leader>hh",       "<cmd>FzfLua help_tags<cr>",        desc = "Help tags" },
-      { "<leader>hg",       "<cmd>FzfLua highlights<cr>",       desc = "Highlights" },
+      { "<leader>ch", "<cmd>FzfLua command_history<cr>", desc = "Command history" },
+      { "<leader>sh", "<cmd>FzfLua search_history<cr>", desc = "Search history" },
+      { "<leader>hh", "<cmd>FzfLua help_tags<cr>", desc = "Help tags" },
+      { "<leader>hg", "<cmd>FzfLua highlights<cr>", desc = "Highlights" },
 
-      { "<leader>sc",       "<cmd>FzfLua git_bcommits<cr>",     desc = "Source control commits" },
+      { "<leader>sc", "<cmd>FzfLua git_bcommits<cr>", desc = "Source control commits" },
     },
   },
   {
     "lewis6991/gitsigns.nvim",
     config = function()
-      require('gitsigns').setup {
-        current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
-        current_line_blame_opts      = {
+      require("gitsigns").setup({
+        current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+        current_line_blame_opts = {
           virt_text = true,
-          virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+          virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
           delay = 1000,
           ignore_whitespace = false,
           virt_text_priority = 100,
           use_focus = true,
         },
-        current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
-        sign_priority                = 6,
-        update_debounce              = 100,
-        status_formatter             = nil,   -- Use default
-        max_file_length              = 40000, -- Disable if file is longer than this (in lines)
-      }
-      vim.keymap.set('n', '<leader>gb', ':Gitsigns toggle_current_line_blame<cr>')
-      vim.keymap.set('n', '<leader>gh', ':Gitsigns blame<cr>')
-    end
-
+        current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
+        sign_priority = 6,
+        update_debounce = 100,
+        status_formatter = nil, -- Use default
+        max_file_length = 40000, -- Disable if file is longer than this (in lines)
+      })
+      vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>")
+      vim.keymap.set("n", "<leader>gh", ":Gitsigns blame<cr>")
+    end,
   },
   -- plugins/mini/icons
   { "echasnovski/mini.icons", lazy = true, opts = {} },
@@ -398,9 +398,21 @@ local PLUG = {
       words = { enabled = true },
     },
     keys = {
-      { "<leader>lg", function() Snacks.lazygit() end,             desc = "Lazygit" },
-      { "<leader>gl", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
-    }
+      {
+        "<leader>lg",
+        function()
+          Snacks.lazygit()
+        end,
+        desc = "Lazygit",
+      },
+      {
+        "<leader>gl",
+        function()
+          Snacks.picker.git_log_file()
+        end,
+        desc = "Git Log File",
+      },
+    },
   },
   -- plugins/colorizer
   {
@@ -411,13 +423,13 @@ local PLUG = {
         filetypes = { "*" },
         user_default_options = {
           names = false,
-          RGB = true,      -- #RGB hex codes
-          RGBA = true,     -- #RGBA hex codes
-          RRGGBB = true,   -- #RRGGBB hex codes
+          RGB = true, -- #RGB hex codes
+          RGBA = true, -- #RGBA hex codes
+          RRGGBB = true, -- #RRGGBB hex codes
           RRGGBBAA = true, -- #RRGGBBAA hex codes
           AARRGGBB = true, -- 0xAARRGGBB hex codes
-          rgb_fn = true,   -- CSS rgb() and rgba() functions
-          hsl_fn = true,   -- CSS hsl() and hsla() functions
+          rgb_fn = true, -- CSS rgb() and rgba() functions
+          hsl_fn = true, -- CSS hsl() and hsla() functions
           tailwind = true,
         },
       })
@@ -506,10 +518,10 @@ local PLUG = {
           -- and should return the mode ('v', 'V', or '<c-v>') or a table
           -- mapping query_strings to modes.
           selection_modes = {
-            ["@function.inner"] = "V",  -- linewise
-            ["@function.outer"] = "V",  -- linewise
-            ["@class.outer"] = "V",     -- linewise
-            ["@class.inner"] = "V",     -- linewise
+            ["@function.inner"] = "V", -- linewise
+            ["@function.outer"] = "V", -- linewise
+            ["@class.outer"] = "V", -- linewise
+            ["@class.inner"] = "V", -- linewise
             ["@parameter.outer"] = "v", -- charwise
           },
           -- If you set this to `true` (default is `false`) then any textobject is
@@ -620,8 +632,8 @@ local PLUG = {
           require("mason-lspconfig").setup({
             ensure_installed = {},
             automatic_installation = false, -- MUST BE FALSE [dup issue]
-            automatic_setup = false,        -- Disable automatic server setup
-            automatic_enable = false,       -- but never auto‑attaches
+            automatic_setup = false, -- Disable automatic server setup
+            automatic_enable = false, -- but never auto‑attaches
             handlers = nil,
           })
         end,
@@ -643,9 +655,7 @@ local PLUG = {
           before_init = function(_, config)
             table.insert(config.settings.vtsls.tsserver.globalPlugins, {
               name = "@vue/typescript-plugin",
-              location = vim.fn.expand(
-                "$MASON/packages/vue-language-server/node_modules/@vue/language-server"
-              ),
+              location = vim.fn.expand("$MASON/packages/vue-language-server/node_modules/@vue/language-server"),
               languages = { "vue" },
               configNamespace = "typescript",
               enableForWorkspaceTypeScriptVersions = true,
@@ -725,12 +735,15 @@ local PLUG = {
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "[lsp] hover docs" })
       vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "[lsp] implementation" })
-      vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "[lsp] references" })
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[lsp] definition" })
+      -- vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "[lsp] references" })
+      -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[lsp] definition" })
+      vim.keymap.set("n", "gr", "<cmd>FzfLua lsp_references<cr>", { desc = "[lsp] references" })
+      vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { desc = "[lsp] definition" })
+
       vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "[lsp] declaration" })
       vim.keymap.set("n", "gn", vim.lsp.buf.rename, { desc = "[lsp] rename symbol" })
-      vim.keymap.set("i", "<C-,>", vim.lsp.buf.signature_help, { desc = "[lsp] signature help" })
-      vim.keymap.set("n", "<C-,>", vim.lsp.buf.signature_help, { desc = "[lsp] signature help" })
+      -- vim.keymap.set("i", "<C-,>", vim.lsp.buf.signature_help, { desc = "[lsp] signature help" })
+      -- vim.keymap.set("n", "<C-,>", vim.lsp.buf.signature_help, { desc = "[lsp] signature help" })
 
       vim.keymap.set("n", "<leader>ll", "<cmd>FzfLua lsp_document_symbols<CR>", { desc = "[lsp] document symbols" })
       vim.keymap.set("n", "<leader>ls", "<cmd>FzfLua lsp_workspace_symbols<CR>", { desc = "[lsp] workspace symbols" })
@@ -763,12 +776,26 @@ local PLUG = {
     opts = {},
     config = function(_, _)
       -- Get signatures (and _only_ signatures) when in argument lists.
-      require("lsp_signature").setup({
+      local lsp_signature = require("lsp_signature")
+      lsp_signature.setup({
         doc_lines = 0,
+        floating_window = false,
+        floating_window_above_cur_line = false,
         handler_opts = {
-          border = "none",
+          -- border = "none",
+          border = "rounded",
+        },
+        -- hint_enable = false
+        hint_prefix = {
+          above = "↙ ", -- when the hint is on the line above the current line
+          current = "← ", -- when the hint is on the same line
+          below = "↖ ", -- when the hint is on the line below the current line
         },
       })
+
+      vim.keymap.set({ "n", "i" }, "<C-s>", function()
+        lsp_signature.toggle_float_win()
+      end, { silent = true, noremap = true, desc = "toggle signature" })
     end,
   },
   -- plugins/rust.vim
