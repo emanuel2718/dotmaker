@@ -364,6 +364,8 @@ local PLUG = {
       })
       vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<cr>")
       vim.keymap.set("n", "<leader>gh", ":Gitsigns blame<cr>")
+      vim.keymap.set("n", "<leader>gj", ":Gitsigns next_hunk<cr>")
+      vim.keymap.set("n", "<leader>gk", ":Gitsigns prev_hunk<cr>")
     end,
   },
   -- plugins/mini/icons
@@ -800,12 +802,12 @@ local PLUG = {
           -- border = "none",
           border = "rounded",
         },
-        -- hint_enable = false
-        hint_prefix = {
-          above = "↙ ", -- when the hint is on the line above the current line
-          current = "← ", -- when the hint is on the same line
-          below = "↖ ", -- when the hint is on the line below the current line
-        },
+        hint_enable = false,
+        -- hint_prefix = {
+        --   above = "↙ ", -- when the hint is on the line above the current line
+        --   current = "← ", -- when the hint is on the same line
+        --   below = "↖ ", -- when the hint is on the line below the current line
+        -- },
       })
 
       vim.keymap.set({ "n", "i" }, "<C-s>", function()
