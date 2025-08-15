@@ -65,6 +65,10 @@ opt.colorcolumn = "100"
 -- show hidden characters
 opt.list = true
 opt.listchars = "tab:^ ,nbsp:¬,extends:»,precedes:«,trail:•"
+
+-- show path in winbar
+opt.winbar = "%=%m %f"
+
 -- opt.updatetime = 50
 -- opt.timeoutlen = 300
 
