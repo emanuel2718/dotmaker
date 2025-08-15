@@ -330,6 +330,17 @@ local PLUG = {
       { "<leader>hg", "<cmd>FzfLua highlights<cr>", desc = "Highlights" },
 
       { "<leader>sc", "<cmd>FzfLua git_bcommits<cr>", desc = "Source control commits" },
+
+      {
+        "<leader>sn",
+        function()
+          local current_file = vim.fn.expand("%:t:r") -- filename w/o extension
+          if current_file ~= "" then
+            require("fzf-lua").grep({ search = current_file })
+          end
+        end,
+        desc = "Search fileName",
+      },
     },
   },
   {
